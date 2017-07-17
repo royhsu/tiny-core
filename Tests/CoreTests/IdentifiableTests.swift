@@ -14,6 +14,12 @@ import XCTest
 
 class IdentifiableTests: XCTestCase {
 
+    // MARK: Property
+
+    static let allTests = [
+        ("testIdentifier", testIdentifier)
+    ]
+
     // MARK: Identifier
 
     func testIdentifier() {

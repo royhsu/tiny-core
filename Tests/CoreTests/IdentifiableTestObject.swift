@@ -8,6 +8,8 @@
 
 // MARK: - IdentifiableTestObject
 
+@testable import Core
+
 struct IdentifiableTestObject: Identifiable {
 
 }

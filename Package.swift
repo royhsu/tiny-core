@@ -3,5 +3,6 @@
 import PackageDescription
 
 let package = Package(
-    name: "TinyCore"
+    name: "TinyCore",
+    dependencies: []
 )
