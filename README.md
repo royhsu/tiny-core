@@ -1,1 +1,1 @@
-# tiny-core
+# TinyCore
