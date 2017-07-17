@@ -10,7 +10,7 @@
 
 import XCTest
 
-@testable import Core
+@testable import TinyCore
 
 class IdentifiableTests: XCTestCase {
 

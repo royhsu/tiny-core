@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_16"
-               BuildableName = "Core.framework"
-               BlueprintName = "Core"
+               BlueprintIdentifier = "OBJ_17"
+               BuildableName = "TinyCore.framework"
+               BlueprintName = "TinyCore"
                ReferencedContainer = "container:TinyCore.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,16 +26,15 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_23"
-               BuildableName = "CoreTests.xctest"
-               BlueprintName = "CoreTests"
+               BlueprintIdentifier = "OBJ_24"
+               BuildableName = "TinyCoreTests.xctest"
+               BlueprintName = "TinyCoreTests"
                ReferencedContainer = "container:TinyCore.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -56,9 +55,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "OBJ_16"
-            BuildableName = "Core.framework"
-            BlueprintName = "Core"
+            BlueprintIdentifier = "OBJ_17"
+            BuildableName = "TinyCore.framework"
+            BlueprintName = "TinyCore"
             ReferencedContainer = "container:TinyCore.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

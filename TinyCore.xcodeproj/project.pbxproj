@@ -7,44 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B08D6EC01F1C5B7000376FBE /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08D6EBF1F1C5B7000376FBE /* Identifiable.swift */; };
-		B08D6EC21F1C5B8400376FBE /* IdentifiableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08D6EC11F1C5B8400376FBE /* IdentifiableTests.swift */; };
-		B08D6EC61F1C62B900376FBE /* IdentifiableTestObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08D6EC31F1C5CCE00376FBE /* IdentifiableTestObject.swift */; };
-		OBJ_30 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Core.framework */; };
+		OBJ_22 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Identifiable.swift */; };
+		OBJ_29 /* IdentifiableTestObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* IdentifiableTestObject.swift */; };
+		OBJ_30 /* IdentifiableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* IdentifiableTests.swift */; };
+		OBJ_32 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* TinyCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B08D6EBE1F1C5B5200376FBE /* PBXContainerItemProxy */ = {
+		B08D6EC71F1C63A800376FBE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = OBJ_16;
-			remoteInfo = Core;
+			remoteGlobalIDString = OBJ_17;
+			remoteInfo = TinyCore;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B08D6EBF1F1C5B7000376FBE /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
-		B08D6EC11F1C5B8400376FBE /* IdentifiableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifiableTests.swift; sourceTree = "<group>"; };
-		B08D6EC31F1C5CCE00376FBE /* IdentifiableTestObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifiableTestObject.swift; sourceTree = "<group>"; };
-		OBJ_14 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		OBJ_15 /* CoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = CoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_12 /* IdentifiableTestObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableTestObject.swift; sourceTree = "<group>"; };
+		OBJ_13 /* IdentifiableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableTests.swift; sourceTree = "<group>"; };
+		OBJ_15 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_16 /* TinyCoreTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = TinyCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		OBJ_9 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		OBJ_22 /* Frameworks */ = {
+		OBJ_23 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_29 /* Frameworks */ = {
+		OBJ_31 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_30 /* Core.framework in Frameworks */,
+				OBJ_32 /* TinyCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,26 +54,26 @@
 		OBJ_10 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_11 /* CoreTests */,
+				OBJ_11 /* TinyCoreTests */,
 			);
 			name = Tests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_11 /* CoreTests */ = {
+		OBJ_11 /* TinyCoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				B08D6EC31F1C5CCE00376FBE /* IdentifiableTestObject.swift */,
-				B08D6EC11F1C5B8400376FBE /* IdentifiableTests.swift */,
+				OBJ_12 /* IdentifiableTestObject.swift */,
+				OBJ_13 /* IdentifiableTests.swift */,
 			);
-			name = CoreTests;
-			path = Tests/CoreTests;
+			name = TinyCoreTests;
+			path = Tests/TinyCoreTests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_13 /* Products */ = {
+		OBJ_14 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_14 /* Core.framework */,
-				OBJ_15 /* CoreTests.xctest */,
+				OBJ_15 /* TinyCore.framework */,
+				OBJ_16 /* TinyCoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -84,7 +84,7 @@
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
 				OBJ_10 /* Tests */,
-				OBJ_13 /* Products */,
+				OBJ_14 /* Products */,
 			);
 			name = "";
 			sourceTree = "<group>";
@@ -92,55 +92,55 @@
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_8 /* Core */,
+				OBJ_8 /* TinyCore */,
 			);
 			name = Sources;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_8 /* Core */ = {
+		OBJ_8 /* TinyCore */ = {
 			isa = PBXGroup;
 			children = (
-				B08D6EBF1F1C5B7000376FBE /* Identifiable.swift */,
+				OBJ_9 /* Identifiable.swift */,
 			);
-			name = Core;
-			path = Sources/Core;
+			name = TinyCore;
+			path = Sources/TinyCore;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		OBJ_16 /* Core */ = {
+		OBJ_17 /* TinyCore */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_17 /* Build configuration list for PBXNativeTarget "Core" */;
+			buildConfigurationList = OBJ_18 /* Build configuration list for PBXNativeTarget "TinyCore" */;
 			buildPhases = (
-				OBJ_20 /* Sources */,
-				OBJ_22 /* Frameworks */,
-				B08D6EC51F1C5D9F00376FBE /* Swiftlint */,
+				OBJ_21 /* Sources */,
+				OBJ_23 /* Frameworks */,
+				B08D6EC91F1C63BE00376FBE /* Swiftlint */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Core;
-			productName = Core;
-			productReference = OBJ_14 /* Core.framework */;
+			name = TinyCore;
+			productName = TinyCore;
+			productReference = OBJ_15 /* TinyCore.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		OBJ_23 /* CoreTests */ = {
+		OBJ_24 /* TinyCoreTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_24 /* Build configuration list for PBXNativeTarget "CoreTests" */;
+			buildConfigurationList = OBJ_25 /* Build configuration list for PBXNativeTarget "TinyCoreTests" */;
 			buildPhases = (
-				OBJ_27 /* Sources */,
-				OBJ_29 /* Frameworks */,
+				OBJ_28 /* Sources */,
+				OBJ_31 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_31 /* PBXTargetDependency */,
+				OBJ_33 /* PBXTargetDependency */,
 			);
-			name = CoreTests;
-			productName = CoreTests;
-			productReference = OBJ_15 /* CoreTests.xctest */;
+			name = TinyCoreTests;
+			productName = TinyCoreTests;
+			productReference = OBJ_16 /* TinyCoreTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -150,14 +150,6 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 9999;
-				TargetAttributes = {
-					OBJ_16 = {
-						LastSwiftMigration = 0830;
-					};
-					OBJ_23 = {
-						LastSwiftMigration = 0830;
-					};
-				};
 			};
 			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "TinyCore" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -167,18 +159,18 @@
 				en,
 			);
 			mainGroup = OBJ_5 /*  */;
-			productRefGroup = OBJ_13 /* Products */;
+			productRefGroup = OBJ_14 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				OBJ_16 /* Core */,
-				OBJ_23 /* CoreTests */,
+				OBJ_17 /* TinyCore */,
+				OBJ_24 /* TinyCoreTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B08D6EC51F1C5D9F00376FBE /* Swiftlint */ = {
+		B08D6EC91F1C63BE00376FBE /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -195,121 +187,107 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		OBJ_20 /* Sources */ = {
+		OBJ_21 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				B08D6EC01F1C5B7000376FBE /* Identifiable.swift in Sources */,
+				OBJ_22 /* Identifiable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_27 /* Sources */ = {
+		OBJ_28 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				B08D6EC61F1C62B900376FBE /* IdentifiableTestObject.swift in Sources */,
-				B08D6EC21F1C5B8400376FBE /* IdentifiableTests.swift in Sources */,
+				OBJ_29 /* IdentifiableTestObject.swift in Sources */,
+				OBJ_30 /* IdentifiableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		OBJ_31 /* PBXTargetDependency */ = {
+		OBJ_33 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = OBJ_16 /* Core */;
-			targetProxy = B08D6EBE1F1C5B5200376FBE /* PBXContainerItemProxy */;
+			target = OBJ_17 /* TinyCore */;
+			targetProxy = B08D6EC71F1C63A800376FBE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		OBJ_18 /* Debug */ = {
+		OBJ_19 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = TinyCore.xcodeproj/Core_Info.plist;
+				INFOPLIST_FILE = TinyCore.xcodeproj/TinyCore_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = Core;
+				PRODUCT_BUNDLE_IDENTIFIER = TinyCore;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGET_NAME = Core;
+				TARGET_NAME = TinyCore;
 			};
 			name = Debug;
 		};
-		OBJ_19 /* Release */ = {
+		OBJ_20 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = TinyCore.xcodeproj/Core_Info.plist;
+				INFOPLIST_FILE = TinyCore.xcodeproj/TinyCore_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = Core;
+				PRODUCT_BUNDLE_IDENTIFIER = TinyCore;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGET_NAME = Core;
+				TARGET_NAME = TinyCore;
 			};
 			name = Release;
 		};
-		OBJ_25 /* Debug */ = {
+		OBJ_26 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = TinyCore.xcodeproj/CoreTests_Info.plist;
+				INFOPLIST_FILE = TinyCore.xcodeproj/TinyCoreTests_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGET_NAME = CoreTests;
+				TARGET_NAME = TinyCoreTests;
 			};
 			name = Debug;
 		};
-		OBJ_26 /* Release */ = {
+		OBJ_27 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = TinyCore.xcodeproj/CoreTests_Info.plist;
+				INFOPLIST_FILE = TinyCore.xcodeproj/TinyCoreTests_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_VERSION = 3.0;
-				TARGET_NAME = CoreTests;
+				TARGET_NAME = TinyCoreTests;
 			};
 			name = Release;
 		};
@@ -360,11 +338,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		OBJ_17 /* Build configuration list for PBXNativeTarget "Core" */ = {
+		OBJ_18 /* Build configuration list for PBXNativeTarget "TinyCore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_18 /* Debug */,
-				OBJ_19 /* Release */,
+				OBJ_19 /* Debug */,
+				OBJ_20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
@@ -378,11 +356,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_24 /* Build configuration list for PBXNativeTarget "CoreTests" */ = {
+		OBJ_25 /* Build configuration list for PBXNativeTarget "TinyCoreTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_25 /* Debug */,
-				OBJ_26 /* Release */,
+				OBJ_26 /* Debug */,
+				OBJ_27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

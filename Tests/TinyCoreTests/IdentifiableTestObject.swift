@@ -8,7 +8,7 @@
 
 // MARK: - IdentifiableTestObject
 
-@testable import Core
+@testable import TinyCore
 
 struct IdentifiableTestObject: Identifiable {
 

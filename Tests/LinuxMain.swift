@@ -1,6 +1,6 @@
 import XCTest
 
-@testable import CoreTests
+@testable import TinyCoreTests
 
 XCTMain([
   testCase(IdentifiableTests.allTests)
