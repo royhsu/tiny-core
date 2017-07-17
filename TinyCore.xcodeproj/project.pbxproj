@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		OBJ_22 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Identifiable.swift */; };
-		OBJ_29 /* IdentifiableTestObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* IdentifiableTestObject.swift */; };
+		OBJ_29 /* IdentifiableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* IdentifiableObject.swift */; };
 		OBJ_30 /* IdentifiableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* IdentifiableTests.swift */; };
 		OBJ_32 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* TinyCore.framework */; };
 /* End PBXBuildFile section */
@@ -24,7 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		OBJ_12 /* IdentifiableTestObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableTestObject.swift; sourceTree = "<group>"; };
+		OBJ_12 /* IdentifiableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableObject.swift; sourceTree = "<group>"; };
 		OBJ_13 /* IdentifiableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableTests.swift; sourceTree = "<group>"; };
 		OBJ_15 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_16 /* TinyCoreTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = TinyCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,7 +62,7 @@
 		OBJ_11 /* TinyCoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_12 /* IdentifiableTestObject.swift */,
+				OBJ_12 /* IdentifiableObject.swift */,
 				OBJ_13 /* IdentifiableTests.swift */,
 			);
 			name = TinyCoreTests;
@@ -199,7 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_29 /* IdentifiableTestObject.swift in Sources */,
+				OBJ_29 /* IdentifiableObject.swift in Sources */,
 				OBJ_30 /* IdentifiableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

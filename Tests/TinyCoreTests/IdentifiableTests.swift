@@ -25,8 +25,8 @@ class IdentifiableTests: XCTestCase {
     func testIdentifier() {
 
         XCTAssertEqual(
-            IdentifiableTestObject.identifier,
-            "IdentifiableTestObject"
+            IdentifiableObject.identifier,
+            "IdentifiableObject"
         )
 
     }

@@ -18,7 +18,7 @@ public protocol Identifiable {
 
 // MARK: Default Implementation
 
-extension Identifiable {
+public extension Identifiable {
 
     static var identifier: String {
 
