@@ -1,10 +1,18 @@
+//
+//  ID.swift
+//  TinyCore
+//
+//  Created by Roy Hsu on 17/07/2017.
+//
+//
+
 // MARK: - ID
 
-protocol ID: Equatable, Hashable {
+protocol ID: Hashable {
 
     // MARK: Property
 
-    associatedtype RawValue: ExpressibleByUnicodeScalarLiteral, ExpressibleByStringLiteral, Comparable, Hashable, CustomStringConvertible
+    associatedtype RawValue: ExpressibleByStringLiteral, Comparable, Hashable, CustomStringConvertible
 
     var rawValue: RawValue { get }
 

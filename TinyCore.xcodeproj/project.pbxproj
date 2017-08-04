@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B003A7CA1F3478CB00561729 /* ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = B003A7C91F3478CB00561729 /* ID.swift */; };
 		B003A7CC1F34790000561729 /* IDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B003A7CB1F34790000561729 /* IDTests.swift */; };
 		B003A7CF1F3479CF00561729 /* UserID.swift in Sources */ = {isa = PBXBuildFile; fileRef = B003A7CD1F34793400561729 /* UserID.swift */; };
 		B05D4F6E1F1E0D9E00929006 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05D4F641F1E0D9D00929006 /* TinyCore.framework */; };
@@ -15,6 +14,7 @@
 		B05D4FBD1F1E10C200929006 /* TinyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = B05D4FBA1F1E10C200929006 /* TinyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B05D4FC31F1E10D100929006 /* IdentifiableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D4FC01F1E10D100929006 /* IdentifiableObject.swift */; };
 		B05D4FC41F1E10D100929006 /* IdentifiableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D4FC11F1E10D100929006 /* IdentifiableTests.swift */; };
+		B061889F1F34999E003B66F7 /* ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = B061889E1F349979003B66F7 /* ID.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +28,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B003A7C91F3478CB00561729 /* ID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ID.swift; path = "../../../nextbook-server/Sources/Library/Utilities/ID.swift"; sourceTree = "<group>"; };
 		B003A7CB1F34790000561729 /* IDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDTests.swift; sourceTree = "<group>"; };
 		B003A7CD1F34793400561729 /* UserID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserID.swift; sourceTree = "<group>"; };
 		B05D4F641F1E0D9D00929006 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,6 +38,7 @@
 		B05D4FC01F1E10D100929006 /* IdentifiableObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifiableObject.swift; sourceTree = "<group>"; };
 		B05D4FC11F1E10D100929006 /* IdentifiableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifiableTests.swift; sourceTree = "<group>"; };
 		B05D4FC21F1E10D100929006 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B061889E1F349979003B66F7 /* ID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ID.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +90,7 @@
 		B05D4FB71F1E10C200929006 /* Identifiable */ = {
 			isa = PBXGroup;
 			children = (
-				B003A7C91F3478CB00561729 /* ID.swift */,
+				B061889E1F349979003B66F7 /* ID.swift */,
 				B05D4FB81F1E10C200929006 /* Identifiable.swift */,
 			);
 			path = Identifiable;
@@ -265,7 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B003A7CA1F3478CB00561729 /* ID.swift in Sources */,
+				B061889F1F34999E003B66F7 /* ID.swift in Sources */,
 				B05D4FBB1F1E10C200929006 /* Identifiable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
