@@ -8,7 +8,7 @@
 
 // MARK: - ID
 
-protocol ID: Hashable {
+public protocol ID: Hashable {
 
     // MARK: Property
 
@@ -20,7 +20,7 @@ protocol ID: Hashable {
 
 // MARK: - Equatable
 
-extension ID {
+public extension ID {
 
     public static func == (lhs: Self, rhs: Self) -> Bool {
 
@@ -32,7 +32,7 @@ extension ID {
 
 // MARK: - Hashable
 
-extension ID {
+public extension ID {
 
     public var hashValue: Int { return rawValue.hashValue }
 
@@ -40,7 +40,7 @@ extension ID {
 
 // MARK: - CustomStringConvertible
 
-extension ID {
+public extension ID {
 
     public var description: String { return rawValue.description }
 
