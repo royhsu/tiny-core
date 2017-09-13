@@ -197,13 +197,13 @@
 					B05D4F631F1E0D9D00929006 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 5CE6946X84;
-						LastSwiftMigration = "";
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					B05D4F6C1F1E0D9E00929006 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 5CE6946X84;
-						LastSwiftMigration = "";
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -421,7 +421,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -441,7 +441,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -455,7 +455,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tinyworld.TinyCoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -469,7 +469,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tinyworld.TinyCoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
