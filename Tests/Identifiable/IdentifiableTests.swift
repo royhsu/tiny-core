@@ -12,7 +12,7 @@ import XCTest
 
 @testable import TinyCore
 
-class IdentifiableTests: XCTestCase {
+final class IdentifiableTests: XCTestCase {
 
     // MARK: Property
 
@@ -22,7 +22,7 @@ class IdentifiableTests: XCTestCase {
 
     // MARK: Identifier
 
-    func testIdentifier() {
+    final func testIdentifier() {
 
         XCTAssertEqual(
             IdentifiableObject.identifier,

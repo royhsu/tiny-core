@@ -10,7 +10,7 @@
 
 import XCTest
 
-class IDTests: XCTestCase {
+final class IDTests: XCTestCase {
 
     // MARK: Property
 
@@ -22,7 +22,7 @@ class IDTests: XCTestCase {
 
     // MARK: Equal
 
-    func testEqual() {
+    final func testEqual() {
 
         XCTAssertEqual(
             UserID(rawValue: "1"),
@@ -33,7 +33,7 @@ class IDTests: XCTestCase {
 
     // MARK: Hash
 
-    func testHash() {
+    final func testHash() {
 
         let value = "1"
 
@@ -46,7 +46,7 @@ class IDTests: XCTestCase {
 
     // MARK: Description
 
-    func testDescription() {
+    final func testDescription() {
 
         let value = "1"
 

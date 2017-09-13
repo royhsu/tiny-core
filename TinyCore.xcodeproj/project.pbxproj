@@ -30,6 +30,7 @@
 /* Begin PBXFileReference section */
 		B003A7CB1F34790000561729 /* IDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDTests.swift; sourceTree = "<group>"; };
 		B003A7CD1F34793400561729 /* UserID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserID.swift; sourceTree = "<group>"; };
+		B03BE8771F68D54D002E076A /* Int+RandomNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+RandomNumber.swift"; sourceTree = "<group>"; };
 		B05D4F641F1E0D9D00929006 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05D4F6D1F1E0D9E00929006 /* TinyCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinyCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05D4FB81F1E10C200929006 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
@@ -60,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B03BE8761F68D53D002E076A /* Int+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B03BE8771F68D54D002E076A /* Int+RandomNumber.swift */,
+			);
+			path = "Int+Extensions";
+			sourceTree = "<group>";
+		};
 		B05D4F5A1F1E0D9D00929006 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +90,7 @@
 		B05D4FB61F1E10C200929006 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B03BE8761F68D53D002E076A /* Int+Extensions */,
 				B05D4FB71F1E10C200929006 /* Identifiable */,
 				B05D4FC61F1E115600929006 /* Supporting Files */,
 			);
