@@ -17,7 +17,7 @@
 		B0DB58C81F989B9200DAD605 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58C71F989B9200DAD605 /* Router.swift */; };
 		B0DB58CA1F989BD800DAD605 /* HTTPResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58C91F989BD800DAD605 /* HTTPResult.swift */; };
 		B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */; };
-		B0DB58D51F989D1200DAD605 /* StubRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58D31F989CD400DAD605 /* StubRouter.swift */; };
+		B0DB58D51F989D1200DAD605 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58D31F989CD400DAD605 /* APIRouter.swift */; };
 		B0DB58D71F989D5900DAD605 /* StubHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58D61F989D5900DAD605 /* StubHTTPClient.swift */; };
 		B0DB58D91F989DB700DAD605 /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58D81F989DB700DAD605 /* APIClientTests.swift */; };
 		B0DB58DB1F98A02C00DAD605 /* UserAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58DA1F98A02C00DAD605 /* UserAPIClient.swift */; };
@@ -54,7 +54,7 @@
 		B0DB58C71F989B9200DAD605 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		B0DB58C91F989BD800DAD605 /* HTTPResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResult.swift; sourceTree = "<group>"; };
 		B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
-		B0DB58D31F989CD400DAD605 /* StubRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubRouter.swift; sourceTree = "<group>"; };
+		B0DB58D31F989CD400DAD605 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		B0DB58D61F989D5900DAD605 /* StubHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubHTTPClient.swift; sourceTree = "<group>"; };
 		B0DB58D81F989DB700DAD605 /* APIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
 		B0DB58DA1F98A02C00DAD605 /* UserAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIClient.swift; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 		B0DB58D21F989CC800DAD605 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
-				B0DB58D31F989CD400DAD605 /* StubRouter.swift */,
+				B0DB58D31F989CD400DAD605 /* APIRouter.swift */,
 				B0DB58D61F989D5900DAD605 /* StubHTTPClient.swift */,
 				B0DB58E11F98A59400DAD605 /* APIClient+UserAPIClient.swift */,
 				B0DB58D81F989DB700DAD605 /* APIClientTests.swift */,
@@ -366,7 +366,7 @@
 				B0DB58EE1F98B7C600DAD605 /* APIClient.swift in Sources */,
 				B0DB58DB1F98A02C00DAD605 /* UserAPIClient.swift in Sources */,
 				B0DB58E01F98A55100DAD605 /* User.swift in Sources */,
-				B0DB58D51F989D1200DAD605 /* StubRouter.swift in Sources */,
+				B0DB58D51F989D1200DAD605 /* APIRouter.swift in Sources */,
 				B0DB58FB1F98CF8C00DAD605 /* IdentifiableTests.swift in Sources */,
 				B0DB58D71F989D5900DAD605 /* StubHTTPClient.swift in Sources */,
 				B003A7CF1F3479CF00561729 /* UserID.swift in Sources */,

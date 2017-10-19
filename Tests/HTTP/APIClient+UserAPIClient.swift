@@ -16,8 +16,10 @@ extension APIClient: UserAPIClient {
         id: UserID,
         completion: @escaping (HTTPResult<User>) -> Void) {
 
+        let endpoint = APIRouter.readUser(id: id)
+
         httpClient.request(
-            StubRouter.readUser(id: id),
+            endpoint,
             completion: completion
         )
 
