@@ -16,14 +16,10 @@ public protocol Identifiable {
 
 }
 
-// MARK: - Default Implementation
+// MARK: - Identifiable (Default Implementation)
 
 public extension Identifiable {
 
-    static var identifier: String {
-
-        return String(describing: self)
-
-    }
+    public static var identifier: String { return String(describing: self) }
 
 }

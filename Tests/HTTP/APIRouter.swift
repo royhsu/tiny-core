@@ -9,7 +9,6 @@
 // MARK: - Router
 
 import TinyCore
-import Foundation
 
 internal enum APIRouter: Router {
 

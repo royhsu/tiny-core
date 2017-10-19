@@ -8,7 +8,6 @@
 
 // MARK: - UserID
 
-import Foundation
 import TinyCore
 
 internal struct UserID: ID {

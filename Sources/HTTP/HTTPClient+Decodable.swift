@@ -8,8 +8,6 @@
 
 // MARK: - Decodable
 
-import Foundation
-
 public extension HTTPClient {
 
     public func request<Model: Decodable>(

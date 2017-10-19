@@ -9,7 +9,6 @@
 // MARK: - StubHTTPClient
 
 import TinyCore
-import Foundation
 
 internal struct StubHTTPClient: HTTPClient {
 

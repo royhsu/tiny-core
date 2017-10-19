@@ -6,7 +6,7 @@
 //  Copyright © 2017 TinyWorld. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for TinyCore.
 FOUNDATION_EXPORT double TinyCoreVersionNumber;

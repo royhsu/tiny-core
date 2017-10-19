@@ -8,8 +8,6 @@
 
 // MARK: - HTTPClient
 
-import Foundation
-
 public protocol HTTPClient {
 
     // MARK: Request

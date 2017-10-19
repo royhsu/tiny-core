@@ -8,8 +8,6 @@
 
 // MARK: - Router
 
-import Foundation
-
 public protocol Router {
 
     // MARK: URLRequest

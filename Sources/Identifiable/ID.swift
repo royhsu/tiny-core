@@ -10,11 +10,13 @@
 
 public protocol ID: Hashable, Codable {
 
-    // MARK: Property
-
     associatedtype RawValue: ExpressibleByStringLiteral, Comparable, Hashable, CustomStringConvertible, Codable
 
+    // MARK: Property
+
     var rawValue: RawValue { get set }
+
+    // MARK: Init
 
     init(_ rawValue: RawValue)
 
