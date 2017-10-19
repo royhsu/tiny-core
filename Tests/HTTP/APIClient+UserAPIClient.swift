@@ -20,7 +20,6 @@ extension APIClient: UserAPIClient {
 
         httpClient.request(
             endpoint,
-            for: User.self,
             completion: completion
         )
 

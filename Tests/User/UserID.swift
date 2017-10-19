@@ -9,39 +9,20 @@
 // MARK: - UserID
 
 import Foundation
+import TinyCore
 
-@testable import TinyCore
-
-internal struct UserID: ID, Codable {
+internal struct UserID: ID {
 
     // MARK: Property
 
     internal var rawValue: String
-    
-    // MARK: Init
-    
-    internal init(rawValue: String) {
-        
-        self.rawValue = rawValue
-        
-    }
-    
-    // MARK: Codable
 
-    internal init(from coder: Decoder) throws {
-        
-        let container = try coder.singleValueContainer()
-        
-        self.rawValue = try container.decode(String.self)
-        
-    }
-    
-    internal func encode(to encoder: Encoder) throws {
-        
-        var container = encoder.singleValueContainer()
-        
-        try container.encode(rawValue)
-        
+    // MARK: Init
+
+    internal init(_ rawValue: String) {
+
+        self.rawValue = rawValue
+
     }
 
 }

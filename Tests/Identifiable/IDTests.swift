@@ -25,8 +25,8 @@ internal final class IDTests: XCTestCase {
     internal final func testEqual() {
 
         XCTAssertEqual(
-            UserID(rawValue: "1"),
-            UserID(rawValue: "1")
+            UserID("1"),
+            UserID("1")
         )
 
     }
@@ -38,7 +38,7 @@ internal final class IDTests: XCTestCase {
         let value = "1"
 
         XCTAssertEqual(
-            UserID(rawValue: value).hashValue,
+            UserID(value).hashValue,
             value.hashValue
         )
 
@@ -51,7 +51,7 @@ internal final class IDTests: XCTestCase {
         let value = "1"
 
         XCTAssertEqual(
-            UserID(rawValue: value).description,
+            UserID(value).description,
             value.description
         )
 

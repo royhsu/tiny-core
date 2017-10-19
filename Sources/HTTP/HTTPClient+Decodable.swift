@@ -15,7 +15,6 @@ where Value == Data {
 
     public func request<Model: Decodable>(
         _ request: URLRequest,
-        for modelType: Model.Type,
         completion: @escaping (_ result: HTTPResult<Model>) -> Void
     ) {
 

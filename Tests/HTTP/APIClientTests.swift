@@ -30,13 +30,13 @@ internal final class APIClientTests: XCTestCase {
 
         let data = Data(
             user: User(
-                id: UserID(rawValue: "1"),
+                id: UserID("1"),
                 name: "Roy"
             )
         )
-        
+
         do {
-        
+
             let json = try JSONEncoder().encode(data.user)
 
             let client: UserAPIClient = APIClient(
@@ -70,7 +70,7 @@ internal final class APIClientTests: XCTestCase {
                 for: [ promise ],
                 timeout: 10.0
             )
-            
+
         }
         catch { XCTFail("\(error)") }
 
