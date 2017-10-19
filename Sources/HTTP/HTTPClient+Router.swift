@@ -15,6 +15,7 @@ where Value == Data {
 
     public func request<Model: Decodable>(
         _ router: Router,
+        decoder: ModelDecoder,
         completion: @escaping (_ result: HTTPResult<Model>) -> Void
     ) {
 
@@ -24,6 +25,7 @@ where Value == Data {
 
             request(
                 endpoint,
+                decoder: decoder,
                 completion: completion
             )
 

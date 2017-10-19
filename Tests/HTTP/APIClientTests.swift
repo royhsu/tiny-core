@@ -40,9 +40,7 @@ internal final class APIClientTests: XCTestCase {
             let json = try JSONEncoder().encode(data.user)
 
             let client: UserAPIClient = APIClient(
-                httpClient: StubHTTPClient(
-                    value: json
-                )
+                httpClient: StubHTTPClient(value: json)
             )
 
             client.readUser(id: data.user.id) { result in

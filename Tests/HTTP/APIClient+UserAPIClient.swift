@@ -20,6 +20,7 @@ extension APIClient: UserAPIClient {
 
         httpClient.request(
             endpoint,
+            decoder: JSONDecoder(),
             completion: completion
         )
 

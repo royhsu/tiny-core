@@ -15,6 +15,7 @@ where Value == Data {
 
     public func request<Model: Decodable>(
         _ request: URLRequest,
+        decoder: ModelDecoder,
         completion: @escaping (_ result: HTTPResult<Model>) -> Void
     ) {
 
@@ -26,7 +27,7 @@ where Value == Data {
 
                 do {
 
-                    let model = try JSONDecoder().decode(
+                    let model = try decoder.decode(
                         Model.self,
                         from: value
                     )

@@ -10,6 +10,9 @@
 		B003A7CC1F34790000561729 /* IDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B003A7CB1F34790000561729 /* IDTests.swift */; };
 		B003A7CF1F3479CF00561729 /* UserID.swift in Sources */ = {isa = PBXBuildFile; fileRef = B003A7CD1F34793400561729 /* UserID.swift */; };
 		B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03BE8771F68D54D002E076A /* Int+RandomNumber.swift */; };
+		B0577E721F98EB2F00B1578E /* ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E711F98EB2F00B1578E /* ModelDecoder.swift */; };
+		B0577E751F98EC1400B1578E /* JSONDecoder+ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E741F98EC1400B1578E /* JSONDecoder+ModelDecoder.swift */; };
+		B0577E771F98EC7600B1578E /* PropertyListDecoder+ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E761F98EC7600B1578E /* PropertyListDecoder+ModelDecoder.swift */; };
 		B05D4F6E1F1E0D9E00929006 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05D4F641F1E0D9D00929006 /* TinyCore.framework */; };
 		B05D4FBB1F1E10C200929006 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D4FB81F1E10C200929006 /* Identifiable.swift */; };
 		B05D4FBD1F1E10C200929006 /* TinyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = B05D4FBA1F1E10C200929006 /* TinyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -44,6 +47,9 @@
 		B003A7CB1F34790000561729 /* IDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDTests.swift; sourceTree = "<group>"; };
 		B003A7CD1F34793400561729 /* UserID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserID.swift; sourceTree = "<group>"; };
 		B03BE8771F68D54D002E076A /* Int+RandomNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+RandomNumber.swift"; sourceTree = "<group>"; };
+		B0577E711F98EB2F00B1578E /* ModelDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDecoder.swift; sourceTree = "<group>"; };
+		B0577E741F98EC1400B1578E /* JSONDecoder+ModelDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+ModelDecoder.swift"; sourceTree = "<group>"; };
+		B0577E761F98EC7600B1578E /* PropertyListDecoder+ModelDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PropertyListDecoder+ModelDecoder.swift"; sourceTree = "<group>"; };
 		B05D4F641F1E0D9D00929006 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05D4F6D1F1E0D9E00929006 /* TinyCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinyCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05D4FB81F1E10C200929006 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
@@ -94,6 +100,16 @@
 			path = "Int+Extensions";
 			sourceTree = "<group>";
 		};
+		B0577E731F98EBEF00B1578E /* Coder */ = {
+			isa = PBXGroup;
+			children = (
+				B0577E711F98EB2F00B1578E /* ModelDecoder.swift */,
+				B0577E741F98EC1400B1578E /* JSONDecoder+ModelDecoder.swift */,
+				B0577E761F98EC7600B1578E /* PropertyListDecoder+ModelDecoder.swift */,
+			);
+			path = Coder;
+			sourceTree = "<group>";
+		};
 		B05D4F5A1F1E0D9D00929006 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +131,7 @@
 		B05D4FB61F1E10C200929006 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B0577E731F98EBEF00B1578E /* Coder */,
 				B0DB58E51F98AEC200DAD605 /* JSON */,
 				B0DB58C61F989B7A00DAD605 /* HTTP */,
 				B03BE8761F68D53D002E076A /* Int+Extensions */,
@@ -346,12 +363,15 @@
 			files = (
 				B0DB58C81F989B9200DAD605 /* Router.swift in Sources */,
 				B0DB58CA1F989BD800DAD605 /* HTTPResult.swift in Sources */,
+				B0577E771F98EC7600B1578E /* PropertyListDecoder+ModelDecoder.swift in Sources */,
 				B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */,
 				B061889F1F34999E003B66F7 /* ID.swift in Sources */,
 				B0DB58F61F98C2A800DAD605 /* HTTPClient+Router.swift in Sources */,
 				B05D4FBB1F1E10C200929006 /* Identifiable.swift in Sources */,
 				B0DB58E91F98AF8900DAD605 /* HTTPClient+Decodable.swift in Sources */,
 				B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */,
+				B0577E721F98EB2F00B1578E /* ModelDecoder.swift in Sources */,
+				B0577E751F98EC1400B1578E /* JSONDecoder+ModelDecoder.swift in Sources */,
 				B0DB58E81F98AF3700DAD605 /* JSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
