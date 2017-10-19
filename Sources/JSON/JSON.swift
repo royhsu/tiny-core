@@ -20,6 +20,8 @@ public enum JSONError: Error {
 
     case notObject
 
+    case notArray
+
     case missingValueFor(key: String)
 
 }
