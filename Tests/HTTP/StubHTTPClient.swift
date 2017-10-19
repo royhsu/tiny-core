@@ -13,7 +13,7 @@ import Foundation
 
 internal struct StubHTTPClient: HTTPClient {
 
-    internal typealias Value = JSON
+    internal typealias Value = Data
 
     // MARK: Property
 

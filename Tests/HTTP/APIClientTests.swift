@@ -34,41 +34,45 @@ internal final class APIClientTests: XCTestCase {
                 name: "Roy"
             )
         )
+        
+        do {
+        
+            let json = try JSONEncoder().encode(data.user)
 
-        let client: UserAPIClient = APIClient(
-            httpClient: StubHTTPClient(
-                value: [
-                    "id": data.user.id.rawValue,
-                    "name": data.user.name
-                ]
-            )
-        )
-
-        client.readUser(id: data.user.id) { result in
-
-            promise.fulfill()
-
-            switch result {
-
-            case .success(let user):
-
-                XCTAssertEqual(
-                    user,
-                    data.user
+            let client: UserAPIClient = APIClient(
+                httpClient: StubHTTPClient(
+                    value: json
                 )
+            )
 
-            case .failure(let error):
+            client.readUser(id: data.user.id) { result in
 
-                XCTFail("\(error)")
+                promise.fulfill()
+
+                switch result {
+
+                case .success(let user):
+
+                    XCTAssertEqual(
+                        user,
+                        data.user
+                    )
+
+                case .failure(let error):
+
+                    XCTFail("\(error)")
+
+                }
 
             }
 
+            wait(
+                for: [ promise ],
+                timeout: 10.0
+            )
+            
         }
-
-        wait(
-            for: [ promise ],
-            timeout: 10.0
-        )
+        catch { XCTFail("\(error)") }
 
     }
 

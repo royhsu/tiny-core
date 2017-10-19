@@ -8,7 +8,7 @@
 
 // MARK: - User
 
-internal struct User {
+internal struct User: Codable {
 
     // MARK: Property
 
@@ -39,40 +39,6 @@ extension User: Equatable {
 
 // MARK: - Identifiable
 
-extension User: Identifiable { }
-
-// MARK: - JSONInitializable
-
 import TinyCore
 
-extension User: JSONInitializable {
-
-    internal struct Schema {
-
-        internal static let id = "id"
-
-        internal static let name = "name"
-
-    }
-
-    internal init(_ json: Any) throws {
-
-        guard
-            let json = json as? [String: Any]
-            else { throw JSONError.notObject }
-
-        guard
-            let id = json[Schema.id] as? String
-        else { throw JSONError.missingValueFor(key: Schema.id) }
-
-        self.id = UserID(rawValue: id)
-
-        guard
-            let name = json[Schema.name] as? String
-        else { throw JSONError.missingValueFor(key: Schema.name) }
-
-        self.name = name
-
-    }
-
-}
+extension User: Identifiable { }

@@ -11,7 +11,7 @@
 import TinyCore
 
 public struct APIClient<HC: HTTPClient>
-where HC.Value: JSON {
+where HC.Value == Data {
 
     // MARK: Property
 

@@ -1,25 +1,25 @@
 //
-//  HTTPClient+JSONInitializable.swift
+//  HTTPClient+Decodable.swift
 //  TinyCore
 //
 //  Created by Roy Hsu on 19/10/2017.
 //  Copyright © 2017 TinyWorld. All rights reserved.
 //
 
-// Todo: (version: nil, priority: .high)
-// 1. replace JSONInitialiable with Codeable.
+// MARK: - Decodable
 
-// MARK: - JSONInitializable
+import Foundation
 
 public extension HTTPClient
-where Value: JSON {
+where Value == Data {
 
-    public func request<Model: JSONInitializable>(
-        _ router: Router,
+    public func request<Model: Decodable>(
+        _ request: URLRequest,
+        for modelType: Model.Type,
         completion: @escaping (_ result: HTTPResult<Model>) -> Void
     ) {
 
-        request(router) { result in
+        self.request(request) { result in
 
             switch result {
 
@@ -27,7 +27,10 @@ where Value: JSON {
 
                 do {
 
-                    let model = try Model(value)
+                    let model = try JSONDecoder().decode(
+                        Model.self,
+                        from: value
+                    )
 
                     completion(
                         .success(model)

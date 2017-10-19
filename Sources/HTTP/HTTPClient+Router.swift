@@ -10,19 +10,22 @@
 
 import Foundation
 
-public extension HTTPClient {
+public extension HTTPClient
+where Value == Data {
 
-    public func request(
+    public func request<Model: Decodable>(
         _ router: Router,
-        completion: @escaping (_ result: HTTPResult<Value>) -> Void
+        for modelType: Model.Type,
+        completion: @escaping (_ result: HTTPResult<Model>) -> Void
     ) {
 
         do {
 
             let endpoint = try router.makeURLRequest()
-
+            
             request(
                 endpoint,
+                for: modelType,
                 completion: completion
             )
 

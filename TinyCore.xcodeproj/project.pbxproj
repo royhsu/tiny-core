@@ -24,7 +24,7 @@
 		B0DB58E01F98A55100DAD605 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58DF1F98A55100DAD605 /* User.swift */; };
 		B0DB58E21F98A59400DAD605 /* APIClient+UserAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58E11F98A59400DAD605 /* APIClient+UserAPIClient.swift */; };
 		B0DB58E81F98AF3700DAD605 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58E61F98AECB00DAD605 /* JSON.swift */; };
-		B0DB58E91F98AF8900DAD605 /* HTTPClient+JSONInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58E31F98AEB900DAD605 /* HTTPClient+JSONInitializable.swift */; };
+		B0DB58E91F98AF8900DAD605 /* HTTPClient+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58E31F98AEB900DAD605 /* HTTPClient+Decodable.swift */; };
 		B0DB58EE1F98B7C600DAD605 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58ED1F98B7C600DAD605 /* APIClient.swift */; };
 		B0DB58F61F98C2A800DAD605 /* HTTPClient+Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58F41F98C29B00DAD605 /* HTTPClient+Router.swift */; };
 		B0DB58FB1F98CF8C00DAD605 /* IdentifiableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58FA1F98CF8C00DAD605 /* IdentifiableTests.swift */; };
@@ -60,7 +60,7 @@
 		B0DB58DA1F98A02C00DAD605 /* UserAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIClient.swift; sourceTree = "<group>"; };
 		B0DB58DF1F98A55100DAD605 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B0DB58E11F98A59400DAD605 /* APIClient+UserAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIClient+UserAPIClient.swift"; sourceTree = "<group>"; };
-		B0DB58E31F98AEB900DAD605 /* HTTPClient+JSONInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPClient+JSONInitializable.swift"; sourceTree = "<group>"; };
+		B0DB58E31F98AEB900DAD605 /* HTTPClient+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPClient+Decodable.swift"; sourceTree = "<group>"; };
 		B0DB58E61F98AECB00DAD605 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		B0DB58ED1F98B7C600DAD605 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		B0DB58F41F98C29B00DAD605 /* HTTPClient+Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPClient+Router.swift"; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 				B0DB58C71F989B9200DAD605 /* Router.swift */,
 				B0DB58C91F989BD800DAD605 /* HTTPResult.swift */,
 				B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */,
-				B0DB58E31F98AEB900DAD605 /* HTTPClient+JSONInitializable.swift */,
+				B0DB58E31F98AEB900DAD605 /* HTTPClient+Decodable.swift */,
 				B0DB58F41F98C29B00DAD605 /* HTTPClient+Router.swift */,
 			);
 			path = HTTP;
@@ -234,7 +234,6 @@
 				B05D4F601F1E0D9D00929006 /* Frameworks */,
 				B05D4F611F1E0D9D00929006 /* Headers */,
 				B05D4F621F1E0D9D00929006 /* Resources */,
-				B0DB58F31F98C0A300DAD605 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -322,23 +321,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		B0DB58F31F98C0A300DAD605 /* Swiftlint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Swiftlint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		B05D4F5F1F1E0D9D00929006 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -350,7 +332,7 @@
 				B061889F1F34999E003B66F7 /* ID.swift in Sources */,
 				B0DB58F61F98C2A800DAD605 /* HTTPClient+Router.swift in Sources */,
 				B05D4FBB1F1E10C200929006 /* Identifiable.swift in Sources */,
-				B0DB58E91F98AF8900DAD605 /* HTTPClient+JSONInitializable.swift in Sources */,
+				B0DB58E91F98AF8900DAD605 /* HTTPClient+Decodable.swift in Sources */,
 				B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */,
 				B0DB58E81F98AF3700DAD605 /* JSON.swift in Sources */,
 			);
