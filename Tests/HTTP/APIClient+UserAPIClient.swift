@@ -14,7 +14,7 @@ extension APIClient: UserAPIClient {
 
     internal func readUser(
         id: UserID,
-        completion: @escaping (_ result: HTTPResult<User>) -> Void) {
+        completion: @escaping (_ result: Result<User>) -> Void) {
 
         let endpoint = APIRouter.readUser(id: id)
 

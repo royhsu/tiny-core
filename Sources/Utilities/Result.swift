@@ -1,19 +1,19 @@
 //
-//  HTTPResult.swift
+//  Result.swift
 //  TinyCore
 //
-//  Created by Roy Hsu on 19/10/2017.
+//  Created by Roy on 19/10/2017.
 //  Copyright © 2017 TinyWorld. All rights reserved.
 //
 
-// MARK: - HTTPResult
+// MARK: - Result
 
-public enum HTTPResult<Value> {
-
+public enum Result<Value> {
+    
     // MARK: Case
-
+    
     case success(Value)
-
+    
     case failure(Error)
-
+    
 }

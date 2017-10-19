@@ -14,7 +14,7 @@ internal protocol UserAPIClient {
 
     func readUser(
         id: UserID,
-        completion: @escaping (_ result: HTTPResult<User>) -> Void
+        completion: @escaping (_ result: Result<User>) -> Void
     )
 
 }

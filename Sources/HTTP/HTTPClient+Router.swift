@@ -10,13 +10,12 @@
 
 import Foundation
 
-public extension HTTPClient
-where Value == Data {
+public extension HTTPClient {
 
     public func request<Model: Decodable>(
         _ router: Router,
         decoder: ModelDecoder,
-        completion: @escaping (_ result: HTTPResult<Model>) -> Void
+        completion: @escaping (_ result: Result<Model>) -> Void
     ) {
 
         do {

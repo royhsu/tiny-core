@@ -10,11 +10,10 @@
 
 import TinyCore
 
-public struct APIClient<HC: HTTPClient>
-where HC.Value == Data {
+public struct APIClient {
 
     // MARK: Property
 
-    public let httpClient: HC
+    public let httpClient: HTTPClient
 
 }

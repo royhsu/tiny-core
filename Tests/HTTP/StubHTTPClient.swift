@@ -13,20 +13,18 @@ import Foundation
 
 internal struct StubHTTPClient: HTTPClient {
 
-    internal typealias Value = Data
-
     // MARK: Property
 
-    internal let value: Value
+    internal let data: Data
 
     // MARK: HTTPClient
 
     internal func request(
         _ request: URLRequest,
-        completion: @escaping (HTTPResult<Value>) -> Void) {
+        completion: @escaping (Result<Data>) -> Void) {
 
         completion(
-            .success(value)
+            .success(data)
         )
 
     }

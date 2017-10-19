@@ -12,13 +12,11 @@ import Foundation
 
 public protocol HTTPClient {
 
-    associatedtype Value
-
     // MARK: Request
 
     func request(
         _ request: URLRequest,
-        completion: @escaping (_ result: HTTPResult<Value>) -> Void
+        completion: @escaping (_ result: Result<Data>) -> Void
     )
 
 }
