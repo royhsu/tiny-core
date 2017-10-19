@@ -1,0 +1,36 @@
+//
+//  APIRouter.swift
+//  TinyCoreTests
+//
+//  Created by Roy Hsu on 19/10/2017.
+//  Copyright © 2017 TinyWorld. All rights reserved.
+//
+
+// MARK: - Router
+
+import TinyCore
+import Foundation
+
+internal enum APIRouter: Router {
+
+    // MARK: Case
+
+    case readUser(id: UserID)
+
+    // MARK: Router
+
+    internal func makeURLRequest() throws -> URLRequest {
+
+        switch self {
+
+        case .readUser(let id):
+
+            let url = URL(string: "http://api.foo.com/users/\(id.rawValue)")!
+
+            return URLRequest(url: url)
+
+        }
+
+    }
+
+}

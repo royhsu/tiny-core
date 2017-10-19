@@ -8,13 +8,15 @@
 
 // MARK: - ID
 
-public protocol ID: Hashable {
+public protocol ID: Hashable, Codable {
 
     // MARK: Property
 
-    associatedtype RawValue: ExpressibleByStringLiteral, Comparable, Hashable, CustomStringConvertible
+    associatedtype RawValue: ExpressibleByStringLiteral, Comparable, Hashable, CustomStringConvertible, Codable
 
-    var rawValue: RawValue { get }
+    var rawValue: RawValue { get set }
+
+    init(_ rawValue: RawValue)
 
 }
 
@@ -40,10 +42,38 @@ public extension ID {
 
 }
 
-// MARK: - CustomStringConvertible
+// MARK: - CustomStringConvertible (Default Implementation)
 
 public extension ID {
 
     public var description: String { return rawValue.description }
+
+}
+
+// MARK: - Codable (Default Implementation)
+
+public extension ID {
+
+    // MARK: Decodable
+
+    public init(from coder: Decoder) throws {
+
+        let container = try coder.singleValueContainer()
+
+        let rawValue: RawValue = try container.decode(RawValue.self)
+
+        self.init(rawValue)
+
+    }
+
+    // MARK: Encodable
+
+    public func encode(to encoder: Encoder) throws {
+
+        var container = encoder.singleValueContainer()
+
+        try container.encode(rawValue)
+
+    }
 
 }

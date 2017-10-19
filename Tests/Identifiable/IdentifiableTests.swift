@@ -12,21 +12,21 @@ import XCTest
 
 @testable import TinyCore
 
-final class IdentifiableTests: XCTestCase {
+internal final class IdentifiableTests: XCTestCase {
 
     // MARK: Property
 
-    static let allTests = [
+    internal static let allTests = [
         ("testIdentifier", testIdentifier)
     ]
 
     // MARK: Identifier
 
-    final func testIdentifier() {
+    internal final func testIdentifier() {
 
         XCTAssertEqual(
-            IdentifiableObject.identifier,
-            "IdentifiableObject"
+            User.identifier,
+            "User"
         )
 
     }
