@@ -12,7 +12,9 @@ internal struct User {
 
     // MARK: Property
 
-    internal let id: String
+    internal let id: UserID
+
+    internal let name: String
 
 }
 
@@ -28,11 +30,16 @@ extension User: Equatable {
     -> Bool {
 
         return lhs.id == rhs.id
+            && lhs.name == rhs.name
 
     }
     // swiftlint:enable operator_whitespace
 
 }
+
+// MARK: - Identifiable
+
+extension User: Identifiable { }
 
 // MARK: - JSONInitializable
 
@@ -43,6 +50,8 @@ extension User: JSONInitializable {
     internal struct Schema {
 
         internal static let id = "id"
+
+        internal static let name = "name"
 
     }
 
@@ -56,7 +65,13 @@ extension User: JSONInitializable {
             let id = json[Schema.id] as? String
         else { throw JSONError.missingValueFor(key: Schema.id) }
 
-        self.id = id
+        self.id = UserID(rawValue: id)
+
+        guard
+            let name = json[Schema.name] as? String
+        else { throw JSONError.missingValueFor(key: Schema.name) }
+
+        self.name = name
 
     }
 

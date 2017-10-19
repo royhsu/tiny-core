@@ -20,21 +20,31 @@ internal final class APIClientTests: XCTestCase {
 
         let promise = expectation(description: "Read user by the given id.")
 
+        // swiftlint:disable nesting
         struct Data {
 
-            static let userId = "1"
-
-            static let userObject: [String: Any] = [
-                "id": userId
-            ]
+            let user: User
 
         }
+        // swiftlint:enable nesting
 
-        let client: UserAPIClient = APIClient(
-            httpClient: StubHTTPClient(value: Data.userObject)
+        let data = Data(
+            user: User(
+                id: UserID(rawValue: "1"),
+                name: "Roy"
+            )
         )
 
-        client.readUser(id: Data.userId) { result in
+        let client: UserAPIClient = APIClient(
+            httpClient: StubHTTPClient(
+                value: [
+                    "id": data.user.id.rawValue,
+                    "name": data.user.name
+                ]
+            )
+        )
+
+        client.readUser(id: data.user.id) { result in
 
             promise.fulfill()
 
@@ -44,7 +54,7 @@ internal final class APIClientTests: XCTestCase {
 
                 XCTAssertEqual(
                     user,
-                    User(id: Data.userId)
+                    data.user
                 )
 
             case .failure(let error):

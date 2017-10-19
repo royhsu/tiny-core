@@ -15,7 +15,7 @@ internal enum StubRouter: Router {
 
     // MARK: Case
 
-    case readUser(id: String)
+    case readUser(id: UserID)
 
     // MARK: Router
 
@@ -25,7 +25,7 @@ internal enum StubRouter: Router {
 
         case .readUser(let id):
 
-            let url = URL(string: "http://api.foo.com/users/\(id)")!
+            let url = URL(string: "http://api.foo.com/users/\(id.rawValue)")!
 
             return URLRequest(url: url)
 

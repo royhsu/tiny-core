@@ -15,12 +15,11 @@ public extension HTTPClient
 where Value: JSON {
 
     public func request<Model: JSONInitializable>(
-        _ request: URLRequest,
-        modelType: Model.Type,
+        _ router: Router,
         completion: @escaping (_ result: HTTPResult<Model>) -> Void
     ) {
 
-        self.request(request) { result in
+        request(router) { result in
 
             switch result {
 
@@ -50,33 +49,6 @@ where Value: JSON {
                 )
 
             }
-
-        }
-
-    }
-
-    public func request<Model: JSONInitializable>(
-        _ router: Router,
-        modelType: Model.Type,
-        completion: @escaping (_ result: HTTPResult<Model>) -> Void
-    ) {
-
-        do {
-
-            let endpoint = try router.makeURLRequest()
-
-            self.request(
-                endpoint,
-                modelType: Model.self,
-                completion: completion
-            )
-
-        }
-        catch {
-
-            completion(
-                .failure(error)
-            )
 
         }
 

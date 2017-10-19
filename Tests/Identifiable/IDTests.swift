@@ -10,11 +10,11 @@
 
 import XCTest
 
-final class IDTests: XCTestCase {
+internal final class IDTests: XCTestCase {
 
     // MARK: Property
 
-    static let allTests = [
+    internal static let allTests = [
         ("testEqual", testEqual),
         ("testHash", testHash),
         ("testDescription", testDescription)
@@ -22,7 +22,7 @@ final class IDTests: XCTestCase {
 
     // MARK: Equal
 
-    final func testEqual() {
+    internal final func testEqual() {
 
         XCTAssertEqual(
             UserID(rawValue: "1"),
@@ -33,7 +33,7 @@ final class IDTests: XCTestCase {
 
     // MARK: Hash
 
-    final func testHash() {
+    internal final func testHash() {
 
         let value = "1"
 
@@ -46,7 +46,7 @@ final class IDTests: XCTestCase {
 
     // MARK: Description
 
-    final func testDescription() {
+    internal final func testDescription() {
 
         let value = "1"
 

@@ -13,12 +13,11 @@ import TinyCore
 extension APIClient: UserAPIClient {
 
     internal func readUser(
-        id: String,
+        id: UserID,
         completion: @escaping (HTTPResult<User>) -> Void) {
 
         httpClient.request(
             StubRouter.readUser(id: id),
-            modelType: User.self,
             completion: completion
         )
 
