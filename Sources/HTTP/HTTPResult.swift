@@ -9,9 +9,11 @@
 // MARK: - HTTPResult
 
 public enum HTTPResult<Value> {
-    
+
+    // MARK: Case
+
     case success(Value)
-    
+
     case failure(Error)
-    
+
 }

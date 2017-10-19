@@ -12,25 +12,25 @@ import TinyCore
 import Foundation
 
 internal enum StubRouter: Router {
-    
+
     // MARK: Case
-    
+
     case readUser(id: String)
-    
+
     // MARK: Router
-    
+
     internal func makeURLRequest() throws -> URLRequest {
-        
+
         switch self {
-            
+
         case .readUser(let id):
-            
+
             let url = URL(string: "http://api.foo.com/users/\(id)")!
-            
+
             return URLRequest(url: url)
-            
+
         }
-        
+
     }
-    
+
 }

@@ -11,10 +11,10 @@
 import TinyCore
 
 internal protocol UserAPIClient {
-    
+
     func readUser(
         id: String,
         completion: @escaping (_ result: HTTPResult<User>) -> Void
     )
-    
+
 }

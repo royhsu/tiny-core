@@ -11,7 +11,7 @@
 import TinyCore
 
 extension APIClient: UserAPIClient {
-    
+
     internal func readUser(
         id: String,
         completion: @escaping (HTTPResult<User>) -> Void) {
@@ -21,7 +21,7 @@ extension APIClient: UserAPIClient {
             modelType: User.self,
             completion: completion
         )
-        
+
     }
-    
+
 }

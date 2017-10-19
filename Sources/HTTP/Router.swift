@@ -11,9 +11,9 @@
 import Foundation
 
 public protocol Router {
-    
+
     // MARK: URLRequest
-    
+
     func makeURLRequest() throws -> URLRequest
-    
+
 }

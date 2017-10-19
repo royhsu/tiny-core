@@ -15,19 +15,19 @@ public typealias JSONObject = [String: JSON]
 // MARK: - JSONError
 
 public enum JSONError: Error {
-    
+
     // MARK: Case
-    
+
     case notObject
-    
+
     case missingValueFor(key: String)
-    
+
 }
 
 // MARK: - JSONInitializable
 
 public protocol JSONInitializable {
-    
+
     init(_ json: JSON) throws
-    
+
 }

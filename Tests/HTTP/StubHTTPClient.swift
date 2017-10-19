@@ -12,23 +12,23 @@ import TinyCore
 import Foundation
 
 internal struct StubHTTPClient: HTTPClient {
-    
+
     internal typealias Value = JSON
-    
+
     // MARK: Property
-    
+
     internal let value: Value
-    
+
     // MARK: HTTPClient
-    
+
     internal func request(
         _ request: URLRequest,
         completion: @escaping (HTTPResult<Value>) -> Void) {
-        
+
         completion(
             .success(value)
         )
-        
+
     }
-    
+
 }
