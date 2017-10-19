@@ -18,19 +18,21 @@ public protocol ID: Hashable {
 
 }
 
-// MARK: - Equatable
+// MARK: - Equatable (Default Implementation)
 
 public extension ID {
 
-    public static func == (lhs: Self, rhs: Self) -> Bool {
-
-        return lhs.rawValue == rhs.rawValue
-
-    }
+    // swiftlint:disable operator_whitespace
+    public static func ==(
+        lhs: Self,
+        rhs: Self
+    )
+    -> Bool { return lhs.rawValue == rhs.rawValue }
+    // swiftlint:enable operator_whitespace
 
 }
 
-// MARK: - Hashable
+// MARK: - Hashable (Default Implementation)
 
 public extension ID {
 
