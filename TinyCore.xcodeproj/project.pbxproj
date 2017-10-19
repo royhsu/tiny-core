@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B003A7CC1F34790000561729 /* IDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B003A7CB1F34790000561729 /* IDTests.swift */; };
 		B003A7CF1F3479CF00561729 /* UserID.swift in Sources */ = {isa = PBXBuildFile; fileRef = B003A7CD1F34793400561729 /* UserID.swift */; };
+		B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03BE8771F68D54D002E076A /* Int+RandomNumber.swift */; };
 		B05D4F6E1F1E0D9E00929006 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05D4F641F1E0D9D00929006 /* TinyCore.framework */; };
 		B05D4FBB1F1E10C200929006 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D4FB81F1E10C200929006 /* Identifiable.swift */; };
 		B05D4FBD1F1E10C200929006 /* TinyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = B05D4FBA1F1E10C200929006 /* TinyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -277,6 +278,7 @@
 			files = (
 				B061889F1F34999E003B66F7 /* ID.swift in Sources */,
 				B05D4FBB1F1E10C200929006 /* Identifiable.swift in Sources */,
+				B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
