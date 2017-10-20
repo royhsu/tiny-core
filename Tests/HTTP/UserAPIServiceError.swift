@@ -9,9 +9,9 @@
 // MARK: - UserAPIServiceError
 
 internal enum UserAPIServiceError: Error {
-    
+
     // MARK: Case
-    
+
     case authorizationRequired
-    
+
 }

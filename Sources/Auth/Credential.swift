@@ -9,9 +9,9 @@
 // MARK: - Credential
 
 public enum Credential {
-    
+
     // MARK: Case
-    
+
     case accessToken(AccessToken)
-    
+
 }

@@ -19,15 +19,15 @@ extension APIService: UserAPIService {
         guard
             let auth = auth
         else {
-            
+
             completion(
                 .failure(UserAPIServiceError.authorizationRequired)
             )
-            
+
             return
-            
+
         }
-        
+
         let endpoint = APIRouter.readUser(
             id: id,
             auth: auth

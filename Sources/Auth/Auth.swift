@@ -13,5 +13,7 @@ public protocol Auth {
     // MARK: Property
 
     var credential: Credential { get }
-    
+
+    var provider: AuthProvider { get }
+
 }

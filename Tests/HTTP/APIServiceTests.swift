@@ -24,7 +24,9 @@ internal final class APIServiceTests: XCTestCase {
         struct Data {
 
             let user: User
-            
+
+            let providerName: String
+
             let accessToken: AccessToken
 
         }
@@ -35,40 +37,71 @@ internal final class APIServiceTests: XCTestCase {
                 id: UserID("1"),
                 name: "Roy"
             ),
+            providerName: "foo.com",
             accessToken: AccessToken(rawValue: "abcd1234")
         )
 
         do {
 
-            let credential = Credential.accessToken(data.accessToken)
-            
             let json = try JSONEncoder().encode(data.user)
 
-            let service: UserAPIService = APIService(
-                auth: StubAuth(credential: credential),
-                client: StubHTTPClient(data: json)
+            let credential = Credential.accessToken(data.accessToken)
+
+            let provider = StubPasswordAuthProvider(
+                name: data.providerName,
+                result: .success(credential)
             )
-            
-            service.readUser(id: data.user.id) { result in
-                
-                promise.fulfill()
-                
-                switch result {
-                    
-                case .success(let user):
-                    
-                    XCTAssertEqual(
-                        user,
-                        data.user
-                    )
-                    
-                case .failure(let error):
-                    
-                    XCTFail("\(error)")
-                    
+
+            provider.signIn(
+                username: "john.appleseed@test.com",
+                password: "password",
+                completion: { result in
+
+                    switch result {
+
+                    case .success(let auth):
+
+                        XCTAssertEqual(
+                            auth.provider.name,
+                            provider.name
+                        )
+
+                        let service: UserAPIService = APIService(
+                            auth: auth,
+                            client: StubHTTPClient(data: json)
+                        )
+
+                        service.readUser(id: data.user.id) { result in
+
+                            promise.fulfill()
+
+                            switch result {
+
+                            case .success(let user):
+
+                                XCTAssertEqual(
+                                    user,
+                                    data.user
+                                )
+
+                            case .failure(let error):
+
+                                XCTFail("\(error)")
+
+                            }
+
+                        }
+
+                    case .failure(let error):
+
+                        promise.fulfill()
+
+                        XCTFail("\(error)")
+
+                    }
+
                 }
-                
-            }
+            )
 
             wait(
                 for: [ promise ],

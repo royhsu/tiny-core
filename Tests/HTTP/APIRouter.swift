@@ -26,24 +26,24 @@ internal enum APIRouter: Router {
         switch self {
 
         case .readUser(let id, let auth):
-            
+
             let url = URL(string: "http://api.foo.com/users/\(id.rawValue)")!
-            
+
             var request = URLRequest(url: url)
-            
+
             switch auth.credential {
-                
+
             case .accessToken(let accessToken):
-                
+
                 request.setValue(
                     "Bearer \(accessToken.rawValue)",
                     forHTTPHeaderField: "Authorization"
                 )
-                
+
             }
-            
+
             return request
-            
+
         }
 
     }

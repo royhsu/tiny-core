@@ -2,8 +2,14 @@
 //  AuthProvider.swift
 //  TinyCore
 //
-//  Created by 許郁棋 on 20/10/2017.
+//  Created by Roy Hsu on 20/10/2017.
 //  Copyright © 2017 TinyWorld. All rights reserved.
 //
 
-public protocol AuthProvider { }
+// MARK: - AuthProvider
+
+public protocol AuthProvider {
+
+    var name: String { get }
+
+}

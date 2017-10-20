@@ -11,9 +11,11 @@
 import TinyCore
 
 internal struct StubAuth: Auth {
-    
+
     // MARK: Property
-    
+
     internal let credential: Credential
-    
+
+    internal let provider: AuthProvider
+
 }

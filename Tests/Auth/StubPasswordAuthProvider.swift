@@ -11,25 +11,48 @@
 import TinyCore
 
 internal final class StubPasswordAuthProvider: PasswordAuthProvider {
-    
+
     // MARK: Property
-    
-    internal final let result: Result<Auth>
-    
+
+    internal final let name: String
+
+    internal final let result: Result<Credential>
+
     // MARK: Init
-    
-    internal init(result: Result<Auth>) {
-        
+
+    internal init(name: String, result: Result<Credential>) {
+
+        self.name = name
+
         self.result = result
-        
+
     }
-    
+
     // MARK: PasswordAuthProvider
-    
+
     func signIn(username: String, password: String, completion: @escaping (Result<Auth>) -> Void) {
-        
-        completion(result)
-        
+
+        switch result {
+
+        case .success(let credential):
+
+            let auth = StubAuth(
+                credential: credential,
+                provider: self
+            )
+
+            completion(
+                .success(auth)
+            )
+
+        case .failure(let error):
+
+            completion(
+                .failure(error)
+            )
+
+        }
+
     }
-    
+
 }

@@ -15,5 +15,5 @@ public protocol PasswordAuthProvider: AuthProvider {
         password: String,
         completion: @escaping (_ result: Result<Auth>) -> Void
     )
-    
+
 }
