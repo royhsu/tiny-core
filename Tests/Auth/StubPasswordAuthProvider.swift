@@ -20,7 +20,10 @@ internal final class StubPasswordAuthProvider: PasswordAuthProvider {
 
     // MARK: Init
 
-    internal init(name: String, result: Result<Credential>) {
+    internal init(
+        name: String,
+        result: Result<Credential>
+    ) {
 
         self.name = name
 
@@ -30,7 +33,11 @@ internal final class StubPasswordAuthProvider: PasswordAuthProvider {
 
     // MARK: PasswordAuthProvider
 
-    func signIn(username: String, password: String, completion: @escaping (Result<Auth>) -> Void) {
+    func signIn(
+        username: String,
+        password: String,
+        completion: @escaping (Result<Auth>) -> Void
+    ) {
 
         switch result {
 
