@@ -53,7 +53,7 @@ internal final class APIServiceTests: XCTestCase {
             )
 
             provider.signIn(
-                username: "john.appleseed@test.com",
+                username: "bar@foo.com",
                 password: "password",
                 completion: { result in
 
