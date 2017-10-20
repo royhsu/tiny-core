@@ -14,6 +14,7 @@
 		B0577E751F98EC1400B1578E /* JSONDecoder+ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E741F98EC1400B1578E /* JSONDecoder+ModelDecoder.swift */; };
 		B0577E771F98EC7600B1578E /* PropertyListDecoder+ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E761F98EC7600B1578E /* PropertyListDecoder+ModelDecoder.swift */; };
 		B0577E7A1F98F0B300B1578E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E791F98F0B300B1578E /* Result.swift */; };
+		B0577E7B1F9979E600B1578E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58ED1F98B7C600DAD605 /* APIService.swift */; };
 		B05D4F6E1F1E0D9E00929006 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05D4F641F1E0D9D00929006 /* TinyCore.framework */; };
 		B05D4FBB1F1E10C200929006 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D4FB81F1E10C200929006 /* Identifiable.swift */; };
 		B05D4FBD1F1E10C200929006 /* TinyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = B05D4FBA1F1E10C200929006 /* TinyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -22,13 +23,12 @@
 		B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */; };
 		B0DB58D51F989D1200DAD605 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58D31F989CD400DAD605 /* APIRouter.swift */; };
 		B0DB58D71F989D5900DAD605 /* StubHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58D61F989D5900DAD605 /* StubHTTPClient.swift */; };
-		B0DB58D91F989DB700DAD605 /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58D81F989DB700DAD605 /* APIClientTests.swift */; };
-		B0DB58DB1F98A02C00DAD605 /* UserAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58DA1F98A02C00DAD605 /* UserAPIClient.swift */; };
+		B0DB58D91F989DB700DAD605 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58D81F989DB700DAD605 /* APIServiceTests.swift */; };
+		B0DB58DB1F98A02C00DAD605 /* UserAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58DA1F98A02C00DAD605 /* UserAPIService.swift */; };
 		B0DB58E01F98A55100DAD605 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58DF1F98A55100DAD605 /* User.swift */; };
-		B0DB58E21F98A59400DAD605 /* APIClient+UserAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58E11F98A59400DAD605 /* APIClient+UserAPIClient.swift */; };
+		B0DB58E21F98A59400DAD605 /* APIService+UserAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58E11F98A59400DAD605 /* APIService+UserAPIService.swift */; };
 		B0DB58E81F98AF3700DAD605 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58E61F98AECB00DAD605 /* JSON.swift */; };
 		B0DB58E91F98AF8900DAD605 /* HTTPClient+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58E31F98AEB900DAD605 /* HTTPClient+Decodable.swift */; };
-		B0DB58EE1F98B7C600DAD605 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58ED1F98B7C600DAD605 /* APIClient.swift */; };
 		B0DB58F61F98C2A800DAD605 /* HTTPClient+Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58F41F98C29B00DAD605 /* HTTPClient+Router.swift */; };
 		B0DB58FB1F98CF8C00DAD605 /* IdentifiableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58FA1F98CF8C00DAD605 /* IdentifiableTests.swift */; };
 /* End PBXBuildFile section */
@@ -62,13 +62,13 @@
 		B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		B0DB58D31F989CD400DAD605 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		B0DB58D61F989D5900DAD605 /* StubHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubHTTPClient.swift; sourceTree = "<group>"; };
-		B0DB58D81F989DB700DAD605 /* APIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
-		B0DB58DA1F98A02C00DAD605 /* UserAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIClient.swift; sourceTree = "<group>"; };
+		B0DB58D81F989DB700DAD605 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
+		B0DB58DA1F98A02C00DAD605 /* UserAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIService.swift; sourceTree = "<group>"; };
 		B0DB58DF1F98A55100DAD605 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		B0DB58E11F98A59400DAD605 /* APIClient+UserAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIClient+UserAPIClient.swift"; sourceTree = "<group>"; };
+		B0DB58E11F98A59400DAD605 /* APIService+UserAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIService+UserAPIService.swift"; sourceTree = "<group>"; };
 		B0DB58E31F98AEB900DAD605 /* HTTPClient+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPClient+Decodable.swift"; sourceTree = "<group>"; };
 		B0DB58E61F98AECB00DAD605 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
-		B0DB58ED1F98B7C600DAD605 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		B0DB58ED1F98B7C600DAD605 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		B0DB58F41F98C29B00DAD605 /* HTTPClient+Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPClient+Router.swift"; sourceTree = "<group>"; };
 		B0DB58FA1F98CF8C00DAD605 /* IdentifiableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifiableTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -203,6 +203,7 @@
 				B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */,
 				B0DB58E31F98AEB900DAD605 /* HTTPClient+Decodable.swift */,
 				B0DB58F41F98C29B00DAD605 /* HTTPClient+Router.swift */,
+				B0DB58ED1F98B7C600DAD605 /* APIService.swift */,
 			);
 			path = HTTP;
 			sourceTree = "<group>";
@@ -212,10 +213,9 @@
 			children = (
 				B0DB58D31F989CD400DAD605 /* APIRouter.swift */,
 				B0DB58D61F989D5900DAD605 /* StubHTTPClient.swift */,
-				B0DB58E11F98A59400DAD605 /* APIClient+UserAPIClient.swift */,
-				B0DB58D81F989DB700DAD605 /* APIClientTests.swift */,
-				B0DB58ED1F98B7C600DAD605 /* APIClient.swift */,
-				B0DB58DA1F98A02C00DAD605 /* UserAPIClient.swift */,
+				B0DB58E11F98A59400DAD605 /* APIService+UserAPIService.swift */,
+				B0DB58D81F989DB700DAD605 /* APIServiceTests.swift */,
+				B0DB58DA1F98A02C00DAD605 /* UserAPIService.swift */,
 			);
 			path = HTTP;
 			sourceTree = "<group>";
@@ -378,6 +378,7 @@
 				B05D4FBB1F1E10C200929006 /* Identifiable.swift in Sources */,
 				B0DB58E91F98AF8900DAD605 /* HTTPClient+Decodable.swift in Sources */,
 				B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */,
+				B0577E7B1F9979E600B1578E /* APIService.swift in Sources */,
 				B0577E721F98EB2F00B1578E /* ModelDecoder.swift in Sources */,
 				B0577E751F98EC1400B1578E /* JSONDecoder+ModelDecoder.swift in Sources */,
 				B0DB58E81F98AF3700DAD605 /* JSON.swift in Sources */,
@@ -389,10 +390,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B003A7CC1F34790000561729 /* IDTests.swift in Sources */,
-				B0DB58D91F989DB700DAD605 /* APIClientTests.swift in Sources */,
-				B0DB58E21F98A59400DAD605 /* APIClient+UserAPIClient.swift in Sources */,
-				B0DB58EE1F98B7C600DAD605 /* APIClient.swift in Sources */,
-				B0DB58DB1F98A02C00DAD605 /* UserAPIClient.swift in Sources */,
+				B0DB58D91F989DB700DAD605 /* APIServiceTests.swift in Sources */,
+				B0DB58E21F98A59400DAD605 /* APIService+UserAPIService.swift in Sources */,
+				B0DB58DB1F98A02C00DAD605 /* UserAPIService.swift in Sources */,
 				B0DB58E01F98A55100DAD605 /* User.swift in Sources */,
 				B0DB58D51F989D1200DAD605 /* APIRouter.swift in Sources */,
 				B0DB58FB1F98CF8C00DAD605 /* IdentifiableTests.swift in Sources */,

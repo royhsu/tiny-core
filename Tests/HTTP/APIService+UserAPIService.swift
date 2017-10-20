@@ -1,16 +1,16 @@
 //
-//  APIClient+UserAPIClient.swift
+//  APIService+UserAPIService.swift
 //  TinyCoreTests
 //
 //  Created by Roy Hsu on 19/10/2017.
 //  Copyright © 2017 TinyWorld. All rights reserved.
 //
 
-// MARK: - UserAPIClient
+// MARK: - UserAPIService
 
 import TinyCore
 
-extension APIClient: UserAPIClient {
+extension APIService: UserAPIService {
 
     internal func readUser(
         id: UserID,
@@ -18,7 +18,7 @@ extension APIClient: UserAPIClient {
 
         let endpoint = APIRouter.readUser(id: id)
 
-        httpClient.request(
+        client.request(
             endpoint,
             decoder: JSONDecoder(),
             completion: completion

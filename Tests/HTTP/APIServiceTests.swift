@@ -1,18 +1,18 @@
 //
-//  APIClientTests.swift
+//  APIServiceTests.swift
 //  TinyCoreTests
 //
 //  Created by Roy Hsu on 19/10/2017.
 //  Copyright © 2017 TinyWorld. All rights reserved.
 //
 
-// MARK: - APIClientTests
+// MARK: - APIServiceTests
 
 import XCTest
 
 @testable import TinyCore
 
-internal final class APIClientTests: XCTestCase {
+internal final class APIServiceTests: XCTestCase {
 
     // MARK: User
 
@@ -39,11 +39,11 @@ internal final class APIClientTests: XCTestCase {
 
             let json = try JSONEncoder().encode(data.user)
 
-            let client: UserAPIClient = APIClient(
-                httpClient: StubHTTPClient(data: json)
+            let service: UserAPIService = APIService(
+                client: StubHTTPClient(data: json)
             )
 
-            client.readUser(id: data.user.id) { result in
+            service.readUser(id: data.user.id) { result in
 
                 promise.fulfill()
 
