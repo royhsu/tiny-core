@@ -10,15 +10,23 @@
 
 import TinyCore
 
-internal struct StubHTTPClient: HTTPClient {
+internal final class StubHTTPClient: HTTPClient {
 
     // MARK: Property
 
-    internal let data: Data
+    internal final let data: Data
+    
+    // MARK: Init
+    
+    internal init(data: Data) {
+        
+        self.data = data
+        
+    }
 
     // MARK: HTTPClient
 
-    internal func request(
+    internal final func request(
         _ request: URLRequest,
         completion: @escaping (Result<Data>) -> Void) {
 

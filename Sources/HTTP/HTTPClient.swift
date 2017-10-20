@@ -8,7 +8,7 @@
 
 // MARK: - HTTPClient
 
-public protocol HTTPClient {
+public protocol HTTPClient: class {
 
     // MARK: Request
 

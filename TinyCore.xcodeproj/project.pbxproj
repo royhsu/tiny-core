@@ -28,6 +28,7 @@
 		B05D4FBB1F1E10C200929006 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D4FB81F1E10C200929006 /* Identifiable.swift */; };
 		B05D4FBD1F1E10C200929006 /* TinyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = B05D4FBA1F1E10C200929006 /* TinyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B061889F1F34999E003B66F7 /* ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = B061889E1F349979003B66F7 /* ID.swift */; };
+		B07E057C1F9A36790025861A /* HTTPClientMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07E057B1F9A36790025861A /* HTTPClientMiddleware.swift */; };
 		B0DB58C81F989B9200DAD605 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58C71F989B9200DAD605 /* Router.swift */; };
 		B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */; };
 		B0DB58D51F989D1200DAD605 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58D31F989CD400DAD605 /* APIRouter.swift */; };
@@ -76,6 +77,7 @@
 		B05D4FBA1F1E10C200929006 /* TinyCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TinyCore.h; sourceTree = "<group>"; };
 		B05D4FC21F1E10D100929006 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B061889E1F349979003B66F7 /* ID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ID.swift; sourceTree = "<group>"; };
+		B07E057B1F9A36790025861A /* HTTPClientMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientMiddleware.swift; sourceTree = "<group>"; };
 		B0DB58C71F989B9200DAD605 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		B0DB58D31F989CD400DAD605 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			children = (
 				B0DB58C71F989B9200DAD605 /* Router.swift */,
 				B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */,
+				B07E057B1F9A36790025861A /* HTTPClientMiddleware.swift */,
 				B0DB58E31F98AEB900DAD605 /* HTTPClient+Decodable.swift */,
 				B0DB58F41F98C29B00DAD605 /* HTTPClient+Router.swift */,
 				B0DB58ED1F98B7C600DAD605 /* APIService.swift */,
@@ -302,7 +305,6 @@
 				B05D4F601F1E0D9D00929006 /* Frameworks */,
 				B05D4F611F1E0D9D00929006 /* Headers */,
 				B05D4F621F1E0D9D00929006 /* Resources */,
-				B0577E9A1F99A89900B1578E /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -390,23 +392,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		B0577E9A1F99A89900B1578E /* Swiftlint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Swiftlint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		B05D4F5F1F1E0D9D00929006 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -419,6 +404,7 @@
 				B0577E9E1F9A212300B1578E /* GrantType.swift in Sources */,
 				B061889F1F34999E003B66F7 /* ID.swift in Sources */,
 				B0DB58F61F98C2A800DAD605 /* HTTPClient+Router.swift in Sources */,
+				B07E057C1F9A36790025861A /* HTTPClientMiddleware.swift in Sources */,
 				B0577E8C1F99953200B1578E /* AuthProvider.swift in Sources */,
 				B05D4FBB1F1E10C200929006 /* Identifiable.swift in Sources */,
 				B0577E861F998C5300B1578E /* Auth.swift in Sources */,
