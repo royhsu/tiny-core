@@ -35,7 +35,7 @@ internal final class StubPasswordAuthProvider: PasswordAuthProvider {
 
         case .success(let credentials):
 
-            let auth = StubAuth(
+            let auth = Auth(
                 credentials: credentials,
                 provider: self
             )

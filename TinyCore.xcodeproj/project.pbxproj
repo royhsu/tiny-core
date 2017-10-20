@@ -21,7 +21,6 @@
 		B0577E881F998CAD00B1578E /* PasswordAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E871F998CAD00B1578E /* PasswordAuthProvider.swift */; };
 		B0577E8C1F99953200B1578E /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E8B1F99953200B1578E /* AuthProvider.swift */; };
 		B0577E8F1F99984900B1578E /* UserAPIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E8D1F99984300B1578E /* UserAPIServiceError.swift */; };
-		B0577E961F999BB100B1578E /* StubAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E941F999BAE00B1578E /* StubAuth.swift */; };
 		B0577E991F99A07A00B1578E /* StubPasswordAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E971F99A06C00B1578E /* StubPasswordAuthProvider.swift */; };
 		B0577E9C1F99AC4A00B1578E /* PasswordCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E9B1F99AC4A00B1578E /* PasswordCredentials.swift */; };
 		B0577E9E1F9A212300B1578E /* GrantType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E9D1F9A212300B1578E /* GrantType.swift */; };
@@ -67,7 +66,6 @@
 		B0577E871F998CAD00B1578E /* PasswordAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordAuthProvider.swift; sourceTree = "<group>"; };
 		B0577E8B1F99953200B1578E /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
 		B0577E8D1F99984300B1578E /* UserAPIServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIServiceError.swift; sourceTree = "<group>"; };
-		B0577E941F999BAE00B1578E /* StubAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubAuth.swift; sourceTree = "<group>"; };
 		B0577E971F99A06C00B1578E /* StubPasswordAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubPasswordAuthProvider.swift; sourceTree = "<group>"; };
 		B0577E9B1F99AC4A00B1578E /* PasswordCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCredentials.swift; sourceTree = "<group>"; };
 		B0577E9D1F9A212300B1578E /* GrantType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrantType.swift; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 		B0577E901F99990600B1578E /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				B0577E941F999BAE00B1578E /* StubAuth.swift */,
 				B0577E971F99A06C00B1578E /* StubPasswordAuthProvider.swift */,
 			);
 			path = Auth;
@@ -443,7 +440,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B003A7CC1F34790000561729 /* IDTests.swift in Sources */,
-				B0577E961F999BB100B1578E /* StubAuth.swift in Sources */,
 				B0DB58D91F989DB700DAD605 /* APIServiceTests.swift in Sources */,
 				B0577E991F99A07A00B1578E /* StubPasswordAuthProvider.swift in Sources */,
 				B0DB58E21F98A59400DAD605 /* APIService+UserAPIService.swift in Sources */,

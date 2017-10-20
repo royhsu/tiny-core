@@ -8,12 +8,25 @@
 
 // MARK: - Auth
 
-public protocol Auth {
+public struct Auth {
 
     // MARK: Property
 
-    var credentials: Credentials { get }
+    public let credentials: Credentials
 
-    var provider: AuthProvider { get }
+    public let provider: AuthProvider
+
+    // MARK: Init
+
+    public init(
+        credentials: Credentials,
+        provider: AuthProvider
+    ) {
+
+        self.credentials = credentials
+
+        self.provider = provider
+
+    }
 
 }
