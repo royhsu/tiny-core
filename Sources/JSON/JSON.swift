@@ -22,7 +22,7 @@ public enum JSONError: Error {
 
     case notArray
 
-    case missingValueFor(key: String)
+    case missingValueForKey(String)
 
 }
 
