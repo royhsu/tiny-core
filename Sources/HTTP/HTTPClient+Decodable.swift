@@ -15,7 +15,7 @@ public extension HTTPClient {
         decoder: ModelDecoder,
         completion: @escaping (_ result: Result<Model>) -> Void
     ) {
-
+        
         self.request(request) { result in
 
             switch result {

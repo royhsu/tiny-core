@@ -16,7 +16,22 @@ extension APIService: UserAPIService {
         id: UserID,
         completion: @escaping (_ result: Result<User>) -> Void) {
 
-        let endpoint = APIRouter.readUser(id: id)
+        guard
+            let auth = auth
+        else {
+            
+            completion(
+                .failure(UserAPIServiceError.authorizationRequired)
+            )
+            
+            return
+            
+        }
+        
+        let endpoint = APIRouter.readUser(
+            id: id,
+            auth: auth
+        )
 
         client.request(
             endpoint,

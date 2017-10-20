@@ -14,7 +14,10 @@ internal enum APIRouter: Router {
 
     // MARK: Case
 
-    case readUser(id: UserID)
+    case readUser(
+        id: UserID,
+        auth: Auth
+    )
 
     // MARK: Router
 
@@ -22,12 +25,25 @@ internal enum APIRouter: Router {
 
         switch self {
 
-        case .readUser(let id):
-
+        case .readUser(let id, let auth):
+            
             let url = URL(string: "http://api.foo.com/users/\(id.rawValue)")!
-
-            return URLRequest(url: url)
-
+            
+            var request = URLRequest(url: url)
+            
+            switch auth.credential {
+                
+            case .accessToken(let accessToken):
+                
+                request.setValue(
+                    "Bearer \(accessToken.rawValue)",
+                    forHTTPHeaderField: "Authorization"
+                )
+                
+            }
+            
+            return request
+            
         }
 
     }

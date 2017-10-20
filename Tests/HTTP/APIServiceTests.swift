@@ -24,6 +24,8 @@ internal final class APIServiceTests: XCTestCase {
         struct Data {
 
             let user: User
+            
+            let accessToken: AccessToken
 
         }
         // swiftlint:enable nesting
@@ -32,36 +34,40 @@ internal final class APIServiceTests: XCTestCase {
             user: User(
                 id: UserID("1"),
                 name: "Roy"
-            )
+            ),
+            accessToken: AccessToken(rawValue: "abcd1234")
         )
 
         do {
 
+            let credential = Credential.accessToken(data.accessToken)
+            
             let json = try JSONEncoder().encode(data.user)
 
             let service: UserAPIService = APIService(
+                auth: StubAuth(credential: credential),
                 client: StubHTTPClient(data: json)
             )
-
+            
             service.readUser(id: data.user.id) { result in
-
+                
                 promise.fulfill()
-
+                
                 switch result {
-
+                    
                 case .success(let user):
-
+                    
                     XCTAssertEqual(
                         user,
                         data.user
                     )
-
+                    
                 case .failure(let error):
-
+                    
                     XCTFail("\(error)")
-
+                    
                 }
-
+                
             }
 
             wait(

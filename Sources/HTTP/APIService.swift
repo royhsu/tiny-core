@@ -12,6 +12,8 @@ public struct APIService {
 
     // MARK: Property
 
+    public let auth: Auth?
+
     public let client: HTTPClient
 
 }
