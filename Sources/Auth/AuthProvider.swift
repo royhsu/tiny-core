@@ -8,8 +8,4 @@
 
 // MARK: - AuthProvider
 
-public protocol AuthProvider {
-
-    var name: String { get }
-
-}
+public protocol AuthProvider { }

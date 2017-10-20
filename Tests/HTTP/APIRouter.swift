@@ -31,12 +31,44 @@ internal enum APIRouter: Router {
 
             var request = URLRequest(url: url)
 
-            switch auth.credential {
+            switch auth.credentials.grantType {
 
-            case .accessToken(let accessToken):
+            case .password:
+
+                guard
+                    let credentials = auth.credentials as? PasswordCredentials,
+                    let data = "\(credentials.username):\(credentials.password)".data(using: .utf8)
+                else {
+
+                    // Todo: (version: 0.4.0, priority: .high)
+                    // 1. error handling.
+
+                    return request
+
+                }
+
+                let value = data.base64EncodedString()
 
                 request.setValue(
-                    "Bearer \(accessToken.rawValue)",
+                    "Basic \(value)",
+                    forHTTPHeaderField: "Authorization"
+                )
+
+            case .jwt:
+
+                guard
+                    let credentials = auth.credentials as? AccessTokenCredentials
+                else {
+
+                    // Todo: (version: 0.4.0, priority: .high)
+                    // 1. error handling.
+
+                    return request
+
+                }
+
+                request.setValue(
+                    "Bearer \(credentials.token)",
                     forHTTPHeaderField: "Authorization"
                 )
 

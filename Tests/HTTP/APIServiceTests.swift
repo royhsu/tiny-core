@@ -25,9 +25,7 @@ internal final class APIServiceTests: XCTestCase {
 
             let user: User
 
-            let providerName: String
-
-            let accessToken: AccessToken
+            let accessToken: AccessTokenCredentials
 
         }
         // swiftlint:enable nesting
@@ -37,34 +35,30 @@ internal final class APIServiceTests: XCTestCase {
                 id: UserID("1"),
                 name: "Roy"
             ),
-            providerName: "foo.com",
-            accessToken: AccessToken(rawValue: "abcd1234")
+            accessToken: AccessTokenCredentials(
+                grantType: .jwt,
+                token: "abcd1234"
+            )
         )
 
         do {
 
             let json = try JSONEncoder().encode(data.user)
 
-            let credential = Credential.accessToken(data.accessToken)
-
             let provider = StubPasswordAuthProvider(
-                name: data.providerName,
-                result: .success(credential)
+                result: .success(data.accessToken)
             )
 
-            provider.signIn(
-                username: "bar@foo.com",
-                password: "password",
+            provider.authenticate(
+                credentials: PasswordCredentials(
+                    username: "bar@foo.com",
+                    password: "password"
+                ),
                 completion: { result in
 
                     switch result {
 
                     case .success(let auth):
-
-                        XCTAssertEqual(
-                            auth.provider.name,
-                            provider.name
-                        )
 
                         let service: UserAPIService = APIService(
                             auth: auth,

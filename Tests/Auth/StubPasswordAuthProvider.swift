@@ -14,18 +14,11 @@ internal final class StubPasswordAuthProvider: PasswordAuthProvider {
 
     // MARK: Property
 
-    internal final let name: String
-
-    internal final let result: Result<Credential>
+    internal final let result: Result<Credentials>
 
     // MARK: Init
 
-    internal init(
-        name: String,
-        result: Result<Credential>
-    ) {
-
-        self.name = name
+    internal init(result: Result<Credentials>) {
 
         self.result = result
 
@@ -33,18 +26,17 @@ internal final class StubPasswordAuthProvider: PasswordAuthProvider {
 
     // MARK: PasswordAuthProvider
 
-    func signIn(
-        username: String,
-        password: String,
+    func authenticate(
+        credentials: PasswordCredentials,
         completion: @escaping (Result<Auth>) -> Void
     ) {
 
         switch result {
 
-        case .success(let credential):
+        case .success(let credentials):
 
             let auth = StubAuth(
-                credential: credential,
+                credentials: credentials,
                 provider: self
             )
 

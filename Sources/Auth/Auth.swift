@@ -12,7 +12,7 @@ public protocol Auth {
 
     // MARK: Property
 
-    var credential: Credential { get }
+    var credentials: Credentials { get }
 
     var provider: AuthProvider { get }
 

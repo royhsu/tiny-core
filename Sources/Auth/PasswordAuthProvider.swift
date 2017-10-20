@@ -10,9 +10,8 @@
 
 public protocol PasswordAuthProvider: AuthProvider {
 
-    func signIn(
-        username: String,
-        password: String,
+    func authenticate(
+        credentials: PasswordCredentials,
         completion: @escaping (_ result: Result<Auth>) -> Void
     )
 

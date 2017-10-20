@@ -1,17 +1,17 @@
 //
-//  AccessToken.swift
+//  Credentials.swift
 //  TinyCore
 //
 //  Created by Roy Hsu on 20/10/2017.
 //  Copyright © 2017 TinyWorld. All rights reserved.
 //
 
-// MARK: - AccessToken
+// MARK: - Credentials
 
-public struct AccessToken {
+public protocol Credentials {
 
     // MARK: Property
 
-    public let rawValue: String
+    var grantType: GrantType { get }
 
 }

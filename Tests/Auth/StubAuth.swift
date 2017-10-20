@@ -14,7 +14,7 @@ internal struct StubAuth: Auth {
 
     // MARK: Property
 
-    internal let credential: Credential
+    internal let credentials: Credentials
 
     internal let provider: AuthProvider
 
