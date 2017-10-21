@@ -36,10 +36,17 @@ public struct AuthHTTPMiddleware: HTTPMiddleware {
        
             let newCompletion: (HTTPResponse) -> Void = { originalResponse in
                 
+                let error = AuthError.unauthorized
+                
                 let newResponse = HTTPResponse(
                     request: originalResponse.request,
-                    response: originalResponse.response,
-                    result: .failure(AuthError.unauthorized)
+                    response: HTTPURLResponse(
+                        url: originalResponse.request.url!,
+                        statusCode: error.statusCode,
+                        httpVersion: nil,
+                        headerFields: nil
+                    )!,
+                    result: .failure(error)
                 )
                 
                 completion(newResponse)

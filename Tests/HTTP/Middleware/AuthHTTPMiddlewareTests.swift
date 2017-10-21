@@ -51,6 +51,13 @@ internal final class AuthHTTPMiddlewareTests: XCTestCase {
                             .unauthorized
                         )
                         
+                        let response = response.response as? HTTPURLResponse
+                        
+                        XCTAssertEqual(
+                            response?.statusCode,
+                            401
+                        )
+                        
                     }
                     
                 }

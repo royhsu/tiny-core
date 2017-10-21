@@ -15,3 +15,21 @@ public enum AuthError: Error {
     case unauthorized
     
 }
+
+// MARK: - HTTP
+
+public extension AuthError {
+    
+    public var statusCode: Int {
+        
+        switch self {
+            
+        case .unauthorized:
+            
+            return 401
+            
+        }
+        
+    }
+    
+}
