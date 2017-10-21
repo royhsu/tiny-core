@@ -10,11 +10,11 @@
 
 import TinyCore
 
-internal final class StubHTTPMiddleware: HTTPMiddleware {
+internal struct StubHTTPMiddleware: HTTPMiddleware {
 
     // MARK: Property
 
-    internal final let operation: (URLRequest) -> URLRequest
+    internal let operation: (URLRequest) -> URLRequest
 
     // MARK: Init
 
@@ -28,11 +28,11 @@ internal final class StubHTTPMiddleware: HTTPMiddleware {
 
     // MARK: HTTPClientMiddleware
 
-    internal final func respond(
+    internal func respond(
         to request: URLRequest,
         completion: @escaping (_ response: HTTPResponse) -> Void
     )
-    -> (URLRequest, (HTTPResponse) -> Void) {
+    -> (request: URLRequest, completion: (HTTPResponse) -> Void) {
 
         let request = operation(request)
 

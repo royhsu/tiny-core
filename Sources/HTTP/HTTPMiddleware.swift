@@ -8,11 +8,12 @@
 
 // MARK: - HTTPMiddleware
 
-public protocol HTTPMiddleware: class {
+public protocol HTTPMiddleware {
 
     func respond(
         to request: URLRequest,
         completion: @escaping (_ response: HTTPResponse) -> Void
-    ) -> (URLRequest, (HTTPResponse) -> Void)
+    )
+    -> (request: URLRequest, completion: (HTTPResponse) -> Void)
 
 }
