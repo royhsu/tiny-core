@@ -47,7 +47,7 @@ internal final class AuthHTTPMiddlewareTests: XCTestCase {
                     case .failure(let error):
                      
                         XCTAssertEqual(
-                            (error as? AuthError),
+                            (error as? HTTPError),
                             .unauthorized
                         )
                         

@@ -1,14 +1,12 @@
 //
-//  AuthError.swift
+//  HTTPError.swift
 //  TinyCore
 //
 //  Created by Roy Hsu on 21/10/2017.
 //  Copyright © 2017 TinyWorld. All rights reserved.
 //
 
-// MARK: - AuthError
-
-public enum AuthError: Error {
+public enum HTTPError: Error {
     
     // MARK: Case
     
@@ -18,7 +16,7 @@ public enum AuthError: Error {
 
 // MARK: - HTTP
 
-public extension AuthError {
+public extension HTTPError {
     
     public var statusCode: Int {
         
@@ -33,3 +31,4 @@ public extension AuthError {
     }
     
 }
+

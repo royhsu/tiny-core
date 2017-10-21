@@ -34,22 +34,11 @@ public struct AuthHTTPMiddleware: HTTPMiddleware {
             let auth = authDelegate.auth
         else {
        
-            let newCompletion: (HTTPResponse) -> Void = { originalResponse in
+            let newCompletion: (HTTPResponse) -> Void = { response in
                 
-                let error = AuthError.unauthorized
-                
-                let newResponse = HTTPResponse(
-                    request: originalResponse.request,
-                    response: HTTPURLResponse(
-                        url: originalResponse.request.url!,
-                        statusCode: error.statusCode,
-                        httpVersion: nil,
-                        headerFields: nil
-                    )!,
-                    result: .failure(error)
+                completion(
+                    HTTPResponse.unauthorized(with: response.request)
                 )
-                
-                completion(newResponse)
                 
             }
             
