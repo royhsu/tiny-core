@@ -8,7 +8,7 @@
 
 // MARK: - HTTPClientMiddleware
 
-public protocol HTTPClientMiddleware {
+public protocol HTTPClientMiddleware: class {
 
     func respond(
         to request: URLRequest,

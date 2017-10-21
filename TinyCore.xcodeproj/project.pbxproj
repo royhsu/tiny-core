@@ -29,6 +29,9 @@
 		B05D4FBD1F1E10C200929006 /* TinyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = B05D4FBA1F1E10C200929006 /* TinyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B061889F1F34999E003B66F7 /* ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = B061889E1F349979003B66F7 /* ID.swift */; };
 		B07E057C1F9A36790025861A /* HTTPClientMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07E057B1F9A36790025861A /* HTTPClientMiddleware.swift */; };
+		B07E057E1F9AC5D10025861A /* HTTPServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07E057D1F9AC5D10025861A /* HTTPServiceTests.swift */; };
+		B07E05801F9AC6900025861A /* StubHTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07E057F1F9AC6900025861A /* StubHTTPService.swift */; };
+		B07E05821F9AC8600025861A /* StubHTTPClientMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07E05811F9AC8600025861A /* StubHTTPClientMiddleware.swift */; };
 		B0DB58C81F989B9200DAD605 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58C71F989B9200DAD605 /* Router.swift */; };
 		B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */; };
 		B0DB58D51F989D1200DAD605 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58D31F989CD400DAD605 /* APIRouter.swift */; };
@@ -78,6 +81,9 @@
 		B05D4FC21F1E10D100929006 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B061889E1F349979003B66F7 /* ID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ID.swift; sourceTree = "<group>"; };
 		B07E057B1F9A36790025861A /* HTTPClientMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientMiddleware.swift; sourceTree = "<group>"; };
+		B07E057D1F9AC5D10025861A /* HTTPServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPServiceTests.swift; sourceTree = "<group>"; };
+		B07E057F1F9AC6900025861A /* StubHTTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubHTTPService.swift; sourceTree = "<group>"; };
+		B07E05811F9AC8600025861A /* StubHTTPClientMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubHTTPClientMiddleware.swift; sourceTree = "<group>"; };
 		B0DB58C71F989B9200DAD605 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		B0DB58D31F989CD400DAD605 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
@@ -262,6 +268,9 @@
 				B0DB58D81F989DB700DAD605 /* APIServiceTests.swift */,
 				B0DB58DA1F98A02C00DAD605 /* UserAPIService.swift */,
 				B0577E8D1F99984300B1578E /* UserAPIServiceError.swift */,
+				B07E057D1F9AC5D10025861A /* HTTPServiceTests.swift */,
+				B07E057F1F9AC6900025861A /* StubHTTPService.swift */,
+				B07E05811F9AC8600025861A /* StubHTTPClientMiddleware.swift */,
 			);
 			path = HTTP;
 			sourceTree = "<group>";
@@ -430,12 +439,15 @@
 				B0577E991F99A07A00B1578E /* StubPasswordAuthProvider.swift in Sources */,
 				B0DB58E21F98A59400DAD605 /* APIService+UserAPIService.swift in Sources */,
 				B0DB58DB1F98A02C00DAD605 /* UserAPIService.swift in Sources */,
+				B07E057E1F9AC5D10025861A /* HTTPServiceTests.swift in Sources */,
+				B07E05821F9AC8600025861A /* StubHTTPClientMiddleware.swift in Sources */,
 				B0DB58E01F98A55100DAD605 /* User.swift in Sources */,
 				B0DB58D51F989D1200DAD605 /* APIRouter.swift in Sources */,
 				B0577E8F1F99984900B1578E /* UserAPIServiceError.swift in Sources */,
 				B0DB58FB1F98CF8C00DAD605 /* IdentifiableTests.swift in Sources */,
 				B0DB58D71F989D5900DAD605 /* StubHTTPClient.swift in Sources */,
 				B003A7CF1F3479CF00561729 /* UserID.swift in Sources */,
+				B07E05801F9AC6900025861A /* StubHTTPService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

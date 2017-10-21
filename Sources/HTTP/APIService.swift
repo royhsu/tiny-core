@@ -20,34 +20,28 @@ public struct APIService {
 
 // MARK: - HTTPService
 
-public final class HTTPService {
+public protocol HTTPService: class {
     
     // MARK: Property
     
-    public let middlewares: [HTTPClientMiddleware]
+    var middlewares: [HTTPClientMiddleware] { get }
     
-    public let client: HTTPClient
+    var client: HTTPClient { get }
     
-    // MARK: Init
+    // MARK: Request
     
-    public init(
-        middlewares: [HTTPClientMiddleware],
-        client: HTTPClient
-    ) {
-        
-        self.middlewares = middlewares
-        
-        self.client = client
-        
-    }
+    func request(
+        _ request: URLRequest,
+        completion: @escaping (_ result: Result<Data>) -> Void
+    )
     
 }
 
-// MARK: - Request
+// MARK: - Request (Default Implementation)
 
 public extension HTTPService {
     
-    public final func request(
+    public func request(
         _ request: URLRequest,
         completion: @escaping (_ result: Result<Data>) -> Void
     ) {
