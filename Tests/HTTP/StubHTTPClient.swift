@@ -15,13 +15,13 @@ internal final class StubHTTPClient: HTTPClient {
     // MARK: Property
 
     internal final let data: Data
-    
+
     // MARK: Init
-    
+
     internal init(data: Data) {
-        
+
         self.data = data
-        
+
     }
 
     // MARK: HTTPClient
@@ -30,13 +30,13 @@ internal final class StubHTTPClient: HTTPClient {
         _ request: URLRequest,
         completion: @escaping (_ response: HTTPResponse) -> Void
     ) {
-        
+
         let response = HTTPResponse(
             request: request,
             response: URLResponse(),
             result: .success(data)
         )
-        
+
         completion(response)
 
     }

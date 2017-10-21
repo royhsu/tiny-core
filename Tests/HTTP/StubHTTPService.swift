@@ -11,24 +11,24 @@
 import TinyCore
 
 internal final class StubHTTPService: HTTPService {
-    
+
     // MARK: Property
-    
+
     internal final let middlewares: [HTTPClientMiddleware]
-    
+
     internal final let client: HTTPClient
-    
+
     // MARK: Init
-    
+
     internal init(
         middlewares: [HTTPClientMiddleware],
         client: HTTPClient
     ) {
-    
+
         self.middlewares = middlewares
-        
+
         self.client = client
-        
+
     }
-    
+
 }
