@@ -16,4 +16,24 @@ public struct AccessTokenCredentials: Credentials {
 
     public let token: String
 
+    // MARK: Init
+
+    public init(grantType: GrantType, token: String) {
+
+        switch grantType {
+
+        case .jwt:
+
+            self.grantType = grantType
+
+        case .password:
+
+            fatalError("Invalid grant type.")
+
+        }
+
+        self.token = token
+
+    }
+
 }

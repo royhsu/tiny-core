@@ -7,28 +7,27 @@
 //
 
 public enum HTTPError: Error {
-    
+
     // MARK: Case
-    
+
     case unauthorized
-    
+
 }
 
 // MARK: - HTTP
 
 public extension HTTPError {
-    
-    public var statusCode: Int {
-        
-        switch self {
-            
-        case .unauthorized:
-            
-            return 401
-            
-        }
-        
-    }
-    
-}
 
+    public var statusCode: Int {
+
+        switch self {
+
+        case .unauthorized:
+
+            return 401
+
+        }
+
+    }
+
+}

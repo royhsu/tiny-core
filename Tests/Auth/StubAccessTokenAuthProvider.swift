@@ -1,8 +1,8 @@
 //
-//  StubPasswordAuthProvider.swift
+//  StubAccessTokenAuthProvider.swift
 //  TinyCoreTests
 //
-//  Created by Roy Hsu on 20/10/2017.
+//  Created by Roy Hsu on 21/10/2017.
 //  Copyright © 2017 TinyWorld. All rights reserved.
 //
 
@@ -10,15 +10,15 @@
 
 import TinyCore
 
-internal final class StubPasswordAuthProvider: PasswordAuthProvider {
+internal final class StubAccessTokenAuthProvider: PasswordAuthProvider {
 
     // MARK: Property
 
-    internal final let result: Result<PasswordCredentials>
+    internal final let result: Result<AccessTokenCredentials>
 
     // MARK: Init
 
-    internal init(result: Result<PasswordCredentials>) {
+    internal init(result: Result<AccessTokenCredentials>) {
 
         self.result = result
 
@@ -29,7 +29,7 @@ internal final class StubPasswordAuthProvider: PasswordAuthProvider {
     func authenticate(
         credentials: PasswordCredentials,
         completion: @escaping (Result<Auth>) -> Void
-    ) {
+        ) {
 
         switch result {
 

@@ -9,11 +9,11 @@
 // MARK: - AuthDelegate
 
 public protocol AuthDelegate {
-    
+
     var auth: Auth? { get }
-    
+
     func authorize(
         completion: (_ result: Result<Auth>) -> Void
     )
-    
+
 }
