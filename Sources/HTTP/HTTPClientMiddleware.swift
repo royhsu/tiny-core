@@ -12,7 +12,7 @@ public protocol HTTPClientMiddleware: class {
 
     func respond(
         to request: URLRequest,
-        completion: @escaping (_ result: Result<Data>) -> Void
-    ) -> (URLRequest, (Result<Data>) -> Void)
+        completion: @escaping (_ response: HTTPResponse) -> Void
+    ) -> (URLRequest, (HTTPResponse) -> Void)
 
 }

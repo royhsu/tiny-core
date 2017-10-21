@@ -28,11 +28,16 @@ internal final class StubHTTPClient: HTTPClient {
 
     internal final func request(
         _ request: URLRequest,
-        completion: @escaping (Result<Data>) -> Void) {
-
-        completion(
-            .success(data)
+        completion: @escaping (_ response: HTTPResponse) -> Void
+    ) {
+        
+        let response = HTTPResponse(
+            request: request,
+            response: URLResponse(),
+            result: .success(data)
         )
+        
+        completion(response)
 
     }
 

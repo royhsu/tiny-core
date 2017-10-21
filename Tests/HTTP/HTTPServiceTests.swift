@@ -61,8 +61,8 @@ internal final class HTTPServiceTests: XCTestCase {
             var request = request
             
             request.setValue(
-                "Authorization",
-                forHTTPHeaderField: "abcd1234"
+                "abcd1234",
+                forHTTPHeaderField: "Authorization"
             )
             
             return request
@@ -86,11 +86,18 @@ internal final class HTTPServiceTests: XCTestCase {
         
         let endpoint = URLRequest(url: url)
         
-        service.request(endpoint) { result in
+        service.request(endpoint) { response in
             
             promise.fulfill()
             
-            switch result {
+            let authorizationHeader = response.request.value(forHTTPHeaderField: "Authorization")
+        
+            XCTAssertEqual(
+                authorizationHeader,
+                "abcd1234"
+            )
+            
+            switch response.result {
                 
             case .success(let value):
                 

@@ -32,7 +32,7 @@ public protocol HTTPService: class {
     
     func request(
         _ request: URLRequest,
-        completion: @escaping (_ result: Result<Data>) -> Void
+        completion: @escaping (_ response: HTTPResponse) -> Void
     )
     
 }
@@ -43,7 +43,7 @@ public extension HTTPService {
     
     public func request(
         _ request: URLRequest,
-        completion: @escaping (_ result: Result<Data>) -> Void
+        completion: @escaping (_ response: HTTPResponse) -> Void
     ) {
         
         let initialResult = (request: request, completion: completion)

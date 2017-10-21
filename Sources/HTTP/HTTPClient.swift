@@ -14,7 +14,7 @@ public protocol HTTPClient: class {
 
     func request(
         _ request: URLRequest,
-        completion: @escaping (_ result: Result<Data>) -> Void
+        completion: @escaping (_ response: HTTPResponse) -> Void
     )
 
 }

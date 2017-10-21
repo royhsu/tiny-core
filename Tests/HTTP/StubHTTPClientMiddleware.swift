@@ -30,8 +30,9 @@ internal final class StubHTTPClientMiddleware: HTTPClientMiddleware {
     
     internal final func respond(
         to request: URLRequest,
-        completion: @escaping (Result<Data>) -> Void)
-        -> (URLRequest, (Result<Data>) -> Void) {
+        completion: @escaping (_ response: HTTPResponse) -> Void
+    )
+    -> (URLRequest, (HTTPResponse) -> Void) {
         
         let request = operation(request)
             

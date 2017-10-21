@@ -16,9 +16,9 @@ public extension HTTPClient {
         completion: @escaping (_ result: Result<Model>) -> Void
     ) {
 
-        self.request(request) { result in
+        self.request(request) { response in
 
-            switch result {
+            switch response.result {
 
             case .success(let value):
 
