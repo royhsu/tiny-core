@@ -6,24 +6,6 @@
 //  Copyright © 2017 TinyWorld. All rights reserved.
 //
 
-internal struct StubAuthManager: AuthDelegate {
-    
-    internal let auth: Auth?
-    
-    internal init(auth: Auth?) {
-        
-        self.auth = auth
-        
-    }
-    
-    internal func authorize(completion: (Result<Auth>) -> Void) {
-        
-        fatalError()
-        
-    }
-    
-}
-
 // MARK: - AuthHTTPMiddlewareTests
 
 import XCTest
@@ -32,19 +14,19 @@ import XCTest
 
 internal final class AuthHTTPMiddlewareTests: XCTestCase {
     
+    // MARK: Middleware
+    
     internal final func testMiddleware() {
         
         let promise = expectation(description: "Run the auth middleware.")
         
-        // Todo: (version: 0.4.0, priority: .high)
-        // 1. find a name that doesn't conflict to the native type 'Data'.
-        struct Data {
+        struct StubData {
             
             let accessToken: AccessTokenCredentials
             
         }
         
-        let data = Data(
+        let stubData = StubData(
             accessToken: AccessTokenCredentials(
                 grantType: .jwt,
                 token: "abcd1234"
@@ -56,9 +38,9 @@ internal final class AuthHTTPMiddlewareTests: XCTestCase {
             let middleware = AuthHTTPMiddleware(
                 authDelegate: StubAuthManager(
                     auth: Auth(
-                        credentials: data.accessToken,
+                        credentials: stubData.accessToken,
                         provider: StubPasswordAuthProvider(
-                            result: .success(data.accessToken)
+                            result: .success(stubData.accessToken)
                         )
                     )
                 )
@@ -80,7 +62,7 @@ internal final class AuthHTTPMiddlewareTests: XCTestCase {
                     
                     XCTAssertEqual(
                         authorizationHeader,
-                        "Bearer \(data.accessToken.token)"
+                        "Bearer \(stubData.accessToken.token)"
                     )
                     
                 }

@@ -34,6 +34,7 @@
 		B07E05821F9AC8600025861A /* StubHTTPMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07E05811F9AC8600025861A /* StubHTTPMiddleware.swift */; };
 		B07E05851F9ACFAA0025861A /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07E05831F9ACF840025861A /* HTTPResponse.swift */; };
 		B07E05891F9AEDCD0025861A /* TinyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07E05881F9AEDCD0025861A /* TinyTest.swift */; };
+		B08443321F9B621900B7D777 /* StubAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08443311F9B621900B7D777 /* StubAuthManager.swift */; };
 		B0DB58C81F989B9200DAD605 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58C71F989B9200DAD605 /* Router.swift */; };
 		B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */; };
 		B0DB58D51F989D1200DAD605 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58D31F989CD400DAD605 /* APIRouter.swift */; };
@@ -91,6 +92,7 @@
 		B07E05811F9AC8600025861A /* StubHTTPMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubHTTPMiddleware.swift; sourceTree = "<group>"; };
 		B07E05831F9ACF840025861A /* HTTPResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResponse.swift; sourceTree = "<group>"; };
 		B07E05881F9AEDCD0025861A /* TinyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinyTest.swift; sourceTree = "<group>"; };
+		B08443311F9B621900B7D777 /* StubAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubAuthManager.swift; sourceTree = "<group>"; };
 		B0DB58C71F989B9200DAD605 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		B0DB58D31F989CD400DAD605 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				B0577E971F99A06C00B1578E /* StubPasswordAuthProvider.swift */,
+				B08443311F9B621900B7D777 /* StubAuthManager.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				B003A7CC1F34790000561729 /* IDTests.swift in Sources */,
 				B0DB58D91F989DB700DAD605 /* UserAPIServiceTests.swift in Sources */,
 				B07E05891F9AEDCD0025861A /* TinyTest.swift in Sources */,
+				B08443321F9B621900B7D777 /* StubAuthManager.swift in Sources */,
 				B0577E991F99A07A00B1578E /* StubPasswordAuthProvider.swift in Sources */,
 				B0DB58E21F98A59400DAD605 /* HTTPService+UserAPIService.swift in Sources */,
 				B0DB58DB1F98A02C00DAD605 /* UserAPIService.swift in Sources */,
