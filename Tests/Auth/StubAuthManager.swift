@@ -33,7 +33,7 @@ internal struct StubAuthManager: AuthDelegate {
         else {
             
             completion(
-                .failure(AuthError.notAuthorized)
+                .failure(AuthError.unauthorized)
             )
             
             return

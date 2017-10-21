@@ -6,16 +6,6 @@
 //  Copyright © 2017 TinyWorld. All rights reserved.
 //
 
-// MARK: - AuthError
-
-public enum AuthError: Error {
-    
-    // MARK: Case
-    
-    case notAuthorized
-    
-}
-
 // MARK: - AuthHTTPMiddleware
 
 public struct AuthHTTPMiddleware: HTTPMiddleware {
@@ -49,7 +39,7 @@ public struct AuthHTTPMiddleware: HTTPMiddleware {
                 let newResponse = HTTPResponse(
                     request: originalResponse.request,
                     response: originalResponse.response,
-                    result: .failure(AuthError.notAuthorized)
+                    result: .failure(AuthError.unauthorized)
                 )
                 
                 completion(newResponse)
