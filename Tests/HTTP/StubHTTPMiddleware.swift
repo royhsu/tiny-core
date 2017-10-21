@@ -1,16 +1,16 @@
 //
-//  StubHTTPClientMiddleware.swift
+//  StubHTTPMiddleware.swift
 //  TinyCoreTests
 //
 //  Created by Roy Hsu on 21/10/2017.
 //  Copyright © 2017 TinyWorld. All rights reserved.
 //
 
-// MARK: - StubHTTPClientMiddleware
+// MARK: - StubHTTPMiddleware
 
 import TinyCore
 
-internal final class StubHTTPClientMiddleware: HTTPClientMiddleware {
+internal final class StubHTTPMiddleware: HTTPMiddleware {
 
     // MARK: Property
 

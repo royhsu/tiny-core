@@ -1,14 +1,14 @@
 //
-//  HTTPClientMiddleware.swift
+//  HTTPMiddleware.swift
 //  TinyCore
 //
 //  Created by Roy Hsu on 20/10/2017.
 //  Copyright © 2017 TinyWorld. All rights reserved.
 //
 
-// MARK: - HTTPClientMiddleware
+// MARK: - HTTPMiddleware
 
-public protocol HTTPClientMiddleware: class {
+public protocol HTTPMiddleware: class {
 
     func respond(
         to request: URLRequest,

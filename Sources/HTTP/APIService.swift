@@ -24,7 +24,7 @@ public protocol HTTPService: class {
 
     // MARK: Property
 
-    var middlewares: [HTTPClientMiddleware] { get }
+    var middlewares: [HTTPMiddleware] { get }
 
     var client: HTTPClient { get }
 

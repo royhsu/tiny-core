@@ -44,7 +44,7 @@ internal final class HTTPServiceTests: XCTestCase {
             data: messageData
         )
 
-        let middleware = StubHTTPClientMiddleware { request in
+        let middleware = StubHTTPMiddleware { request in
 
             var request = request
 

@@ -14,14 +14,14 @@ internal final class StubHTTPService: HTTPService {
 
     // MARK: Property
 
-    internal final let middlewares: [HTTPClientMiddleware]
+    internal final let middlewares: [HTTPMiddleware]
 
     internal final let client: HTTPClient
 
     // MARK: Init
 
     internal init(
-        middlewares: [HTTPClientMiddleware],
+        middlewares: [HTTPMiddleware],
         client: HTTPClient
     ) {
 
