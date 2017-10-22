@@ -8,9 +8,6 @@
 
 // MARK: - Credentials
 
-// Todo: (version: 0.4.0, priority: .high)
-// 1. Replace protocol with enum.
-
 public protocol Credentials {
 
     // MARK: Property

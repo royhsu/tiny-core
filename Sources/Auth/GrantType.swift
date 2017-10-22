@@ -14,8 +14,6 @@ public enum GrantType: String {
 
     case password = "password"
 
-    // Todo: (version: nil, priority: .high)
-    // 1. use uppercased raw value or not.
     case jwt = "jwt-bearer"
 
 }

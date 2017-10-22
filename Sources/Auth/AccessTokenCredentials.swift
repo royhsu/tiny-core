@@ -18,7 +18,10 @@ public struct AccessTokenCredentials: Credentials {
 
     // MARK: Init
 
-    public init(grantType: GrantType, token: String) {
+    public init(
+        grantType: GrantType,
+        token: String
+    ) {
 
         switch grantType {
 
