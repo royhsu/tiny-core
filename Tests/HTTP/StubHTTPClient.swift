@@ -14,13 +14,13 @@ internal final class StubHTTPClient: HTTPClient {
 
     // MARK: Property
 
-    internal final let data: Data
+    internal final let stubData: Data
 
     // MARK: Init
 
-    internal init(data: Data) {
+    internal init(stubData: Data) {
 
-        self.data = data
+        self.stubData = stubData
 
     }
 
@@ -34,7 +34,7 @@ internal final class StubHTTPClient: HTTPClient {
         let response = HTTPResponse(
             request: request,
             response: URLResponse(),
-            result: .success(data)
+            result: .success(stubData)
         )
 
         completion(response)

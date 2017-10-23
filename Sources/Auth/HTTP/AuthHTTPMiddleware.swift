@@ -44,14 +44,16 @@ public struct AuthHTTPMiddleware: HTTPMiddleware {
             )
 
             return (request, completion)
+            
 
         }
         
         if
-            let credentials = authDelegate.grantedAuth?.credentials as? AccessTokenCredentials {
+            let credentials = authDelegate.grantedAuth?.credentials as? AccessTokenCredentials,
+            let authorizationValue = try? credentials.valueForAuthorizationHTTPHeader() {
             
             request.setValue(
-                "Bearer \(credentials.token)",
+                authorizationValue,
                 forHTTPHeaderField: "Authorization"
             )
             

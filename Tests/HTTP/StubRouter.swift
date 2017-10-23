@@ -1,16 +1,16 @@
 //
-//  APIRouter.swift
+//  StubRouter.swift
 //  TinyCoreTests
 //
 //  Created by Roy Hsu on 19/10/2017.
 //  Copyright © 2017 TinyWorld. All rights reserved.
 //
 
-// MARK: - APIRouter
+// MARK: - StubRouter
 
 import TinyCore
 
-internal enum APIRouter: Router {
+internal enum StubRouter: Router {
 
     // MARK: Case
 

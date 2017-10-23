@@ -24,87 +24,81 @@ internal final class HTTPServiceTests: XCTestCase {
         struct Data {
 
             let message: String
+            
+            let credentials: AccessTokenCredentials
 
         }
         // swiftlint:enable nesting
 
-        let data = Data(message: "Hello World")
-
-        guard
-            let messageData = data.message.data(using: .utf8)
-        else {
-
-            XCTFail("Data is required.")
-
-            return
-
-        }
-
-        let client = StubHTTPClient(
-            data: messageData
+        let stubData = Data(
+            message: "Hello World",
+            credentials: AccessTokenCredentials(
+                token: "abcd1234",
+                tokenType: .bearer
+            )
         )
 
-        let middleware = StubHTTPMiddleware { request in
+        performTest {
 
-            var request = request
-
-            request.setValue(
-                "abcd1234",
-                forHTTPHeaderField: "Authorization"
+            let middleware = AuthHTTPMiddleware(
+                authDelegate: StubAuthManager(
+                    stubAuth: Auth(credentials: stubData.credentials),
+                    providerType: StubBasicAuthProvider.self
+                )
+            )
+            
+            let messageData = try unwrap(
+                stubData.message.data(using: .utf8)
             )
 
-            return request
-
-        }
-
-        let service = StubHTTPService(
-            middlewares: [ middleware ],
-            client: client
-        )
-
-        guard
-            let url = URL(string: "http://api.foo.com")
-        else {
-
-            XCTFail("URL is invalid.")
-
-            return
-
-        }
-
-        let endpoint = URLRequest(url: url)
-
-        service.request(endpoint) { response in
-
-            promise.fulfill()
-
-            let authorizationHeader = response.request.value(forHTTPHeaderField: "Authorization")
-
-            XCTAssertEqual(
-                authorizationHeader,
-                "abcd1234"
+            let service = StubHTTPService(
+                middlewares: [ middleware ],
+                client: StubHTTPClient(stubData: messageData)
+            )
+            
+            let url = try unwrap(
+                URL(string: "http://api.foo.com")
             )
 
-            switch response.result {
+            let endpoint = URLRequest(url: url)
 
-            case .success(let value):
+            service.request(endpoint) { response in
 
-                let message = String(
-                    data: value,
-                    encoding: .utf8
-                )
+                performTest {
+                
+                    promise.fulfill()
+                    
+                    switch response.result {
 
-                XCTAssertEqual(
-                    message,
-                    data.message
-                )
+                    case .success(let value):
 
-            case .failure(let error):
+                        let authorizationHeader = response.request.value(forHTTPHeaderField: "Authorization")
+                        
+                        XCTAssertEqual(
+                            authorizationHeader,
+                            try stubData.credentials.valueForAuthorizationHTTPHeader()
+                        )
+                        
+                        let message = String(
+                            data: value,
+                            encoding: .utf8
+                        )
 
-                XCTFail("\(error)")
+                        XCTAssertEqual(
+                            message,
+                            stubData.message
+                        )
 
+                    case .failure(let error):
+
+                        XCTFail("\(error)")
+
+                    }
+
+                }
+                    
             }
-
+            
         }
 
         wait(
