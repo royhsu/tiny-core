@@ -14,6 +14,9 @@ public struct Auth {
 
     public let credentials: Credentials
 
+    // Todo: (version: nil, priority: .medium)
+    // 1. add associated user with created auth.
+
     // MARK: Init
 
     public init(credentials: Credentials) {
