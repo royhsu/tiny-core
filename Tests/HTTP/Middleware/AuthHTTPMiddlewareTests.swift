@@ -80,18 +80,18 @@ internal final class AuthHTTPMiddlewareTests: XCTestCase {
 
     }
 
-    internal final func testAuthentication() {
+    internal final func testBasicAuth() {
 
-        let promise = expectation(description: "Handle authentication.")
+        let promise = expectation(description: "Handle basic auth.")
 
         struct StubData {
 
-            let credentials: PasswordCredentials
+            let credentials: BasicAuthCredentials
 
         }
 
         let stubData = StubData(
-            credentials: PasswordCredentials(
+            credentials: BasicAuthCredentials(
                 username: "bar@foo.com",
                 password: "password"
             )
@@ -109,7 +109,7 @@ internal final class AuthHTTPMiddlewareTests: XCTestCase {
                 authDelegate: StubAuthManager(
                     auth: Auth(
                         credentials: stubData.credentials,
-                        provider: StubPasswordAuthProvider(
+                        provider: StubBasicAuthProvider(
                             result: .success(stubData.credentials)
                         )
                     )
@@ -137,12 +137,14 @@ internal final class AuthHTTPMiddlewareTests: XCTestCase {
 
                 }
             )
+            
+            let noData = Data()
 
             result.completion(
                 HTTPResponse(
                     request: result.request,
                     response: URLResponse(),
-                    result: .success(Data())
+                    result: .success(noData)
                 )
             )
 
@@ -155,73 +157,73 @@ internal final class AuthHTTPMiddlewareTests: XCTestCase {
 
     }
 
-    internal final func testAuthorization() {
-
-        let promise = expectation(description: "Handle authorization.")
-
-        struct StubData {
-
-            let credentials: AccessTokenCredentials
-
-        }
-
-        let stubData = StubData(
-            credentials: AccessTokenCredentials(
-                grantType: .jwt,
-                token: "abcd1234"
-            )
-        )
-
-        performTest {
-
-            let middleware = AuthHTTPMiddleware(
-                authDelegate: StubAuthManager(
-                    auth: Auth(
-                        credentials: stubData.credentials,
-                        provider: StubAccessTokenAuthProvider(
-                            result: .success(stubData.credentials)
-                        )
-                    )
-                )
-            )
-
-            let url = try unwrap(
-                URL(string: "http://api.foo.com")
-            )
-
-            let request = URLRequest(url: url)
-
-            let result = middleware.respond(
-                to: request,
-                completion: { response in
-
-                    promise.fulfill()
-
-                    let authorizationHeader = response.request.value(forHTTPHeaderField: "Authorization")
-
-                    XCTAssertEqual(
-                        authorizationHeader,
-                        "Bearer \(stubData.credentials.token)"
-                    )
-
-                }
-            )
-
-            result.completion(
-                HTTPResponse(
-                    request: result.request,
-                    response: URLResponse(),
-                    result: .success(Data())
-                )
-            )
-
-        }
-
-        wait(
-            for: [ promise ],
-            timeout: 10.0
-        )
-
-    }
+//    internal final func testAuthorization() {
+//
+//        let promise = expectation(description: "Handle authorization.")
+//
+//        struct StubData {
+//
+//            let credentials: AccessTokenCredentials
+//
+//        }
+//
+//        let stubData = StubData(
+//            credentials: AccessTokenCredentials(
+//                grantType: .jwt,
+//                token: "abcd1234"
+//            )
+//        )
+//
+//        performTest {
+//
+//            let middleware = AuthHTTPMiddleware(
+//                authDelegate: StubAuthManager(
+//                    auth: Auth(
+//                        credentials: stubData.credentials,
+//                        provider: StubAccessTokenAuthProvider(
+//                            result: .success(stubData.credentials)
+//                        )
+//                    )
+//                )
+//            )
+//
+//            let url = try unwrap(
+//                URL(string: "http://api.foo.com")
+//            )
+//
+//            let request = URLRequest(url: url)
+//
+//            let result = middleware.respond(
+//                to: request,
+//                completion: { response in
+//
+//                    promise.fulfill()
+//
+//                    let authorizationHeader = response.request.value(forHTTPHeaderField: "Authorization")
+//
+//                    XCTAssertEqual(
+//                        authorizationHeader,
+//                        "Bearer \(stubData.credentials.token)"
+//                    )
+//
+//                }
+//            )
+//
+//            result.completion(
+//                HTTPResponse(
+//                    request: result.request,
+//                    response: URLResponse(),
+//                    result: .success(Data())
+//                )
+//            )
+//
+//        }
+//
+//        wait(
+//            for: [ promise ],
+//            timeout: 10.0
+//        )
+//
+//    }
 
 }

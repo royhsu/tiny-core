@@ -1,33 +1,33 @@
 //
-//  StubPasswordAuthProvider.swift
+//  StubBasicAuthProviderr.swift
 //  TinyCoreTests
 //
 //  Created by Roy Hsu on 20/10/2017.
 //  Copyright © 2017 TinyWorld. All rights reserved.
 //
 
-// MARK: - StubPasswordAuthProvider
+// MARK: - StubBasicAuthProvider
 
 import TinyCore
 
-internal final class StubPasswordAuthProvider: PasswordAuthProvider {
+internal struct StubBasicAuthProvider: BasicAuthProvider {
 
     // MARK: Property
 
-    internal final let result: Result<PasswordCredentials>
+    internal let result: Result<BasicAuthCredentials>
 
     // MARK: Init
 
-    internal init(result: Result<PasswordCredentials>) {
+    internal init(result: Result<BasicAuthCredentials>) {
 
         self.result = result
 
     }
 
-    // MARK: PasswordAuthProvider
+    // MARK: BasicAuthProvider
 
     func authenticate(
-        credentials: PasswordCredentials,
+        credentials: BasicAuthCredentials,
         completion: @escaping (Result<Auth>) -> Void
     ) {
 

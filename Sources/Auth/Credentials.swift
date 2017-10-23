@@ -8,10 +8,4 @@
 
 // MARK: - Credentials
 
-public protocol Credentials {
-
-    // MARK: Property
-
-    var grantType: GrantType { get }
-
-}
+public protocol Credentials { }

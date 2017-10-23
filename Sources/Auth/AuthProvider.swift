@@ -8,4 +8,11 @@
 
 // MARK: - AuthProvider
 
-public protocol AuthProvider { }
+public protocol AuthProvider {
+    
+    func authorize(
+        credentials: Credentials,
+        completion: @escaping (Result<Auth>) -> Void
+    )
+    
+}

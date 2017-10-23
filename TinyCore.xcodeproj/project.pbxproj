@@ -16,14 +16,12 @@
 		B0577E7A1F98F0B300B1578E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E791F98F0B300B1578E /* Result.swift */; };
 		B0577E7B1F9979E600B1578E /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58ED1F98B7C600DAD605 /* HTTPService.swift */; };
 		B0577E7E1F99835F00B1578E /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E7D1F99835F00B1578E /* Credentials.swift */; };
-		B0577E801F99847500B1578E /* AccessTokenCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E7F1F99847500B1578E /* AccessTokenCredentials.swift */; };
 		B0577E861F998C5300B1578E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E851F998C5300B1578E /* Auth.swift */; };
-		B0577E881F998CAD00B1578E /* PasswordAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E871F998CAD00B1578E /* PasswordAuthProvider.swift */; };
+		B0577E881F998CAD00B1578E /* BasicAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E871F998CAD00B1578E /* BasicAuthProvider.swift */; };
 		B0577E8C1F99953200B1578E /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E8B1F99953200B1578E /* AuthProvider.swift */; };
 		B0577E8F1F99984900B1578E /* UserAPIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E8D1F99984300B1578E /* UserAPIServiceError.swift */; };
 		B0577E991F99A07A00B1578E /* StubPasswordAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E971F99A06C00B1578E /* StubPasswordAuthProvider.swift */; };
-		B0577E9C1F99AC4A00B1578E /* PasswordCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E9B1F99AC4A00B1578E /* PasswordCredentials.swift */; };
-		B0577E9E1F9A212300B1578E /* GrantType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E9D1F9A212300B1578E /* GrantType.swift */; };
+		B0577E9C1F99AC4A00B1578E /* BasicAuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E9B1F99AC4A00B1578E /* BasicAuthCredentials.swift */; };
 		B05D4F6E1F1E0D9E00929006 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05D4F641F1E0D9D00929006 /* TinyCore.framework */; };
 		B05D4FBB1F1E10C200929006 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D4FB81F1E10C200929006 /* Identifiable.swift */; };
 		B05D4FBD1F1E10C200929006 /* TinyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = B05D4FBA1F1E10C200929006 /* TinyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -37,7 +35,7 @@
 		B08443321F9B621900B7D777 /* StubAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08443311F9B621900B7D777 /* StubAuthManager.swift */; };
 		B08443361F9B68E500B7D777 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08443351F9B68E500B7D777 /* HTTPError.swift */; };
 		B08443381F9B690F00B7D777 /* HTTPResponse+HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08443371F9B690F00B7D777 /* HTTPResponse+HTTPError.swift */; };
-		B084433A1F9B6F1B00B7D777 /* StubAccessTokenAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08443391F9B6F1B00B7D777 /* StubAccessTokenAuthProvider.swift */; };
+		B084433F1F9D872E00B7D777 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B084433D1F9D86E900B7D777 /* AuthError.swift */; };
 		B0DB58C81F989B9200DAD605 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58C71F989B9200DAD605 /* Router.swift */; };
 		B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */; };
 		B0DB58D51F989D1200DAD605 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58D31F989CD400DAD605 /* APIRouter.swift */; };
@@ -74,14 +72,12 @@
 		B0577E761F98EC7600B1578E /* PropertyListDecoder+ModelDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PropertyListDecoder+ModelDecoder.swift"; sourceTree = "<group>"; };
 		B0577E791F98F0B300B1578E /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		B0577E7D1F99835F00B1578E /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
-		B0577E7F1F99847500B1578E /* AccessTokenCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenCredentials.swift; sourceTree = "<group>"; };
 		B0577E851F998C5300B1578E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
-		B0577E871F998CAD00B1578E /* PasswordAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordAuthProvider.swift; sourceTree = "<group>"; };
+		B0577E871F998CAD00B1578E /* BasicAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAuthProvider.swift; sourceTree = "<group>"; };
 		B0577E8B1F99953200B1578E /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
 		B0577E8D1F99984300B1578E /* UserAPIServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIServiceError.swift; sourceTree = "<group>"; };
 		B0577E971F99A06C00B1578E /* StubPasswordAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubPasswordAuthProvider.swift; sourceTree = "<group>"; };
-		B0577E9B1F99AC4A00B1578E /* PasswordCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCredentials.swift; sourceTree = "<group>"; };
-		B0577E9D1F9A212300B1578E /* GrantType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrantType.swift; sourceTree = "<group>"; };
+		B0577E9B1F99AC4A00B1578E /* BasicAuthCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAuthCredentials.swift; sourceTree = "<group>"; };
 		B05D4F641F1E0D9D00929006 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05D4F6D1F1E0D9E00929006 /* TinyCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinyCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05D4FB81F1E10C200929006 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
@@ -98,7 +94,7 @@
 		B08443311F9B621900B7D777 /* StubAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubAuthManager.swift; sourceTree = "<group>"; };
 		B08443351F9B68E500B7D777 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		B08443371F9B690F00B7D777 /* HTTPResponse+HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPResponse+HTTPError.swift"; sourceTree = "<group>"; };
-		B08443391F9B6F1B00B7D777 /* StubAccessTokenAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubAccessTokenAuthProvider.swift; sourceTree = "<group>"; };
+		B084433D1F9D86E900B7D777 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		B0DB58C71F989B9200DAD605 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		B0DB58D31F989CD400DAD605 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
@@ -165,13 +161,11 @@
 		B0577E7C1F9982D000B1578E /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				B0577E9D1F9A212300B1578E /* GrantType.swift */,
+				B084433B1F9D850600B7D777 /* Basic */,
 				B0577E7D1F99835F00B1578E /* Credentials.swift */,
-				B0577E7F1F99847500B1578E /* AccessTokenCredentials.swift */,
-				B0577E9B1F99AC4A00B1578E /* PasswordCredentials.swift */,
 				B0577E851F998C5300B1578E /* Auth.swift */,
+				B084433D1F9D86E900B7D777 /* AuthError.swift */,
 				B0577E8B1F99953200B1578E /* AuthProvider.swift */,
-				B0577E871F998CAD00B1578E /* PasswordAuthProvider.swift */,
 				B0FA83B01F9AF24C00534694 /* AuthDelegate.swift */,
 			);
 			path = Auth;
@@ -180,8 +174,8 @@
 		B0577E901F99990600B1578E /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				B084433C1F9D852400B7D777 /* Basic */,
 				B0577E971F99A06C00B1578E /* StubPasswordAuthProvider.swift */,
-				B08443391F9B6F1B00B7D777 /* StubAccessTokenAuthProvider.swift */,
 				B08443311F9B621900B7D777 /* StubAuthManager.swift */,
 			);
 			path = Auth;
@@ -274,6 +268,22 @@
 				B07E05881F9AEDCD0025861A /* TinyTest.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B084433B1F9D850600B7D777 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				B0577E9B1F99AC4A00B1578E /* BasicAuthCredentials.swift */,
+				B0577E871F998CAD00B1578E /* BasicAuthProvider.swift */,
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
+		B084433C1F9D852400B7D777 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Basic;
 			sourceTree = "<group>";
 		};
 		B0DB58C61F989B7A00DAD605 /* HTTP */ = {
@@ -463,7 +473,6 @@
 				B0FA83B11F9AF24C00534694 /* AuthDelegate.swift in Sources */,
 				B0577E771F98EC7600B1578E /* PropertyListDecoder+ModelDecoder.swift in Sources */,
 				B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */,
-				B0577E9E1F9A212300B1578E /* GrantType.swift in Sources */,
 				B08443361F9B68E500B7D777 /* HTTPError.swift in Sources */,
 				B061889F1F34999E003B66F7 /* ID.swift in Sources */,
 				B07E05851F9ACFAA0025861A /* HTTPResponse.swift in Sources */,
@@ -472,17 +481,17 @@
 				B0577E8C1F99953200B1578E /* AuthProvider.swift in Sources */,
 				B05D4FBB1F1E10C200929006 /* Identifiable.swift in Sources */,
 				B0577E861F998C5300B1578E /* Auth.swift in Sources */,
+				B084433F1F9D872E00B7D777 /* AuthError.swift in Sources */,
 				B0DB58E91F98AF8900DAD605 /* HTTPClient+Decodable.swift in Sources */,
 				B0577E7E1F99835F00B1578E /* Credentials.swift in Sources */,
-				B0577E9C1F99AC4A00B1578E /* PasswordCredentials.swift in Sources */,
+				B0577E9C1F99AC4A00B1578E /* BasicAuthCredentials.swift in Sources */,
 				B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */,
 				B0577E7B1F9979E600B1578E /* HTTPService.swift in Sources */,
 				B0FA83AF1F9AF1CB00534694 /* AuthHTTPMiddleware.swift in Sources */,
 				B0577E721F98EB2F00B1578E /* ModelDecoder.swift in Sources */,
-				B0577E881F998CAD00B1578E /* PasswordAuthProvider.swift in Sources */,
+				B0577E881F998CAD00B1578E /* BasicAuthProvider.swift in Sources */,
 				B0577E751F98EC1400B1578E /* JSONDecoder+ModelDecoder.swift in Sources */,
 				B0DB58E81F98AF3700DAD605 /* JSON.swift in Sources */,
-				B0577E801F99847500B1578E /* AccessTokenCredentials.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,7 +499,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B084433A1F9B6F1B00B7D777 /* StubAccessTokenAuthProvider.swift in Sources */,
 				B003A7CC1F34790000561729 /* IDTests.swift in Sources */,
 				B0DB58D91F989DB700DAD605 /* UserAPIServiceTests.swift in Sources */,
 				B07E05891F9AEDCD0025861A /* TinyTest.swift in Sources */,
