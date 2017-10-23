@@ -10,7 +10,7 @@
 
 import TinyCore
 
-internal enum StubRouter: Router {
+internal enum StubRouter: HTTPRouter {
 
     // MARK: Case
 

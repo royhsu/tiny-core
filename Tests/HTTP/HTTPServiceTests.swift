@@ -52,7 +52,6 @@ internal final class HTTPServiceTests: XCTestCase {
             )
 
             let service = StubHTTPService(
-                middlewares: [ middleware ],
                 client: StubHTTPClient(stubData: messageData)
             )
 
@@ -62,42 +61,46 @@ internal final class HTTPServiceTests: XCTestCase {
 
             let endpoint = URLRequest(url: url)
 
-            service.request(endpoint) { response in
+            service.request(
+                endpoint,
+                middlewares: [ middleware ],
+                completion: { response in
 
-                performTest {
+                    performTest {
 
-                    promise.fulfill()
+                        promise.fulfill()
 
-                    switch response.result {
+                        switch response.result {
 
-                    case .success(let value):
+                        case .success(let value):
 
-                        let authorizationHeader = response.request.value(forHTTPHeaderField: "Authorization")
+                            let authorizationHeader = response.request.value(forHTTPHeaderField: "Authorization")
 
-                        XCTAssertEqual(
-                            authorizationHeader,
-                            try stubData.credentials.valueForAuthorizationHTTPHeader()
-                        )
+                            XCTAssertEqual(
+                                authorizationHeader,
+                                try stubData.credentials.valueForAuthorizationHTTPHeader()
+                            )
 
-                        let message = String(
-                            data: value,
-                            encoding: .utf8
-                        )
+                            let message = String(
+                                data: value,
+                                encoding: .utf8
+                            )
 
-                        XCTAssertEqual(
-                            message,
-                            stubData.message
-                        )
+                            XCTAssertEqual(
+                                message,
+                                stubData.message
+                            )
 
-                    case .failure(let error):
+                        case .failure(let error):
 
-                        XCTFail("\(error)")
+                            XCTFail("\(error)")
+
+                        }
 
                     }
 
                 }
-
-            }
+            )
 
         }
 

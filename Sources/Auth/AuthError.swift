@@ -11,6 +11,8 @@
 public enum AuthError: Error {
 
     // MARK: Case
+    
+    case authorizationRequired
 
     case credentialsNotFound
 

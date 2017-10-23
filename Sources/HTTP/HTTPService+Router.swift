@@ -1,5 +1,5 @@
 //
-//  HTTPClient+Router.swift
+//  HTTPService+Router.swift
 //  TinyCore
 //
 //  Created by Roy Hsu on 19/10/2017.
@@ -8,10 +8,11 @@
 
 // MARK: - Router
 
-public extension HTTPClient {
+public extension HTTPService {
 
     public func request<Model: Decodable>(
-        _ router: Router,
+        _ router: HTTPRouter,
+        middlewares: [HTTPMiddleware],
         decoder: ModelDecoder,
         completion: @escaping (_ result: Result<Model>) -> Void
     ) {
@@ -22,6 +23,7 @@ public extension HTTPClient {
 
             request(
                 endpoint,
+                middlewares: middlewares,
                 decoder: decoder,
                 completion: completion
             )

@@ -12,14 +12,13 @@ public protocol HTTPService: class {
 
     // MARK: Property
 
-    var middlewares: [HTTPMiddleware] { get }
-
     var client: HTTPClient { get }
 
     // MARK: Request
 
     func request(
         _ request: URLRequest,
+        middlewares: [HTTPMiddleware],
         completion: @escaping (_ response: HTTPResponse) -> Void
     )
 
@@ -35,6 +34,7 @@ public extension HTTPService {
     //    Should do some research for a better implementation.
     public func request(
         _ request: URLRequest,
+        middlewares: [HTTPMiddleware],
         completion: @escaping (_ response: HTTPResponse) -> Void
     ) {
 
