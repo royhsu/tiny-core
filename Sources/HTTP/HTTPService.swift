@@ -31,7 +31,7 @@ public extension HTTPService {
     // Todo: (version: nil, priority: .high)
     // 1. The currently default implementation makes middlewares hard to do async tasks.
     //    May use semaphore to convert async tasks to sync ones for doing the trick.
-    //    Should do some research for a better implementation.
+    // Should do some research for a better implementation.
     public func request(
         _ request: URLRequest,
         middlewares: [HTTPMiddleware],
