@@ -37,6 +37,8 @@
 		B08443381F9B690F00B7D777 /* HTTPResponse+HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08443371F9B690F00B7D777 /* HTTPResponse+HTTPError.swift */; };
 		B084433F1F9D872E00B7D777 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B084433D1F9D86E900B7D777 /* AuthError.swift */; };
 		B08443501F9D9DD600B7D777 /* AuthDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B084434F1F9D9DD600B7D777 /* AuthDelegateTests.swift */; };
+		B08443541F9DC34C00B7D777 /* AccessTokenCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08443521F9DC33100B7D777 /* AccessTokenCredentials.swift */; };
+		B08443561F9DC3A900B7D777 /* AccessTokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08443551F9DC3A900B7D777 /* AccessTokenType.swift */; };
 		B0DB58C81F989B9200DAD605 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58C71F989B9200DAD605 /* Router.swift */; };
 		B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */; };
 		B0DB58D51F989D1200DAD605 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58D31F989CD400DAD605 /* APIRouter.swift */; };
@@ -97,6 +99,8 @@
 		B08443371F9B690F00B7D777 /* HTTPResponse+HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPResponse+HTTPError.swift"; sourceTree = "<group>"; };
 		B084433D1F9D86E900B7D777 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		B084434F1F9D9DD600B7D777 /* AuthDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDelegateTests.swift; sourceTree = "<group>"; };
+		B08443521F9DC33100B7D777 /* AccessTokenCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenCredentials.swift; sourceTree = "<group>"; };
+		B08443551F9DC3A900B7D777 /* AccessTokenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenType.swift; sourceTree = "<group>"; };
 		B0DB58C71F989B9200DAD605 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		B0DB58D31F989CD400DAD605 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 		B0577E7C1F9982D000B1578E /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				B08443511F9DC31A00B7D777 /* Access Token */,
 				B084433B1F9D850600B7D777 /* Basic */,
 				B0577E7D1F99835F00B1578E /* Credentials.swift */,
 				B0577E851F998C5300B1578E /* Auth.swift */,
@@ -287,6 +292,15 @@
 			children = (
 			);
 			path = Basic;
+			sourceTree = "<group>";
+		};
+		B08443511F9DC31A00B7D777 /* Access Token */ = {
+			isa = PBXGroup;
+			children = (
+				B08443521F9DC33100B7D777 /* AccessTokenCredentials.swift */,
+				B08443551F9DC3A900B7D777 /* AccessTokenType.swift */,
+			);
+			path = "Access Token";
 			sourceTree = "<group>";
 		};
 		B0DB58C61F989B7A00DAD605 /* HTTP */ = {
@@ -470,11 +484,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B08443541F9DC34C00B7D777 /* AccessTokenCredentials.swift in Sources */,
 				B0DB58C81F989B9200DAD605 /* Router.swift in Sources */,
 				B08443381F9B690F00B7D777 /* HTTPResponse+HTTPError.swift in Sources */,
 				B0577E7A1F98F0B300B1578E /* Result.swift in Sources */,
 				B0FA83B11F9AF24C00534694 /* AuthDelegate.swift in Sources */,
 				B0577E771F98EC7600B1578E /* PropertyListDecoder+ModelDecoder.swift in Sources */,
+				B08443561F9DC3A900B7D777 /* AccessTokenType.swift in Sources */,
 				B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */,
 				B08443361F9B68E500B7D777 /* HTTPError.swift in Sources */,
 				B061889F1F34999E003B66F7 /* ID.swift in Sources */,

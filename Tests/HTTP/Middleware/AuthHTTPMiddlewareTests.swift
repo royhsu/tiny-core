@@ -155,73 +155,69 @@ internal final class AuthHTTPMiddlewareTests: XCTestCase {
 
     }
 
-//    internal final func testAuthorization() {
-//
-//        let promise = expectation(description: "Handle authorization.")
-//
-//        struct StubData {
-//
-//            let credentials: AccessTokenCredentials
-//
-//        }
-//
-//        let stubData = StubData(
-//            credentials: AccessTokenCredentials(
-//                grantType: .jwt,
-//                token: "abcd1234"
-//            )
-//        )
-//
-//        performTest {
-//
-//            let middleware = AuthHTTPMiddleware(
-//                authDelegate: StubAuthManager(
-//                    auth: Auth(
-//                        credentials: stubData.credentials,
-//                        provider: StubAccessTokenAuthProvider(
-//                            result: .success(stubData.credentials)
-//                        )
-//                    )
-//                )
-//            )
-//
-//            let url = try unwrap(
-//                URL(string: "http://api.foo.com")
-//            )
-//
-//            let request = URLRequest(url: url)
-//
-//            let result = middleware.respond(
-//                to: request,
-//                completion: { response in
-//
-//                    promise.fulfill()
-//
-//                    let authorizationHeader = response.request.value(forHTTPHeaderField: "Authorization")
-//
-//                    XCTAssertEqual(
-//                        authorizationHeader,
-//                        "Bearer \(stubData.credentials.token)"
-//                    )
-//
-//                }
-//            )
-//
-//            result.completion(
-//                HTTPResponse(
-//                    request: result.request,
-//                    response: URLResponse(),
-//                    result: .success(Data())
-//                )
-//            )
-//
-//        }
-//
-//        wait(
-//            for: [ promise ],
-//            timeout: 10.0
-//        )
-//
-//    }
+    internal final func testAccessTokenAuth() {
+
+        let promise = expectation(description: "Handle access token auth.")
+
+        struct StubData {
+
+            let credentials: AccessTokenCredentials
+
+        }
+
+        let stubData = StubData(
+            credentials: AccessTokenCredentials(
+                token: "abcd1234",
+                tokenType: .bearer
+            )
+        )
+
+        performTest {
+
+            let middleware = AuthHTTPMiddleware(
+                authDelegate: StubAuthManager(
+                    stubAuth: Auth(credentials: stubData.credentials),
+                    providerType: StubBasicAuthProvider.self
+                )
+            )
+
+            let url = try unwrap(
+                URL(string: "http://api.foo.com")
+            )
+
+            let request = URLRequest(url: url)
+
+            let result = middleware.respond(
+                to: request,
+                completion: { response in
+
+                    promise.fulfill()
+
+                    let authorizationHeader = response.request.value(forHTTPHeaderField: "Authorization")
+
+                    XCTAssertEqual(
+                        authorizationHeader,
+                        "Bearer \(stubData.credentials.token)"
+                    )
+
+                }
+            )
+
+            result.completion(
+                HTTPResponse(
+                    request: result.request,
+                    response: URLResponse(),
+                    result: .success(Data())
+                )
+            )
+
+        }
+
+        wait(
+            for: [ promise ],
+            timeout: 10.0
+        )
+
+    }
 
 }

@@ -46,6 +46,18 @@ public struct AuthHTTPMiddleware: HTTPMiddleware {
             return (request, completion)
 
         }
+        
+        if
+            let credentials = authDelegate.grantedAuth?.credentials as? AccessTokenCredentials {
+            
+            request.setValue(
+                "Bearer \(credentials.token)",
+                forHTTPHeaderField: "Authorization"
+            )
+            
+            return (request, completion)
+            
+        }
 
         let newCompletion: (HTTPResponse) -> Void = { response in
 
