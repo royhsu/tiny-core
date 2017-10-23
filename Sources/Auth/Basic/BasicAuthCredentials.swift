@@ -17,3 +17,20 @@ public struct BasicAuthCredentials: Credentials {
     public let password: String
 
 }
+
+// MARK: - Equatable
+
+extension BasicAuthCredentials: Equatable {
+
+    public static func ==(
+        lhs: BasicAuthCredentials,
+        rhs: BasicAuthCredentials
+    )
+    -> Bool {
+
+        return lhs.username == rhs.username
+            && lhs.password == rhs.password
+
+    }
+
+}

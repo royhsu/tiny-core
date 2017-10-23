@@ -10,39 +10,24 @@
 
 import TinyCore
 
-internal struct StubAuthManager: AuthDelegate {
+internal final class StubAuthManager: AuthDelegate {
 
     // MARK: Property
 
-    internal let auth: Auth?
+    internal var grantedAuth: Auth?
+
+    internal let providerType: AuthProvider.Type
 
     // MARK: Init
 
-    internal init(auth: Auth?) {
+    internal init(
+        stubAuth: Auth? = nil,
+        providerType: AuthProvider.Type
+    ) {
 
-        self.auth = auth
+        self.grantedAuth = stubAuth
 
-    }
-
-    // MARK: AuthDelegate
-
-    internal func authorize(completion: (Result<Auth>) -> Void) {
-
-        guard
-            let auth = auth
-        else {
-
-            completion(
-                .failure(HTTPError.unauthorized)
-            )
-
-            return
-
-        }
-
-        completion(
-            .success(auth)
-        )
+        self.providerType = providerType
 
     }
 

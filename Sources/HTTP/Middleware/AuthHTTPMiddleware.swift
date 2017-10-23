@@ -31,31 +31,30 @@ public struct AuthHTTPMiddleware: HTTPMiddleware {
     -> (request: URLRequest, completion: (HTTPResponse) -> Void) {
 
         var request = request
-        
+
         if
-            let auth = authDelegate.auth,
-            let credentials = auth.credentials as? BasicAuthCredentials,
+            let credentials = authDelegate.grantedAuth?.credentials as? BasicAuthCredentials,
             let data = "\(credentials.username):\(credentials.password)".data(using: .utf8) {
-            
+
             let value = data.base64EncodedString()
-            
+
             request.setValue(
                 "Basic \(value)",
                 forHTTPHeaderField: "Authorization"
             )
-            
+
             return (request, completion)
-            
+
         }
 
         let newCompletion: (HTTPResponse) -> Void = { response in
-            
+
             completion(
                 HTTPResponse.unauthorized(with: response.request)
             )
-            
+
         }
-        
+
         return (request, newCompletion)
 
     }

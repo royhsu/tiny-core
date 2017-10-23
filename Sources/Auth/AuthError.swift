@@ -9,12 +9,14 @@
 // MARK: - AuthError
 
 public enum AuthError: Error {
-    
+
     // MARK: Case
-    
+
+    case credentialsNotFound
+
     case invalidCredentialsType(
         Credentials.Type,
         expectedType: Credentials.Type
     )
-    
+
 }

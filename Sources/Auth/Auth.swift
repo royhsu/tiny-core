@@ -14,18 +14,11 @@ public struct Auth {
 
     public let credentials: Credentials
 
-    public let provider: AuthProvider
-
     // MARK: Init
 
-    public init(
-        credentials: Credentials,
-        provider: AuthProvider
-    ) {
+    public init(credentials: Credentials) {
 
         self.credentials = credentials
-
-        self.provider = provider
 
     }
 

@@ -23,7 +23,9 @@ internal final class AuthHTTPMiddlewareTests: XCTestCase {
         performTest {
 
             let middleware = AuthHTTPMiddleware(
-                authDelegate: StubAuthManager(auth: nil)
+                authDelegate: StubAuthManager(
+                    providerType: StubBasicAuthProvider.self
+                )
             )
 
             let url = try unwrap(
@@ -107,12 +109,8 @@ internal final class AuthHTTPMiddlewareTests: XCTestCase {
 
             let middleware = AuthHTTPMiddleware(
                 authDelegate: StubAuthManager(
-                    auth: Auth(
-                        credentials: stubData.credentials,
-                        provider: StubBasicAuthProvider(
-                            result: .success(stubData.credentials)
-                        )
-                    )
+                    stubAuth: Auth(credentials: stubData.credentials),
+                    providerType: StubBasicAuthProvider.self
                 )
             )
 
@@ -137,7 +135,7 @@ internal final class AuthHTTPMiddlewareTests: XCTestCase {
 
                 }
             )
-            
+
             let noData = Data()
 
             result.completion(

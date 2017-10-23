@@ -9,10 +9,10 @@
 // MARK: - AuthProvider
 
 public protocol AuthProvider {
-    
-    func authorize(
+
+    static func requestAuth(
         credentials: Credentials,
         completion: @escaping (Result<Auth>) -> Void
     )
-    
+
 }
