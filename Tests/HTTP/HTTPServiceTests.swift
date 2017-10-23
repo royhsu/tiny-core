@@ -24,7 +24,7 @@ internal final class HTTPServiceTests: XCTestCase {
         struct Data {
 
             let message: String
-            
+
             let credentials: AccessTokenCredentials
 
         }
@@ -46,7 +46,7 @@ internal final class HTTPServiceTests: XCTestCase {
                     providerType: StubBasicAuthProvider.self
                 )
             )
-            
+
             let messageData = try unwrap(
                 stubData.message.data(using: .utf8)
             )
@@ -55,7 +55,7 @@ internal final class HTTPServiceTests: XCTestCase {
                 middlewares: [ middleware ],
                 client: StubHTTPClient(stubData: messageData)
             )
-            
+
             let url = try unwrap(
                 URL(string: "http://api.foo.com")
             )
@@ -65,20 +65,20 @@ internal final class HTTPServiceTests: XCTestCase {
             service.request(endpoint) { response in
 
                 performTest {
-                
+
                     promise.fulfill()
-                    
+
                     switch response.result {
 
                     case .success(let value):
 
                         let authorizationHeader = response.request.value(forHTTPHeaderField: "Authorization")
-                        
+
                         XCTAssertEqual(
                             authorizationHeader,
                             try stubData.credentials.valueForAuthorizationHTTPHeader()
                         )
-                        
+
                         let message = String(
                             data: value,
                             encoding: .utf8
@@ -96,9 +96,9 @@ internal final class HTTPServiceTests: XCTestCase {
                     }
 
                 }
-                    
+
             }
-            
+
         }
 
         wait(

@@ -86,11 +86,13 @@ internal final class AuthHTTPMiddlewareTests: XCTestCase {
 
         let promise = expectation(description: "Handle basic auth.")
 
+        // swiftlint:disable nesting
         struct StubData {
 
             let credentials: BasicAuthCredentials
 
         }
+        // swiftlint:enable nesting
 
         let stubData = StubData(
             credentials: BasicAuthCredentials(
@@ -159,11 +161,13 @@ internal final class AuthHTTPMiddlewareTests: XCTestCase {
 
         let promise = expectation(description: "Handle access token auth.")
 
+        // swiftlint:disable nesting
         struct StubData {
 
             let credentials: AccessTokenCredentials
 
         }
+        // swiftlint:enable nesting
 
         let stubData = StubData(
             credentials: AccessTokenCredentials(

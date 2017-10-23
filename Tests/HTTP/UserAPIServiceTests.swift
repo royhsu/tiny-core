@@ -19,16 +19,16 @@ internal final class UserAPIServiceTests: XCTestCase {
     internal final func testReadUserById() {
 
 //        let promise = expectation(description: "Read user by the given id.")
-//
-//        // swiftlint:disable nesting
-//        struct Data {
-//
-//            let user: User
-//
-//            let accessToken: AccessTokenCredentials
-//
-//        }
-//        // swiftlint:enable nesting
+
+        // swiftlint:disable nesting
+        struct Data {
+
+            let user: User
+
+            let accessToken: AccessTokenCredentials
+
+        }
+        // swiftlint:enable nesting
 //
 //        let data = Data(
 //            user: User(

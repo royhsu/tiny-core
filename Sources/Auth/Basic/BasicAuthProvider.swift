@@ -9,7 +9,7 @@
 // MARK: - BasicAuthProvider
 
 public protocol BasicAuthProvider: AuthProvider {
-    
+
     static func authenticate(
         credentials: BasicAuthCredentials,
         completion: @escaping (_ result: Result<Auth>) -> Void

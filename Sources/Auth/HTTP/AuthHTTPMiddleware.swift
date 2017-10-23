@@ -12,7 +12,11 @@ public struct AuthHTTPMiddleware: HTTPMiddleware {
 
     // MARK: Property
 
+    /// Please make sure not to implement the auth delegate with the middleware self.
+    /// Should thing of deeply if marks it as weak to avoid retain cycle.
+    // swiftlint:disable weak_delegate
     public let authDelegate: AuthDelegate
+    // swiftlint:enable weak_delegate
 
     // MARK: Init
 
@@ -34,31 +38,28 @@ public struct AuthHTTPMiddleware: HTTPMiddleware {
 
         if
             let credentials = authDelegate.grantedAuth?.credentials as? BasicAuthCredentials,
-            let data = "\(credentials.username):\(credentials.password)".data(using: .utf8) {
-
-            let value = data.base64EncodedString()
-
-            request.setValue(
-                "Basic \(value)",
-                forHTTPHeaderField: "Authorization"
-            )
-
-            return (request, completion)
-            
-
-        }
-        
-        if
-            let credentials = authDelegate.grantedAuth?.credentials as? AccessTokenCredentials,
             let authorizationValue = try? credentials.valueForAuthorizationHTTPHeader() {
-            
+
             request.setValue(
                 authorizationValue,
                 forHTTPHeaderField: "Authorization"
             )
-            
+
             return (request, completion)
-            
+
+        }
+
+        if
+            let credentials = authDelegate.grantedAuth?.credentials as? AccessTokenCredentials,
+            let authorizationValue = try? credentials.valueForAuthorizationHTTPHeader() {
+
+            request.setValue(
+                authorizationValue,
+                forHTTPHeaderField: "Authorization"
+            )
+
+            return (request, completion)
+
         }
 
         let newCompletion: (HTTPResponse) -> Void = { response in

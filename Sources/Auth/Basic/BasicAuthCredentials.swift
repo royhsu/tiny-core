@@ -22,6 +22,7 @@ public struct BasicAuthCredentials: Credentials {
 
 extension BasicAuthCredentials: Equatable {
 
+    // swiftlint:disable operator_whitespace
     public static func ==(
         lhs: BasicAuthCredentials,
         rhs: BasicAuthCredentials
@@ -32,5 +33,6 @@ extension BasicAuthCredentials: Equatable {
             && lhs.password == rhs.password
 
     }
+    // swiftlint:enable operator_whitespace
 
 }

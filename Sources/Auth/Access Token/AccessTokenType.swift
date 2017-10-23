@@ -9,9 +9,9 @@
 // MARK: - AccessTokenType
 
 public enum AccessTokenType: String {
-    
+
     // MARK: Case
-    
-    case bearer = "bearer"
-    
+
+    case bearer
+
 }

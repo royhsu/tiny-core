@@ -9,11 +9,11 @@
 // MARK: - HTTP
 
 public extension AccessTokenCredentials {
-    
+
     public func valueForAuthorizationHTTPHeader() throws -> String {
-        
+
         return "\(tokenType.rawValue.capitalized) \(token)"
-        
+
     }
-    
+
 }

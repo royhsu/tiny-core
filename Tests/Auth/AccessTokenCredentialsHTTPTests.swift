@@ -13,42 +13,38 @@ import XCTest
 @testable import TinyCore
 
 internal final class AccessTokenCredentialsHTTPTests: XCTestCase {
-    
+
     // MARK: - Authorization HTTP Header
-    
+
     internal final func testAuthorizationHTTPHeader() {
-        
+
         performTest {
-            
+
             struct StubData {
-                
+
                 let token: String
-                
+
                 let tokenType: AccessTokenType
-                
+
             }
-            
+
             let stubData = StubData(
                 token: "abcd1234",
                 tokenType: .bearer
             )
-            
+
             let credentials = AccessTokenCredentials(
                 token: stubData.token,
                 tokenType: stubData.tokenType
             )
-            
-            let value = try unwrap(
-                try credentials.valueForAuthorizationHTTPHeader()
-            )
-            
+
             XCTAssertEqual(
-                value,
+                try credentials.valueForAuthorizationHTTPHeader(),
                 "\(stubData.tokenType.rawValue.capitalized) \(stubData.token)"
             )
-            
+
         }
-        
+
     }
-    
+
 }

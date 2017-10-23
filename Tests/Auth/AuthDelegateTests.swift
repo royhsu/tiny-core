@@ -20,11 +20,13 @@ internal final class AuthDelegateTests: XCTestCase {
 
         let promise = expectation(description: "Request auth.")
 
+        // swiftlint:disable nesting
         struct StubData {
 
             let credentials: BasicAuthCredentials
 
         }
+        // swiftlint:enable nesting
 
         let stubData = StubData(
             credentials: BasicAuthCredentials(

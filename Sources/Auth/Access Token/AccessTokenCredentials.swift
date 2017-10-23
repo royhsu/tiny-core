@@ -9,24 +9,24 @@
 // MARK: - AccessTokenCredentials
 
 public struct AccessTokenCredentials: Credentials {
-    
+
     // MARK: Property
-    
+
     public let token: String
-    
+
     public let tokenType: AccessTokenType
-    
+
     // MARK: Init
-    
+
     public init(
         token: String,
         tokenType: AccessTokenType
     ) {
-        
+
         self.token = token
-        
+
         self.tokenType = tokenType
-        
+
     }
-    
+
 }

@@ -14,6 +14,8 @@ public enum AuthError: Error {
 
     case credentialsNotFound
 
+    case invalidCredentials(Credentials)
+
     case invalidCredentialsType(
         Credentials.Type,
         expectedType: Credentials.Type
