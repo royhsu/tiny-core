@@ -14,7 +14,7 @@ public protocol ID: Hashable, Codable {
 
     // MARK: Property
 
-    var rawValue: RawValue { get set }
+    var rawValue: RawValue { get }
 
     // MARK: Init
 
