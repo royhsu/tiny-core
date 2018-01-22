@@ -9,9 +9,7 @@
 // MARK: - Result
 
 public enum Result<Value> {
-
-    // MARK: Case
-
+    
     case success(Value)
 
     case failure(Error)
