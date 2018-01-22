@@ -8,6 +8,7 @@
 
 // MARK: - ID
 
+/// An identifier must be unique.
 public protocol ID: RawRepresentable { }
 
 // MARK: - Equatable (Default Implementation)

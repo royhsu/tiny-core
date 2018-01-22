@@ -8,6 +8,7 @@
 
 // MARK: - Unique
 
+/// We can easily distinguish different objects by comparing their ids if they all conform to this protocol.
 public protocol Unique {
 
     // swiftlint:disable type_name
@@ -20,6 +21,7 @@ public protocol Unique {
 
 // MARK: - Equatable (Default Implementation)
 
+/// The default implementation only compares their ids. If you have objects that need more complex comparison, feel free to override this method and provide your own implementation.
 public extension Unique where R: Equatable {
 
     // swiftlint:disable operator_whitespace
