@@ -12,6 +12,12 @@ import XCTest
 
 internal final class UserTests: XCTestCase {
 
+    internal static let allTests = [
+        ("testEquatable", testEquatable),
+        ("testDecodable", testDecodable),
+        ("testEncodable", testEncodable)
+    ]
+
     // MARK: Equatable
 
     internal final func testEquatable() {
@@ -28,6 +34,8 @@ internal final class UserTests: XCTestCase {
         )
 
     }
+
+    // MARK: Decodable
 
     internal final func testDecodable() {
 
@@ -57,6 +65,8 @@ internal final class UserTests: XCTestCase {
         catch { XCTFail("\(error)") }
 
     }
+
+    // MARK: Encodable
 
     internal final func testEncodable() {
 
