@@ -36,19 +36,24 @@ internal final class UserTests: XCTestCase {
             name: "Roy Hsu"
         )
         
-        let data = try! JSONEncoder().encode(user)
+        do {
         
-        let jsonObject = try! JSONSerialization.jsonObject(with: data) as? [String: Any]
-    
-        XCTAssertEqual(
-            jsonObject?["id"] as? String,
-            "1"
-        )
+            let data = try JSONEncoder().encode(user)
+            
+            let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any]
         
-        XCTAssertEqual(
-            jsonObject?["name"] as? String,
-            "Roy Hsu"
-        )
+            XCTAssertEqual(
+                jsonObject?["id"] as? String,
+                "1"
+            )
+            
+            XCTAssertEqual(
+                jsonObject?["name"] as? String,
+                "Roy Hsu"
+            )
+            
+        }
+        catch { XCTFail("\(error)") }
         
     }
     
