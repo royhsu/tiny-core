@@ -8,12 +8,12 @@
 
 // MARK: - UserID
 
-@testable import TinyCore
+import TinyCore
 
-struct UserID: ID {
+internal struct UserID: ID {
 
-    // MARK: Property
-
-    var rawValue: String
+    internal let rawValue: String
 
 }
+
+extension UserID: Equatable { }
