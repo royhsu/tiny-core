@@ -23,14 +23,19 @@ public extension Int {
 
     public static func random(in range: Range<Int>) -> Int {
 
-        var offset = 0
-
-        if range.lowerBound < 0 { offset = abs(range.lowerBound) }
+        let offset =
+            (range.lowerBound < 0)
+            ? abs(range.lowerBound)
+            : 0
 
         let min = UInt32(range.lowerBound + offset)
         let max = UInt32(range.upperBound + offset)
 
-        return Int(min + arc4random_uniform(max - min)) - offset
+        return Int(
+            min
+            + arc4random_uniform(max - min)
+        )
+        - offset
 
     }
 

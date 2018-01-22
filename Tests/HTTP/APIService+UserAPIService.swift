@@ -16,13 +16,13 @@ extension APIService: UserAPIService {
         id: UserID,
         completion: @escaping (_ result: Result<User>) -> Void) {
 
-        let endpoint = APIRouter.readUser(id: id)
-
-        client.request(
-            endpoint,
-            decoder: JSONDecoder(),
-            completion: completion
-        )
+//        let endpoint = APIRouter.readUser(id: id)
+//
+//        client.request(
+//            endpoint,
+//            decoder: JSONDecoder(),
+//            completion: completion
+//        )
 
     }
 
