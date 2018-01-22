@@ -18,25 +18,55 @@ internal final class APIServiceTests: XCTestCase {
 
     internal final func testReadUserById() {
 
-        let promise = expectation(description: "Read user by the given id.")
-
-        // swiftlint:disable nesting
-        struct Data {
-
-            let user: User
-
-        }
-        // swiftlint:enable nesting
-
-        let data = Data(
-            user: User(
-                id: UserID(rawValue: "1"),
-                name: "Roy Hsu"
-            )
+        let client = UserHTTPClient()
+        
+        let url = URL(string: "http://www.apple.com")!
+        
+        let request = URLRequest(url: url)
+        
+        let promise = expectation(description: "")
+        
+        client
+            .request(request)
+            .then { (user: User) -> Void in
+                
+                promise.fulfill()
+                
+                print(user)
+                
+            }
+            .catch { error in
+            
+                promise.fulfill()
+                
+                print("\(error)")
+                
+            }
+        
+        wait(
+            for: [ promise ],
+            timeout: 10.0
         )
-
-        do {
-
+        
+//        let promise = expectation(description: "Read user by the given id.")
+//
+//        // swiftlint:disable nesting
+//        struct Data {
+//
+//            let user: User
+//
+//        }
+//        // swiftlint:enable nesting
+//
+//        let data = Data(
+//            user: User(
+//                id: UserID(rawValue: "1"),
+//                name: "Roy Hsu"
+//            )
+//        )
+//
+//        do {
+//
 //            let json = try JSONEncoder().encode(data.user)
 //
 //            let service: UserAPIService = APIService(
@@ -68,9 +98,9 @@ internal final class APIServiceTests: XCTestCase {
 //                for: [ promise ],
 //                timeout: 10.0
 //            )
-
-        }
-        catch { XCTFail("\(error)") }
+//
+//        }
+//        catch { XCTFail("\(error)") }
 
     }
 

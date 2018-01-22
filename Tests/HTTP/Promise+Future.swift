@@ -16,45 +16,29 @@ import TinyCore
 
 extension Promise: Future {
     
-    public final func then<N>(
-        in context: FutureContext? = nil,
-        handler: @escaping (Value) -> N
-    )
-    -> Future {
-        
-        guard
-            let context = context as? Context
-        else { fatalError("Error handling.") }
-  
-        return self.then(
-            in: context,
-            handler
-        )
-            
-    }
-    
     public final func then<T, N>(
-        in context: FutureContext? = nil,
+        in context: FutureContext?,
         handler: @escaping (T) throws -> N
     )
     -> Future {
-
-        return self.then(
-            in: context,
-            handler: handler
-        )
+        
+        let context = context as? Context
+        
+        return self.then(in: context) { value in
+            
+            return try handler(value as! T)
+            
+        }
         
     }
 
     public final func `catch`(
-        in context: FutureContext? = nil,
+        in context: FutureContext?,
         handler: @escaping (Error) throws -> Void
     )
     -> Future {
         
-        guard
-            let context = context as? Context
-        else { fatalError("Error handling.") }
+        let context = context as? Context
         
         return self.catch(
             in: context,

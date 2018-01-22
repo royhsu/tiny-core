@@ -8,7 +8,7 @@
 
 import TinyCore
 
-internal final class UserHTTPClient: HTTPClient {
+internal final class UserHTTPClient {
     
     func request(_ request: URLRequest, completion: @escaping (Result<Data>) -> Void) {
         fatalError()
@@ -16,28 +16,17 @@ internal final class UserHTTPClient: HTTPClient {
     
     public final func request(_ request: URLRequest) -> Future {
         
-        return Promise<User> { fulfill, reject, _ in
+        return Promise<User>(in: .background) { fulfill, reject, _ in
             
             let user = User(
                 id: UserID(rawValue: "1"),
                 name: "Roy Hsu"
             )
-            
+
             fulfill(user)
             
         }
-        
+
     }
     
 }
-
-//func test() {
-//
-//    let client: HTTPClient = UserHTTPClient()
-//
-//    let future: Future<User> = client.request(
-//        URLRequest(url: URL(string: "http://www.apple.com")!)
-//    )
-//
-//}
-
