@@ -28,23 +28,23 @@ internal final class UserTests: XCTestCase {
         )
 
     }
-    
+
     internal final func testDecodable() {
-        
+
         let jsonObject: [String: Any] = [
             "id": "1",
             "name": "Roy Hsu"
         ]
-        
+
         do {
-            
+
             let data = try JSONSerialization.data(withJSONObject: jsonObject)
-            
+
             let user = try JSONDecoder().decode(
                 User.self,
                 from: data
             )
-            
+
             XCTAssertEqual(
                 user,
                 User(
@@ -52,38 +52,38 @@ internal final class UserTests: XCTestCase {
                     name: "Roy Hsu"
                 )
             )
-            
+
         }
         catch { XCTFail("\(error)") }
-        
+
     }
 
     internal final func testEncodable() {
-        
+
         let user = User(
             id: UserID(rawValue: "1"),
             name: "Roy Hsu"
         )
-        
+
         do {
-        
+
             let data = try JSONEncoder().encode(user)
-            
+
             let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any]
-        
+
             XCTAssertEqual(
                 jsonObject?["id"] as? String,
                 "1"
             )
-            
+
             XCTAssertEqual(
                 jsonObject?["name"] as? String,
                 "Roy Hsu"
             )
-            
+
         }
         catch { XCTFail("\(error)") }
-        
+
     }
-    
+
 }

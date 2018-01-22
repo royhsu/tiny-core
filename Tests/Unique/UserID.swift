@@ -10,7 +10,7 @@
 
 import TinyCore
 
-internal struct UserID: ID, Codable {
+internal struct UserID: ID {
 
     internal let rawValue: String
 

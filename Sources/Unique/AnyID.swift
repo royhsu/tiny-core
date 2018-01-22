@@ -20,7 +20,7 @@ public struct AnyID<R: RawRepresentable & Codable> {
 // MARK: - ID
 
 extension AnyID: ID {
-    
+
     // MARK: RawRepresentable
 
     public typealias RawValue = R
@@ -30,23 +30,23 @@ extension AnyID: ID {
     public init?(rawValue: RawValue) { self.init(rawValue) }
 
     // MARK: Codable
-    
+
     public init(from decoder: Decoder) throws {
-        
+
         let container = try decoder.singleValueContainer()
-        
+
         let base = try container.decode(R.self)
-        
+
         self.init(base)
-        
+
     }
-    
+
     public func encode(to encoder: Encoder) throws {
-        
+
         var container = encoder.singleValueContainer()
-        
+
         try container.encode(base)
-        
+
     }
-    
+
 }
