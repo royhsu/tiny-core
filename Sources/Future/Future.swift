@@ -6,10 +6,6 @@
 //  Copyright © 2018 TinyWorld. All rights reserved.
 //
 
-// MARK: - FutureContext
-
-public protocol FutureContext { }
-
 // MARK: - Future
 
 public protocol Future {
@@ -59,42 +55,3 @@ extension Future {
     }
     
 }
-
-//public struct AnyFuture {
-//
-//    private let base: Future
-//
-//    public init(_ base: Future) { self.base = base }
-//
-//}
-//
-//extension AnyFuture: Future {
-//
-//    public func then<T>(
-//        in context: FutureContext,
-//        handler: (T) -> Void
-//    )
-//    -> Future {
-//
-//        return base.then(
-//            in: context,
-//            handler: handler
-//        )
-//
-//    }
-//
-//    public func `catch`(
-//        in context: FutureContext,
-//        handler: (Error) -> Void
-//    )
-//    -> Future {
-//
-//        return base.then(
-//            in: context,
-//            handler: handler
-//        )
-//
-//    }
-//
-//}
-

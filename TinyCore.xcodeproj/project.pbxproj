@@ -46,8 +46,10 @@
 		B0AFDC6F201627F100D8DEF6 /* Promise+Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC58201627F100D8DEF6 /* Promise+Zip.swift */; };
 		B0AFDC70201627F100D8DEF6 /* Promise+Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC59201627F100D8DEF6 /* Promise+Validate.swift */; };
 		B0AFDC71201627F100D8DEF6 /* Promise+Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC5A201627F100D8DEF6 /* Promise+Then.swift */; };
-		B0AFDC742016285900D8DEF6 /* Promise+Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC722016284200D8DEF6 /* Promise+Future.swift */; };
 		B0AFDC772016325E00D8DEF6 /* UserHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC752016323D00D8DEF6 /* UserHTTPClient.swift */; };
+		B0AFDC792016414000D8DEF6 /* FutureContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC782016414000D8DEF6 /* FutureContext.swift */; };
+		B0AFDC7B201641A700D8DEF6 /* Context+FutureContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC7A201641A700D8DEF6 /* Context+FutureContext.swift */; };
+		B0AFDC7C201641DC00D8DEF6 /* Promise+Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC722016284200D8DEF6 /* Promise+Future.swift */; };
 		B0DB58C81F989B9200DAD605 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58C71F989B9200DAD605 /* Router.swift */; };
 		B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */; };
 		B0DB58D51F989D1200DAD605 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58D31F989CD400DAD605 /* APIRouter.swift */; };
@@ -114,6 +116,8 @@
 		B0AFDC5A201627F100D8DEF6 /* Promise+Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Then.swift"; sourceTree = "<group>"; };
 		B0AFDC722016284200D8DEF6 /* Promise+Future.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+Future.swift"; sourceTree = "<group>"; };
 		B0AFDC752016323D00D8DEF6 /* UserHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHTTPClient.swift; sourceTree = "<group>"; };
+		B0AFDC782016414000D8DEF6 /* FutureContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureContext.swift; sourceTree = "<group>"; };
+		B0AFDC7A201641A700D8DEF6 /* Context+FutureContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Context+FutureContext.swift"; sourceTree = "<group>"; };
 		B0DB58C71F989B9200DAD605 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		B0DB58D31F989CD400DAD605 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
@@ -193,13 +197,15 @@
 		B05D4FB61F1E10C200929006 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				B0AFDC402016215A00D8DEF6 /* Future */,
-				B0577E781F98F0A000B1578E /* Utilities */,
+				B0AFDC7E2016424700D8DEF6 /* Auth */,
 				B0577E731F98EBEF00B1578E /* Coder */,
-				B0DB58E51F98AEC200DAD605 /* JSON */,
+				B0AFDC402016215A00D8DEF6 /* Future */,
 				B0DB58C61F989B7A00DAD605 /* HTTP */,
+				B0AFDC43201627F000D8DEF6 /* Hydra */,
 				B03BE8761F68D53D002E076A /* Int+Extensions */,
+				B0DB58E51F98AEC200DAD605 /* JSON */,
 				B05D4FB71F1E10C200929006 /* Unique */,
+				B0577E781F98F0A000B1578E /* Utilities */,
 				B05D4FC61F1E115600929006 /* Supporting Files */,
 			);
 			path = Sources;
@@ -218,7 +224,6 @@
 		B05D4FBE1F1E10D100929006 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				B0AFDC43201627F000D8DEF6 /* Hydra */,
 				B0DB58D21F989CC800DAD605 /* HTTP */,
 				B05D4FBF1F1E10D100929006 /* Unique */,
 				B05D4FC71F1E116300929006 /* Supporting Files */,
@@ -258,6 +263,8 @@
 			isa = PBXGroup;
 			children = (
 				B0AFDC412016216600D8DEF6 /* Future.swift */,
+				B0AFDC782016414000D8DEF6 /* FutureContext.swift */,
+				B0AFDC812016437900D8DEF6 /* Future+Hydra */,
 			);
 			path = Future;
 			sourceTree = "<group>";
@@ -292,6 +299,38 @@
 			path = Hydra;
 			sourceTree = "<group>";
 		};
+		B0AFDC7E2016424700D8DEF6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B0AFDC7F2016424700D8DEF6 /* HTTP */,
+				B0AFDC802016424700D8DEF6 /* Access Token */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		B0AFDC7F2016424700D8DEF6 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HTTP;
+			sourceTree = "<group>";
+		};
+		B0AFDC802016424700D8DEF6 /* Access Token */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Access Token";
+			sourceTree = "<group>";
+		};
+		B0AFDC812016437900D8DEF6 /* Future+Hydra */ = {
+			isa = PBXGroup;
+			children = (
+				B0AFDC7A201641A700D8DEF6 /* Context+FutureContext.swift */,
+				B0AFDC722016284200D8DEF6 /* Promise+Future.swift */,
+			);
+			path = "Future+Hydra";
+			sourceTree = "<group>";
+		};
 		B0DB58C61F989B7A00DAD605 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,7 +346,6 @@
 		B0DB58D21F989CC800DAD605 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
-				B0AFDC722016284200D8DEF6 /* Promise+Future.swift */,
 				B0AFDC752016323D00D8DEF6 /* UserHTTPClient.swift */,
 				B0DB58D31F989CD400DAD605 /* APIRouter.swift */,
 				B0DB58D61F989D5900DAD605 /* StubHTTPClient.swift */,
@@ -466,6 +504,7 @@
 				B0AFDC6C201627F100D8DEF6 /* Promise+All.swift in Sources */,
 				B0AFDC422016216600D8DEF6 /* Future.swift in Sources */,
 				B0AFDC322015BD2800D8DEF6 /* AnyID.swift in Sources */,
+				B0AFDC792016414000D8DEF6 /* FutureContext.swift in Sources */,
 				B0AFDC68201627F100D8DEF6 /* Context.swift in Sources */,
 				B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */,
 				B0AFDC63201627F100D8DEF6 /* Promise+Any.swift in Sources */,
@@ -473,6 +512,7 @@
 				B0AFDC5D201627F100D8DEF6 /* Promise+Pass.swift in Sources */,
 				B0AFDC6A201627F100D8DEF6 /* Promise+State.swift in Sources */,
 				B0AFDC69201627F100D8DEF6 /* Promise+Observer.swift in Sources */,
+				B0AFDC7C201641DC00D8DEF6 /* Promise+Future.swift in Sources */,
 				B0AFDC67201627F100D8DEF6 /* Promise+Always.swift in Sources */,
 				B061889F1F34999E003B66F7 /* ID.swift in Sources */,
 				B0AFDC6F201627F100D8DEF6 /* Promise+Zip.swift in Sources */,
@@ -487,6 +527,7 @@
 				B0AFDC5E201627F100D8DEF6 /* Promise+Reduce.swift in Sources */,
 				B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */,
 				B0577E7B1F9979E600B1578E /* APIService.swift in Sources */,
+				B0AFDC7B201641A700D8DEF6 /* Context+FutureContext.swift in Sources */,
 				B0AFDC5C201627F100D8DEF6 /* Commons.swift in Sources */,
 				B0577E721F98EB2F00B1578E /* ModelDecoder.swift in Sources */,
 				B0AFDC64201627F100D8DEF6 /* Promise+Await.swift in Sources */,
@@ -507,7 +548,6 @@
 				B0DB58E21F98A59400DAD605 /* APIService+UserAPIService.swift in Sources */,
 				B0DB58DB1F98A02C00DAD605 /* UserAPIService.swift in Sources */,
 				B0DB58D51F989D1200DAD605 /* APIRouter.swift in Sources */,
-				B0AFDC742016285900D8DEF6 /* Promise+Future.swift in Sources */,
 				B0AFDC3E2015E00E00D8DEF6 /* User.swift in Sources */,
 				B0DB58D71F989D5900DAD605 /* StubHTTPClient.swift in Sources */,
 				B0AFDC3F2015E01300D8DEF6 /* UserTests.swift in Sources */,

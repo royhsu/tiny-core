@@ -14,6 +14,7 @@ public typealias JSONObject = [String: JSON]
 
 // MARK: - JSONError
 
+// Todo: completely replaced by Codable?
 public enum JSONError: Error {
 
     // MARK: Case
@@ -23,11 +24,14 @@ public enum JSONError: Error {
     case notArray
 
     case missingValueForKey(String)
+    
+    case invalidValueForKey(String)
 
 }
 
 // MARK: - JSONInitializable
 
+// Todo: completely replaced by Codable?
 public protocol JSONInitializable {
 
     init(_ json: JSON) throws

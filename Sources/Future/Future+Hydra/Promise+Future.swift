@@ -6,13 +6,7 @@
 //  Copyright © 2018 TinyWorld. All rights reserved.
 //
 
-// MARK: - FutureContext
-
-extension Context: FutureContext { }
-
 // MARK: - Future
-
-import TinyCore
 
 extension Promise: Future {
     
