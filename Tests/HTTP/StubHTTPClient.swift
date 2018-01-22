@@ -11,6 +11,10 @@
 import TinyCore
 
 internal struct StubHTTPClient: HTTPClient {
+    func request(_ request: URLRequest) -> Future {
+        fatalError()
+    }
+    
 
     // MARK: Property
 

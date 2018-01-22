@@ -9,24 +9,24 @@
 // MARK: - Decodable
 
 public extension HTTPClient {
-
+    
     public func request<Model: Decodable>(
         _ request: URLRequest,
         decoder: ModelDecoder,
         completion: @escaping (_ result: Result<Model>) -> Void
     ) {
-
+        
         self.request(request) { result in
 
             switch result {
 
-            case .success(let value):
+            case .success(let data):
 
                 do {
-
+                    
                     let model = try decoder.decode(
                         Model.self,
-                        from: value
+                        from: data
                     )
 
                     completion(

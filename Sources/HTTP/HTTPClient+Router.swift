@@ -18,10 +18,10 @@ public extension HTTPClient {
 
         do {
 
-            let endpoint = try router.makeURLRequest()
+            let request = try router.makeURLRequest()
 
-            request(
-                endpoint,
+            self.request(
+                request,
                 decoder: decoder,
                 completion: completion
             )

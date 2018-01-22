@@ -10,11 +10,10 @@
 
 public protocol ModelDecoder {
 
-    func decode<T>(
-        _ type: T.Type,
+    func decode<Model: Decodable>(
+        _ type: Model.Type,
         from data: Data
     )
-    throws -> T
-    where T: Decodable
+    throws -> Model
 
 }
