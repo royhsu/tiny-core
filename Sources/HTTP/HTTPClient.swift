@@ -10,11 +10,6 @@
 
 public protocol HTTPClient {
     
-    func request(
-        _ request: URLRequest,
-        completion: @escaping (_ result: Result<Data>) -> Void
-    )
-    
     func request(_ request: URLRequest) -> Future
     
 }

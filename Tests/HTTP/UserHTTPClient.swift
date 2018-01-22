@@ -8,13 +8,9 @@
 
 import TinyCore
 
-internal final class UserHTTPClient {
+internal final class UserHTTPClient: HTTPClient {
     
-    func request(_ request: URLRequest, completion: @escaping (Result<Data>) -> Void) {
-        fatalError()
-    }
-    
-    public final func request(_ request: URLRequest) -> Future {
+    internal final func request(_ request: URLRequest) -> Future {
         
         return Promise<User>(in: .background) { fulfill, reject, _ in
             

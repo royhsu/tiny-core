@@ -18,7 +18,7 @@ internal final class APIServiceTests: XCTestCase {
 
     internal final func testReadUserById() {
 
-        let client = UserHTTPClient()
+        let client: HTTPClient = UserHTTPClient()
         
         let url = URL(string: "http://www.apple.com")!
         

@@ -58,8 +58,6 @@
 		B0DB58DB1F98A02C00DAD605 /* UserAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58DA1F98A02C00DAD605 /* UserAPIService.swift */; };
 		B0DB58E21F98A59400DAD605 /* APIService+UserAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58E11F98A59400DAD605 /* APIService+UserAPIService.swift */; };
 		B0DB58E81F98AF3700DAD605 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58E61F98AECB00DAD605 /* JSON.swift */; };
-		B0DB58E91F98AF8900DAD605 /* HTTPClient+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58E31F98AEB900DAD605 /* HTTPClient+Decodable.swift */; };
-		B0DB58F61F98C2A800DAD605 /* HTTPClient+Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58F41F98C29B00DAD605 /* HTTPClient+Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,10 +123,8 @@
 		B0DB58D81F989DB700DAD605 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
 		B0DB58DA1F98A02C00DAD605 /* UserAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIService.swift; sourceTree = "<group>"; };
 		B0DB58E11F98A59400DAD605 /* APIService+UserAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIService+UserAPIService.swift"; sourceTree = "<group>"; };
-		B0DB58E31F98AEB900DAD605 /* HTTPClient+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPClient+Decodable.swift"; sourceTree = "<group>"; };
 		B0DB58E61F98AECB00DAD605 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		B0DB58ED1F98B7C600DAD605 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
-		B0DB58F41F98C29B00DAD605 /* HTTPClient+Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPClient+Router.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,8 +332,6 @@
 			children = (
 				B0DB58C71F989B9200DAD605 /* Router.swift */,
 				B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */,
-				B0DB58E31F98AEB900DAD605 /* HTTPClient+Decodable.swift */,
-				B0DB58F41F98C29B00DAD605 /* HTTPClient+Router.swift */,
 				B0DB58ED1F98B7C600DAD605 /* APIService.swift */,
 			);
 			path = HTTP;
@@ -517,13 +511,11 @@
 				B061889F1F34999E003B66F7 /* ID.swift in Sources */,
 				B0AFDC6F201627F100D8DEF6 /* Promise+Zip.swift in Sources */,
 				B0AFDC5F201627F100D8DEF6 /* Promise+Recover.swift in Sources */,
-				B0DB58F61F98C2A800DAD605 /* HTTPClient+Router.swift in Sources */,
 				B0AFDC62201627F100D8DEF6 /* Promise+Async.swift in Sources */,
 				B05D4FBB1F1E10C200929006 /* Unique.swift in Sources */,
 				B0AFDC70201627F100D8DEF6 /* Promise+Validate.swift in Sources */,
 				B0AFDC60201627F100D8DEF6 /* Promise+Cancel.swift in Sources */,
 				B0AFDC71201627F100D8DEF6 /* Promise+Then.swift in Sources */,
-				B0DB58E91F98AF8900DAD605 /* HTTPClient+Decodable.swift in Sources */,
 				B0AFDC5E201627F100D8DEF6 /* Promise+Reduce.swift in Sources */,
 				B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */,
 				B0577E7B1F9979E600B1578E /* APIService.swift in Sources */,
