@@ -21,6 +21,9 @@
 		B05D4FBB1F1E10C200929006 /* Unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D4FB81F1E10C200929006 /* Unique.swift */; };
 		B05D4FBD1F1E10C200929006 /* TinyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = B05D4FBA1F1E10C200929006 /* TinyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B061889F1F34999E003B66F7 /* ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = B061889E1F349979003B66F7 /* ID.swift */; };
+		B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */; };
+		B0A9DE882017255500AEF782 /* TouchEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE872017255500AEF782 /* TouchEvent.swift */; };
+		B0A9DE8A2017259300AEF782 /* StubEventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE892017259300AEF782 /* StubEventListener.swift */; };
 		B0AFDC322015BD2800D8DEF6 /* AnyID.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC312015BD2800D8DEF6 /* AnyID.swift */; };
 		B0AFDC3E2015E00E00D8DEF6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC3A2015DFDD00D8DEF6 /* User.swift */; };
 		B0AFDC3F2015E01300D8DEF6 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC3C2015DFE900D8DEF6 /* UserTests.swift */; };
@@ -62,6 +65,9 @@
 		B05D4FBA1F1E10C200929006 /* TinyCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TinyCore.h; sourceTree = "<group>"; };
 		B05D4FC21F1E10D100929006 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B061889E1F349979003B66F7 /* ID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ID.swift; sourceTree = "<group>"; };
+		B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManagerTests.swift; sourceTree = "<group>"; };
+		B0A9DE872017255500AEF782 /* TouchEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchEvent.swift; sourceTree = "<group>"; };
+		B0A9DE892017259300AEF782 /* StubEventListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEventListener.swift; sourceTree = "<group>"; };
 		B0AFDC312015BD2800D8DEF6 /* AnyID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyID.swift; sourceTree = "<group>"; };
 		B0AFDC3A2015DFDD00D8DEF6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B0AFDC3C2015DFE900D8DEF6 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
@@ -179,6 +185,7 @@
 		B05D4FBE1F1E10D100929006 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				B0A9DE84201724E600AEF782 /* Event */,
 				B05D4FBF1F1E10D100929006 /* Unique */,
 				B05D4FC71F1E116300929006 /* Supporting Files */,
 			);
@@ -211,6 +218,16 @@
 				B05D4FC21F1E10D100929006 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B0A9DE84201724E600AEF782 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */,
+				B0A9DE892017259300AEF782 /* StubEventListener.swift */,
+				B0A9DE872017255500AEF782 /* TouchEvent.swift */,
+			);
+			path = Event;
 			sourceTree = "<group>";
 		};
 		B0AFDC402016215A00D8DEF6 /* Future */ = {
@@ -425,8 +442,11 @@
 			files = (
 				B0AFDC3E2015E00E00D8DEF6 /* User.swift in Sources */,
 				B0AFDC3F2015E01300D8DEF6 /* UserTests.swift in Sources */,
+				B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */,
 				B003A7CC1F34790000561729 /* UserIDTests.swift in Sources */,
+				B0A9DE882017255500AEF782 /* TouchEvent.swift in Sources */,
 				B003A7CF1F3479CF00561729 /* UserID.swift in Sources */,
+				B0A9DE8A2017259300AEF782 /* StubEventListener.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

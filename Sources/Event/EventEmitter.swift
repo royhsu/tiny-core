@@ -10,19 +10,15 @@
 
 public protocol EventEmitter {
 
-    associatedtype Listener: AnyObject
-
-    func emit(by emitter: AnyEventEmitter<Listener>)
+    func emit(_ event: Event)
 
 }
 
 // MARK: - AnyEventEmitter
 
-public struct AnyEventEmitter<L: AnyObject>: EventEmitter {
+public struct AnyEventEmitter<Listener: AnyObject>: EventEmitter {
 
-    public typealias L = Listener
-
-    public typealias Emit = (Listener) -> (AnyEventEmitter) -> Void
+    public typealias Emit = (Listener) -> (Event) -> Void
 
     private weak var _listener: Listener?
 
@@ -39,13 +35,13 @@ public struct AnyEventEmitter<L: AnyObject>: EventEmitter {
 
     }
 
-    public func emit(by emitter: AnyEventEmitter) {
+    public func emit(_ event: Event) {
 
         guard
-            let listenr = _listener
+            let listener = _listener
         else { return }
 
-        _emit(listenr)(emitter)
+        _emit(listener)(event)
 
     }
 

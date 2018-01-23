@@ -10,11 +10,11 @@
 
 public final class EventManager<
     E: Event,
-    Listener: AnyObject
+    L: AnyObject
 >
 where E: Hashable {
 
-    public typealias Emitter = AnyEventEmitter<Listener>
+    public typealias Emitter = AnyEventEmitter<L>
 
     private final var events: [E: Emitter] = [:]
 
@@ -25,8 +25,8 @@ public extension EventManager {
     @discardableResult
     public final func on(
         _ event: E,
-        emit: @escaping (Listener) -> (Emitter) -> Void,
-        to listener: Listener
+        emit: @escaping (L) -> (Event) -> Void,
+        to listener: L
     )
     -> EventManager {
 
@@ -54,13 +54,13 @@ public extension EventManager {
 
 public extension EventManager {
 
-    public final func emit(for event: E) {
+    public final func emit(_ event: E) {
 
         guard
             let emitter = events[event]
         else { return }
 
-        emitter.emit(by: emitter)
+        emitter.emit(event)
 
     }
 
