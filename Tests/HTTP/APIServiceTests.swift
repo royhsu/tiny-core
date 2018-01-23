@@ -6,6 +6,59 @@
 //  Copyright © 2017 TinyWorld. All rights reserved.
 //
 
+class URLHTTPClient {
+    
+    let session: URLSession
+    
+    public init(session: URLSession? = nil) { self.session = session ?? .shared }
+
+    func get<D: Decodable>(
+        _ type: D.Type,
+        in context: Context? = .background,
+        with request: URLRequest,
+        decoder: ModelDecoder
+    )
+    -> Future {
+    
+        return Promise<D>(in: context) { fulfill, reject, _ in
+            
+            let dataTask = self.session.dataTask(
+                with: request,
+                completionHandler: { data, response, error in
+                    
+                    if let error = error {
+                        
+                        reject(error)
+                        
+                        return
+                        
+                    }
+                    
+                    let data = data ?? Data()
+                    
+                    do {
+                    
+                        let object = try decoder.decode(
+                            type,
+                            from: data
+                        )
+                        
+                        fulfill(object)
+                        
+                    }
+                    catch { reject(error) }
+                    
+                }
+            )
+            
+            dataTask.resume()
+            
+        }
+
+    }
+
+}
+
 // MARK: - APIServiceTests
 
 import XCTest

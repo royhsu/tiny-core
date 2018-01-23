@@ -16,6 +16,7 @@ extension Promise: Future {
     )
     -> Future {
         
+        // Todo: throw error while context is invalid
         let context = context as? Context
         
         return self.then(in: context) { value in
@@ -32,6 +33,7 @@ extension Promise: Future {
     )
     -> Future {
         
+        // Todo: throw error while context is invalid
         let context = context as? Context
         
         return self.catch(
