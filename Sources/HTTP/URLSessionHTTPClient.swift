@@ -1,14 +1,14 @@
 //
-//  URLSessionClient.swift
+//  URLSessionHTTPClient.swift
 //  TinyCore
 //
 //  Created by Roy Hsu on 23/01/2018.
 //  Copyright © 2018 TinyWorld. All rights reserved.
 //
 
-// MARK: - URLSessionClient
+// MARK: - URLSessionHTTPClient
 
-public final class URLSessionClient {
+public final class URLSessionHTTPClient {
     
     public final let session: URLSession
     
@@ -18,7 +18,7 @@ public final class URLSessionClient {
 
 // MARK: - HTTPClient
 
-extension URLSessionClient: HTTPClient {
+extension URLSessionHTTPClient: HTTPClient {
     
     public final func data(
         with request: URLRequest,

@@ -46,9 +46,9 @@
 		B0AFDC70201627F100D8DEF6 /* Promise+Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC59201627F100D8DEF6 /* Promise+Validate.swift */; };
 		B0AFDC71201627F100D8DEF6 /* Promise+Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC5A201627F100D8DEF6 /* Promise+Then.swift */; };
 		B0AFDC792016414000D8DEF6 /* FutureContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC782016414000D8DEF6 /* FutureContext.swift */; };
-		B0AFDC8A201703DC00D8DEF6 /* URLSessionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC89201703DC00D8DEF6 /* URLSessionClient.swift */; };
+		B0AFDC8A201703DC00D8DEF6 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC89201703DC00D8DEF6 /* URLSessionHTTPClient.swift */; };
 		B0AFDC8C201704D800D8DEF6 /* Context+FutureContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC8B201704D800D8DEF6 /* Context+FutureContext.swift */; };
-		B0DB58C81F989B9200DAD605 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58C71F989B9200DAD605 /* Router.swift */; };
+		B0DB58C81F989B9200DAD605 /* HTTPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58C71F989B9200DAD605 /* HTTPRouter.swift */; };
 		B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */; };
 		B0DB58E81F98AF3700DAD605 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58E61F98AECB00DAD605 /* JSON.swift */; };
 /* End PBXBuildFile section */
@@ -106,9 +106,9 @@
 		B0AFDC59201627F100D8DEF6 /* Promise+Validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Validate.swift"; sourceTree = "<group>"; };
 		B0AFDC5A201627F100D8DEF6 /* Promise+Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Then.swift"; sourceTree = "<group>"; };
 		B0AFDC782016414000D8DEF6 /* FutureContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureContext.swift; sourceTree = "<group>"; };
-		B0AFDC89201703DC00D8DEF6 /* URLSessionClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionClient.swift; sourceTree = "<group>"; };
+		B0AFDC89201703DC00D8DEF6 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		B0AFDC8B201704D800D8DEF6 /* Context+FutureContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Context+FutureContext.swift"; sourceTree = "<group>"; };
-		B0DB58C71F989B9200DAD605 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		B0DB58C71F989B9200DAD605 /* HTTPRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRouter.swift; sourceTree = "<group>"; };
 		B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		B0DB58E61F98AECB00DAD605 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -282,9 +282,9 @@
 		B0DB58C61F989B7A00DAD605 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
-				B0DB58C71F989B9200DAD605 /* Router.swift */,
+				B0DB58C71F989B9200DAD605 /* HTTPRouter.swift */,
 				B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */,
-				B0AFDC89201703DC00D8DEF6 /* URLSessionClient.swift */,
+				B0AFDC89201703DC00D8DEF6 /* URLSessionHTTPClient.swift */,
 			);
 			path = HTTP;
 			sourceTree = "<group>";
@@ -429,7 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0DB58C81F989B9200DAD605 /* Router.swift in Sources */,
+				B0DB58C81F989B9200DAD605 /* HTTPRouter.swift in Sources */,
 				B0AFDC6B201627F100D8DEF6 /* Promise+Timeout.swift in Sources */,
 				B0577E7A1F98F0B300B1578E /* Result.swift in Sources */,
 				B0577E771F98EC7600B1578E /* PropertyListDecoder+ModelDecoder.swift in Sources */,
@@ -439,7 +439,7 @@
 				B0AFDC322015BD2800D8DEF6 /* AnyID.swift in Sources */,
 				B0AFDC8C201704D800D8DEF6 /* Context+FutureContext.swift in Sources */,
 				B0AFDC792016414000D8DEF6 /* FutureContext.swift in Sources */,
-				B0AFDC8A201703DC00D8DEF6 /* URLSessionClient.swift in Sources */,
+				B0AFDC8A201703DC00D8DEF6 /* URLSessionHTTPClient.swift in Sources */,
 				B0AFDC68201627F100D8DEF6 /* Context.swift in Sources */,
 				B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */,
 				B0AFDC63201627F100D8DEF6 /* Promise+Any.swift in Sources */,

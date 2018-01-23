@@ -18,6 +18,8 @@ public protocol HTTPClient {
     
 }
 
+// MARK: - Model
+
 public extension HTTPClient {
     
     public func model<D: Decodable>(
