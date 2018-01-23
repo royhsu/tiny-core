@@ -12,8 +12,6 @@ import TinyCore
 
 internal final class StubEventListener {
 
-    internal typealias Emitter = AnyEventEmitter<StubEventListener>
-
     internal typealias DidTouchUpInside = (Event) -> Void
 
     internal let didTouchUpInside: DidTouchUpInside?
