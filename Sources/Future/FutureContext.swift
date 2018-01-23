@@ -8,4 +8,8 @@
 
 // MARK: - FutureContext
 
-public protocol FutureContext { }
+public enum FutureContext {
+    
+    case main, background
+    
+}

@@ -8,49 +8,45 @@
 
 // MARK: - Future
 
-public protocol Future {
+public struct Future<T> {
     
-    @discardableResult
-    func then<T, N>(
-        in context: FutureContext?,
-        handler: @escaping (T) throws -> N
-    )
-    -> Future
+    private let promise: Promise<T>
     
-    @discardableResult
-    func `catch`(
-        in context: FutureContext?,
-        handler: @escaping (Error) throws -> Void
-    )
-    -> Future
+    public init(_ promise: Promise<T>) { self.promise = promise }
     
 }
 
-extension Future {
+public extension Future {
     
     @discardableResult
-    public func then<T, N>(
+    public func then<N>(
+        in context: FutureContext,
         handler: @escaping (T) throws -> N
     )
-    -> Future {
-        
-        return self.then(
-            in: nil,
-            handler: handler
+    -> Future<N> {
+    
+        let p = promise.then(
+            in: Context(context),
+            handler
         )
+        
+        return Future<N>(p)
         
     }
     
     @discardableResult
-    func `catch`(
+    public func `catch`(
+        in context: FutureContext,
         handler: @escaping (Error) throws -> Void
     )
-    -> Future {
+    -> Future<Void> {
         
-        return self.catch(
-            in: nil,
-            handler: handler
+        let p = promise.catch(
+            in: Context(context),
+            handler
         )
+        
+        return Future<Void>(p)
         
     }
     

@@ -10,32 +10,38 @@
 
 public protocol HTTPClient {
     
-    func request(_ request: URLRequest) -> Future
+    func data(
+        with request: URLRequest,
+        in context: FutureContext
+    )
+    -> Future<Data>
     
 }
 
 public extension HTTPClient {
     
-    public func request<D: Decodable>(
-        _ request: URLRequest,
-        in context: FutureContext? = nil,
-        decoder: ModelDecoder,
-        for type: D.Type
+    public func model<D: Decodable>(
+        _ type: D.Type,
+        with request: URLRequest,
+        in context: FutureContext,
+        decoder: ModelDecoder
     )
-    -> Future {
+    -> Future<D> {
         
-        return self
-            .request(request)
-            .then(in: context) { (data: Data) -> D in
+        return self.data(
+            with: request,
+            in: context
+        )
+        .then(in: context) { data in
                 
-                let object = try decoder.decode(
-                    type,
-                    from: data
-                )
-                
-                return object
-                
-            }
+            let object = try decoder.decode(
+                type,
+                from: data
+            )
+            
+            return object
+            
+        }
         
     }
     
