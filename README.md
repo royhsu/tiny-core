@@ -3,5 +3,6 @@
 ## Features
 
 - [x] Event-Driven
-- [x] HTTP
 - [x] Future / Promise
+- [x] HTTP
+- [x] State Machine
