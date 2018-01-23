@@ -4,8 +4,8 @@ disabled_rules:
   - function_body_length
   - statement_position
 excluded:
+  - Carthage
   - Pods
-  - Library
 variable_name:
   excluded:
     - id
