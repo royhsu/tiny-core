@@ -9,45 +9,45 @@
 // MARK: - Future
 
 public struct Future<T> {
-    
+
     private let promise: Promise<T>
-    
+
     public init(_ promise: Promise<T>) { self.promise = promise }
-    
+
 }
 
 public extension Future {
-    
+
     @discardableResult
     public func then<N>(
         in context: FutureContext,
         handler: @escaping (T) throws -> N
     )
     -> Future<N> {
-    
-        let p = promise.then(
+
+        let then = promise.then(
             in: Context(context),
             handler
         )
-        
-        return Future<N>(p)
-        
+
+        return Future<N>(then)
+
     }
-    
+
     @discardableResult
     public func `catch`(
         in context: FutureContext,
         handler: @escaping (Error) throws -> Void
     )
     -> Future<Void> {
-        
-        let p = promise.catch(
+
+        let then = promise.catch(
             in: Context(context),
             handler
         )
-        
-        return Future<Void>(p)
-        
+
+        return Future<Void>(then)
+
     }
-    
+
 }

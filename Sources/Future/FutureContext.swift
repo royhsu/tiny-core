@@ -9,7 +9,7 @@
 // MARK: - FutureContext
 
 public enum FutureContext {
-    
+
     case main, background
-    
+
 }

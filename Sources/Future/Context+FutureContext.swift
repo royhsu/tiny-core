@@ -9,17 +9,17 @@
 // MARK: - FutureContext
 
 public extension Context {
-    
+
     public init(_ context: FutureContext) {
-        
+
         switch context {
-            
+
         case .main: self = .main
-            
+
         case .background: self = .background
-            
+
         }
-        
+
     }
-    
+
 }

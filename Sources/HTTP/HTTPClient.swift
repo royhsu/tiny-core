@@ -9,19 +9,19 @@
 // MARK: - HTTPClient
 
 public protocol HTTPClient {
-    
+
     func data(
         with request: URLRequest,
         in context: FutureContext
     )
     -> Future<Data>
-    
+
 }
 
 // MARK: - Model
 
 public extension HTTPClient {
-    
+
     public func model<D: Decodable>(
         _ type: D.Type,
         with request: URLRequest,
@@ -29,22 +29,22 @@ public extension HTTPClient {
         decoder: ModelDecoder
     )
     -> Future<D> {
-        
+
         return self.data(
             with: request,
             in: context
         )
         .then(in: context) { data in
-                
+
             let object = try decoder.decode(
                 type,
                 from: data
             )
-            
+
             return object
-            
+
         }
-        
+
     }
-    
+
 }

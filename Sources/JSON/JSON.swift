@@ -24,7 +24,7 @@ public enum JSONError: Error {
     case notArray
 
     case missingValueForKey(String)
-    
+
     case invalidValueForKey(String)
 
 }
