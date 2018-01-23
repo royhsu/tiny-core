@@ -11,7 +11,7 @@
 import TinyCore
 
 internal enum TouchEvent: String, Event {
-    
+
     case touchUpInside
-    
+
 }
