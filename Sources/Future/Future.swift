@@ -8,6 +8,8 @@
 
 // MARK: - Future
 
+import Hydra
+
 public struct Future<T> {
 
     private let promise: Promise<T>
