@@ -1,8 +1,0 @@
-language: objective-c
-osx_image: xcode8.3
-branches:
-  only:
-    - swift3
-xcode_project: TinyCore.xcodeproj
-xcode_scheme: TinyCore
-script: xcodebuild clean && xcodebuild test -project TinyCore.xcodeproj -scheme TinyCore -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 7 Plus,OS=10.3.1' ONLY_ACTIVE_ARCH=NO
