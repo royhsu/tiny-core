@@ -6,6 +6,14 @@
 //  Copyright © 2018 TinyWorld. All rights reserved.
 //
 
+public enum PromiseFutureError: Error {
+    
+    case invalidContext(FutureContext)
+    
+    case unexpectedValueType(Any)
+    
+}
+
 // MARK: - Future
 
 extension Promise: Future {
@@ -16,14 +24,30 @@ extension Promise: Future {
     )
     -> Future {
         
-        // Todo: throw error while context is invalid
-        let context = context as? Context
+        do {
         
-        return self.then(in: context) { value in
+            let context = try sanitize(context)
             
-            return try handler(value as! T)
+            return self.then(in: context) { value -> N in
+                
+                guard
+                    let targetValue = value as? T
+                else {
+                    
+                    let valueType = type(of: value)
+                    
+                    let error: PromiseFutureError = .unexpectedValueType(valueType)
+                    
+                    throw error
+                        
+                }
+                
+                return try handler(targetValue)
+                
+            }
             
         }
+        catch { return Promise(rejected: error) }
         
     }
 
@@ -33,14 +57,41 @@ extension Promise: Future {
     )
     -> Future {
         
-        // Todo: throw error while context is invalid
-        let context = context as? Context
+        do {
+            
+            let context = try sanitize(context)
         
-        return self.catch(
-            in: context,
-            handler
-        )
+            return self.catch(
+                in: context,
+                handler
+            )
+         
+        }
+        catch { return Promise(rejected: error) }
         
     }
+    
+    private final func sanitize(_ context: FutureContext?) throws -> Context? {
+        
+        if let context = context {
+            
+            guard
+                let validContext = context as? Context
+            else {
+                
+                let error: PromiseFutureError = .invalidContext(context)
+                
+                throw error
+                    
+            }
+            
+            return validContext
+            
+        }
+        
+        return nil
+        
+    }
+    
     
 }
