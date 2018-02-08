@@ -21,8 +21,8 @@ public final class URLSessionHTTPClient {
 extension URLSessionHTTPClient: HTTPClient {
 
     public final func data(
-        with request: URLRequest,
-        in context: FutureContext
+        in context: FutureContext,
+        with request: URLRequest
     )
     -> Future<HTTPResult> {
 
