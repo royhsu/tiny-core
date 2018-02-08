@@ -14,7 +14,7 @@ public protocol HTTPClient {
         with request: URLRequest,
         in context: FutureContext
     )
-    -> Future<Data>
+    -> Future<HTTPResult>
 
 }
 
@@ -34,11 +34,11 @@ public extension HTTPClient {
             with: request,
             in: context
         )
-        .then(in: context) { data in
+        .then(in: context) { result in
 
             let object = try decoder.decode(
                 type,
-                from: data
+                from: result.data
             )
 
             return object

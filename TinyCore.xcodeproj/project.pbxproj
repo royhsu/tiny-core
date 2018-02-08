@@ -46,6 +46,8 @@
 		B0A0B027202C2E84003FC1E1 /* Promise+Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0B010202C2E84003FC1E1 /* Promise+Then.swift */; };
 		B0A0B02A202C2F60003FC1E1 /* FutureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0B029202C2F60003FC1E1 /* FutureTests.swift */; };
 		B0A0B02C202C38DD003FC1E1 /* FutureError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0B02B202C38DD003FC1E1 /* FutureError.swift */; };
+		B0A0B02F202C3B9B003FC1E1 /* HTTPResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0B02D202C3B94003FC1E1 /* HTTPResult.swift */; };
+		B0A0B034202C3D5A003FC1E1 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0B033202C3D5A003FC1E1 /* HTTPError.swift */; };
 		B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */; };
 		B0A9DE882017255500AEF782 /* TouchEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE872017255500AEF782 /* TouchEvent.swift */; };
 		B0A9DE8A2017259300AEF782 /* StubEventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE892017259300AEF782 /* StubEventListener.swift */; };
@@ -121,6 +123,8 @@
 		B0A0B010202C2E84003FC1E1 /* Promise+Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Then.swift"; sourceTree = "<group>"; };
 		B0A0B029202C2F60003FC1E1 /* FutureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureTests.swift; sourceTree = "<group>"; };
 		B0A0B02B202C38DD003FC1E1 /* FutureError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureError.swift; sourceTree = "<group>"; };
+		B0A0B02D202C3B94003FC1E1 /* HTTPResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResult.swift; sourceTree = "<group>"; };
+		B0A0B033202C3D5A003FC1E1 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManagerTests.swift; sourceTree = "<group>"; };
 		B0A9DE872017255500AEF782 /* TouchEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchEvent.swift; sourceTree = "<group>"; };
 		B0A9DE892017259300AEF782 /* StubEventListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEventListener.swift; sourceTree = "<group>"; };
@@ -386,7 +390,9 @@
 			isa = PBXGroup;
 			children = (
 				B0DB58C71F989B9200DAD605 /* HTTPRouter.swift */,
+				B0A0B02D202C3B94003FC1E1 /* HTTPResult.swift */,
 				B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */,
+				B0A0B033202C3D5A003FC1E1 /* HTTPError.swift */,
 				B0AFDC89201703DC00D8DEF6 /* URLSessionHTTPClient.swift */,
 			);
 			path = HTTP;
@@ -554,6 +560,7 @@
 				B0AFDC792016414000D8DEF6 /* FutureContext.swift in Sources */,
 				B0A9DE922017316800AEF782 /* StateMachineError.swift in Sources */,
 				B0A9DE942017316800AEF782 /* StateMachineEvent.swift in Sources */,
+				B0A0B034202C3D5A003FC1E1 /* HTTPError.swift in Sources */,
 				B0AFDC8A201703DC00D8DEF6 /* URLSessionHTTPClient.swift in Sources */,
 				B0A0B023202C2E84003FC1E1 /* Promise.swift in Sources */,
 				B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */,
@@ -564,6 +571,7 @@
 				B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */,
 				B0A0B026202C2E84003FC1E1 /* Promise+Validate.swift in Sources */,
 				B00C35682017224600531F72 /* Event.swift in Sources */,
+				B0A0B02F202C3B9B003FC1E1 /* HTTPResult.swift in Sources */,
 				B0577E721F98EB2F00B1578E /* ModelDecoder.swift in Sources */,
 				B0577E751F98EC1400B1578E /* JSONDecoder+ModelDecoder.swift in Sources */,
 				B0A0B022202C2E84003FC1E1 /* Promise+All.swift in Sources */,

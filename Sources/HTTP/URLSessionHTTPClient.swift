@@ -24,15 +24,15 @@ extension URLSessionHTTPClient: HTTPClient {
         with request: URLRequest,
         in context: FutureContext
     )
-    -> Future<Data> {
+    -> Future<HTTPResult> {
 
         let context = Context(context)
 
-        let promise = Promise<Data>(in: context) { fulfill, reject, _ in
+        let promise = Promise<HTTPResult>(in: context) { fulfill, reject, _ in
 
             let dataTask = self.session.dataTask(
                 with: request,
-                completionHandler: { data, _, error in
+                completionHandler: { data, response, error in
 
                     if let error = error {
 
@@ -42,9 +42,26 @@ extension URLSessionHTTPClient: HTTPClient {
 
                     }
 
+                    guard
+                        let response = response as? HTTPURLResponse
+                    else {
+
+                        let error: HTTPError = .invalidResponse
+
+                        reject(error)
+
+                        return
+
+                    }
+
                     let data = data ?? Data()
 
-                    fulfill(data)
+                    let result = HTTPResult(
+                        response: response,
+                        data: data
+                    )
+
+                    fulfill(result)
 
                 }
             )
