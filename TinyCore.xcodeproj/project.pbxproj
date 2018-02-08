@@ -44,8 +44,6 @@
 		B0A0B025202C2E84003FC1E1 /* Promise+Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0B00E202C2E84003FC1E1 /* Promise+Zip.swift */; };
 		B0A0B026202C2E84003FC1E1 /* Promise+Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0B00F202C2E84003FC1E1 /* Promise+Validate.swift */; };
 		B0A0B027202C2E84003FC1E1 /* Promise+Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0B010202C2E84003FC1E1 /* Promise+Then.swift */; };
-		B0A0B02A202C2F60003FC1E1 /* FutureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0B029202C2F60003FC1E1 /* FutureTests.swift */; };
-		B0A0B02C202C38DD003FC1E1 /* FutureError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0B02B202C38DD003FC1E1 /* FutureError.swift */; };
 		B0A0B02F202C3B9B003FC1E1 /* HTTPResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0B02D202C3B94003FC1E1 /* HTTPResult.swift */; };
 		B0A0B034202C3D5A003FC1E1 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0B033202C3D5A003FC1E1 /* HTTPError.swift */; };
 		B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */; };
@@ -61,10 +59,7 @@
 		B0AFDC322015BD2800D8DEF6 /* AnyID.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC312015BD2800D8DEF6 /* AnyID.swift */; };
 		B0AFDC3E2015E00E00D8DEF6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC3A2015DFDD00D8DEF6 /* User.swift */; };
 		B0AFDC3F2015E01300D8DEF6 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC3C2015DFE900D8DEF6 /* UserTests.swift */; };
-		B0AFDC422016216600D8DEF6 /* Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC412016216600D8DEF6 /* Future.swift */; };
-		B0AFDC792016414000D8DEF6 /* FutureContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC782016414000D8DEF6 /* FutureContext.swift */; };
 		B0AFDC8A201703DC00D8DEF6 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC89201703DC00D8DEF6 /* URLSessionHTTPClient.swift */; };
-		B0AFDC8C201704D800D8DEF6 /* Context+FutureContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC8B201704D800D8DEF6 /* Context+FutureContext.swift */; };
 		B0DB58C81F989B9200DAD605 /* HTTPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58C71F989B9200DAD605 /* HTTPRouter.swift */; };
 		B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */; };
 		B0DB58E81F98AF3700DAD605 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58E61F98AECB00DAD605 /* JSON.swift */; };
@@ -121,8 +116,6 @@
 		B0A0B00E202C2E84003FC1E1 /* Promise+Zip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Zip.swift"; sourceTree = "<group>"; };
 		B0A0B00F202C2E84003FC1E1 /* Promise+Validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Validate.swift"; sourceTree = "<group>"; };
 		B0A0B010202C2E84003FC1E1 /* Promise+Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Then.swift"; sourceTree = "<group>"; };
-		B0A0B029202C2F60003FC1E1 /* FutureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureTests.swift; sourceTree = "<group>"; };
-		B0A0B02B202C38DD003FC1E1 /* FutureError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureError.swift; sourceTree = "<group>"; };
 		B0A0B02D202C3B94003FC1E1 /* HTTPResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResult.swift; sourceTree = "<group>"; };
 		B0A0B033202C3D5A003FC1E1 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManagerTests.swift; sourceTree = "<group>"; };
@@ -138,10 +131,7 @@
 		B0AFDC312015BD2800D8DEF6 /* AnyID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyID.swift; sourceTree = "<group>"; };
 		B0AFDC3A2015DFDD00D8DEF6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B0AFDC3C2015DFE900D8DEF6 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
-		B0AFDC412016216600D8DEF6 /* Future.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Future.swift; sourceTree = "<group>"; };
-		B0AFDC782016414000D8DEF6 /* FutureContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureContext.swift; sourceTree = "<group>"; };
 		B0AFDC89201703DC00D8DEF6 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
-		B0AFDC8B201704D800D8DEF6 /* Context+FutureContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Context+FutureContext.swift"; sourceTree = "<group>"; };
 		B0AFDC8E20170E9200D8DEF6 /* Hydra.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hydra.framework; path = Carthage/Build/iOS/Hydra.framework; sourceTree = "<group>"; };
 		B0DB58C71F989B9200DAD605 /* HTTPRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRouter.swift; sourceTree = "<group>"; };
 		B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
@@ -227,7 +217,6 @@
 			children = (
 				B0577E731F98EBEF00B1578E /* Coder */,
 				B00C35632017223700531F72 /* Event */,
-				B0AFDC402016215A00D8DEF6 /* Future */,
 				B0DB58C61F989B7A00DAD605 /* HTTP */,
 				B03BE8761F68D53D002E076A /* Int+Extensions */,
 				B0DB58E51F98AEC200DAD605 /* JSON */,
@@ -253,7 +242,6 @@
 		B05D4FBE1F1E10D100929006 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				B0A0B028202C2EEF003FC1E1 /* Future */,
 				B0A9DE962017381200AEF782 /* State */,
 				B0A9DE84201724E600AEF782 /* Event */,
 				B05D4FBF1F1E10D100929006 /* Unique */,
@@ -328,15 +316,6 @@
 			path = Hydra;
 			sourceTree = "<group>";
 		};
-		B0A0B028202C2EEF003FC1E1 /* Future */ = {
-			isa = PBXGroup;
-			children = (
-				B0A0B029202C2F60003FC1E1 /* FutureTests.swift */,
-				B0A0B02B202C38DD003FC1E1 /* FutureError.swift */,
-			);
-			path = Future;
-			sourceTree = "<group>";
-		};
 		B0A9DE84201724E600AEF782 /* Event */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,16 +345,6 @@
 				B0A9DE9C20173A1F00AEF782 /* StubStateMachineListener.swift */,
 			);
 			path = State;
-			sourceTree = "<group>";
-		};
-		B0AFDC402016215A00D8DEF6 /* Future */ = {
-			isa = PBXGroup;
-			children = (
-				B0AFDC412016216600D8DEF6 /* Future.swift */,
-				B0AFDC782016414000D8DEF6 /* FutureContext.swift */,
-				B0AFDC8B201704D800D8DEF6 /* Context+FutureContext.swift */,
-			);
-			path = Future;
 			sourceTree = "<group>";
 		};
 		B0AFDC8D20170E9200D8DEF6 /* Frameworks */ = {
@@ -551,13 +520,10 @@
 				B00C35672017224600531F72 /* EventManager.swift in Sources */,
 				B0A9DE932017316800AEF782 /* State.swift in Sources */,
 				B0A0B01D202C2E84003FC1E1 /* Promise+Always.swift in Sources */,
-				B0AFDC422016216600D8DEF6 /* Future.swift in Sources */,
 				B0AFDC322015BD2800D8DEF6 /* AnyID.swift in Sources */,
 				B0A0B014202C2E84003FC1E1 /* Promise+Reduce.swift in Sources */,
-				B0AFDC8C201704D800D8DEF6 /* Context+FutureContext.swift in Sources */,
 				B0A0B01A202C2E84003FC1E1 /* Promise+Await.swift in Sources */,
 				B0A0B016202C2E84003FC1E1 /* Promise+Cancel.swift in Sources */,
-				B0AFDC792016414000D8DEF6 /* FutureContext.swift in Sources */,
 				B0A9DE922017316800AEF782 /* StateMachineError.swift in Sources */,
 				B0A9DE942017316800AEF782 /* StateMachineEvent.swift in Sources */,
 				B0A0B034202C3D5A003FC1E1 /* HTTPError.swift in Sources */,
@@ -592,7 +558,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0A0B02A202C2F60003FC1E1 /* FutureTests.swift in Sources */,
 				B0AFDC3E2015E00E00D8DEF6 /* User.swift in Sources */,
 				B0AFDC3F2015E01300D8DEF6 /* UserTests.swift in Sources */,
 				B0A9DE9B201738F200AEF782 /* DoorState.swift in Sources */,
@@ -601,7 +566,6 @@
 				B0A9DE992017382E00AEF782 /* StateMachineTests.swift in Sources */,
 				B003A7CC1F34790000561729 /* UserIDTests.swift in Sources */,
 				B0A9DE882017255500AEF782 /* TouchEvent.swift in Sources */,
-				B0A0B02C202C38DD003FC1E1 /* FutureError.swift in Sources */,
 				B003A7CF1F3479CF00561729 /* UserID.swift in Sources */,
 				B0A9DE8A2017259300AEF782 /* StubEventListener.swift in Sources */,
 			);

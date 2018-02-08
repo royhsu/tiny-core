@@ -21,14 +21,12 @@ public final class URLSessionHTTPClient {
 extension URLSessionHTTPClient: HTTPClient {
 
     public final func data(
-        in context: FutureContext,
+        in context: Context,
         with request: URLRequest
     )
-    -> Future<HTTPResult> {
+    -> Promise<HTTPResult> {
 
-        let context = Context(context)
-
-        let promise = Promise<HTTPResult>(in: context) { fulfill, reject, _ in
+        return Promise(in: context) { fulfill, reject, _ in
 
             let dataTask = self.session.dataTask(
                 with: request,
@@ -69,8 +67,6 @@ extension URLSessionHTTPClient: HTTPClient {
             dataTask.resume()
 
         }
-
-        return Future(promise)
 
     }
 
