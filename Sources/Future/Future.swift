@@ -8,8 +8,6 @@
 
 // MARK: - Future
 
-import Hydra
-
 public struct Future<T> {
 
     private let promise: Promise<T>
@@ -43,13 +41,29 @@ public extension Future {
     )
     -> Future<Void> {
 
-        let then = promise.catch(
+        let `catch` = promise.catch(
             in: Context(context),
             handler
         )
 
-        return Future<Void>(then)
+        return Future<Void>(`catch`)
 
+    }
+    
+    @discardableResult
+    public func always(
+        in context: FutureContext,
+        handler: @escaping () throws -> Void
+    )
+    -> Future<T> {
+        
+        let always = promise.always(
+            in: Context(context),
+            body: handler
+        )
+        
+        return Future<T>(always)
+        
     }
 
 }

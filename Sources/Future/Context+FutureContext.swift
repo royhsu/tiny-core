@@ -8,8 +8,6 @@
 
 // MARK: - FutureContext
 
-import Hydra
-
 public extension Context {
 
     public init(_ context: FutureContext) {
