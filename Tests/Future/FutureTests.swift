@@ -13,49 +13,69 @@ import XCTest
 @testable import TinyCore
 
 internal final class FutureTests: XCTestCase {
-    
+
     internal final func testThen() {
-        
+
         let promise = expectation(description: "Then should be executed.")
-        
+
+        let value = 10
+
         let future = Future(
-            Promise<Int>(in: .main) { fulfill, reject, _ in
-            
-                fulfill(10)
-            
-            }
+            Promise(resolved: value)
         )
-        
+
         future
             .then(in: .main) { result -> Void in
-            
+
                 XCTAssertEqual(
                     result,
-                    10
+                    value
                 )
-                
-                promise.fulfill()
-                
+
             }
             .catch(in: .main) { error in
-            
+
                 XCTFail("\(error)")
-                
-                promise.fulfill()
-                
+
             }
-        
+            .always(in: .main) { promise.fulfill() }
+
         wait(
             for: [ promise ],
             timeout: 10.0
         )
-        
+
     }
-    
-    internal final func testAlways() {
-        
-        
-        
+
+    internal final func testCatch() {
+
+        let promise = expectation(description: "Catch should be executed.")
+
+        let future = Future<Void>(
+            Promise(rejected: FutureError.notExists)
+        )
+
+        future
+            .then(in: .main) { _ -> Void in
+
+                XCTFail("Should never be executed.")
+
+            }
+            .catch(in: .main) { error in
+
+                XCTAssertEqual(
+                    error as? FutureError,
+                    .notExists
+                )
+
+            }
+            .always(in: .main) { promise.fulfill() }
+
+        wait(
+            for: [ promise ],
+            timeout: 10.0
+        )
+
     }
-    
+
 }

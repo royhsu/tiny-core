@@ -45,6 +45,7 @@
 		B0A0B026202C2E84003FC1E1 /* Promise+Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0B00F202C2E84003FC1E1 /* Promise+Validate.swift */; };
 		B0A0B027202C2E84003FC1E1 /* Promise+Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0B010202C2E84003FC1E1 /* Promise+Then.swift */; };
 		B0A0B02A202C2F60003FC1E1 /* FutureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0B029202C2F60003FC1E1 /* FutureTests.swift */; };
+		B0A0B02C202C38DD003FC1E1 /* FutureError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0B02B202C38DD003FC1E1 /* FutureError.swift */; };
 		B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */; };
 		B0A9DE882017255500AEF782 /* TouchEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE872017255500AEF782 /* TouchEvent.swift */; };
 		B0A9DE8A2017259300AEF782 /* StubEventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE892017259300AEF782 /* StubEventListener.swift */; };
@@ -119,6 +120,7 @@
 		B0A0B00F202C2E84003FC1E1 /* Promise+Validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Validate.swift"; sourceTree = "<group>"; };
 		B0A0B010202C2E84003FC1E1 /* Promise+Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Then.swift"; sourceTree = "<group>"; };
 		B0A0B029202C2F60003FC1E1 /* FutureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureTests.swift; sourceTree = "<group>"; };
+		B0A0B02B202C38DD003FC1E1 /* FutureError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureError.swift; sourceTree = "<group>"; };
 		B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManagerTests.swift; sourceTree = "<group>"; };
 		B0A9DE872017255500AEF782 /* TouchEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchEvent.swift; sourceTree = "<group>"; };
 		B0A9DE892017259300AEF782 /* StubEventListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEventListener.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				B0A0B029202C2F60003FC1E1 /* FutureTests.swift */,
+				B0A0B02B202C38DD003FC1E1 /* FutureError.swift */,
 			);
 			path = Future;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 				B0A9DE992017382E00AEF782 /* StateMachineTests.swift in Sources */,
 				B003A7CC1F34790000561729 /* UserIDTests.swift in Sources */,
 				B0A9DE882017255500AEF782 /* TouchEvent.swift in Sources */,
+				B0A0B02C202C38DD003FC1E1 /* FutureError.swift in Sources */,
 				B003A7CF1F3479CF00561729 /* UserID.swift in Sources */,
 				B0A9DE8A2017259300AEF782 /* StubEventListener.swift in Sources */,
 			);

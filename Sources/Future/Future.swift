@@ -49,21 +49,21 @@ public extension Future {
         return Future<Void>(`catch`)
 
     }
-    
+
     @discardableResult
     public func always(
         in context: FutureContext,
         handler: @escaping () throws -> Void
     )
     -> Future<T> {
-        
+
         let always = promise.always(
             in: Context(context),
             body: handler
         )
-        
+
         return Future<T>(always)
-        
+
     }
 
 }
