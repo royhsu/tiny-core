@@ -12,7 +12,7 @@ public final class URLSessionHTTPClient {
 
     public final let session: URLSession
 
-    public init(session: URLSession? = nil) { self.session = session ?? .shared }
+    public init(session: URLSession = .shared) { self.session = session }
 
 }
 
