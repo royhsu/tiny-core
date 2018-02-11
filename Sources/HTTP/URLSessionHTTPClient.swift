@@ -18,6 +18,8 @@ public final class URLSessionHTTPClient {
 
 // MARK: - HTTPClient
 
+import Hydra
+
 extension URLSessionHTTPClient: HTTPClient {
 
     public final func data(
