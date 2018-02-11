@@ -1,26 +1,16 @@
 //
-//  URLSessionHTTPClient.swift
+//  URLSession+HTTPClient.swift
 //  TinyCore
 //
 //  Created by Roy Hsu on 23/01/2018.
 //  Copyright © 2018 TinyWorld. All rights reserved.
 //
 
-// MARK: - URLSessionHTTPClient
-
-public final class URLSessionHTTPClient {
-
-    public final let session: URLSession
-
-    public init(session: URLSession = .shared) { self.session = session }
-
-}
-
 // MARK: - HTTPClient
 
 import Hydra
 
-extension URLSessionHTTPClient: HTTPClient {
+extension URLSession: HTTPClient {
 
     public final func data(
         in context: Context,
@@ -30,7 +20,7 @@ extension URLSessionHTTPClient: HTTPClient {
 
         return Promise(in: context) { fulfill, reject, _ in
 
-            let dataTask = self.session.dataTask(
+            let dataTask = self.dataTask(
                 with: request,
                 completionHandler: { data, response, error in
 
