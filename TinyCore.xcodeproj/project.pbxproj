@@ -154,7 +154,6 @@
 			children = (
 				B05D4FB61F1E10C200929006 /* Sources */,
 				B05D4FBE1F1E10D100929006 /* Tests */,
-				B05D4FC21F1E10D100929006 /* Info.plist */,
 				B05D4F651F1E0D9D00929006 /* Products */,
 				B0AFDC8D20170E9200D8DEF6 /* Frameworks */,
 			);
@@ -202,6 +201,7 @@
 				B0A9DE962017381200AEF782 /* State */,
 				B0A9DE84201724E600AEF782 /* Event */,
 				B05D4FBF1F1E10D100929006 /* Unique */,
+				B05D4FC21F1E10D100929006 /* Info.plist */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
