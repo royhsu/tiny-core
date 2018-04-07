@@ -32,18 +32,18 @@ public extension HTTPClient {
     )
     -> Promise<D> {
 
-        return self.data(
+        return data(
             in: context,
             with: request
         )
         .then(in: context) { result -> D in
 
-            let object = try decoder.decode(
+            let model = try decoder.decode(
                 type,
                 from: result.data
             )
 
-            return object
+            return model
 
         }
 

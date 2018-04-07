@@ -20,7 +20,7 @@ extension URLSession: HTTPClient {
 
         return Promise(in: context) { fulfill, reject, _ in
 
-            let dataTask = self.dataTask(
+            let task = self.dataTask(
                 with: request,
                 completionHandler: { data, response, error in
 
@@ -32,22 +32,10 @@ extension URLSession: HTTPClient {
 
                     }
 
-                    guard
-                        let response = response as? HTTPURLResponse
-                    else {
-
-                        let error: HTTPError = .invalidResponse
-
-                        reject(error)
-
-                        return
-
-                    }
-
                     let data = data ?? Data()
 
                     let result = HTTPResult(
-                        response: response,
+                        response: response!,
                         data: data
                     )
 
@@ -56,7 +44,7 @@ extension URLSession: HTTPClient {
                 }
             )
 
-            dataTask.resume()
+            task.resume()
 
         }
 
