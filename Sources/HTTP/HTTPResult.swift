@@ -10,12 +10,12 @@
 
 public struct HTTPResult {
 
-    public let response: HTTPURLResponse
+    public let response: URLResponse
 
     public let data: Data
 
     public init(
-        response: HTTPURLResponse,
+        response: URLResponse,
         data: Data
     ) {
 
