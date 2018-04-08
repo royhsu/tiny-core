@@ -81,9 +81,9 @@ public final class Observable<T> {
 
     public final class InitialValueSubscription {
 
-        public let subscriber: InitialValueSubscriber
+        internal final let subscriber: InitialValueSubscriber
 
-        public init(subscriber: @escaping InitialValueSubscriber) { self.subscriber = subscriber }
+        internal init(subscriber: @escaping InitialValueSubscriber) { self.subscriber = subscriber }
 
     }
 
@@ -101,9 +101,9 @@ public final class Observable<T> {
 
     public final class ValueWillChangeSubscription {
 
-        public let subscriber: ValueWillChangeSubscriber
+        internal final let subscriber: ValueWillChangeSubscriber
 
-        public init(subscriber: @escaping ValueWillChangeSubscriber) { self.subscriber = subscriber }
+        internal init(subscriber: @escaping ValueWillChangeSubscriber) { self.subscriber = subscriber }
 
     }
 
@@ -121,9 +121,9 @@ public final class Observable<T> {
 
     public final class ValueDidChangeSubscription {
 
-        public let subscriber: ValueDidChangeSubscriber
+        internal final let subscriber: ValueDidChangeSubscriber
 
-        public init(subscriber: @escaping ValueDidChangeSubscriber) { self.subscriber = subscriber }
+        internal init(subscriber: @escaping ValueDidChangeSubscriber) { self.subscriber = subscriber }
 
     }
 
