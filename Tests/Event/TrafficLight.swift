@@ -1,5 +1,5 @@
 //
-//  TouchEvent.swift
+//  TrafficLight.swift
 //  TinyCoreTests
 //
 //  Created by Roy Hsu on 23/01/2018.
@@ -10,8 +10,8 @@
 
 import TinyCore
 
-internal enum TouchEvent: String, Event {
+internal enum TrafficLight: String {
 
-    case touchUpInside
+    case red, green, yellow
 
 }
