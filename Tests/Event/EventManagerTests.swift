@@ -1,5 +1,5 @@
 //
-//  EventManagerTests.swift
+//  EventEmitterTests.swift
 //  TinyCoreTests
 //
 //  Created by Roy Hsu on 23/01/2018.
@@ -12,41 +12,85 @@ import XCTest
 
 @testable import TinyCore
 
-internal final class EventManagerTests: XCTestCase {
+internal final class EventEmitterTests: XCTestCase {
 
-    internal final func testTouchUpInsideEvent() {
+    internal typealias Emitter = EventEmitter<TrafficLight>
 
-        let promise = expectation(description: "Touch up inside event.")
+    internal typealias Listening = Emitter.Listening
 
-        let manager = EventManager<TouchEvent, StubEventListener>()
+    internal final var greenListening: Listening?
 
-        let listener = StubEventListener(
-            didTouchUpInside: { event in
+    internal final var redListening: Listening?
 
-                promise.fulfill()
+    internal final var yellowListening: Listening?
 
-                XCTAssertEqual(
-                    event as? TouchEvent,
-                    .touchUpInside
-                )
+    internal final override func tearDown() {
 
-            }
-        )
+        greenListening = nil
 
-        manager.on(
-            .touchUpInside,
-            emit: StubEventListener.handleTouchUpInside,
-            to: listener
-        )
+        redListening = nil
 
-        DispatchQueue.main.async {
+        yellowListening = nil
 
-            manager.emit(.touchUpInside)
+        super.tearDown()
+
+    }
+
+    internal final func testListeningEvent() {
+
+        let greenPromise = expectation(description: "Listening the traffic light for green.")
+
+        let redPromise = expectation(description: "Listening the traffic light for red.")
+
+        let yellowPromise = expectation(description: "Listening the traffic light for yellow.")
+
+        let emitter = Emitter()
+
+        greenListening = emitter.listen(event: .green) { _, light in
+
+            greenPromise.fulfill()
+
+            XCTAssertEqual(
+                light,
+                .green
+            )
 
         }
 
+        redListening = emitter.listen(event: .red) { _, light in
+
+            redPromise.fulfill()
+
+            XCTAssertEqual(
+                light,
+                .red
+            )
+
+        }
+
+        yellowListening = emitter.listen(event: .yellow) { _, light in
+
+            yellowPromise.fulfill()
+
+            XCTAssertEqual(
+                light,
+                .yellow
+            )
+
+        }
+
+        emitter.emit(event: .green)
+
+        emitter.emit(event: .red)
+
+        emitter.emit(event: .yellow)
+
         wait(
-            for: [ promise ],
+            for: [
+                greenPromise,
+                redPromise,
+                yellowPromise
+            ],
             timeout: 10.0
         )
 

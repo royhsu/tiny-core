@@ -8,40 +8,71 @@
 
 // MARK: - EventEmitter
 
-public protocol EventEmitter {
+public final class EventEmitter<Event> where Event: Hashable {
 
-    func emit(_ event: Event)
+    public typealias Listener = (
+        _ emitter: EventEmitter<Event>,
+        _ event: Event
+    )
+    -> Void
 
-}
+    public final class Listening {
 
-// MARK: - AnyEventEmitter
+        internal let listener: Listener
 
-public struct AnyEventEmitter<Listener: AnyObject>: EventEmitter {
-
-    public typealias Emit = (Listener) -> (Event) -> Void
-
-    private weak var _listener: Listener?
-
-    private let _emit: Emit
-
-    public init(
-        listener: Listener,
-        emit: @escaping Emit
-    ) {
-
-        self._listener = listener
-
-        self._emit = emit
+        internal init(listener: @escaping Listener) { self.listener = listener }
 
     }
 
-    public func emit(_ event: Event) {
+    public typealias WeakListenings = [WeakObject<Listening>]
 
-        guard
-            let listener = _listener
-        else { return }
+    private final var listeningMap: [Event: WeakListenings]
 
-        _emit(listener)(event)
+    public init() { listeningMap = [:] }
+
+}
+
+public extension EventEmitter {
+
+    public final func emit(event: Event) {
+
+        // Clean up the dead objects.
+        listeningMap[event] = listeningMap[event]?.filter { $0.reference != nil }
+
+        listeningMap[event]?.forEach { listening in
+
+            listening.reference?.listener(
+                self,
+                event
+            )
+
+        }
+
+    }
+
+}
+
+public extension EventEmitter {
+
+    /// A listener must keep the strong reference to the listening while observing.
+    /// Removing listener is easy. Just set the reference of the listening to nil.
+    public final func listen(
+        event: Event,
+        listener: @escaping Listener
+    )
+    -> Listening {
+
+        let listening = Listening(listener: listener)
+
+        var listenings = listeningMap[event] ?? []
+
+        listenings.append(
+            WeakObject(listening)
+        )
+
+        listeningMap[event] = listenings
+
+        return listening
 
     }
 

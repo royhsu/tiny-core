@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B00C35672017224600531F72 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00C35642017224500531F72 /* EventManager.swift */; };
-		B00C35682017224600531F72 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00C35652017224500531F72 /* Event.swift */; };
 		B00C35692017224600531F72 /* EventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00C35662017224600531F72 /* EventEmitter.swift */; };
 		B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03BE8771F68D54D002E076A /* Int+RandomNumber.swift */; };
 		B050173E2078C999009838F9 /* Array+InsertBetween.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05017382078C999009838F9 /* Array+InsertBetween.swift */; };
@@ -25,8 +23,7 @@
 		B074DCDB20306DB7001322A1 /* Hydra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B074DCDA20306DB7001322A1 /* Hydra.framework */; };
 		B0A0B02F202C3B9B003FC1E1 /* HTTPResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0B02D202C3B94003FC1E1 /* HTTPResult.swift */; };
 		B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */; };
-		B0A9DE882017255500AEF782 /* TouchEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE872017255500AEF782 /* TouchEvent.swift */; };
-		B0A9DE8A2017259300AEF782 /* StubEventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE892017259300AEF782 /* StubEventListener.swift */; };
+		B0A9DE882017255500AEF782 /* TrafficLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE872017255500AEF782 /* TrafficLight.swift */; };
 		B0A9DE932017316800AEF782 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE8E2017316700AEF782 /* State.swift */; };
 		B0A9DE952017316800AEF782 /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE902017316700AEF782 /* StateMachine.swift */; };
 		B0A9DE992017382E00AEF782 /* StateMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE972017382300AEF782 /* StateMachineTests.swift */; };
@@ -49,8 +46,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B00C35642017224500531F72 /* EventManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
-		B00C35652017224500531F72 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		B00C35662017224600531F72 /* EventEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventEmitter.swift; sourceTree = "<group>"; };
 		B03BE8771F68D54D002E076A /* Int+RandomNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+RandomNumber.swift"; sourceTree = "<group>"; };
 		B05017382078C999009838F9 /* Array+InsertBetween.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+InsertBetween.swift"; sourceTree = "<group>"; };
@@ -70,8 +65,7 @@
 		B074DCDA20306DB7001322A1 /* Hydra.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hydra.framework; path = Carthage/Build/iOS/Hydra.framework; sourceTree = "<group>"; };
 		B0A0B02D202C3B94003FC1E1 /* HTTPResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResult.swift; sourceTree = "<group>"; };
 		B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManagerTests.swift; sourceTree = "<group>"; };
-		B0A9DE872017255500AEF782 /* TouchEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchEvent.swift; sourceTree = "<group>"; };
-		B0A9DE892017259300AEF782 /* StubEventListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEventListener.swift; sourceTree = "<group>"; };
+		B0A9DE872017255500AEF782 /* TrafficLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLight.swift; sourceTree = "<group>"; };
 		B0A9DE8E2017316700AEF782 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		B0A9DE902017316700AEF782 /* StateMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
 		B0A9DE972017382300AEF782 /* StateMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMachineTests.swift; sourceTree = "<group>"; };
@@ -106,9 +100,7 @@
 		B00C35632017223700531F72 /* Event */ = {
 			isa = PBXGroup;
 			children = (
-				B00C35652017224500531F72 /* Event.swift */,
 				B00C35662017224600531F72 /* EventEmitter.swift */,
-				B00C35642017224500531F72 /* EventManager.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -202,8 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */,
-				B0A9DE892017259300AEF782 /* StubEventListener.swift */,
-				B0A9DE872017255500AEF782 /* TouchEvent.swift */,
+				B0A9DE872017255500AEF782 /* TrafficLight.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -409,7 +400,6 @@
 				B0577E771F98EC7600B1578E /* PropertyListDecoder+ModelDecoder.swift in Sources */,
 				B0A9DE952017316800AEF782 /* StateMachine.swift in Sources */,
 				B0BC23872078F90700D11A3B /* WeakObject.swift in Sources */,
-				B00C35672017224600531F72 /* EventManager.swift in Sources */,
 				B0A9DE932017316800AEF782 /* State.swift in Sources */,
 				B050173E2078C999009838F9 /* Array+InsertBetween.swift in Sources */,
 				B05017402078C999009838F9 /* Degrees.swift in Sources */,
@@ -417,7 +407,6 @@
 				B05017422078C99A009838F9 /* Radian.swift in Sources */,
 				B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */,
 				B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */,
-				B00C35682017224600531F72 /* Event.swift in Sources */,
 				B0A0B02F202C3B9B003FC1E1 /* HTTPResult.swift in Sources */,
 				B0577E721F98EB2F00B1578E /* ModelDecoder.swift in Sources */,
 				B0577E751F98EC1400B1578E /* JSONDecoder+ModelDecoder.swift in Sources */,
@@ -433,8 +422,7 @@
 				B0A9DE9D20173A1F00AEF782 /* StubStateMachineHandler.swift in Sources */,
 				B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */,
 				B0A9DE992017382E00AEF782 /* StateMachineTests.swift in Sources */,
-				B0A9DE882017255500AEF782 /* TouchEvent.swift in Sources */,
-				B0A9DE8A2017259300AEF782 /* StubEventListener.swift in Sources */,
+				B0A9DE882017255500AEF782 /* TrafficLight.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
