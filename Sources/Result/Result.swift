@@ -15,3 +15,19 @@ public enum Result<Value> {
     case failure(Error)
 
 }
+
+public extension Result {
+
+    public func resolve() throws -> Value {
+
+        switch self {
+
+        case let .success(value): return value
+
+        case let .failure(error): throw error
+
+        }
+
+    }
+
+}

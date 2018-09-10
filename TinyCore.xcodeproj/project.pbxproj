@@ -20,7 +20,6 @@
 		B0577E7A1F98F0B300B1578E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E791F98F0B300B1578E /* Result.swift */; };
 		B05D4F6E1F1E0D9E00929006 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05D4F641F1E0D9D00929006 /* TinyCore.framework */; };
 		B05D4FBD1F1E10C200929006 /* TinyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = B05D4FBA1F1E10C200929006 /* TinyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B074DCDB20306DB7001322A1 /* Hydra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B074DCDA20306DB7001322A1 /* Hydra.framework */; };
 		B0A0B02F202C3B9B003FC1E1 /* HTTPResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0B02D202C3B94003FC1E1 /* HTTPResult.swift */; };
 		B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */; };
 		B0A9DE882017255500AEF782 /* TrafficLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE872017255500AEF782 /* TrafficLight.swift */; };
@@ -32,6 +31,9 @@
 		B0AFDC8A201703DC00D8DEF6 /* URLSession+HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC89201703DC00D8DEF6 /* URLSession+HTTPClient.swift */; };
 		B0BC23852078F8C000D11A3B /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC23842078F8C000D11A3B /* Observable.swift */; };
 		B0BC23872078F90700D11A3B /* WeakObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC23862078F90700D11A3B /* WeakObject.swift */; };
+		B0D0DB152146169400AD1EE7 /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0DB142146169400AD1EE7 /* ResultTests.swift */; };
+		B0D0DB192146183C00AD1EE7 /* XCTSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0DB172146182800AD1EE7 /* XCTSuccess.swift */; };
+		B0D0DB1C2146188500AD1EE7 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0DB1A2146185E00AD1EE7 /* HTTPError.swift */; };
 		B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +64,6 @@
 		B05D4FB91F1E10C200929006 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B05D4FBA1F1E10C200929006 /* TinyCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TinyCore.h; sourceTree = "<group>"; };
 		B05D4FC21F1E10D100929006 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B074DCDA20306DB7001322A1 /* Hydra.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hydra.framework; path = Carthage/Build/iOS/Hydra.framework; sourceTree = "<group>"; };
 		B0A0B02D202C3B94003FC1E1 /* HTTPResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResult.swift; sourceTree = "<group>"; };
 		B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManagerTests.swift; sourceTree = "<group>"; };
 		B0A9DE872017255500AEF782 /* TrafficLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLight.swift; sourceTree = "<group>"; };
@@ -74,6 +75,9 @@
 		B0AFDC89201703DC00D8DEF6 /* URLSession+HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+HTTPClient.swift"; sourceTree = "<group>"; };
 		B0BC23842078F8C000D11A3B /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		B0BC23862078F90700D11A3B /* WeakObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakObject.swift; sourceTree = "<group>"; };
+		B0D0DB142146169400AD1EE7 /* ResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTests.swift; sourceTree = "<group>"; };
+		B0D0DB172146182800AD1EE7 /* XCTSuccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTSuccess.swift; sourceTree = "<group>"; };
+		B0D0DB1A2146185E00AD1EE7 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,7 +86,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B074DCDB20306DB7001322A1 /* Hydra.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,8 +186,10 @@
 		B05D4FBE1F1E10D100929006 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				B0D0DB132146167F00AD1EE7 /* Result */,
 				B0A9DE962017381200AEF782 /* State */,
 				B0A9DE84201724E600AEF782 /* Event */,
+				B0D0DB162146182800AD1EE7 /* Helpers */,
 				B05D4FC21F1E10D100929006 /* Info.plist */,
 			);
 			path = Tests;
@@ -221,7 +226,6 @@
 		B0AFDC8D20170E9200D8DEF6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B074DCDA20306DB7001322A1 /* Hydra.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -232,6 +236,23 @@
 				B0BC23842078F8C000D11A3B /* Observable.swift */,
 			);
 			path = Observable;
+			sourceTree = "<group>";
+		};
+		B0D0DB132146167F00AD1EE7 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				B0D0DB142146169400AD1EE7 /* ResultTests.swift */,
+				B0D0DB1A2146185E00AD1EE7 /* HTTPError.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		B0D0DB162146182800AD1EE7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B0D0DB172146182800AD1EE7 /* XCTSuccess.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		B0DB58C61F989B7A00DAD605 /* HTTP */ = {
@@ -267,7 +288,6 @@
 				B05D4F611F1E0D9D00929006 /* Headers */,
 				B05D4F621F1E0D9D00929006 /* Resources */,
 				B0577E6E1F98E40E00B1578E /* Swiftlint */,
-				B074DCDC20306DDB001322A1 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -370,22 +390,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
-		B074DCDC20306DDB001322A1 /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Hydra.framework",
-			);
-			name = Carthage;
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Hydra.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -418,8 +422,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0D0DB152146169400AD1EE7 /* ResultTests.swift in Sources */,
 				B0A9DE9B201738F200AEF782 /* DoorState.swift in Sources */,
+				B0D0DB192146183C00AD1EE7 /* XCTSuccess.swift in Sources */,
 				B0A9DE9D20173A1F00AEF782 /* StubStateMachineHandler.swift in Sources */,
+				B0D0DB1C2146188500AD1EE7 /* HTTPError.swift in Sources */,
 				B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */,
 				B0A9DE992017382E00AEF782 /* StateMachineTests.swift in Sources */,
 				B0A9DE882017255500AEF782 /* TrafficLight.swift in Sources */,
