@@ -54,7 +54,7 @@
 		B0577E761F98EC7600B1578E /* PropertyListDecoder+Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PropertyListDecoder+Decoder.swift"; sourceTree = "<group>"; };
 		B0577E791F98F0B300B1578E /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		B05D4F641F1E0D9D00929006 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B05D4F6D1F1E0D9E00929006 /* TinyCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinyCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B05D4F6D1F1E0D9E00929006 /* TinyCore Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TinyCore Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05D4FB91F1E10C200929006 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B05D4FBA1F1E10C200929006 /* TinyCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TinyCore.h; sourceTree = "<group>"; };
 		B05D4FC21F1E10D100929006 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				B05D4F641F1E0D9D00929006 /* TinyCore.framework */,
-				B05D4F6D1F1E0D9E00929006 /* TinyCoreTests.xctest */,
+				B05D4F6D1F1E0D9E00929006 /* TinyCore Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,6 +155,7 @@
 		B05D4FB61F1E10C200929006 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B0D0DB1D21462B6B00AD1EE7 /* iOS */,
 				B0577E731F98EBEF00B1578E /* Coder */,
 				B00C35632017223700531F72 /* Event */,
 				B05017392078C999009838F9 /* Geometry */,
@@ -164,8 +165,6 @@
 				B0577E781F98F0A000B1578E /* Result */,
 				B0BC23862078F90700D11A3B /* WeakObject.swift */,
 				B05017382078C999009838F9 /* Array+InsertBetween.swift */,
-				B05D4FB91F1E10C200929006 /* Info.plist */,
-				B05D4FBA1F1E10C200929006 /* TinyCore.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -222,6 +221,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		B0D0DB1D21462B6B00AD1EE7 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				B05D4FBA1F1E10C200929006 /* TinyCore.h */,
+				B05D4FB91F1E10C200929006 /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
 		B0DB58C61F989B7A00DAD605 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,9 +253,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		B05D4F631F1E0D9D00929006 /* TinyCore */ = {
+		B05D4F631F1E0D9D00929006 /* TinyCore iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B05D4F781F1E0D9E00929006 /* Build configuration list for PBXNativeTarget "TinyCore" */;
+			buildConfigurationList = B05D4F781F1E0D9E00929006 /* Build configuration list for PBXNativeTarget "TinyCore iOS" */;
 			buildPhases = (
 				B05D4F5F1F1E0D9D00929006 /* Sources */,
 				B05D4F601F1E0D9D00929006 /* Frameworks */,
@@ -259,14 +267,14 @@
 			);
 			dependencies = (
 			);
-			name = TinyCore;
+			name = "TinyCore iOS";
 			productName = TinyCore;
 			productReference = B05D4F641F1E0D9D00929006 /* TinyCore.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		B05D4F6C1F1E0D9E00929006 /* TinyCoreTests */ = {
+		B05D4F6C1F1E0D9E00929006 /* TinyCore iOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B05D4F7B1F1E0D9E00929006 /* Build configuration list for PBXNativeTarget "TinyCoreTests" */;
+			buildConfigurationList = B05D4F7B1F1E0D9E00929006 /* Build configuration list for PBXNativeTarget "TinyCore iOS Tests" */;
 			buildPhases = (
 				B05D4F691F1E0D9E00929006 /* Sources */,
 				B05D4F6A1F1E0D9E00929006 /* Frameworks */,
@@ -277,9 +285,9 @@
 			dependencies = (
 				B05D4F701F1E0D9E00929006 /* PBXTargetDependency */,
 			);
-			name = TinyCoreTests;
+			name = "TinyCore iOS Tests";
 			productName = TinyCoreTests;
-			productReference = B05D4F6D1F1E0D9E00929006 /* TinyCoreTests.xctest */;
+			productReference = B05D4F6D1F1E0D9E00929006 /* TinyCore Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -318,8 +326,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B05D4F631F1E0D9D00929006 /* TinyCore */,
-				B05D4F6C1F1E0D9E00929006 /* TinyCoreTests */,
+				B05D4F631F1E0D9D00929006 /* TinyCore iOS */,
+				B05D4F6C1F1E0D9E00929006 /* TinyCore iOS Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -398,7 +406,7 @@
 /* Begin PBXTargetDependency section */
 		B05D4F701F1E0D9E00929006 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B05D4F631F1E0D9D00929006 /* TinyCore */;
+			target = B05D4F631F1E0D9D00929006 /* TinyCore iOS */;
 			targetProxy = B05D4F6F1F1E0D9E00929006 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -457,6 +465,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tinyworld.$(PROJECT_NAME)";
+				PRODUCT_MODULE_NAME = "$(PROJECT_NAME)";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -512,6 +523,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tinyworld.$(PROJECT_NAME)";
+				PRODUCT_MODULE_NAME = "$(PROJECT_NAME)";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -534,11 +548,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Sources/Info.plist;
+				INFOPLIST_FILE = Sources/iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tinyworld.TinyCore;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(inherited)";
+				PRODUCT_NAME = "$(inherited)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -558,11 +572,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Sources/Info.plist;
+				INFOPLIST_FILE = Sources/iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tinyworld.TinyCore;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(inherited)";
+				PRODUCT_NAME = "$(inherited)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -576,8 +590,9 @@
 				DEVELOPMENT_TEAM = 5CE6946X84;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tinyworld.TinyCoreTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)-Tests";
+				PRODUCT_MODULE_NAME = "$(inherited)_Tests";
+				PRODUCT_NAME = "$(inherited) Tests";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -590,8 +605,9 @@
 				DEVELOPMENT_TEAM = 5CE6946X84;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tinyworld.TinyCoreTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)-Tests";
+				PRODUCT_MODULE_NAME = "$(inherited)_Tests";
+				PRODUCT_NAME = "$(inherited) Tests";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -609,7 +625,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B05D4F781F1E0D9E00929006 /* Build configuration list for PBXNativeTarget "TinyCore" */ = {
+		B05D4F781F1E0D9E00929006 /* Build configuration list for PBXNativeTarget "TinyCore iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B05D4F791F1E0D9E00929006 /* Debug */,
@@ -618,7 +634,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B05D4F7B1F1E0D9E00929006 /* Build configuration list for PBXNativeTarget "TinyCoreTests" */ = {
+		B05D4F7B1F1E0D9E00929006 /* Build configuration list for PBXNativeTarget "TinyCore iOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B05D4F7C1F1E0D9E00929006 /* Debug */,
