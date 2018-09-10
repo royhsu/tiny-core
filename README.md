@@ -20,7 +20,7 @@ The core framework provides practical functionalities that will help us to build
 
 ## Installation
 
-You can install TinyValidation using CocoaPods, Carthage.
+You can install TinyValidation using CocoaPods or Carthage.
 
 ### CocoaPods
 
