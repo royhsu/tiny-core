@@ -2,7 +2,7 @@ Pod::Spec.new do |spec|
   spec.name = 'TinyCore'
   spec.version = '0.5.3'
   spec.license = 'MIT'
-  spec.summary = 'The core framework provides practical functionalities that will help us to build apps and services much more quickly.'
+  spec.summary = 'TinyCore provides fundamental types and functions.'
   spec.homepage = 'https://github.com/royhsu/tiny-core'
   spec.authors = { 'Roy Hsu' => 'roy.hsu@tinyworld.cc' }
   spec.source = { :git => 'https://github.com/royhsu/tiny-core.git', :tag => spec.version }
