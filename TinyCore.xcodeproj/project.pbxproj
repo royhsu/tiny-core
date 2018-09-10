@@ -22,11 +22,6 @@
 		B05D4FBD1F1E10C200929006 /* TinyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = B05D4FBA1F1E10C200929006 /* TinyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */; };
 		B0A9DE882017255500AEF782 /* TrafficLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE872017255500AEF782 /* TrafficLight.swift */; };
-		B0A9DE932017316800AEF782 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE8E2017316700AEF782 /* State.swift */; };
-		B0A9DE952017316800AEF782 /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE902017316700AEF782 /* StateMachine.swift */; };
-		B0A9DE992017382E00AEF782 /* StateMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE972017382300AEF782 /* StateMachineTests.swift */; };
-		B0A9DE9B201738F200AEF782 /* DoorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE9A201738F200AEF782 /* DoorState.swift */; };
-		B0A9DE9D20173A1F00AEF782 /* StubStateMachineHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE9C20173A1F00AEF782 /* StubStateMachineHandler.swift */; };
 		B0AFDC8A201703DC00D8DEF6 /* URLSession+HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC89201703DC00D8DEF6 /* URLSession+HTTPClient.swift */; };
 		B0BC23852078F8C000D11A3B /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC23842078F8C000D11A3B /* Observable.swift */; };
 		B0BC23872078F90700D11A3B /* WeakObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC23862078F90700D11A3B /* WeakObject.swift */; };
@@ -65,11 +60,6 @@
 		B05D4FC21F1E10D100929006 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManagerTests.swift; sourceTree = "<group>"; };
 		B0A9DE872017255500AEF782 /* TrafficLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLight.swift; sourceTree = "<group>"; };
-		B0A9DE8E2017316700AEF782 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
-		B0A9DE902017316700AEF782 /* StateMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
-		B0A9DE972017382300AEF782 /* StateMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMachineTests.swift; sourceTree = "<group>"; };
-		B0A9DE9A201738F200AEF782 /* DoorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorState.swift; sourceTree = "<group>"; };
-		B0A9DE9C20173A1F00AEF782 /* StubStateMachineHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubStateMachineHandler.swift; sourceTree = "<group>"; };
 		B0AFDC89201703DC00D8DEF6 /* URLSession+HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+HTTPClient.swift"; sourceTree = "<group>"; };
 		B0BC23842078F8C000D11A3B /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		B0BC23862078F90700D11A3B /* WeakObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakObject.swift; sourceTree = "<group>"; };
@@ -171,7 +161,6 @@
 				B0DB58C61F989B7A00DAD605 /* HTTP */,
 				B03BE8761F68D53D002E076A /* Int+Extensions */,
 				B0BC23832078F8C000D11A3B /* Observable */,
-				B0A9DE8B2017315800AEF782 /* State */,
 				B0577E781F98F0A000B1578E /* Result */,
 				B0BC23862078F90700D11A3B /* WeakObject.swift */,
 				B05017382078C999009838F9 /* Array+InsertBetween.swift */,
@@ -185,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				B0D0DB132146167F00AD1EE7 /* Result */,
-				B0A9DE962017381200AEF782 /* State */,
 				B0A9DE84201724E600AEF782 /* Event */,
 				B0D0DB162146182800AD1EE7 /* Helpers */,
 				B05D4FC21F1E10D100929006 /* Info.plist */,
@@ -200,25 +188,6 @@
 				B0A9DE872017255500AEF782 /* TrafficLight.swift */,
 			);
 			path = Event;
-			sourceTree = "<group>";
-		};
-		B0A9DE8B2017315800AEF782 /* State */ = {
-			isa = PBXGroup;
-			children = (
-				B0A9DE8E2017316700AEF782 /* State.swift */,
-				B0A9DE902017316700AEF782 /* StateMachine.swift */,
-			);
-			path = State;
-			sourceTree = "<group>";
-		};
-		B0A9DE962017381200AEF782 /* State */ = {
-			isa = PBXGroup;
-			children = (
-				B0A9DE972017382300AEF782 /* StateMachineTests.swift */,
-				B0A9DE9A201738F200AEF782 /* DoorState.swift */,
-				B0A9DE9C20173A1F00AEF782 /* StubStateMachineHandler.swift */,
-			);
-			path = State;
 			sourceTree = "<group>";
 		};
 		B0AFDC8D20170E9200D8DEF6 /* Frameworks */ = {
@@ -399,9 +368,7 @@
 				B050173F2078C999009838F9 /* Degrees+Radian.swift in Sources */,
 				B0577E7A1F98F0B300B1578E /* Result.swift in Sources */,
 				B0577E771F98EC7600B1578E /* PropertyListDecoder+Decoder.swift in Sources */,
-				B0A9DE952017316800AEF782 /* StateMachine.swift in Sources */,
 				B0BC23872078F90700D11A3B /* WeakObject.swift in Sources */,
-				B0A9DE932017316800AEF782 /* State.swift in Sources */,
 				B050173E2078C999009838F9 /* Array+InsertBetween.swift in Sources */,
 				B05017402078C999009838F9 /* Degrees.swift in Sources */,
 				B0AFDC8A201703DC00D8DEF6 /* URLSession+HTTPClient.swift in Sources */,
@@ -419,12 +386,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0D0DB152146169400AD1EE7 /* ResultTests.swift in Sources */,
-				B0A9DE9B201738F200AEF782 /* DoorState.swift in Sources */,
 				B0D0DB192146183C00AD1EE7 /* XCTSuccess.swift in Sources */,
-				B0A9DE9D20173A1F00AEF782 /* StubStateMachineHandler.swift in Sources */,
 				B0D0DB1C2146188500AD1EE7 /* HTTPError.swift in Sources */,
 				B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */,
-				B0A9DE992017382E00AEF782 /* StateMachineTests.swift in Sources */,
 				B0A9DE882017255500AEF782 /* TrafficLight.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
