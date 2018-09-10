@@ -10,42 +10,50 @@
 
 extension URLSession: HTTPClient {
 
-//    public final func data(
-//        in context: Context,
-//        with request: URLRequest
-//    )
-//    -> Promise<HTTPResult> {
-//
-//        return Promise(in: context) { fulfill, reject, _ in
-//
-//            let task = self.dataTask(
-//                with: request,
-//                completionHandler: { data, response, error in
-//
-//                    if let error = error {
-//
-//                        reject(error)
-//
-//                        return
-//
-//                    }
-//
-//                    let data = data ?? Data()
-//
-//                    let result = HTTPResult(
-//                        response: response!,
-//                        data: data
-//                    )
-//
-//                    fulfill(result)
-//
-//                }
-//            )
-//
-//            task.resume()
-//
-//        }
-//
-//    }
+    public final func request<T: Decodable>(
+        _ request: URLRequest,
+        decoder: Decoder,
+        completionHandler: @escaping (Result<T>) -> Void
+    ) {
+
+        let task = dataTask(with: request) { data, _, error in
+
+            if let error = error {
+
+                completionHandler(
+                    .failure(error)
+                )
+
+                return
+
+            }
+
+            let data = data ?? Data()
+
+            do {
+
+                let value = try decoder.decode(
+                    T.self,
+                    from: data
+                )
+
+                completionHandler(
+                    .success(value)
+                )
+
+            }
+            catch {
+
+                completionHandler(
+                    .failure(error)
+                )
+
+            }
+
+        }
+
+        task.resume()
+
+    }
 
 }
