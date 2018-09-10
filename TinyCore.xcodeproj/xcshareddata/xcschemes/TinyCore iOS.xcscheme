@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B05D4F631F1E0D9D00929006"
-               BuildableName = "TinyCore iOS.framework"
+               BuildableName = "TinyCore.framework"
                BlueprintName = "TinyCore iOS"
                ReferencedContainer = "container:TinyCore.xcodeproj">
             </BuildableReference>
@@ -29,7 +29,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B05D4F6C1F1E0D9E00929006"
-               BuildableName = "TinyCore iOS Tests.xctest"
+               BuildableName = "TinyCore Tests.xctest"
                BlueprintName = "TinyCore iOS Tests"
                ReferencedContainer = "container:TinyCore.xcodeproj">
             </BuildableReference>
@@ -47,7 +47,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B05D4F6C1F1E0D9E00929006"
-               BuildableName = "TinyCore iOS Tests.xctest"
+               BuildableName = "TinyCore Tests.xctest"
                BlueprintName = "TinyCore iOS Tests"
                ReferencedContainer = "container:TinyCore.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B05D4F631F1E0D9D00929006"
-            BuildableName = "TinyCore iOS.framework"
+            BuildableName = "TinyCore.framework"
             BlueprintName = "TinyCore iOS"
             ReferencedContainer = "container:TinyCore.xcodeproj">
          </BuildableReference>
@@ -79,7 +79,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B05D4F631F1E0D9D00929006"
-            BuildableName = "TinyCore iOS.framework"
+            BuildableName = "TinyCore.framework"
             BlueprintName = "TinyCore iOS"
             ReferencedContainer = "container:TinyCore.xcodeproj">
          </BuildableReference>
@@ -97,7 +97,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B05D4F631F1E0D9D00929006"
-            BuildableName = "TinyCore iOS.framework"
+            BuildableName = "TinyCore.framework"
             BlueprintName = "TinyCore iOS"
             ReferencedContainer = "container:TinyCore.xcodeproj">
          </BuildableReference>
