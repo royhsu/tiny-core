@@ -28,7 +28,6 @@ You can install TinyValidation using CocoaPods or Carthage.
 use_frameworks!
 
 pod 'TinyCore'
-
 ```
 ### Carthage
 
