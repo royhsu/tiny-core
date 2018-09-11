@@ -119,9 +119,9 @@ public final class Observable<Value>: ObservableProtocol {
 
         didSet {
             
-            if _isSubsriptionsSkippable {
+            if _isSubscriptionsSkippable {
                 
-                _isSubsriptionsSkippable = false
+                _isSubscriptionsSkippable = false
                 
                 return
                 
@@ -187,11 +187,11 @@ public final class Observable<Value>: ObservableProtocol {
         
     }
     
-    internal final var _isSubsriptionsSkippable = false
+    internal final var _isSubscriptionsSkippable = false
     
     internal func update(value: Value?) {
         
-        _isSubsriptionsSkippable = true
+        _isSubscriptionsSkippable = true
         
         self.value = value
         
