@@ -23,7 +23,7 @@
 		B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */; };
 		B0A9DE882017255500AEF782 /* TrafficLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE872017255500AEF782 /* TrafficLight.swift */; };
 		B0AFDC8A201703DC00D8DEF6 /* URLSession+HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC89201703DC00D8DEF6 /* URLSession+HTTPClient.swift */; };
-		B0BC23852078F8C000D11A3B /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC23842078F8C000D11A3B /* Observable.swift */; };
+		B0BC23852078F8C000D11A3B /* ObservableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC23842078F8C000D11A3B /* ObservableValue.swift */; };
 		B0BC23872078F90700D11A3B /* WeakObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC23862078F90700D11A3B /* WeakObject.swift */; };
 		B0D0DB152146169400AD1EE7 /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0DB142146169400AD1EE7 /* ResultTests.swift */; };
 		B0D0DB192146183C00AD1EE7 /* XCTSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0DB172146182800AD1EE7 /* XCTSuccess.swift */; };
@@ -61,8 +61,9 @@
 		B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManagerTests.swift; sourceTree = "<group>"; };
 		B0A9DE872017255500AEF782 /* TrafficLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLight.swift; sourceTree = "<group>"; };
 		B0AFDC89201703DC00D8DEF6 /* URLSession+HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+HTTPClient.swift"; sourceTree = "<group>"; };
-		B0BC23842078F8C000D11A3B /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		B0BC23842078F8C000D11A3B /* ObservableValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableValue.swift; sourceTree = "<group>"; };
 		B0BC23862078F90700D11A3B /* WeakObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakObject.swift; sourceTree = "<group>"; };
+		B0BDA06E2146CB8D0077BEFC /* Observable.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Observable.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B0D0DB142146169400AD1EE7 /* ResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTests.swift; sourceTree = "<group>"; };
 		B0D0DB172146182800AD1EE7 /* XCTSuccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTSuccess.swift; sourceTree = "<group>"; };
 		B0D0DB1A2146185E00AD1EE7 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
@@ -199,7 +200,8 @@
 		B0BC23832078F8C000D11A3B /* Observable */ = {
 			isa = PBXGroup;
 			children = (
-				B0BC23842078F8C000D11A3B /* Observable.swift */,
+				B0BC23842078F8C000D11A3B /* ObservableValue.swift */,
+				B0BDA06E2146CB8D0077BEFC /* Observable.playground */,
 			);
 			path = Observable;
 			sourceTree = "<group>";
@@ -261,7 +263,6 @@
 				B05D4F601F1E0D9D00929006 /* Frameworks */,
 				B05D4F611F1E0D9D00929006 /* Headers */,
 				B05D4F621F1E0D9D00929006 /* Resources */,
-				B0577E6E1F98E40E00B1578E /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -349,29 +350,12 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		B0577E6E1F98E40E00B1578E /* Swiftlint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Swiftlint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		B05D4F5F1F1E0D9D00929006 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0BC23852078F8C000D11A3B /* Observable.swift in Sources */,
+				B0BC23852078F8C000D11A3B /* ObservableValue.swift in Sources */,
 				B05017412078C99A009838F9 /* Radian+Degrees.swift in Sources */,
 				B050173F2078C999009838F9 /* Degrees+Radian.swift in Sources */,
 				B0577E7A1F98F0B300B1578E /* Result.swift in Sources */,
