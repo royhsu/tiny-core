@@ -46,56 +46,6 @@ public protocol ObservableProtocol: AnyObject {
     
 }
 
-// TODO: the current implementation will cause a problem that the child won't get notified while the parent change.
-// Can't find the way to solve this issue.
-public final class AnyObservable<Value>: ObservableProtocol {
-    
-    private let _observable: Observable<Value>
-    
-    private let _subscriptions: [ObservableSubscription]
-    
-    public init<O: ObservableProtocol>(_ base: O) where O.Value == Value {
-        
-        let observable = Observable<Value>()
-        
-        observable.value = base.value
-        
-        let subscription = observable.subscribe { event in
-
-            base.value = event.newValue
-
-        }
-        
-        let reversedSubscription = base.subscribe { event in
-            
-            observable.update(value: event.newValue)
-            
-        }
-        
-        self._observable = observable
-        
-        self._subscriptions = [
-            subscription,
-            reversedSubscription
-        ]
-        
-    }
-    
-    public var value: Value? {
-        
-        get { return _observable.value }
-        
-        set { _observable.value = newValue }
-        
-    }
-    
-    public func subscribe(
-        with subscriber: @escaping (ObservableEvent<Value>) -> Void
-    )
-    -> ObservableSubscription { return _observable.subscribe(with: subscriber) }
-    
-}
-
 // MARK: - Observable
 
 public final class Observable<Value>: ObservableProtocol {
@@ -112,21 +62,12 @@ public final class Observable<Value>: ObservableProtocol {
         
     }
     
-    /// Indicating whether the value is set up firstly, and emitting the initial event to subscribers.
-    private final var _isInitialValue: Bool = true
+    private final var _isInitialValue = true
     
     public final var value: Value? {
 
         didSet {
-            
-            if _isSubscriptionsSkippable {
-                
-                _isSubscriptionsSkippable = false
-                
-                return
-                
-            }
-            
+    
             if _isInitialValue {
                 
                 _isInitialValue = false
@@ -184,16 +125,6 @@ public final class Observable<Value>: ObservableProtocol {
         )
         
         return subscription
-        
-    }
-    
-    internal final var _isSubscriptionsSkippable = false
-    
-    internal func update(value: Value?) {
-        
-        _isSubscriptionsSkippable = true
-        
-        self.value = value
         
     }
 
