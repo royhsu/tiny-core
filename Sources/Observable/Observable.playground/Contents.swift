@@ -73,4 +73,80 @@ textView.text = "QQ"
 
 print(textView.value, textView.text)
 
+class Cache: Storage {
+    
+    var storage: [IndexPath: String] = [:]
+    
+    subscript(_ indexPath: IndexPath) -> String? {
+        
+        print("Fetching from the cache...")
+        
+        return storage[indexPath]
+        
+    }
+    
+}
+
+class Disk: Storage {
+    
+    var storage: [IndexPath: String] = [:]
+    
+    subscript(_ indexPath: IndexPath) -> String? {
+        
+        print("Fetching from the disk...")
+        
+        return storage[indexPath]
+        
+    }
+    
+}
+
+protocol Storage {
+    
+    subscript(_ indexPath: IndexPath) -> String? { get }
+    
+}
+
+class StorageCoordinator: Storage {
+    
+    var storages: [Storage] = []
+    
+    subscript(_ indexPath: IndexPath) -> String? {
+        
+        for storage in storages {
+            
+            if let element = storage[indexPath] {
+                
+                return element
+                
+            }
+            
+        }
+        
+        return nil
+        
+    }
+    
+}
+
+let coordinator = StorageCoordinator()
+
+let indexPath = IndexPath(row: 0, section: 0)
+
+let cache = Cache()
+
+cache.storage[indexPath] = "Hi"
+
+let disk = Disk()
+
+disk.storage[indexPath] = "Hi"
+
+coordinator.storages.append(cache)
+
+coordinator.storages.append(disk)
+
+let string = coordinator[indexPath]
+
+print(string)
+
 print("End")
