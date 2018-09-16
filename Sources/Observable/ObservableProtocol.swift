@@ -10,7 +10,7 @@
 
 public protocol ObservableProtocol: AnyObject {
     
-    associatedtype Value: Equatable
+    associatedtype Value
     
     typealias Event = ObservableEvent<Value>
     
@@ -23,10 +23,7 @@ public protocol ObservableProtocol: AnyObject {
         options: ObservableValueOptions?
     )
     
-    func subscribe(
-        with subscriber: @escaping Subscriber
-    )
-    -> ObservableSubscription
+    func subscribe(with subscriber: @escaping Subscriber) -> ObservableSubscription
     
 }
 

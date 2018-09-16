@@ -18,6 +18,8 @@ public final class Observable<Value>: ObservableProtocol where Value: Equatable 
         
     }
     
+    private final var subscriptions: [ObservableSubscription] = []
+    
     private final var _isInitialValue = true
     
     private final var _value: Value?
@@ -30,7 +32,7 @@ public final class Observable<Value>: ObservableProtocol where Value: Equatable 
             
             let oldValue = value
             
-            // This will prevent notifying if the observable nested inside a wrapper.
+            // TODO: This will prevent notifying if the observable nested inside a wrapper.
 //            if oldValue == newValue { return }
             
             _value = newValue
@@ -66,6 +68,7 @@ public final class Observable<Value>: ObservableProtocol where Value: Equatable 
         
         let oldValue = value
 
+        // TODO: This will prevent notifying if the observable nested inside a wrapper.
 //        if oldValue == newValue { return }
 
         _value = newValue
@@ -137,5 +140,5 @@ public final class Observable<Value>: ObservableProtocol where Value: Equatable 
         with subscriber: @escaping (ObservableEvent<Value>) -> Void
     )
     -> ObservableSubscription { return boardcaster.addSubscriber(subscriber) }
-
+    
 }
