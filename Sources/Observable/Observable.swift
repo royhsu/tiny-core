@@ -8,7 +8,9 @@
 
 // MARK: - Observable
 
-public final class Observable<Value>: ObservableProtocol where Value: Equatable {
+public final class Observable<Value>: ObservableProtocol
+//where Value: Equatable
+{
     
     private final class Subscription: ObservableSubscription {
         
