@@ -9,7 +9,7 @@
 // MARK: - ObservableProtocol
 
 // TODO: should follow along with the design of KVO in Cocoa.
-public protocol ObservableProtocol: AnyObject {
+public protocol ObservableProtocol {
     
     associatedtype Value
     
@@ -31,6 +31,6 @@ public protocol ObservableProtocol: AnyObject {
 
 public extension ObservableProtocol {
     
-    public func setValue(_ value: Value?) { self.value = value }
+    public mutating func setValue(_ value: Value?) { self.value = value }
     
 }
