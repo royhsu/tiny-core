@@ -8,4 +8,5 @@
 
 // MARK: - ObservableSubscription
 
+// TODO: rename to Observation for brevity.
 public protocol ObservableSubscription { }

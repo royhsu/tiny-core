@@ -8,6 +8,7 @@
 
 // MARK: - ObservableProtocol
 
+// TODO: should follow along with the design of KVO in Cocoa.
 public protocol ObservableProtocol: AnyObject {
     
     associatedtype Value
@@ -23,6 +24,7 @@ public protocol ObservableProtocol: AnyObject {
         options: ObservableValueOptions?
     )
     
+    // TODO: rename to observe.
     func subscribe(with subscriber: @escaping Subscriber) -> ObservableSubscription
     
 }
