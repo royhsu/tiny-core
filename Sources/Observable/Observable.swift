@@ -65,7 +65,7 @@ public final class Observable<Value>: ObservableProtocol
     
     public final func setValue(
         _ newValue: Value?,
-        options: ObservableValueOptions?
+        options: ObservableValueOptions = []
     ) {
         
         let oldValue = value
@@ -76,33 +76,28 @@ public final class Observable<Value>: ObservableProtocol
         _value = newValue
 
         if _isInitialValue {
-
+            
             _isInitialValue = false
-
-            if options?.contains(.muteBroadcaster) == false {
-
-                boardcaster.notifyAllSubscribers(
-                    with: .initial(newValue: newValue)
-                )
-
-            }
-
+            
+            if options.contains(.muteBroadcaster) { return }
+            
+            boardcaster.notifyAllSubscribers(
+                with: .initial(newValue: newValue)
+            )
+            
+            return
+                
         }
-        else {
-
-            if options?.contains(.muteBroadcaster) == false {
-
-                boardcaster.notifyAllSubscribers(
-                    with: .changed(
-                        newValue: newValue,
-                        oldValue: oldValue
-                    )
-                )
-
-            }
-
-        }
-        
+            
+        if options.contains(.muteBroadcaster) { return }
+            
+        boardcaster.notifyAllSubscribers(
+            with: .changed(
+                newValue: newValue,
+                oldValue: oldValue
+            )
+        )
+            
     }
     
     private final class Broadcaster {

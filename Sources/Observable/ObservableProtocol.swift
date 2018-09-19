@@ -21,7 +21,7 @@ public protocol ObservableProtocol {
     
     func setValue(
         _ value: Value?,
-        options: ObservableValueOptions?
+        options: ObservableValueOptions
     )
     
     // TODO: rename to observe.
