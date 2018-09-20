@@ -8,6 +8,7 @@
 
 // MARK: - Decoder
 
+#warning("Name conflicts with the built-in one.")
 public protocol Decoder {
 
     func decode<T: Decodable>(
