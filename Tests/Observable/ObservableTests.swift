@@ -20,7 +20,7 @@ internal final class ObservableTests: XCTestCase {
         
         let observable = Observable<String>()
         
-        XCTAssertNil(observable.value)
+        XCTAssert(observable.value == nil)
         
     }
     
