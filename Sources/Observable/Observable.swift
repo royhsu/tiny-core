@@ -42,20 +42,27 @@ public final class Observable<Value>: ObservableProtocol
             if _isInitialValue {
                 
                 _isInitialValue = false
+                
+                DispatchQueue.global(qos: .default).async {
                     
-                boardcaster.notifyAllSubscribers(
-                    with: .initial(newValue: newValue)
-                )
+                    self.boardcaster.notifyAllSubscribers(
+                        with: .initial(newValue: newValue)
+                    )
+                    
+                }
                 
             }
             else {
                 
-                boardcaster.notifyAllSubscribers(
-                    with: .changed(
-                        newValue: newValue,
-                        oldValue: oldValue
+                DispatchQueue.global(qos: .default).async {
+                
+                    self.boardcaster.notifyAllSubscribers(
+                        with: .changed(
+                            newValue: newValue,
+                            oldValue: oldValue
+                        )
                     )
-                )
+                }
                 
             }
             

@@ -2,7 +2,7 @@
 
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/TinyCore.svg)](https://cocoapods.org)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-![Platform](https://img.shields.io/cocoapods/p/TinyComponent.svg?style=flat)
+![Platform](https://img.shields.io/cocoapods/p/TinyCore.svg?style=flat)
 
 TinyCore provides fundamental types and functions.
 
