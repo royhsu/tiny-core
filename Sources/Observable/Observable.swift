@@ -8,7 +8,7 @@
 
 // MARK: - Observable
 
-public struct Observable<Value> {
+public final class Observable<Value>: ObservableProtocol {
     
     private final class _Observation: Observation {
         
@@ -20,9 +20,9 @@ public struct Observable<Value> {
         
     }
     
-    private var isInitialValue = true
+    private final var isInitialValue = true
     
-    private var _value: Value? {
+    private final var _value: Value? {
         
         willSet {
             
@@ -32,7 +32,7 @@ public struct Observable<Value> {
         
     }
     
-    public var value: Value? {
+    public final var value: Value? {
         
         get { return _value }
         
@@ -40,7 +40,7 @@ public struct Observable<Value> {
         
     }
     
-    public mutating func setValue(_ newValue: Value?) {
+    public final func setValue(_ newValue: Value?) {
         
         let oldValue = value
         
@@ -90,12 +90,12 @@ public struct Observable<Value> {
         
     }
     
-    private var boardcaster = Broadcaster()
+    private final var boardcaster = Broadcaster()
 
     public init() { }
     
-    public mutating func observe(
-        observer: @escaping (_ change: ObservedChange<Value>) -> Void
+    public final func observe(
+        _ observer: @escaping (_ change: ObservedChange<Value>) -> Void
     )
     -> Observation { return boardcaster.addObserver(observer) }
     

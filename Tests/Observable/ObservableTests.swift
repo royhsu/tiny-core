@@ -28,7 +28,7 @@ internal final class ObservableTests: XCTestCase {
         
         let promise = expectation(description: "Get notified about the changes.")
         
-        var observable = Observable<String>()
+        let observable = Observable<String>()
         
         obveration = observable.observe { change in
             
@@ -52,6 +52,16 @@ internal final class ObservableTests: XCTestCase {
             for: [ promise ],
             timeout: 10.0
         )
+        
+    }
+    
+    internal final func testTypeErasable() {
+        
+        let observable = Observable<String>()
+        
+        _ = AnyObservable(observable)
+        
+        XCTSuccess()
         
     }
 
