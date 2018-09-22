@@ -25,6 +25,7 @@
 		B0652DAE21479849009F8757 /* ObservableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0652DAD21479849009F8757 /* ObservableProtocol.swift */; };
 		B0652DB02147F050009F8757 /* ObservableValueOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0652DAF2147F050009F8757 /* ObservableValueOptions.swift */; };
 		B0652DB32147F878009F8757 /* ObservableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0652DB22147F878009F8757 /* ObservableTests.swift */; };
+		B0A26EC92155E6A900747535 /* Unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A26EC82155E6A900747535 /* Unique.swift */; };
 		B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */; };
 		B0A9DE882017255500AEF782 /* TrafficLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE872017255500AEF782 /* TrafficLight.swift */; };
 		B0AFDC8A201703DC00D8DEF6 /* URLSession+HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC89201703DC00D8DEF6 /* URLSession+HTTPClient.swift */; };
@@ -68,6 +69,7 @@
 		B0652DAD21479849009F8757 /* ObservableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableProtocol.swift; sourceTree = "<group>"; };
 		B0652DAF2147F050009F8757 /* ObservableValueOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableValueOptions.swift; sourceTree = "<group>"; };
 		B0652DB22147F878009F8757 /* ObservableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTests.swift; sourceTree = "<group>"; };
+		B0A26EC82155E6A900747535 /* Unique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unique.swift; sourceTree = "<group>"; };
 		B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManagerTests.swift; sourceTree = "<group>"; };
 		B0A9DE872017255500AEF782 /* TrafficLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLight.swift; sourceTree = "<group>"; };
 		B0AFDC89201703DC00D8DEF6 /* URLSession+HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+HTTPClient.swift"; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				B0577E781F98F0A000B1578E /* Result */,
 				B0BC23862078F90700D11A3B /* WeakObject.swift */,
 				B05017382078C999009838F9 /* Array+InsertBetween.swift */,
+				B0A26EC82155E6A900747535 /* Unique.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 			files = (
 				B0652DAE21479849009F8757 /* ObservableProtocol.swift in Sources */,
 				B0BC23852078F8C000D11A3B /* Observable.swift in Sources */,
+				B0A26EC92155E6A900747535 /* Unique.swift in Sources */,
 				B05017412078C99A009838F9 /* Radian+Degrees.swift in Sources */,
 				B050173F2078C999009838F9 /* Degrees+Radian.swift in Sources */,
 				B0577E7A1F98F0B300B1578E /* Result.swift in Sources */,
