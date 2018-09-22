@@ -12,8 +12,8 @@ public protocol HTTPClient {
 
     func request<T: Decodable>(
         _ request: URLRequest,
-        decoder: Decoder,
-        completionHandler: @escaping (Result<T>) -> Void
+        decoder: ModelDecoder,
+        completion: @escaping (Result<T>) -> Void
     )
 
 }

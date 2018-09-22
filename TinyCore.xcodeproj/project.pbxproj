@@ -14,7 +14,7 @@
 		B05017402078C999009838F9 /* Degrees.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050173B2078C999009838F9 /* Degrees.swift */; };
 		B05017412078C99A009838F9 /* Radian+Degrees.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050173C2078C999009838F9 /* Radian+Degrees.swift */; };
 		B05017422078C99A009838F9 /* Radian.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050173D2078C999009838F9 /* Radian.swift */; };
-		B0577E721F98EB2F00B1578E /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E711F98EB2F00B1578E /* Decoder.swift */; };
+		B0577E721F98EB2F00B1578E /* ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E711F98EB2F00B1578E /* ModelDecoder.swift */; };
 		B0577E751F98EC1400B1578E /* JSONDecoder+Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E741F98EC1400B1578E /* JSONDecoder+Decoder.swift */; };
 		B0577E771F98EC7600B1578E /* PropertyListDecoder+Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E761F98EC7600B1578E /* PropertyListDecoder+Decoder.swift */; };
 		B0577E7A1F98F0B300B1578E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E791F98F0B300B1578E /* Result.swift */; };
@@ -55,7 +55,7 @@
 		B050173B2078C999009838F9 /* Degrees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Degrees.swift; sourceTree = "<group>"; };
 		B050173C2078C999009838F9 /* Radian+Degrees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Radian+Degrees.swift"; sourceTree = "<group>"; };
 		B050173D2078C999009838F9 /* Radian.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radian.swift; sourceTree = "<group>"; };
-		B0577E711F98EB2F00B1578E /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
+		B0577E711F98EB2F00B1578E /* ModelDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDecoder.swift; sourceTree = "<group>"; };
 		B0577E741F98EC1400B1578E /* JSONDecoder+Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Decoder.swift"; sourceTree = "<group>"; };
 		B0577E761F98EC7600B1578E /* PropertyListDecoder+Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PropertyListDecoder+Decoder.swift"; sourceTree = "<group>"; };
 		B0577E791F98F0B300B1578E /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 		B0577E731F98EBEF00B1578E /* Coder */ = {
 			isa = PBXGroup;
 			children = (
-				B0577E711F98EB2F00B1578E /* Decoder.swift */,
+				B0577E711F98EB2F00B1578E /* ModelDecoder.swift */,
 				B0577E741F98EC1400B1578E /* JSONDecoder+Decoder.swift */,
 				B0577E761F98EC7600B1578E /* PropertyListDecoder+Decoder.swift */,
 			);
@@ -397,7 +397,7 @@
 				B05017422078C99A009838F9 /* Radian.swift in Sources */,
 				B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */,
 				B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */,
-				B0577E721F98EB2F00B1578E /* Decoder.swift in Sources */,
+				B0577E721F98EB2F00B1578E /* ModelDecoder.swift in Sources */,
 				B0652DB02147F050009F8757 /* ObservableValueOptions.swift in Sources */,
 				B0577E751F98EC1400B1578E /* JSONDecoder+Decoder.swift in Sources */,
 				B00C35692017224600531F72 /* EventEmitter.swift in Sources */,
@@ -478,7 +478,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tinyworld.$(PROJECT_NAME)";
@@ -537,7 +537,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tinyworld.$(PROJECT_NAME)";
 				PRODUCT_MODULE_NAME = "$(PROJECT_NAME)";

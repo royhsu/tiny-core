@@ -12,15 +12,15 @@ extension URLSession: HTTPClient {
 
     public final func request<T: Decodable>(
         _ request: URLRequest,
-        decoder: Decoder,
-        completionHandler: @escaping (Result<T>) -> Void
+        decoder: ModelDecoder,
+        completion: @escaping (Result<T>) -> Void
     ) {
 
         let task = dataTask(with: request) { data, _, error in
 
             if let error = error {
 
-                completionHandler(
+                completion(
                     .failure(error)
                 )
 
@@ -37,14 +37,14 @@ extension URLSession: HTTPClient {
                     from: data
                 )
 
-                completionHandler(
+                completion(
                     .success(value)
                 )
 
             }
             catch {
 
-                completionHandler(
+                completion(
                     .failure(error)
                 )
 

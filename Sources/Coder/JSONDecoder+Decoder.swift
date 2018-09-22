@@ -8,4 +8,4 @@
 
 // MARK: - Decoder
 
-extension JSONDecoder: Decoder { }
+extension JSONDecoder: ModelDecoder { }

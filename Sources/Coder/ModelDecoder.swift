@@ -1,15 +1,14 @@
 //
-//  Decoder.swift
+//  ModelDecoder.swift
 //  TinyCore
 //
 //  Created by Roy Hsu on 19/10/2017.
 //  Copyright © 2017 TinyWorld. All rights reserved.
 //
 
-// MARK: - Decoder
+// MARK: - ModelDecoder
 
-#warning("Name conflicts with the built-in one.")
-public protocol Decoder {
+public protocol ModelDecoder {
 
     func decode<T: Decodable>(
         _ type: T.Type,
@@ -19,7 +18,7 @@ public protocol Decoder {
 
 }
 
-extension Decoder {
+extension ModelDecoder {
 
     func decode<T: Decodable>(
         _ type: T.Type,
