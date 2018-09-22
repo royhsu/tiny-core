@@ -46,15 +46,19 @@ public final class Observable<Value>: ObservableProtocol {
         
         _value = newValue
         
-        let change: ObservedChange<Value> =
-            self.isInitialValue
-            ? .initial(newValue: newValue)
-            : .changed(
-                newValue: newValue,
-                oldValue: oldValue
-            )
+        DispatchQueue.global(qos: .default).async {
         
-        self.boardcaster.notifyAll(with: change)
+            let change: ObservedChange<Value> =
+                self.isInitialValue
+                ? .initial(newValue: newValue)
+                : .changed(
+                    newValue: newValue,
+                    oldValue: oldValue
+                )
+            
+            self.boardcaster.notifyAll(with: change)
+            
+        }
         
     }
     
