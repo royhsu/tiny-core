@@ -1,0 +1,3 @@
+import TinyCore
+
+print("End")

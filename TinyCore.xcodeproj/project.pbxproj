@@ -71,7 +71,7 @@
 		B0AFDC89201703DC00D8DEF6 /* URLSession+HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+HTTPClient.swift"; sourceTree = "<group>"; };
 		B0BC23842078F8C000D11A3B /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		B0BC23862078F90700D11A3B /* WeakObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakObject.swift; sourceTree = "<group>"; };
-		B0BDA06E2146CB8D0077BEFC /* Observable.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Observable.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B0BDA06E2146CB8D0077BEFC /* TinyCore.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TinyCore.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B0D0DB142146169400AD1EE7 /* ResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTests.swift; sourceTree = "<group>"; };
 		B0D0DB172146182800AD1EE7 /* XCTSuccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTSuccess.swift; sourceTree = "<group>"; };
 		B0D0DB1A2146185E00AD1EE7 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
@@ -175,6 +175,7 @@
 				B0BC23862078F90700D11A3B /* WeakObject.swift */,
 				B05017382078C999009838F9 /* Array+InsertBetween.swift */,
 				B0A26EC82155E6A900747535 /* Unique.swift */,
+				B0BDA06E2146CB8D0077BEFC /* TinyCore.playground */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -221,7 +222,6 @@
 				B0652DAB21479818009F8757 /* Observation.swift */,
 				B0652DA9214797E6009F8757 /* ObservedChange.swift */,
 				B0BC23842078F8C000D11A3B /* Observable.swift */,
-				B0BDA06E2146CB8D0077BEFC /* Observable.playground */,
 			);
 			path = Observable;
 			sourceTree = "<group>";
