@@ -20,10 +20,8 @@
 		B0577E7A1F98F0B300B1578E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E791F98F0B300B1578E /* Result.swift */; };
 		B05D4F6E1F1E0D9E00929006 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05D4F641F1E0D9D00929006 /* TinyCore.framework */; };
 		B05D4FBD1F1E10C200929006 /* TinyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = B05D4FBA1F1E10C200929006 /* TinyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B0652DAA214797E6009F8757 /* ObservableEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0652DA9214797E6009F8757 /* ObservableEvent.swift */; };
-		B0652DAC21479818009F8757 /* ObservableSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0652DAB21479818009F8757 /* ObservableSubscription.swift */; };
-		B0652DAE21479849009F8757 /* ObservableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0652DAD21479849009F8757 /* ObservableProtocol.swift */; };
-		B0652DB02147F050009F8757 /* ObservableValueOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0652DAF2147F050009F8757 /* ObservableValueOptions.swift */; };
+		B0652DAA214797E6009F8757 /* ObservedChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0652DA9214797E6009F8757 /* ObservedChange.swift */; };
+		B0652DAC21479818009F8757 /* Observation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0652DAB21479818009F8757 /* Observation.swift */; };
 		B0652DB32147F878009F8757 /* ObservableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0652DB22147F878009F8757 /* ObservableTests.swift */; };
 		B0A26EC92155E6A900747535 /* Unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A26EC82155E6A900747535 /* Unique.swift */; };
 		B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */; };
@@ -64,10 +62,8 @@
 		B05D4FB91F1E10C200929006 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B05D4FBA1F1E10C200929006 /* TinyCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TinyCore.h; sourceTree = "<group>"; };
 		B05D4FC21F1E10D100929006 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B0652DA9214797E6009F8757 /* ObservableEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableEvent.swift; sourceTree = "<group>"; };
-		B0652DAB21479818009F8757 /* ObservableSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableSubscription.swift; sourceTree = "<group>"; };
-		B0652DAD21479849009F8757 /* ObservableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableProtocol.swift; sourceTree = "<group>"; };
-		B0652DAF2147F050009F8757 /* ObservableValueOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableValueOptions.swift; sourceTree = "<group>"; };
+		B0652DA9214797E6009F8757 /* ObservedChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservedChange.swift; sourceTree = "<group>"; };
+		B0652DAB21479818009F8757 /* Observation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observation.swift; sourceTree = "<group>"; };
 		B0652DB22147F878009F8757 /* ObservableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTests.swift; sourceTree = "<group>"; };
 		B0A26EC82155E6A900747535 /* Unique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unique.swift; sourceTree = "<group>"; };
 		B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManagerTests.swift; sourceTree = "<group>"; };
@@ -222,10 +218,8 @@
 		B0BC23832078F8C000D11A3B /* Observable */ = {
 			isa = PBXGroup;
 			children = (
-				B0652DAD21479849009F8757 /* ObservableProtocol.swift */,
-				B0652DAF2147F050009F8757 /* ObservableValueOptions.swift */,
-				B0652DAB21479818009F8757 /* ObservableSubscription.swift */,
-				B0652DA9214797E6009F8757 /* ObservableEvent.swift */,
+				B0652DAB21479818009F8757 /* Observation.swift */,
+				B0652DA9214797E6009F8757 /* ObservedChange.swift */,
 				B0BC23842078F8C000D11A3B /* Observable.swift */,
 				B0BDA06E2146CB8D0077BEFC /* Observable.playground */,
 			);
@@ -381,7 +375,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0652DAE21479849009F8757 /* ObservableProtocol.swift in Sources */,
 				B0BC23852078F8C000D11A3B /* Observable.swift in Sources */,
 				B0A26EC92155E6A900747535 /* Unique.swift in Sources */,
 				B05017412078C99A009838F9 /* Radian+Degrees.swift in Sources */,
@@ -390,15 +383,14 @@
 				B0577E771F98EC7600B1578E /* PropertyListDecoder+Decoder.swift in Sources */,
 				B0BC23872078F90700D11A3B /* WeakObject.swift in Sources */,
 				B050173E2078C999009838F9 /* Array+InsertBetween.swift in Sources */,
-				B0652DAC21479818009F8757 /* ObservableSubscription.swift in Sources */,
-				B0652DAA214797E6009F8757 /* ObservableEvent.swift in Sources */,
+				B0652DAC21479818009F8757 /* Observation.swift in Sources */,
+				B0652DAA214797E6009F8757 /* ObservedChange.swift in Sources */,
 				B05017402078C999009838F9 /* Degrees.swift in Sources */,
 				B0AFDC8A201703DC00D8DEF6 /* URLSession+HTTPClient.swift in Sources */,
 				B05017422078C99A009838F9 /* Radian.swift in Sources */,
 				B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */,
 				B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */,
 				B0577E721F98EB2F00B1578E /* ModelDecoder.swift in Sources */,
-				B0652DB02147F050009F8757 /* ObservableValueOptions.swift in Sources */,
 				B0577E751F98EC1400B1578E /* JSONDecoder+Decoder.swift in Sources */,
 				B00C35692017224600531F72 /* EventEmitter.swift in Sources */,
 			);

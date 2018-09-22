@@ -14,9 +14,9 @@ import XCTest
 
 internal final class ObservableTests: XCTestCase {
 
-    internal final var subscription: ObservableSubscription?
+    internal final var obveration: Observation?
     
-    internal final func testInitializeObservable() {
+    internal final func testInitialize() {
         
         let observable = Observable<String>()
         
@@ -24,71 +24,33 @@ internal final class ObservableTests: XCTestCase {
         
     }
     
-    internal final func testSetValueByAccessingProperty() {
+    internal final func testSetValue() {
         
         let promise = expectation(description: "Get notified about the changes.")
         
-        let observable = Observable<String>()
+        var observable = Observable<String>()
         
-        subscription = observable.subscribe { event in
+        obveration = observable.observe { change in
             
             promise.fulfill()
             
             XCTAssertEqual(
-                event.currentValue,
-                "Hello"
+                change.currentValue,
+                "hello"
             )
             
         }
         
-        observable.value = "Hello"
+        observable.setValue("hello")
+        
+        XCTAssertEqual(
+            observable.value,
+            "hello"
+        )
         
         wait(
             for: [ promise ],
             timeout: 10.0
-        )
-        
-    }
-    
-    internal final func testSetValueThroughSetter() {
-        
-        let promise = expectation(description: "Get notified about the changes.")
-        
-        let observable = Observable<String>()
-        
-        subscription = observable.subscribe { event in
-            
-            promise.fulfill()
-            
-            XCTAssertEqual(
-                event.currentValue,
-                "Hello"
-            )
-            
-        }
-        
-        observable.setValue("Hello")
-        
-        wait(
-            for: [ promise ],
-            timeout: 10.0
-        )
-        
-    }
-    
-    internal final func testSetValueThroughtSetterWithMuteBroadcasterOptions() {
-        
-        let observable = Observable<String>()
-        
-        subscription = observable.subscribe { _ in
-            
-            XCTFail("Shouldn't get notified.")
-            
-        }
-        
-        observable.setValue(
-            "Hello",
-            options: .muteBroadcaster
         )
         
     }
