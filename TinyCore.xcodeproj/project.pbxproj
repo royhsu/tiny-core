@@ -35,7 +35,6 @@
 		B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */; };
 		B0E236532156737600FBE7B3 /* ObservableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E236522156737600FBE7B3 /* ObservableProtocol.swift */; };
 		B0E236622156762900FBE7B3 /* XCTUnwrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2365F2156762900FBE7B3 /* XCTUnwrapped.swift */; };
-		B0E236632156762900FBE7B3 /* XCTSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E236602156762900FBE7B3 /* XCTSuccess.swift */; };
 		B0E236642156762900FBE7B3 /* Bundle+Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E236612156762900FBE7B3 /* Bundle+Testing.swift */; };
 /* End PBXBuildFile section */
 
@@ -338,7 +337,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = TinyWorld;
 				TargetAttributes = {
 					B05D4F631F1E0D9D00929006 = {
@@ -425,7 +424,6 @@
 				B0D0DB192146183C00AD1EE7 /* XCTSuccess.swift in Sources */,
 				B0D0DB1C2146188500AD1EE7 /* HTTPError.swift in Sources */,
 				B0E236642156762900FBE7B3 /* Bundle+Testing.swift in Sources */,
-				B0E236632156762900FBE7B3 /* XCTSuccess.swift in Sources */,
 				B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */,
 				B0652DB32147F878009F8757 /* ObservableTests.swift in Sources */,
 				B0E236622156762900FBE7B3 /* XCTUnwrapped.swift in Sources */,
