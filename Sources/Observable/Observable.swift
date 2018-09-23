@@ -8,168 +8,99 @@
 
 // MARK: - Observable
 
-public final class Observable<T> {
-
-    public final var value: T {
-
+public final class Observable<Value>: ObservableProtocol {
+    
+    private final class _Observation: Observation {
+        
+        internal final let observer: (_ change: ObservedChange<Value>) -> Void
+        
+        internal init(
+            observer: @escaping (_ change: ObservedChange<Value>) -> Void
+        ) { self.observer = observer }
+        
+    }
+    
+    private final var isInitialValue = true
+    
+    private final var _value: Value? {
+        
         willSet {
-
-            let oldValue = value
-
-            // Clean up the dead objects.
-            valueWillChangeObjects = valueWillChangeObjects.filter { $0.reference != nil }
-
-            valueWillChangeObjects.forEach { object in
-
-                object.reference?.subscriber(
-                    oldValue,
-                    newValue
+            
+            if !isInitialValue { isInitialValue.toggle() }
+            
+        }
+        
+    }
+    
+    public final var value: Value? {
+        
+        get { return _value }
+        
+        set { setValue(newValue) }
+        
+    }
+    
+    public final func setValue(_ newValue: Value?) {
+        
+        let oldValue = value
+        
+        _value = newValue
+        
+        DispatchQueue.global(qos: .default).async {
+        
+            let change: ObservedChange<Value> =
+                self.isInitialValue
+                ? .initial(newValue: newValue)
+                : .changed(
+                    newValue: newValue,
+                    oldValue: oldValue
                 )
-
-            }
-
+            
+            self.boardcaster.notifyAll(with: change)
+            
         }
-
-        didSet {
-
-            let newValue = value
-
+        
+    }
+    
+    private struct Broadcaster {
+        
+        internal typealias Object = WeakObject<_Observation>
+        
+        private var objects: [Object] = []
+        
+        internal mutating func addObserver(
+            _ observer: @escaping (_ change: ObservedChange<Value>) -> Void
+        )
+        -> Observation {
+            
+            let observation = _Observation(observer: observer)
+            
+            objects.append(
+                WeakObject(observation)
+            )
+            
+            return observation
+            
+        }
+        
+        internal mutating func notifyAll(with change: ObservedChange<Value>) {
+            
             // Clean up the dead objects.
-            valueDidChangeObjects = valueDidChangeObjects.filter { $0.reference != nil }
-
-            valueDidChangeObjects.forEach { object in
-
-                object.reference?.subscriber(
-                    oldValue,
-                    newValue
-                )
-
-            }
-
+            objects.removeAll { $0.reference == nil }
+            
+            objects.forEach { $0.reference?.observer(change) }
+            
         }
-
+        
     }
+    
+    private final var boardcaster = Broadcaster()
 
-    public init(_ value: T) {
-
-        self.value = value
-
-        self.prepare()
-
-    }
-
-    // MARK: Set Up
-
-    fileprivate final func prepare() {
-
-        initialValueObjects.forEach { [unowned self] object in
-
-            object.reference?.subscriber(self.value)
-
-        }
-
-        // Remove all the initial value subscriptions that will only be notified once.
-        initialValueObjects = []
-
-    }
-
-    // MARK: InitialValueSubscriber
-
-    public typealias InitialValueSubscriber = (_ value: T) -> Void
-
-    // MARK: InitialValueSubscription
-
-    public final class InitialValueSubscription {
-
-        internal final let subscriber: InitialValueSubscriber
-
-        internal init(subscriber: @escaping InitialValueSubscriber) { self.subscriber = subscriber }
-
-    }
-
-    private final var initialValueObjects: [WeakObject<InitialValueSubscription>] = []
-
-    // MARK: ValueWillChangeSubscriber
-
-    public typealias ValueWillChangeSubscriber = (
-        _ oldValue: T,
-        _ newValue: T
+    public init() { }
+    
+    public final func observe(
+        _ observer: @escaping (_ change: ObservedChange<Value>) -> Void
     )
-    -> Void
-
-    // MARK: ValueWillChangeSubscription
-
-    public final class ValueWillChangeSubscription {
-
-        internal final let subscriber: ValueWillChangeSubscriber
-
-        internal init(subscriber: @escaping ValueWillChangeSubscriber) { self.subscriber = subscriber }
-
-    }
-
-    private final var valueWillChangeObjects: [WeakObject<ValueWillChangeSubscription>] = []
-
-    // MARK: ValueDidChangeSubscriber
-
-    public typealias ValueDidChangeSubscriber = (
-        _ oldValue: T,
-        _ newValue: T
-    )
-    -> Void
-
-    // MARK: ValueDidChangeSubscription
-
-    public final class ValueDidChangeSubscription {
-
-        internal final let subscriber: ValueDidChangeSubscriber
-
-        internal init(subscriber: @escaping ValueDidChangeSubscriber) { self.subscriber = subscriber }
-
-    }
-
-    private final var valueDidChangeObjects: [WeakObject<ValueDidChangeSubscription>] = []
-
-}
-
-public extension Observable {
-
-    /// A subscriber must keep the strong reference to the subscription while observing.
-    /// Unsubscribing is easy. Just set the reference of the subscription to nil.
-
-    public final func observeInitialValue(subscriber: @escaping InitialValueSubscriber) -> InitialValueSubscription {
-
-        let subscription = InitialValueSubscription(subscriber: subscriber)
-
-        initialValueObjects.append(
-            WeakObject(subscription)
-        )
-
-        return subscription
-
-    }
-
-    public final func observeValueWillChange(subscriber: @escaping ValueWillChangeSubscriber) -> ValueWillChangeSubscription {
-
-        let subscription = ValueWillChangeSubscription(subscriber: subscriber)
-
-        valueWillChangeObjects.append(
-            WeakObject(subscription)
-        )
-
-        return subscription
-
-    }
-
-    public final func observeValueDidChange(subscriber: @escaping ValueDidChangeSubscriber) -> ValueDidChangeSubscription {
-
-        let subscription = ValueDidChangeSubscription(subscriber: subscriber)
-
-        valueDidChangeObjects.append(
-            WeakObject(subscription)
-        )
-
-        return subscription
-
-    }
-
+    -> Observation { return boardcaster.addObserver(observer) }
+    
 }

@@ -2,9 +2,9 @@
 
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/TinyCore.svg)](https://cocoapods.org)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-![Platform](https://img.shields.io/cocoapods/p/TinyComponent.svg?style=flat)
+![Platform](https://img.shields.io/cocoapods/p/TinyCore.svg?style=flat)
 
-The core framework provides practical functionalities that will help us to build apps and services much more quickly.
+TinyCore provides fundamental types and functions.
 
 ## Features
 
@@ -14,13 +14,12 @@ The core framework provides practical functionalities that will help us to build
 
 ## Requirements
 
-- iOS 9.0+
-- Xcode 9.0+
+- iOS 10.0+
 - Swift 4.0+
 
 ## Installation
 
-You can install TinyValidation using CocoaPods or Carthage.
+You can install TinyCore using CocoaPods or Carthage.
 
 ### CocoaPods
 

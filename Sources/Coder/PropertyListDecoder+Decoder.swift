@@ -8,4 +8,4 @@
 
 // MARK: - Decoder
 
-extension PropertyListDecoder: Decoder { }
+extension PropertyListDecoder: ModelDecoder { }
