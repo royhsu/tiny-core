@@ -14,13 +14,12 @@ TinyCore provides fundamental types and functions.
 
 ## Requirements
 
-- iOS 9.0+
-- Xcode 9.0+
+- iOS 10.0+
 - Swift 4.0+
 
 ## Installation
 
-You can install TinyValidation using CocoaPods or Carthage.
+You can install TinyCore using CocoaPods or Carthage.
 
 ### CocoaPods
 

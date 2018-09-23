@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'TinyCore'
-  spec.version = '0.5.3'
+  spec.version = '0.6.0'
   spec.license = 'MIT'
   spec.summary = 'TinyCore provides fundamental types and functions.'
   spec.homepage = 'https://github.com/royhsu/tiny-core'
@@ -9,6 +9,6 @@ Pod::Spec.new do |spec|
   spec.framework = 'Foundation'
   spec.source_files = 'Sources/*.swift'
   spec.ios.source_files = 'Sources/iOS/*.swift'
-  spec.ios.deployment_target = '9.0'
+  spec.ios.deployment_target = '10.0'
   spec.swift_version = '4.0'
 end
