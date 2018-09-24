@@ -34,7 +34,6 @@
 		B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */; };
 		B0E236532156737600FBE7B3 /* ObservableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E236522156737600FBE7B3 /* ObservableProtocol.swift */; };
 		B0E236622156762900FBE7B3 /* XCTUnwrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2365F2156762900FBE7B3 /* XCTUnwrapped.swift */; };
-		B0E236642156762900FBE7B3 /* Bundle+Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E236612156762900FBE7B3 /* Bundle+Testing.swift */; };
 		B0F51C9E21586AD700B592F5 /* XCTSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E236602156762900FBE7B3 /* XCTSuccess.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,7 +80,6 @@
 		B0E236522156737600FBE7B3 /* ObservableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableProtocol.swift; sourceTree = "<group>"; };
 		B0E2365F2156762900FBE7B3 /* XCTUnwrapped.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTUnwrapped.swift; sourceTree = "<group>"; };
 		B0E236602156762900FBE7B3 /* XCTSuccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTSuccess.swift; sourceTree = "<group>"; };
-		B0E236612156762900FBE7B3 /* Bundle+Testing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Testing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,7 +263,6 @@
 			children = (
 				B0E2365F2156762900FBE7B3 /* XCTUnwrapped.swift */,
 				B0E236602156762900FBE7B3 /* XCTSuccess.swift */,
-				B0E236612156762900FBE7B3 /* Bundle+Testing.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -412,7 +409,6 @@
 			files = (
 				B0D0DB152146169400AD1EE7 /* ResultTests.swift in Sources */,
 				B0D0DB1C2146188500AD1EE7 /* HTTPError.swift in Sources */,
-				B0E236642156762900FBE7B3 /* Bundle+Testing.swift in Sources */,
 				B0F51C9E21586AD700B592F5 /* XCTSuccess.swift in Sources */,
 				B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */,
 				B0652DB32147F878009F8757 /* ObservableTests.swift in Sources */,
