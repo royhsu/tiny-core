@@ -30,12 +30,12 @@
 		B0BC23852078F8C000D11A3B /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC23842078F8C000D11A3B /* Observable.swift */; };
 		B0BC23872078F90700D11A3B /* WeakObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC23862078F90700D11A3B /* WeakObject.swift */; };
 		B0D0DB152146169400AD1EE7 /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0DB142146169400AD1EE7 /* ResultTests.swift */; };
-		B0D0DB192146183C00AD1EE7 /* XCTSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0DB172146182800AD1EE7 /* XCTSuccess.swift */; };
 		B0D0DB1C2146188500AD1EE7 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0DB1A2146185E00AD1EE7 /* HTTPError.swift */; };
 		B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */; };
 		B0E236532156737600FBE7B3 /* ObservableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E236522156737600FBE7B3 /* ObservableProtocol.swift */; };
 		B0E236622156762900FBE7B3 /* XCTUnwrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2365F2156762900FBE7B3 /* XCTUnwrapped.swift */; };
 		B0E236642156762900FBE7B3 /* Bundle+Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E236612156762900FBE7B3 /* Bundle+Testing.swift */; };
+		B0F51C9E21586AD700B592F5 /* XCTSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E236602156762900FBE7B3 /* XCTSuccess.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +61,7 @@
 		B0577E761F98EC7600B1578E /* PropertyListDecoder+Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PropertyListDecoder+Decoder.swift"; sourceTree = "<group>"; };
 		B0577E791F98F0B300B1578E /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		B05D4F641F1E0D9D00929006 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B05D4F6D1F1E0D9E00929006 /* TinyCore Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TinyCore Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B05D4F6D1F1E0D9E00929006 /* TinyCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinyCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05D4FB91F1E10C200929006 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B05D4FBA1F1E10C200929006 /* TinyCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TinyCore.h; sourceTree = "<group>"; };
 		B05D4FC21F1E10D100929006 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,7 +76,6 @@
 		B0BC23862078F90700D11A3B /* WeakObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakObject.swift; sourceTree = "<group>"; };
 		B0BDA06E2146CB8D0077BEFC /* TinyCore.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TinyCore.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B0D0DB142146169400AD1EE7 /* ResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTests.swift; sourceTree = "<group>"; };
-		B0D0DB172146182800AD1EE7 /* XCTSuccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTSuccess.swift; sourceTree = "<group>"; };
 		B0D0DB1A2146185E00AD1EE7 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		B0E236522156737600FBE7B3 /* ObservableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableProtocol.swift; sourceTree = "<group>"; };
@@ -163,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				B05D4F641F1E0D9D00929006 /* TinyCore.framework */,
-				B05D4F6D1F1E0D9E00929006 /* TinyCore Tests.xctest */,
+				B05D4F6D1F1E0D9E00929006 /* TinyCoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,7 +193,6 @@
 				B0652DB12147F867009F8757 /* Observable */,
 				B0D0DB132146167F00AD1EE7 /* Result */,
 				B0A9DE84201724E600AEF782 /* Event */,
-				B0D0DB162146182800AD1EE7 /* Helpers */,
 				B05D4FC21F1E10D100929006 /* Info.plist */,
 			);
 			path = Tests;
@@ -242,14 +240,6 @@
 				B0D0DB1A2146185E00AD1EE7 /* HTTPError.swift */,
 			);
 			path = Result;
-			sourceTree = "<group>";
-		};
-		B0D0DB162146182800AD1EE7 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				B0D0DB172146182800AD1EE7 /* XCTSuccess.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		B0D0DB1D21462B6B00AD1EE7 /* iOS */ = {
@@ -312,9 +302,9 @@
 			productReference = B05D4F641F1E0D9D00929006 /* TinyCore.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		B05D4F6C1F1E0D9E00929006 /* TinyCore iOS Tests */ = {
+		B05D4F6C1F1E0D9E00929006 /* TinyCoreTests iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B05D4F7B1F1E0D9E00929006 /* Build configuration list for PBXNativeTarget "TinyCore iOS Tests" */;
+			buildConfigurationList = B05D4F7B1F1E0D9E00929006 /* Build configuration list for PBXNativeTarget "TinyCoreTests iOS" */;
 			buildPhases = (
 				B05D4F691F1E0D9E00929006 /* Sources */,
 				B05D4F6A1F1E0D9E00929006 /* Frameworks */,
@@ -325,9 +315,9 @@
 			dependencies = (
 				B05D4F701F1E0D9E00929006 /* PBXTargetDependency */,
 			);
-			name = "TinyCore iOS Tests";
+			name = "TinyCoreTests iOS";
 			productName = TinyCoreTests;
-			productReference = B05D4F6D1F1E0D9E00929006 /* TinyCore Tests.xctest */;
+			productReference = B05D4F6D1F1E0D9E00929006 /* TinyCoreTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -367,7 +357,7 @@
 			projectRoot = "";
 			targets = (
 				B05D4F631F1E0D9D00929006 /* TinyCore iOS */,
-				B05D4F6C1F1E0D9E00929006 /* TinyCore iOS Tests */,
+				B05D4F6C1F1E0D9E00929006 /* TinyCoreTests iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -421,9 +411,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0D0DB152146169400AD1EE7 /* ResultTests.swift in Sources */,
-				B0D0DB192146183C00AD1EE7 /* XCTSuccess.swift in Sources */,
 				B0D0DB1C2146188500AD1EE7 /* HTTPError.swift in Sources */,
 				B0E236642156762900FBE7B3 /* Bundle+Testing.swift in Sources */,
+				B0F51C9E21586AD700B592F5 /* XCTSuccess.swift in Sources */,
 				B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */,
 				B0652DB32147F878009F8757 /* ObservableTests.swift in Sources */,
 				B0E236622156762900FBE7B3 /* XCTUnwrapped.swift in Sources */,
@@ -620,9 +610,9 @@
 				DEVELOPMENT_TEAM = 5CE6946X84;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)-Tests";
-				PRODUCT_MODULE_NAME = "$(inherited)_Tests";
-				PRODUCT_NAME = "$(inherited) Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)Tests";
+				PRODUCT_MODULE_NAME = "$(inherited)Tests";
+				PRODUCT_NAME = "$(inherited)Tests";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -635,9 +625,9 @@
 				DEVELOPMENT_TEAM = 5CE6946X84;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)-Tests";
-				PRODUCT_MODULE_NAME = "$(inherited)_Tests";
-				PRODUCT_NAME = "$(inherited) Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)Tests";
+				PRODUCT_MODULE_NAME = "$(inherited)Tests";
+				PRODUCT_NAME = "$(inherited)Tests";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -664,7 +654,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B05D4F7B1F1E0D9E00929006 /* Build configuration list for PBXNativeTarget "TinyCore iOS Tests" */ = {
+		B05D4F7B1F1E0D9E00929006 /* Build configuration list for PBXNativeTarget "TinyCoreTests iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B05D4F7C1F1E0D9E00929006 /* Debug */,

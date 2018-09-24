@@ -30,7 +30,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B05D4F6C1F1E0D9E00929006"
                BuildableName = "TinyCore Tests.xctest"
-               BlueprintName = "TinyCore iOS Tests"
+               BlueprintName = "TinyCoreTests iOS"
                ReferencedContainer = "container:TinyCore.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -48,7 +48,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B05D4F6C1F1E0D9E00929006"
                BuildableName = "TinyCore Tests.xctest"
-               BlueprintName = "TinyCore iOS Tests"
+               BlueprintName = "TinyCoreTests iOS"
                ReferencedContainer = "container:TinyCore.xcodeproj">
             </BuildableReference>
          </TestableReference>
