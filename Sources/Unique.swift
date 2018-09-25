@@ -9,9 +9,9 @@
 // MARK: - Unique
 
 public protocol Unique {
-    
+
     associatedtype Identifier: Hashable
-    
+
     var identifier: Identifier { get }
-    
+
 }
