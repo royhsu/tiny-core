@@ -9,7 +9,7 @@
 // MARK: - Failable
 
 public protocol Failable {
-    
+
     var errors: Observable<Error> { get }
-    
+
 }

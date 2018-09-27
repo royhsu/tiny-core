@@ -9,7 +9,7 @@
 // MARK: - Actionable
 
 public protocol Actionable {
-    
+
     var actions: Observable<Action> { get }
-    
+
 }
