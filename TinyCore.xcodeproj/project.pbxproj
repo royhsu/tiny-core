@@ -23,6 +23,9 @@
 		B0652DAA214797E6009F8757 /* ObservedChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0652DA9214797E6009F8757 /* ObservedChange.swift */; };
 		B0652DAC21479818009F8757 /* Observation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0652DAB21479818009F8757 /* Observation.swift */; };
 		B0652DB32147F878009F8757 /* ObservableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0652DB22147F878009F8757 /* ObservableTests.swift */; };
+		B06F6E7E215C7DBE00BBCF0F /* Failable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F6E7A215C7DBE00BBCF0F /* Failable.swift */; };
+		B06F6E7F215C7DBE00BBCF0F /* Actionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F6E7C215C7DBE00BBCF0F /* Actionable.swift */; };
+		B06F6E80215C7DBE00BBCF0F /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F6E7D215C7DBE00BBCF0F /* Action.swift */; };
 		B07A2C3E215A1CF8002EFE87 /* Emptible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2C3D215A1CF8002EFE87 /* Emptible.swift */; };
 		B0A26EC92155E6A900747535 /* Unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A26EC82155E6A900747535 /* Unique.swift */; };
 		B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */; };
@@ -68,6 +71,9 @@
 		B0652DA9214797E6009F8757 /* ObservedChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservedChange.swift; sourceTree = "<group>"; };
 		B0652DAB21479818009F8757 /* Observation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observation.swift; sourceTree = "<group>"; };
 		B0652DB22147F878009F8757 /* ObservableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTests.swift; sourceTree = "<group>"; };
+		B06F6E7A215C7DBE00BBCF0F /* Failable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Failable.swift; sourceTree = "<group>"; };
+		B06F6E7C215C7DBE00BBCF0F /* Actionable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actionable.swift; sourceTree = "<group>"; };
+		B06F6E7D215C7DBE00BBCF0F /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		B07A2C3D215A1CF8002EFE87 /* Emptible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emptible.swift; sourceTree = "<group>"; };
 		B0A26EC82155E6A900747535 /* Unique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unique.swift; sourceTree = "<group>"; };
 		B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManagerTests.swift; sourceTree = "<group>"; };
@@ -177,6 +183,8 @@
 				B0DB58C61F989B7A00DAD605 /* HTTP */,
 				B03BE8761F68D53D002E076A /* Int+Extensions */,
 				B0BC23832078F8C000D11A3B /* Observable */,
+				B06F6E7B215C7DBE00BBCF0F /* Action */,
+				B06F6E79215C7DBE00BBCF0F /* Error */,
 				B0577E781F98F0A000B1578E /* Result */,
 				B0BC23862078F90700D11A3B /* WeakObject.swift */,
 				B05017382078C999009838F9 /* Array+InsertBetween.swift */,
@@ -205,6 +213,23 @@
 				B0652DB22147F878009F8757 /* ObservableTests.swift */,
 			);
 			path = Observable;
+			sourceTree = "<group>";
+		};
+		B06F6E79215C7DBE00BBCF0F /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				B06F6E7A215C7DBE00BBCF0F /* Failable.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		B06F6E7B215C7DBE00BBCF0F /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				B06F6E7C215C7DBE00BBCF0F /* Actionable.swift */,
+				B06F6E7D215C7DBE00BBCF0F /* Action.swift */,
+			);
+			path = Action;
 			sourceTree = "<group>";
 		};
 		B0A9DE84201724E600AEF782 /* Event */ = {
@@ -384,12 +409,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B06F6E7E215C7DBE00BBCF0F /* Failable.swift in Sources */,
 				B0BC23852078F8C000D11A3B /* Observable.swift in Sources */,
 				B0A26EC92155E6A900747535 /* Unique.swift in Sources */,
 				B05017412078C99A009838F9 /* Radian+Degrees.swift in Sources */,
 				B050173F2078C999009838F9 /* Degrees+Radian.swift in Sources */,
 				B0577E7A1F98F0B300B1578E /* Result.swift in Sources */,
 				B0577E771F98EC7600B1578E /* PropertyListDecoder+Decoder.swift in Sources */,
+				B06F6E80215C7DBE00BBCF0F /* Action.swift in Sources */,
 				B0BC23872078F90700D11A3B /* WeakObject.swift in Sources */,
 				B050173E2078C999009838F9 /* Array+InsertBetween.swift in Sources */,
 				B0652DAC21479818009F8757 /* Observation.swift in Sources */,
@@ -398,6 +425,7 @@
 				B0AFDC8A201703DC00D8DEF6 /* URLSession+HTTPClient.swift in Sources */,
 				B05017422078C99A009838F9 /* Radian.swift in Sources */,
 				B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */,
+				B06F6E7F215C7DBE00BBCF0F /* Actionable.swift in Sources */,
 				B0E236532156737600FBE7B3 /* ObservableProtocol.swift in Sources */,
 				B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */,
 				B0577E721F98EB2F00B1578E /* ModelDecoder.swift in Sources */,
