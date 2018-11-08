@@ -96,7 +96,7 @@ public final class Observable<Value>: ObservableProtocol {
 
     private final var boardcaster = Broadcaster()
 
-    public init() { }
+    public init(_ value: Value? = nil) { self.value = value }
 
     public final func observe(
         _ observer: @escaping (_ change: ObservedChange<Value>) -> Void
