@@ -56,6 +56,8 @@ public final class Observable<Value>: ObservableProtocol {
                     oldValue: oldValue
                 )
 
+            self.boardcaster.cleanUp()
+            
             self.boardcaster.notifyAll(with: change)
 
         }
@@ -82,11 +84,14 @@ public final class Observable<Value>: ObservableProtocol {
             return observation
 
         }
+        
+        internal mutating func cleanUp() {
+            
+            objects.removeAll { $0.reference == nil }
+            
+        }
 
         internal mutating func notifyAll(with change: ObservedChange<Value>) {
-
-            // Clean up the dead objects.
-            objects.removeAll { $0.reference == nil }
 
             objects.forEach { $0.reference?.observer(change) }
 
