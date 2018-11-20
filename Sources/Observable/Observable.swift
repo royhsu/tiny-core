@@ -56,10 +56,10 @@ public final class Observable<Value>: ObservableProtocol {
                     oldValue: oldValue
                 )
 
-            #warning("crash due to thread issue.")
-//            self.boardcaster.cleanUp()
-            
             self.boardcaster.notifyAll(with: change)
+            
+            self.boardcaster.cleanUp()
+            
 
         }
 
@@ -88,7 +88,7 @@ public final class Observable<Value>: ObservableProtocol {
         
         internal mutating func cleanUp() {
             
-            objects.removeAll { $0.reference == nil }
+            objects = objects.filter { $0.reference != nil }
             
         }
 
