@@ -59,7 +59,6 @@ public final class Observable<Value>: ObservableProtocol {
             self.boardcaster.notifyAll(with: change)
             
             self.boardcaster.cleanUp()
-            
 
         }
 
