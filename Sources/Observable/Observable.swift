@@ -56,7 +56,8 @@ public final class Observable<Value>: ObservableProtocol {
                     oldValue: oldValue
                 )
 
-            self.boardcaster.cleanUp()
+            #warning("crash due to thread issue.")
+//            self.boardcaster.cleanUp()
             
             self.boardcaster.notifyAll(with: change)
 
