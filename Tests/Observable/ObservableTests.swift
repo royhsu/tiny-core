@@ -35,16 +35,16 @@ internal final class ObservableTests: XCTestCase {
             promise.fulfill()
 
             switch change {
-                
+
             case let .initial(newValue):
-                
+
                 XCTAssertEqual(
                     newValue,
                     "hello"
                 )
-                
+
             case .changed: XCTFail("Must be the initial value change.")
-                
+
             }
 
         }
@@ -62,42 +62,42 @@ internal final class ObservableTests: XCTestCase {
         )
 
     }
-    
+
     internal final func testSetValue() {
-        
+
         let promise = expectation(description: "Get notified about value changes.")
-        
+
         let observable = Observable<String>("old value")
 
         obveration = observable.observe { change in
-            
+
             promise.fulfill()
-            
+
             switch change {
-                
+
             case .initial: XCTFail("Must not be the initial value change.")
-                
+
             case let .changed(
                 oldValue,
                 newValue
             ):
-                
+
                 XCTAssertEqual(
                     oldValue,
                     "old value"
                 )
-                
+
                 XCTAssertEqual(
                     newValue,
                     "new value"
                 )
-                
+
             }
-            
+
         }
-        
+
         observable.value = "new value"
-        
+
         XCTAssertEqual(
             observable.value,
             "new value"
@@ -107,7 +107,7 @@ internal final class ObservableTests: XCTestCase {
             for: [ promise ],
             timeout: 10.0
         )
-        
+
     }
 
     internal final func testTypeErasable() {
