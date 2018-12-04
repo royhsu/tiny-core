@@ -32,23 +32,23 @@ public final class Observable<Value>: ObservableProtocol {
 
     }
 
-    public final func setValue(_ newValue: Value?) {
+    fileprivate final func setValue(_ newValue: Value?) {
 
         let oldValue = value
 
         _value = newValue
 
-        DispatchQueue.global(qos: .default).async {
-
-            let change: ObservedChange<Value> =
-                self.isInitialValue
-                ? .initial(newValue: newValue)
-                : .changed(
-                    newValue: newValue,
-                    oldValue: oldValue
-                )
-            
-            if self.isInitialValue { self.isInitialValue.toggle() }
+        let change: ObservedChange<Value> =
+            isInitialValue
+            ? .initial(value: newValue)
+            : .changed(
+                oldValue: oldValue,
+                newValue: newValue
+            )
+        
+        if isInitialValue { isInitialValue.toggle() }
+        
+        DispatchQueue.global().async {
 
             self.boardcaster.notifyAll(with: change)
 
@@ -91,7 +91,17 @@ public final class Observable<Value>: ObservableProtocol {
 
     private final var boardcaster = Broadcaster()
 
-    public init(_ value: Value? = nil) { self.value = value }
+    public init(_ value: Value? = nil) {
+        
+        if let initialValue = value {
+            
+            self.isInitialValue = false
+            
+            self._value = initialValue
+            
+        }
+        
+    }
 
     public final func observe(
         _ observer: @escaping (_ change: ObservedChange<Value>) -> Void

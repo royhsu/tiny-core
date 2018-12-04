@@ -8,11 +8,11 @@
 
 // MARK: - ObservableProtocol
 
-public protocol ObservableProtocol {
+public protocol ObservableProtocol: AnyObject {
 
     associatedtype Value
-
-    func setValue(_ value: Value?)
+    
+    var value: Value? { get set }
 
     func observe(
         _ observer: @escaping (_ change: ObservedChange<Value>) -> Void
@@ -23,8 +23,10 @@ public protocol ObservableProtocol {
 
 // MARK: - AnyObservable
 
-public struct AnyObservable<Value>: ObservableProtocol {
-
+public final class AnyObservable<Value>: ObservableProtocol {
+    
+    private let _getValue: () -> Value?
+    
     private let _setValue: (Value?) -> Void
 
     public let _observe: (
@@ -34,13 +36,21 @@ public struct AnyObservable<Value>: ObservableProtocol {
 
     public init<O: ObservableProtocol>(_ observable: O) where O.Value == Value {
 
-        self._setValue = observable.setValue
+        self._getValue = { observable.value }
+        
+        self._setValue = { newValue in observable.value = newValue }
 
         self._observe = observable.observe
 
     }
 
-    public func setValue(_ value: Value?) { _setValue(value) }
+    public final var value: Value? {
+        
+        get { return _getValue() }
+        
+        set { _setValue(newValue) }
+        
+    }
 
     public func observe(
         _ observer: @escaping (_ change: ObservedChange<Value>) -> Void
