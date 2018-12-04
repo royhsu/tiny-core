@@ -25,11 +25,11 @@ public protocol ObservableProtocol: AnyObject {
 
 public final class AnyObservable<Value>: ObservableProtocol {
 
-    private let _getValue: () -> Value?
+    private final let _getValue: () -> Value?
 
-    private let _setValue: (Value?) -> Void
+    private final let _setValue: (Value?) -> Void
 
-    public let _observe: (
+    private final let _observe: (
         _ observer: @escaping (_ change: ObservedChange<Value>) -> Void
     )
     -> Observation
@@ -52,7 +52,7 @@ public final class AnyObservable<Value>: ObservableProtocol {
 
     }
 
-    public func observe(
+    public final func observe(
         _ observer: @escaping (_ change: ObservedChange<Value>) -> Void
     )
     -> Observation { return _observe(observer) }
