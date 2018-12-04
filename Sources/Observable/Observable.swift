@@ -22,15 +22,7 @@ public final class Observable<Value>: ObservableProtocol {
 
     private final var isInitialValue = true
 
-    private final var _value: Value? {
-
-        willSet {
-
-            if !isInitialValue { isInitialValue.toggle() }
-
-        }
-
-    }
+    private final var _value: Value?
 
     public final var value: Value? {
 
@@ -55,6 +47,8 @@ public final class Observable<Value>: ObservableProtocol {
                     newValue: newValue,
                     oldValue: oldValue
                 )
+            
+            if self.isInitialValue { self.isInitialValue.toggle() }
 
             self.boardcaster.notifyAll(with: change)
 
