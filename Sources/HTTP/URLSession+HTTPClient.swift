@@ -12,7 +12,7 @@ extension URLSession: HTTPClient {
 
     public final func request<T: Decodable>(
         _ request: URLRequest,
-        decoder: ModelDecoder,
+        decoder: DataDecoder,
         completion: @escaping (Result<T>) -> Void
     ) {
 

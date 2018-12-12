@@ -20,7 +20,7 @@ internal final class ResultTests: XCTestCase {
 
         do {
 
-            let value = try result.resolve()
+            let value = try result.get()
 
             XCTAssertEqual(
                 value,
@@ -37,7 +37,7 @@ internal final class ResultTests: XCTestCase {
         let result = Result<Int>.failure(HTTPError.notFound)
 
         XCTAssertThrowsError(
-            try result.resolve()
+            try result.get()
         ) { error in
 
             if case HTTPError.notFound = error { XCTSuccess() }

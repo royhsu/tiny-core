@@ -1,5 +1,5 @@
 //
-//  PropertyListDecoder+Decoder.swift
+//  JSONDecoder+DataDecoder.swift
 //  TinyCore
 //
 //  Created by Roy Hsu on 19/10/2017.
@@ -8,4 +8,4 @@
 
 // MARK: - Decoder
 
-extension PropertyListDecoder: ModelDecoder { }
+extension JSONDecoder: DataDecoder { }

@@ -1,14 +1,14 @@
 //
-//  ModelDecoder.swift
+//  DataDecoder.swift
 //  TinyCore
 //
 //  Created by Roy Hsu on 19/10/2017.
 //  Copyright © 2017 TinyWorld. All rights reserved.
 //
 
-// MARK: - ModelDecoder
+// MARK: - DataDecoder
 
-public protocol ModelDecoder {
+public protocol DataDecoder {
 
     func decode<T: Decodable>(
         _ type: T.Type,
@@ -18,7 +18,7 @@ public protocol ModelDecoder {
 
 }
 
-extension ModelDecoder {
+extension DataDecoder {
 
     func decode<T: Decodable>(
         _ type: T.Type,
@@ -26,7 +26,7 @@ extension ModelDecoder {
     )
     throws -> T {
 
-        let data = try result.resolve()
+        let data = try result.get()
 
         return try decode(
             T.self,

@@ -8,9 +8,9 @@
 
 // MARK: - Result
 
-public enum Result<Value> {
+public enum Result<Success> {
 
-    case success(Value)
+    case success(Success)
 
     case failure(Error)
 
@@ -18,13 +18,13 @@ public enum Result<Value> {
 
 public extension Result {
 
-    public func resolve() throws -> Value {
+    public func get() throws -> Success {
 
         switch self {
 
-        case let .success(value): return value
+        case let .success(success): return success
 
-        case let .failure(error): throw error
+        case let .failure(failure): throw failure
 
         }
 
