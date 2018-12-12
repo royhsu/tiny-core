@@ -11,9 +11,7 @@
 internal final class OptionalValueBinding<Target: AnyObject, T, U>: Binding {
 
     private final let transform: (T?) -> U?
-
-    private final let queue: DispatchQueue
-
+    
     public final var target: AnyObject? { return _target }
 
     private final weak var _target: Target?
@@ -22,14 +20,11 @@ internal final class OptionalValueBinding<Target: AnyObject, T, U>: Binding {
 
     internal init(
         transform: @escaping (T?) -> U?,
-        queue: DispatchQueue,
         target: Target,
         keyPath: ReferenceWritableKeyPath<Target, U?>
     ) {
 
         self.transform = transform
-
-        self.queue = queue
 
         self._target = target
 
@@ -37,16 +32,6 @@ internal final class OptionalValueBinding<Target: AnyObject, T, U>: Binding {
 
     }
 
-    internal final func update(with value: T?) {
-
-        queue.async { [weak self] in
-
-            guard let self = self else { return }
-
-            self._target?[keyPath: self.keyPath] = self.transform(value)
-
-        }
-
-    }
+    internal final func update(with value: T?) { _target?[keyPath: keyPath] = transform(value) }
 
 }

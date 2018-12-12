@@ -11,27 +11,14 @@
 public struct Observable<Value> {
 
     private final class Observer: Observation {
-
-        private final let queue: DispatchQueue
-
+        
         private final let handler: (_ change: ObservedChange<Value>) -> Void
 
         internal init(
-            queue: DispatchQueue,
             handler: @escaping (_ change: ObservedChange<Value>) -> Void
-        ) {
+        ) { self.handler = handler }
 
-            self.queue = queue
-
-            self.handler = handler
-
-        }
-
-        internal final func notify(with change: ObservedChange<Value>) {
-
-            queue.async { [weak self] in self?.handler(change) }
-
-        }
+        internal final func notify(with change: ObservedChange<Value>) { handler(change) }
 
     }
 
@@ -74,15 +61,11 @@ public struct Observable<Value> {
         private final var bindings: [AnyBinding<Value>] = []
 
         internal final func observe(
-            on queue: DispatchQueue,
             changeHandler: @escaping (_ change: ObservedChange<Value>) -> Void
         )
         -> Observation {
 
-            let observation = Observer(
-                queue: queue,
-                handler: changeHandler
-            )
+            let observation = Observer(handler: changeHandler)
 
             objects.append(
                 WeakObject(observation)
@@ -95,7 +78,6 @@ public struct Observable<Value> {
         @discardableResult
         internal final func bind<Target: AnyObject, U>(
             transform: @escaping (Value?) -> U,
-            on queue: DispatchQueue,
             to target: Target,
             keyPath: ReferenceWritableKeyPath<Target, U>
         )
@@ -103,7 +85,6 @@ public struct Observable<Value> {
 
             let binding = ValueBinding(
                 transform: transform,
-                queue: queue,
                 target: target,
                 keyPath: keyPath
             )
@@ -119,7 +100,6 @@ public struct Observable<Value> {
         @discardableResult
         internal final func bind<Target: AnyObject, U>(
             transform: @escaping (Value?) -> U?,
-            on queue: DispatchQueue,
             to target: Target,
             keyPath: ReferenceWritableKeyPath<Target, U?>
         )
@@ -127,7 +107,6 @@ public struct Observable<Value> {
 
             let binding = OptionalValueBinding(
                 transform: transform,
-                queue: queue,
                 target: target,
                 keyPath: keyPath
             )
@@ -177,13 +156,11 @@ public struct Observable<Value> {
 public extension Observable {
 
     public func observe(
-        on queue: DispatchQueue = .global(),
         changeHandler: @escaping (_ change: ObservedChange<Value>) -> Void
     )
     -> Observation {
 
         return boardcaster.observe(
-            on: queue,
             changeHandler: changeHandler
         )
 
@@ -195,14 +172,12 @@ public extension Observable {
 
     public func bind<Target: AnyObject, U>(
         transform: @escaping (Value?) -> U,
-        on queue: DispatchQueue = .main,
         to target: Target,
         keyPath: ReferenceWritableKeyPath<Target, U>
     ) {
 
         let binding = boardcaster.bind(
             transform: transform,
-            on: queue,
             to: target,
             keyPath: keyPath
         )
@@ -213,14 +188,12 @@ public extension Observable {
 
     public func bind<Target: AnyObject, U>(
         transform: @escaping (Value?) -> U?,
-        on queue: DispatchQueue = .main,
         to target: Target,
         keyPath: ReferenceWritableKeyPath<Target, U?>
     ) {
 
         let binding = boardcaster.bind(
             transform: transform,
-            on: queue,
             to: target,
             keyPath: keyPath
         )
@@ -230,14 +203,12 @@ public extension Observable {
     }
 
     public func bind<Target: AnyObject>(
-        on queue: DispatchQueue = .main,
         to target: Target,
         keyPath: ReferenceWritableKeyPath<Target, Value?>
     ) {
 
         bind(
             transform: { $0 },
-            on: queue,
             to: target,
             keyPath: keyPath
         )

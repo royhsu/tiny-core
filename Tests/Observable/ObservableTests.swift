@@ -110,33 +110,6 @@ internal final class ObservableTests: XCTestCase {
 
     }
 
-    internal final func testObservedDispatchQueue() {
-
-        let promise = expectation(description: "Get notified about value changes.")
-
-        var observable = Observable<String>()
-
-        observation = observable.observe(on: .main) { _ in
-
-            promise.fulfill()
-
-            dispatchPrecondition(
-                condition: DispatchPredicate.onQueue(.main)
-            )
-
-            XCTSuccess()
-
-        }
-
-        observable.value = "hello"
-
-        wait(
-            for: [ promise ],
-            timeout: 10.0
-        )
-
-    }
-
     internal final func testDecodable() {
 
         do {
@@ -172,12 +145,6 @@ internal final class ObservableTests: XCTestCase {
 
     internal final func testValueBinding() {
 
-        let promise1 = expectation(description: "Update the target value while binding.")
-
-        let promise2 = expectation(description: "Update the target value after bound")
-
-        let queue = DispatchQueue.main
-
         class Label {
 
             var text: String
@@ -192,52 +159,25 @@ internal final class ObservableTests: XCTestCase {
 
         observable.bind(
             transform: { $0 ?? "unknown" },
-            on: queue,
             to: label,
             keyPath: \.text
         )
 
-        queue.async {
+        XCTAssertEqual(
+            label.text,
+            "hello"
+        )
 
-            promise1.fulfill()
+        observable.value = "world"
 
-            XCTAssertEqual(
-                label.text,
-                "hello"
-            )
-
-            observable.value = "world"
-
-            queue.async {
-
-                promise2.fulfill()
-
-                XCTAssertEqual(
-                    label.text,
-                    "world"
-                )
-
-            }
-
-        }
-
-        wait(
-            for: [
-                promise1,
-                promise2
-            ],
-            timeout: 10.0
+        XCTAssertEqual(
+            label.text,
+            "world"
         )
 
     }
 
     internal final func testOptionalValueBinding() {
-
-        let promise1 = expectation(description: "Update the target value while binding.")
-
-        let promise2 = expectation(description: "Update the target value after bound")
-
-        let queue = DispatchQueue.main
 
         class Label {
 
@@ -252,41 +192,20 @@ internal final class ObservableTests: XCTestCase {
         var observable = Observable("hello")
 
         observable.bind(
-            on: queue,
             to: label,
             keyPath: \.text
         )
 
-        queue.async {
+        XCTAssertEqual(
+            label.text,
+            "hello"
+        )
 
-            promise1.fulfill()
+        observable.value = "world"
 
-            XCTAssertEqual(
-                label.text,
-                "hello"
-            )
-
-            observable.value = "world"
-
-            queue.async {
-
-                promise2.fulfill()
-
-                XCTAssertEqual(
-                    label.text,
-                    "world"
-                )
-
-            }
-
-        }
-
-        wait(
-            for: [
-                promise1,
-                promise2
-            ],
-            timeout: 10.0
+        XCTAssertEqual(
+            label.text,
+            "world"
         )
 
     }
