@@ -14,7 +14,7 @@ import XCTest
 
 internal final class ObservableTests: XCTestCase {
 
-    internal final var obveration: Observation?
+    internal final var observation: Observation?
 
     internal final func testInitialize() {
 
@@ -28,9 +28,9 @@ internal final class ObservableTests: XCTestCase {
 
         let promise = expectation(description: "Get notified about value changes.")
 
-        let observable = Observable<String>()
+        var observable = Observable<String>()
 
-        obveration = observable.observe { change in
+        observation = observable.observe { change in
 
             promise.fulfill()
 
@@ -67,9 +67,9 @@ internal final class ObservableTests: XCTestCase {
 
         let promise = expectation(description: "Get notified about value changes.")
 
-        let observable = Observable<String>("old value")
+        var observable = Observable("old value")
 
-        obveration = observable.observe { change in
+        observation = observable.observe { change in
 
             promise.fulfill()
 
@@ -109,15 +109,32 @@ internal final class ObservableTests: XCTestCase {
         )
 
     }
-
-    internal final func testTypeErasable() {
-
-        let observable = Observable<String>()
-
-        _ = AnyObservable(observable)
-
-        XCTSuccess()
-
+    
+    internal final func testObservedDispatchQueue() {
+        
+        let promise = expectation(description: "Get notified about value changes.")
+        
+        var observable = Observable<String>()
+        
+        observation = observable.observe(on: .main) { change in
+            
+            promise.fulfill()
+            
+            dispatchPrecondition(
+                condition: DispatchPredicate.onQueue(.main)
+            )
+            
+            XCTSuccess()
+            
+        }
+        
+        observable.value = "hello"
+        
+        wait(
+            for: [ promise ],
+            timeout: 10.0
+        )
+        
     }
 
 }

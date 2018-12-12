@@ -37,7 +37,6 @@
 		B0D0DB152146169400AD1EE7 /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0DB142146169400AD1EE7 /* ResultTests.swift */; };
 		B0D0DB1C2146188500AD1EE7 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0DB1A2146185E00AD1EE7 /* HTTPError.swift */; };
 		B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */; };
-		B0E236532156737600FBE7B3 /* ObservableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E236522156737600FBE7B3 /* ObservableProtocol.swift */; };
 		B0E236622156762900FBE7B3 /* XCTUnwrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2365F2156762900FBE7B3 /* XCTUnwrapped.swift */; };
 		B0F51C9E21586AD700B592F5 /* XCTSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E236602156762900FBE7B3 /* XCTSuccess.swift */; };
 /* End PBXBuildFile section */
@@ -87,7 +86,6 @@
 		B0D0DB142146169400AD1EE7 /* ResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTests.swift; sourceTree = "<group>"; };
 		B0D0DB1A2146185E00AD1EE7 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
-		B0E236522156737600FBE7B3 /* ObservableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableProtocol.swift; sourceTree = "<group>"; };
 		B0E2365F2156762900FBE7B3 /* XCTUnwrapped.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTUnwrapped.swift; sourceTree = "<group>"; };
 		B0E236602156762900FBE7B3 /* XCTSuccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTSuccess.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -253,7 +251,6 @@
 		B0BC23832078F8C000D11A3B /* Observable */ = {
 			isa = PBXGroup;
 			children = (
-				B0E236522156737600FBE7B3 /* ObservableProtocol.swift */,
 				B0652DAB21479818009F8757 /* Observation.swift */,
 				B0652DA9214797E6009F8757 /* ObservedChange.swift */,
 				B0BC23842078F8C000D11A3B /* Observable.swift */,
@@ -429,7 +426,6 @@
 				B05017422078C99A009838F9 /* Radian.swift in Sources */,
 				B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */,
 				B06F6E7F215C7DBE00BBCF0F /* Actionable.swift in Sources */,
-				B0E236532156737600FBE7B3 /* ObservableProtocol.swift in Sources */,
 				B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */,
 				B0577E721F98EB2F00B1578E /* ModelDecoder.swift in Sources */,
 				B0577E751F98EC1400B1578E /* JSONDecoder+Decoder.swift in Sources */,

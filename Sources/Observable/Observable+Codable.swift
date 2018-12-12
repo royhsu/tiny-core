@@ -32,7 +32,7 @@ extension Observable: Encodable where Value: Encodable {
 
 extension Observable: Decodable where Value: Decodable {
 
-    public convenience init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
 
         let container = try decoder.singleValueContainer()
 
