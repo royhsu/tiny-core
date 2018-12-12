@@ -34,6 +34,7 @@
 		B0AFDC8A201703DC00D8DEF6 /* URLSession+HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC89201703DC00D8DEF6 /* URLSession+HTTPClient.swift */; };
 		B0BC23852078F8C000D11A3B /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC23842078F8C000D11A3B /* Observable.swift */; };
 		B0BC23872078F90700D11A3B /* WeakObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC23862078F90700D11A3B /* WeakObject.swift */; };
+		B0C8C33F21C0BB0200DED5BF /* Observable+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8C33E21C0BB0200DED5BF /* Observable+Equatable.swift */; };
 		B0D0DB152146169400AD1EE7 /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0DB142146169400AD1EE7 /* ResultTests.swift */; };
 		B0D0DB1C2146188500AD1EE7 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0DB1A2146185E00AD1EE7 /* HTTPError.swift */; };
 		B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */; };
@@ -83,6 +84,7 @@
 		B0BC23842078F8C000D11A3B /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		B0BC23862078F90700D11A3B /* WeakObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakObject.swift; sourceTree = "<group>"; };
 		B0BDA06E2146CB8D0077BEFC /* TinyCore.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TinyCore.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B0C8C33E21C0BB0200DED5BF /* Observable+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Equatable.swift"; sourceTree = "<group>"; };
 		B0D0DB142146169400AD1EE7 /* ResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTests.swift; sourceTree = "<group>"; };
 		B0D0DB1A2146185E00AD1EE7 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				B0652DA9214797E6009F8757 /* ObservedChange.swift */,
 				B0BC23842078F8C000D11A3B /* Observable.swift */,
 				B0772ED92193D8960082C055 /* Observable+Codable.swift */,
+				B0C8C33E21C0BB0200DED5BF /* Observable+Equatable.swift */,
 			);
 			path = Observable;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				B0577E771F98EC7600B1578E /* PropertyListDecoder+Decoder.swift in Sources */,
 				B06F6E80215C7DBE00BBCF0F /* Action.swift in Sources */,
 				B0BC23872078F90700D11A3B /* WeakObject.swift in Sources */,
+				B0C8C33F21C0BB0200DED5BF /* Observable+Equatable.swift in Sources */,
 				B050173E2078C999009838F9 /* Array+InsertBetween.swift in Sources */,
 				B0652DAC21479818009F8757 /* Observation.swift in Sources */,
 				B0652DAA214797E6009F8757 /* ObservedChange.swift in Sources */,

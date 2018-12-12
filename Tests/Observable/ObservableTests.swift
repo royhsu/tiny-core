@@ -136,5 +136,63 @@ internal final class ObservableTests: XCTestCase {
         )
         
     }
+    
+    internal final func testDecodable() {
+        
+        do {
+        
+            let data = try JSONSerialization.data(
+                withJSONObject: [ "hello", "world" ]
+            )
+            
+            let observables = try JSONDecoder().decode(
+                [Observable<String>].self,
+                from: data
+            )
+            
+            XCTAssertEqual(
+                observables.count,
+                2
+            )
+            
+            XCTAssertEqual(
+                observables[0].value,
+                "hello"
+            )
+            
+            XCTAssertEqual(
+                observables[1].value,
+                "world"
+            )
+            
+        }
+        catch { XCTFail("\(error)") }
+        
+    }
+    
+    internal final func testEncodable() {
+        
+        let observables = [
+            Observable("hello"),
+            Observable("world")
+        ]
+        
+        XCTAssertEqual(
+            try JSONEncoder().encode(observables),
+            try JSONSerialization.data(
+                withJSONObject: [ "hello", "world" ]
+            )
+        )
+        
+    }
+    
+    internal final func testEquatable() {
+        
+        XCTAssertEqual(
+            Observable("hello"),
+            Observable("hello")
+        )
+        
+    }
 
 }
