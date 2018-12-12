@@ -158,13 +158,7 @@ public extension Observable {
     public func observe(
         changeHandler: @escaping (_ change: ObservedChange<Value>) -> Void
     )
-    -> Observation {
-
-        return boardcaster.observe(
-            changeHandler: changeHandler
-        )
-
-    }
+    -> Observation { return boardcaster.observe(changeHandler: changeHandler) }
 
 }
 
