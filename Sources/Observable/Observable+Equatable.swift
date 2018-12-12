@@ -9,11 +9,11 @@
 // MARK: - Equatable
 
 extension Observable: Equatable where Value: Equatable {
-    
+
     public static func ==(
         lhs: Observable<Value>,
         rhs: Observable<Value>
     )
     -> Bool { return lhs.value == rhs.value }
-    
+
 }

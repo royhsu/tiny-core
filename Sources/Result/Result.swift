@@ -30,4 +30,17 @@ public extension Result {
 
     }
 
+    public init(catching body: () throws -> Success) {
+
+        do {
+
+            self = .success(
+                try body()
+            )
+
+        }
+        catch { self = .failure(error) }
+
+    }
+
 }

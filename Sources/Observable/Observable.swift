@@ -13,28 +13,28 @@ public struct Observable<Value> {
     private final class Observer: Observation {
 
         private final let queue: DispatchQueue
-        
+
         private final let handler: (_ change: ObservedChange<Value>) -> Void
 
         internal init(
             queue: DispatchQueue,
             handler: @escaping (_ change: ObservedChange<Value>) -> Void
         ) {
-            
+
             self.queue = queue
-            
+
             self.handler = handler
-            
+
         }
-        
+
         internal final func notify(with change: ObservedChange<Value>) {
-            
+
             queue.async { [weak self] in self?.handler(change) }
-            
+
         }
 
     }
-    
+
     private var isInitialValue = true
 
     private var _value: Value?
@@ -60,7 +60,7 @@ public struct Observable<Value> {
             if isInitialValue { isInitialValue = false }
 
             boardcaster.notifyAll(with: change)
-            
+
         }
 
     }
@@ -70,7 +70,7 @@ public struct Observable<Value> {
         internal typealias Object = WeakObject<Observer>
 
         private final var objects: [Object] = []
-        
+
         private final var bindings: [AnyBinding<Value>] = []
 
         internal final func observe(
@@ -91,7 +91,7 @@ public struct Observable<Value> {
             return observation
 
         }
-        
+
         @discardableResult
         internal final func bind<Target: AnyObject, U>(
             transform: @escaping (Value?) -> U,
@@ -100,20 +100,20 @@ public struct Observable<Value> {
             keyPath: ReferenceWritableKeyPath<Target, U>
         )
         -> AnyBinding<Value> {
-            
+
             let binding = ValueBinding(
                 transform: transform,
                 queue: queue,
                 target: target,
                 keyPath: keyPath
             )
-            
+
             let anyBinding = AnyBinding(binding)
-            
+
             bindings.append(anyBinding)
-            
+
             return anyBinding
-            
+
         }
 
         @discardableResult
@@ -124,34 +124,34 @@ public struct Observable<Value> {
             keyPath: ReferenceWritableKeyPath<Target, U?>
         )
         -> AnyBinding<Value> {
-            
+
             let binding = OptionalValueBinding(
                 transform: transform,
                 queue: queue,
                 target: target,
                 keyPath: keyPath
             )
-            
+
             let anyBinding = AnyBinding(binding)
-            
+
             bindings.append(anyBinding)
-            
+
             return anyBinding
-            
+
         }
-        
+
         internal final func notifyAll(with change: ObservedChange<Value>) {
 
             let liveObjects = objects.filter { $0.reference != nil }
 
             objects = liveObjects
-            
+
             let liveBindings = bindings.filter { $0.target != nil }
-            
+
             bindings = liveBindings
 
             liveObjects.forEach { $0.reference?.notify(with: change) }
-            
+
             liveBindings.forEach { $0.update(with: change.currentValue) }
 
         }
@@ -171,7 +171,7 @@ public struct Observable<Value> {
         }
 
     }
-    
+
 }
 
 public extension Observable {
@@ -181,67 +181,67 @@ public extension Observable {
         changeHandler: @escaping (_ change: ObservedChange<Value>) -> Void
     )
     -> Observation {
-        
+
         return boardcaster.observe(
             on: queue,
             changeHandler: changeHandler
         )
-        
+
     }
 
 }
 
 public extension Observable {
-    
+
     public func bind<Target: AnyObject, U>(
         transform: @escaping (Value?) -> U,
         on queue: DispatchQueue = .main,
         to target: Target,
         keyPath: ReferenceWritableKeyPath<Target, U>
     ) {
-        
+
         let binding = boardcaster.bind(
             transform: transform,
             on: queue,
             to: target,
             keyPath: keyPath
         )
-        
+
         binding.update(with: value)
-        
+
     }
-    
+
     public func bind<Target: AnyObject, U>(
         transform: @escaping (Value?) -> U?,
         on queue: DispatchQueue = .main,
         to target: Target,
         keyPath: ReferenceWritableKeyPath<Target, U?>
     ) {
-        
+
         let binding = boardcaster.bind(
             transform: transform,
             on: queue,
             to: target,
             keyPath: keyPath
         )
-        
+
         binding.update(with: value)
-        
+
     }
-    
+
     public func bind<Target: AnyObject>(
         on queue: DispatchQueue = .main,
         to target: Target,
         keyPath: ReferenceWritableKeyPath<Target, Value?>
     ) {
-        
+
         bind(
             transform: { $0 },
             on: queue,
             to: target,
             keyPath: keyPath
         )
-        
+
     }
-    
+
 }

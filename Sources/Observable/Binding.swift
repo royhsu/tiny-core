@@ -9,11 +9,11 @@
 // MARK: - Binding
 
 internal protocol Binding {
-    
+
     associatedtype Value
-    
+
     var target: AnyObject? { get }
-    
+
     func update(with value: Value?)
-    
+
 }
