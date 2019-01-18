@@ -8,7 +8,7 @@
 
 // MARK: - Atomic
 
-open class Atomic<Value> {
+public final class Atomic<Value> {
     
     private final lazy var queue: DispatchQueue = {
         
