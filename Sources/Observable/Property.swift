@@ -10,16 +10,6 @@
 
 public final class Property<Value> {
     
-    private final let queue: DispatchQueue = {
-        
-        let id = UUID()
-        
-        let module = String(describing: Property.self)
-        
-        return DispatchQueue(label: "\(module).SerialQueue.\(id)", attributes: .concurrent)
-        
-    }()
-    
     private final let boardcaster = Broadcaster()
     
     private final let atomic = Atomic<Value?>(value: nil)
