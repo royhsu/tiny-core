@@ -19,7 +19,8 @@ public protocol ObservableProtocol {
     associatedtype ObservedChange: ObservedChangeProtocol
     
     func observe(
-        _ observer: @escaping (ObservedChange) -> Void
+        on queue: DispatchQueue,
+        observer: @escaping (ObservedChange) -> Void
     )
     -> Observation
     
@@ -102,6 +103,7 @@ public struct Observable<Value> {
         -> AnyBinding<Value> {
 
             let binding = ValueBinding(
+                queue: .main,
                 transform: transform,
                 target: target,
                 keyPath: keyPath
@@ -124,6 +126,7 @@ public struct Observable<Value> {
         -> AnyBinding<Value> {
 
             let binding = OptionalValueBinding(
+                queue: .main,
                 transform: transform,
                 target: target,
                 keyPath: keyPath

@@ -85,9 +85,17 @@ extension Property: Equatable where Value: Equatable {
 extension Property: ObservableProtocol {
     
     public final func observe(
-        _ observer: @escaping (ObservedChange) -> Void
+        on queue: DispatchQueue = .global(),
+        observer: @escaping (ObservedChange) -> Void
     )
-    -> Observation { return boardcaster.observe(observer) }
+    -> Observation {
+        
+        return boardcaster.observe(
+            on: queue,
+            observer: observer
+        )
+        
+    }
     
 }
 
@@ -124,13 +132,32 @@ internal extension Property {
     
     private final class PropertyObservation: Observation {
         
+        private final let queue: DispatchQueue
+        
         private final let observer: (ObservedChange) -> Void
         
         internal init(
+            queue: DispatchQueue,
             observer: @escaping (ObservedChange) -> Void
-        ) { self.observer = observer }
+        ) {
+            
+            self.queue = queue
+            
+            self.observer = observer
+            
+        }
         
-        internal final func notify(with change: ObservedChange) { observer(change) }
+        internal final func notify(with change: ObservedChange) {
+            
+            queue.async { [weak self] in
+                
+                guard let self = self else { return }
+                
+                self.observer(change)
+                
+            }
+            
+        }
         
     }
     
@@ -147,11 +174,13 @@ public extension Property {
     where Target: AnyObject
     
     public final func bind<Target: AnyObject, U>(
+        on queue: DispatchQueue = .main,
         transform: @escaping (Value?) -> U,
         to destination: BindingDestination<Target, U>
     ) {
         
         let binding = boardcaster.bind(
+            on: queue,
             transform: transform,
             to: destination
         )
@@ -161,11 +190,13 @@ public extension Property {
     }
     
     public final func bind<Target: AnyObject, U>(
+        on queue: DispatchQueue = .main,
         transform: @escaping (Value?) -> U?,
         to destination: BindingDestination<Target, U?>
     ) {
         
         let binding = boardcaster.bind(
+            on: queue,
             transform: transform,
             to: destination
         )
@@ -174,9 +205,13 @@ public extension Property {
         
     }
     
-    public final func bind<Target: AnyObject>(to destination: BindingDestination<Target, Value?>) {
+    public final func bind<Target: AnyObject>(
+        on queue: DispatchQueue = .main,
+        to destination: BindingDestination<Target, Value?>
+    ) {
         
         bind(
+            on: queue,
             transform: { $0 },
             to: destination
         )
@@ -198,11 +233,15 @@ internal extension Property {
         private final var bindings: [AnyBinding<Value>] = []
         
         internal final func observe(
-            _ observer: @escaping (ObservedChange) -> Void
+            on queue: DispatchQueue,
+            observer: @escaping (ObservedChange) -> Void
         )
         -> Observation {
             
-            let observation = PropertyObservation(observer: observer)
+            let observation = PropertyObservation(
+                queue: queue,
+                observer: observer
+            )
             
             objects.append(
                 WeakObject(observation)
@@ -214,12 +253,14 @@ internal extension Property {
         
         @discardableResult
         internal final func bind<Target: AnyObject, U>(
+            on queue: DispatchQueue,
             transform: @escaping (Value?) -> U,
             to destination: BindingDestination<Target, U>
         )
         -> AnyBinding<Value> {
                 
             let binding = ValueBinding(
+                queue: queue,
                 transform: transform,
                 target: destination.target,
                 keyPath: destination.keyPath
@@ -236,11 +277,13 @@ internal extension Property {
         @discardableResult
         internal final func bind<Target: AnyObject, U>(
             transform: @escaping (Value?) -> U?,
-            to destination: BindingDestination<Target, U?>
+            to destination: BindingDestination<Target, U?>,
+            queue: DispatchQueue
         )
         -> AnyBinding<Value> {
             
             let binding = OptionalValueBinding(
+                queue: queue,
                 transform: transform,
                 target: destination.target,
                 keyPath: destination.keyPath
@@ -256,17 +299,18 @@ internal extension Property {
         
         internal final func notifyAll(with change: ObservedChange) {
             
-            let liveObjects = objects.filter { $0.reference != nil }
-            
-            objects = liveObjects
-            
             let liveBindings = bindings.filter { $0.target != nil }
             
             bindings = liveBindings
             
-            liveObjects.forEach { $0.reference?.notify(with: change) }
-            
+            // Bindings must happen before observers.
             liveBindings.forEach { $0.update(with: change.currentValue) }
+            
+            let liveObjects = objects.filter { $0.reference != nil }
+            
+            objects = liveObjects
+            
+            liveObjects.forEach { $0.reference?.notify(with: change) }
             
         }
         
