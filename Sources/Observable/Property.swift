@@ -116,7 +116,7 @@ public extension Property {
 
 internal extension Property {
     
-    private final class _Observation: Observation {
+    private final class PropertyObservation: Observation {
         
         private final let observer: (ObservedChange) -> Void
         
@@ -136,7 +136,7 @@ internal extension Property {
     
     private final class Broadcaster {
         
-        internal typealias Object = WeakObject<_Observation>
+        internal typealias Object = WeakObject<PropertyObservation>
         
         private final var objects: [Object] = []
         
@@ -147,7 +147,7 @@ internal extension Property {
         )
         -> Observation {
             
-            let observation = _Observation(observer: observer)
+            let observation = PropertyObservation(observer: observer)
             
             objects.append(
                 WeakObject(observation)
