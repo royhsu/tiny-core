@@ -22,27 +22,33 @@ public final class Property<Value> {
     
     private final let boardcaster = Broadcaster()
     
-    private final var _value: Value?
+    private final let atomic = Atomic<Value?>(value: nil)
     
     private final var isInitialValue = true
     
     public init() { }
     
+}
+
+// MARK: - Atomic
+
+public extension Property {
+    
     /// A property will ensure to finish the previous writing operation before reading the underlying value.
-    public final var value: Value? { return queue.sync { self._value } }
+    public final var value: Value? { return atomic.value }
     
     /// Setting value is the asynchronized operation to avoid blocking the calling thread.
     public final func setValue(
         _ setter: @escaping (inout Value?) -> ()
     ) {
         
-        queue.async(flags: .barrier) {
+        atomic.setValue { value in
             
-            let oldValue = self._value
+            let oldValue = value
             
-            setter(&self._value)
+            setter(&value)
             
-            let newValue = self._value
+            let newValue = value
             
             let change: ObservedChange =
                 self.isInitialValue

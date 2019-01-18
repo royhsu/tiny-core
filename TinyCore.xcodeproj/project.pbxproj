@@ -27,6 +27,8 @@
 		B07A2C3E215A1CF8002EFE87 /* Emptible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2C3D215A1CF8002EFE87 /* Emptible.swift */; };
 		B089F9A321F1D5200052AD8D /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = B089F9A221F1D5200052AD8D /* Property.swift */; };
 		B089F9A621F1D5E60052AD8D /* PropertyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B089F9A421F1D5E30052AD8D /* PropertyTests.swift */; };
+		B089F9A921F210F90052AD8D /* AtomicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B089F9A721F210E70052AD8D /* AtomicTests.swift */; };
+		B089F9AB21F212850052AD8D /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B089F9AA21F212850052AD8D /* Atomic.swift */; };
 		B0A26EC92155E6A900747535 /* Unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A26EC82155E6A900747535 /* Unique.swift */; };
 		B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */; };
 		B0A9DE882017255500AEF782 /* TrafficLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE872017255500AEF782 /* TrafficLight.swift */; };
@@ -80,6 +82,8 @@
 		B07A2C3D215A1CF8002EFE87 /* Emptible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emptible.swift; sourceTree = "<group>"; };
 		B089F9A221F1D5200052AD8D /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		B089F9A421F1D5E30052AD8D /* PropertyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTests.swift; sourceTree = "<group>"; };
+		B089F9A721F210E70052AD8D /* AtomicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicTests.swift; sourceTree = "<group>"; };
+		B089F9AA21F212850052AD8D /* Atomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
 		B0A26EC82155E6A900747535 /* Unique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unique.swift; sourceTree = "<group>"; };
 		B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManagerTests.swift; sourceTree = "<group>"; };
 		B0A9DE872017255500AEF782 /* TrafficLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLight.swift; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 			children = (
 				B0652DB22147F878009F8757 /* ObservableTests.swift */,
 				B089F9A421F1D5E30052AD8D /* PropertyTests.swift */,
+				B089F9A721F210E70052AD8D /* AtomicTests.swift */,
 			);
 			path = Observable;
 			sourceTree = "<group>";
@@ -254,6 +259,7 @@
 				B0C8C34421C0E27900DED5BF /* ValueBinding.swift */,
 				B0C8C34221C0E1F000DED5BF /* OptionalValueBinding.swift */,
 				B089F9A221F1D5200052AD8D /* Property.swift */,
+				B089F9AA21F212850052AD8D /* Atomic.swift */,
 			);
 			path = Observable;
 			sourceTree = "<group>";
@@ -420,6 +426,7 @@
 				B0BC23872078F90700D11A3B /* WeakObject.swift in Sources */,
 				B0C8C33F21C0BB0200DED5BF /* Observable+Equatable.swift in Sources */,
 				B050173E2078C999009838F9 /* Array+InsertBetween.swift in Sources */,
+				B089F9AB21F212850052AD8D /* Atomic.swift in Sources */,
 				B0652DAC21479818009F8757 /* Observation.swift in Sources */,
 				B0652DAA214797E6009F8757 /* ObservedChange.swift in Sources */,
 				B05017402078C999009838F9 /* Degrees.swift in Sources */,
@@ -444,6 +451,7 @@
 			files = (
 				B0D0DB152146169400AD1EE7 /* ResultTests.swift in Sources */,
 				B0D0DB1C2146188500AD1EE7 /* HTTPError.swift in Sources */,
+				B089F9A921F210F90052AD8D /* AtomicTests.swift in Sources */,
 				B0F51C9E21586AD700B592F5 /* XCTSuccess.swift in Sources */,
 				B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */,
 				B0652DB32147F878009F8757 /* ObservableTests.swift in Sources */,
