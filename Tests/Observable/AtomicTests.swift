@@ -19,7 +19,7 @@ internal final class AtomicTests: XCTestCase {
         
         let taskCount = 100
         
-        let promise = expectation(description: "Reading and writing the atomic value simultaneously.")
+        let promise = expectation(description: "Read and write the atomic value simultaneously.")
         
         promise.expectedFulfillmentCount = taskCount
         
@@ -61,6 +61,8 @@ internal final class AtomicTests: XCTestCase {
     }
     
 }
+
+// MARK: - Task
 
 fileprivate struct Task {
     

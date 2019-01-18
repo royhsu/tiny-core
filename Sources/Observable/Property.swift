@@ -136,6 +136,55 @@ internal extension Property {
     
 }
 
+// MARK: - Binding
+
+public extension Property {
+    
+    public typealias BindingDestination<Target, U> = (
+        target: Target,
+        keyPath: ReferenceWritableKeyPath<Target, U>
+    )
+    where Target: AnyObject
+    
+    public final func bind<Target: AnyObject, U>(
+        transform: @escaping (Value?) -> U,
+        to destination: BindingDestination<Target, U>
+    ) {
+        
+        let binding = boardcaster.bind(
+            transform: transform,
+            to: destination
+        )
+        
+        binding.update(with: value)
+        
+    }
+    
+    public final func bind<Target: AnyObject, U>(
+        transform: @escaping (Value?) -> U?,
+        to destination: BindingDestination<Target, U?>
+    ) {
+        
+        let binding = boardcaster.bind(
+            transform: transform,
+            to: destination
+        )
+        
+        binding.update(with: value)
+        
+    }
+    
+    public final func bind<Target: AnyObject>(to destination: BindingDestination<Target, Value?>) {
+        
+        bind(
+            transform: { $0 },
+            to: destination
+        )
+        
+    }
+    
+}
+
 // MARK: - Broadcaster
 
 internal extension Property {
@@ -166,15 +215,14 @@ internal extension Property {
         @discardableResult
         internal final func bind<Target: AnyObject, U>(
             transform: @escaping (Value?) -> U,
-            to target: Target,
-            keyPath: ReferenceWritableKeyPath<Target, U>
+            to destination: BindingDestination<Target, U>
         )
         -> AnyBinding<Value> {
                 
             let binding = ValueBinding(
                 transform: transform,
-                target: target,
-                keyPath: keyPath
+                target: destination.target,
+                keyPath: destination.keyPath
             )
             
             let anyBinding = AnyBinding(binding)
@@ -188,15 +236,14 @@ internal extension Property {
         @discardableResult
         internal final func bind<Target: AnyObject, U>(
             transform: @escaping (Value?) -> U?,
-            to target: Target,
-            keyPath: ReferenceWritableKeyPath<Target, U?>
+            to destination: BindingDestination<Target, U?>
         )
         -> AnyBinding<Value> {
             
             let binding = OptionalValueBinding(
                 transform: transform,
-                target: target,
-                keyPath: keyPath
+                target: destination.target,
+                keyPath: destination.keyPath
             )
             
             let anyBinding = AnyBinding(binding)

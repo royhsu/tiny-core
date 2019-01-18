@@ -16,7 +16,7 @@ internal final class PropertyTests: XCTestCase {
     
     internal final var observation: Observation?
     
-    internal final func testSetInitialValue() {
+    internal final func testObserveInitialValue() {
         
         let promise = expectation(description: "Get notified about value changes.")
         
@@ -55,7 +55,7 @@ internal final class PropertyTests: XCTestCase {
         
     }
     
-    internal final func testSetNonInitialValue() {
+    internal final func testObserveNewValue() {
         
         let promise = expectation(description: "Get notified about value changes.")
         
@@ -99,6 +99,81 @@ internal final class PropertyTests: XCTestCase {
         
     }
     
+    internal final func testBindKeyPath() {
+        
+        let promise = expectation(description: "Bind the property to a destination.")
+        
+        let view = TextView(text: "")
+        
+        let property = Property<String>()
+        
+        property.bind(
+            transform: { $0 ?? "0" },
+            to: (view, \.text)
+        )
+        
+        XCTAssertEqual(
+            view.text,
+            "0"
+        )
+        
+        observation = property.observe { _ in
+            
+            promise.fulfill()
+            
+            XCTAssertEqual(
+                view.text,
+                "1"
+            )
+            
+        }
+        
+        property.setValue { $0 = "1" }
+        
+        wait(
+            for: [ promise ],
+            timeout: 10.0
+        )
+        
+    }
+    
+    internal final func testBindOptionalValueForKeyPath() {
+        
+        let promise = expectation(description: "Bind the property to a destination.")
+        
+        let view = OptionalTextView(text: "0")
+        
+        let property = Property<String>()
+        
+        property.bind(
+            to: (view, \.text)
+        )
+        
+        XCTAssertEqual(
+            view.text,
+            nil
+        )
+        
+        observation = property.observe { _ in
+            
+            promise.fulfill()
+            
+            XCTAssertEqual(
+                view.text,
+                "1"
+            )
+            
+        }
+        
+        property.setValue { $0 = "1" }
+        
+        wait(
+            for: [ promise ],
+            timeout: 10.0
+        )
+        
+    }
+    
     internal final func testEquatable() {
         
         let property1 = Property<String>()
@@ -115,5 +190,25 @@ internal final class PropertyTests: XCTestCase {
         )
         
     }
+    
+}
+
+// MARK: - TextView
+
+fileprivate final class TextView {
+    
+    internal final var text: String
+    
+    internal init(text: String) { self.text = text }
+    
+}
+
+// MARK: - OptionalTextView
+
+fileprivate final class OptionalTextView {
+    
+    internal final var text: String?
+    
+    internal init(text: String?) { self.text = text }
     
 }
