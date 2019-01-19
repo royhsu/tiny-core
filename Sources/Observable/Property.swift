@@ -28,11 +28,11 @@ public extension Property {
     public final var value: Value? { return atomic.value }
     
     /// Setting value is the asynchronized operation to avoid blocking the calling thread.
-    public final func setValue(
+    public final func mutateValue(
         _ setter: @escaping (inout Value?) -> ()
     ) {
         
-        atomic.setValue { value in
+        atomic.mutateValue { value in
             
             let oldValue = value
             

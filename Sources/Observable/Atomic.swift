@@ -37,7 +37,7 @@ public extension Atomic {
     public final var value: Value { return queue.sync { self._value } }
     
     /// Mutating the underlying value is an asynchronous operation so it can avoid blocking the calling thread.
-    public final func setValue(
+    public final func mutateValue(
         _ setter: @escaping (inout Value) -> ()
     ) { queue.async(flags: .barrier) { setter(&self._value) } }
     

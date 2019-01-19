@@ -41,7 +41,7 @@ internal final class PropertyTests: XCTestCase {
 
         }
         
-        property.setValue { $0 = "hello" }
+        property.mutateValue { $0 = "hello" }
         
         XCTAssertEqual(
             property.value,
@@ -88,9 +88,9 @@ internal final class PropertyTests: XCTestCase {
             
         }
         
-        property.setValue { $0 = "old value" }
+        property.mutateValue { $0 = "old value" }
         
-        property.setValue { $0 = "new value" }
+        property.mutateValue { $0 = "new value" }
         
         wait(
             for: [ promise ],
@@ -125,7 +125,7 @@ internal final class PropertyTests: XCTestCase {
 //            to: (view, \.text)
 //        )
 //
-//        property.setValue { $0 = "1" }
+//        property.mutateValue { $0 = "1" }
 //
 //        XCTAssertEqual(
 //            view.text,
@@ -167,7 +167,7 @@ internal final class PropertyTests: XCTestCase {
 //
 //        }
 //
-//        property.setValue { $0 = "1" }
+//        property.mutateValue { $0 = "1" }
 //
 //        wait(
 //            for: [ promise ],
@@ -180,11 +180,11 @@ internal final class PropertyTests: XCTestCase {
         
         let property1 = Property<String>()
         
-        property1.setValue { $0 = "hello" }
+        property1.mutateValue { $0 = "hello" }
         
         let property2 = Property<String>()
         
-        property2.setValue { $0 = "hello" }
+        property2.mutateValue { $0 = "hello" }
         
         XCTAssertEqual(
             property1,

@@ -38,7 +38,7 @@ internal final class AtomicTests: XCTestCase {
 
                     promise.fulfill()
 
-                    atomic.setValue { $0 = count }
+                    atomic.mutateValue { $0 = count }
                     
                     XCTAssertEqual(
                         atomic.value,
