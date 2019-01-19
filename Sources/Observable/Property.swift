@@ -8,38 +8,27 @@
 
 // MARK: - Property
 
-public final class Property<Value> {
+public final class Property<Value>: Atomic<Value?> {
     
     private final let boardcaster = Broadcaster()
     
-    private final let atomic = Atomic<Value?>(value: nil)
-    
     private final var isInitialValue = true
     
-    public init() { }
-    
-}
-
-// MARK: - Atomic
-
-public extension Property {
-    
-    /// A property will ensure to finish the previous writing operation before reading the underlying value.
-    public final var value: Value? { return atomic.value }
+    public init() { super.init(value: nil) }
     
     /// Setting value is the asynchronized operation to avoid blocking the calling thread.
-    public final func mutateValue(
-        _ setter: @escaping (inout Value?) -> ()
+    public final override func mutateValue(
+        _ mutation: @escaping (inout Value?) -> ()
     ) {
         
-        atomic.mutateValue { value in
+        super.mutateValue { value in
             
             let oldValue = value
-            
-            setter(&value)
-            
+
+            mutation(&value)
+
             let newValue = value
-            
+
             let change: ObservedChange =
                 self.isInitialValue
                 ? .initial(value: newValue)
@@ -47,26 +36,14 @@ public extension Property {
                     oldValue: oldValue,
                     newValue: newValue
                 )
-            
+
             if self.isInitialValue { self.isInitialValue = false }
-            
+
             self.boardcaster.notifyAll(with: change)
-            
+
         }
-        
+    
     }
-    
-}
-
-// MARK: - Equatable
-
-extension Property: Equatable where Value: Equatable {
-    
-    public static func == (
-        lhs: Property<Value>,
-        rhs: Property<Value>
-    )
-    -> Bool { return lhs.value == rhs.value }
     
 }
 

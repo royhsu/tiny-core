@@ -176,23 +176,6 @@ internal final class PropertyTests: XCTestCase {
 //
 //    }
     
-    internal final func testEquatable() {
-        
-        let property1 = Property<String>()
-        
-        property1.mutateValue { $0 = "hello" }
-        
-        let property2 = Property<String>()
-        
-        property2.mutateValue { $0 = "hello" }
-        
-        XCTAssertEqual(
-            property1,
-            property2
-        )
-        
-    }
-    
 }
 
 // MARK: - TextView

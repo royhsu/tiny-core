@@ -60,6 +60,15 @@ internal final class AtomicTests: XCTestCase {
         
     }
     
+    internal final func testEquatable() {
+        
+        XCTAssertEqual(
+            Atomic(value: "1"),
+            Atomic(value: "1")
+        )
+        
+    }
+    
 }
 
 // MARK: - Task
