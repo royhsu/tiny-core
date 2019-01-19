@@ -14,9 +14,19 @@ public final class Property<Value>: Atomic<Value?> {
     
     private final var isInitialValue = true
     
-    public init() { super.init(value: nil) }
+    public override init(value: Value? = nil) {
+        
+        if let initialValue = value {
+            
+            super.init(value: initialValue)
+            
+            self.isInitialValue = false
+            
+        }
+        else { super.init(value: nil) }
+        
+    }
     
-    /// Setting value is the asynchronized operation to avoid blocking the calling thread.
     public final override func mutateValue(
         _ mutation: @escaping (inout Value?) -> ()
     ) {

@@ -59,7 +59,7 @@ internal final class PropertyTests: XCTestCase {
         
         let promise = expectation(description: "Get notified about value changes.")
         
-        let property = Property<String>()
+        let property = Property(value: "old value")
         
         observation = property.observe { change in
             
@@ -88,9 +88,40 @@ internal final class PropertyTests: XCTestCase {
             
         }
         
-        property.mutateValue { $0 = "old value" }
-        
         property.mutateValue { $0 = "new value" }
+        
+        wait(
+            for: [ promise ],
+            timeout: 10.0
+        )
+        
+    }
+    
+    internal final func testObserveOnSpecificQueue() {
+        
+        let promise = expectation(description: "Observe changes on the specific queue.")
+        
+        let dynamicType = String(
+            describing: type(of: self)
+        )
+        
+        let queue = DispatchQueue(label: "\(dynamicType).SerialQueue.\(#function)")
+        
+        let property = Property<Int>()
+        
+        observation = property.observe(on: queue) { _ in
+            
+            promise.fulfill()
+            
+            dispatchPrecondition(
+                condition: .onQueue(queue)
+            )
+            
+            XCTSuccess()
+            
+        }
+        
+        property.mutateValue { $0 = 1 }
         
         wait(
             for: [ promise ],
