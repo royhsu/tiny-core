@@ -30,21 +30,3 @@ public struct HTTPRequest<Body> {
     }
     
 }
-
-// MARK: - URLRequestRepresentable
-
-extension HTTPRequest: URLRequestRepresentable {
-    
-    public func urlRequest() throws -> URLRequest {
-        
-        var request = URLRequest(url: url)
-        
-        request.httpMethod = method.rawValue
-        
-        request.setHTTPHeaders(headers)
-        
-        return request
-        
-    }
-    
-}
