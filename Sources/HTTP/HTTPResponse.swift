@@ -10,9 +10,9 @@
 
 public struct HTTPResponse<Body> {
     
-    public let body: Body
+    public var body: Body
     
-    public let urlResponse: URLResponse
+    public var urlResponse: URLResponse
     
     public init(
         body: Body,
