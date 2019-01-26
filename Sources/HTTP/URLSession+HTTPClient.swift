@@ -10,13 +10,15 @@
 
 extension URLSession: HTTPClient {
 
+    @discardableResult
     public final func request<T: Decodable>(
         _ request: URLRequest,
-        decoder: DataDecoder,
-        completion: @escaping (Result<T>) -> Void
-    ) {
+        decoder: HTTPBodyDecoder,
+        completion: @escaping (Result<(body: T, response: URLResponse)>) -> Void
+    )
+    -> URLSessionDataTask {
 
-        let task = dataTask(with: request) { data, _, error in
+        let task = dataTask(with: request) { data, response, error in
 
             if let error = error {
 
@@ -27,16 +29,28 @@ extension URLSession: HTTPClient {
                 return
 
             }
+            
+            guard let response = response else {
+                
+                completion(
+                    .failure(HTTPClientError.noResponse)
+                )
+                
+                return
+                
+            }
 
             let data = data ?? Data()
 
             do {
 
-                let value = try decoder.decode(
+                let body = try decoder.decode(
                     T.self,
                     from: data
                 )
 
+                let value = (body, response)
+                
                 completion(
                     .success(value)
                 )
@@ -53,6 +67,8 @@ extension URLSession: HTTPClient {
         }
 
         task.resume()
+        
+        return task
 
     }
 

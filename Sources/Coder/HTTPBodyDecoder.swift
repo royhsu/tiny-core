@@ -1,14 +1,14 @@
 //
-//  DataDecoder.swift
+//  HTTPBodyDecoder.swift
 //  TinyCore
 //
 //  Created by Roy Hsu on 19/10/2017.
 //  Copyright © 2017 TinyWorld. All rights reserved.
 //
 
-// MARK: - DataDecoder
+// MARK: - HTTPBodyDecoder
 
-public protocol DataDecoder {
+public protocol HTTPBodyDecoder {
 
     func decode<T: Decodable>(
         _ type: T.Type,
@@ -18,7 +18,7 @@ public protocol DataDecoder {
 
 }
 
-extension DataDecoder {
+extension HTTPBodyDecoder {
 
     func decode<T: Decodable>(
         _ type: T.Type,

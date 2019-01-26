@@ -1,5 +1,5 @@
 //
-//  JSONDecoder+DataDecoder.swift
+//  JSONDecoder+HTTPBodyDecoder.swift
 //  TinyCore
 //
 //  Created by Roy Hsu on 19/10/2017.
@@ -8,4 +8,4 @@
 
 // MARK: - Decoder
 
-extension JSONDecoder: DataDecoder { }
+extension JSONDecoder: HTTPBodyDecoder { }
