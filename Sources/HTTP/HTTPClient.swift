@@ -11,11 +11,10 @@
 public protocol HTTPClient {
 
     @discardableResult
-    func request<T: Decodable>(
-        _ request: URLRequest,
-        decoder: HTTPBodyDecoder,
-        completion: @escaping (Result<(body: T, response: URLResponse)>) -> Void
+    func request(
+        _ request: URLRequestRepresentable,
+        completion: @escaping (Result< HTTPResponse<Data?> >) -> Void
     )
-    -> URLSessionDataTask
+    throws -> URLSessionDataTask
 
 }

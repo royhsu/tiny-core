@@ -1,15 +1,15 @@
 //
-//  HTTPClientError.swift
+//  HTTPHeader.swift
 //  TinyCore
 //
 //  Created by Roy Hsu on 2019/1/26.
 //  Copyright © 2019 TinyWorld. All rights reserved.
 //
 
-// MARK: - HTTPClientError
+// MARK: - HTTPHeader
 
-public enum HTTPClientError: Error {
+public enum HTTPHeader: String {
     
-    case noResponse
+    case authorization = "Authorization"
     
 }
