@@ -17,8 +17,8 @@ extension URLRequest {
         for header in headers {
             
             setValue(
-                header.key.rawValue,
-                forHTTPHeaderField: header.value
+                header.value,
+                forHTTPHeaderField: header.key.rawValue
             )
             
         }
