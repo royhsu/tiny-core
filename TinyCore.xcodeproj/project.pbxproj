@@ -34,6 +34,7 @@
 		B0836F2A21FCAF01004D68F2 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0836F2821FCAE96004D68F2 /* HTTPMethod.swift */; };
 		B0836F2C21FCB13E004D68F2 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0836F2B21FCB13E004D68F2 /* HTTPRequest.swift */; };
 		B0836F2E21FCBAE1004D68F2 /* HTTPRequest+URLRequestRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0836F2D21FCBAE1004D68F2 /* HTTPRequest+URLRequestRepresentable.swift */; };
+		B0836F4421FD71EE004D68F2 /* Initializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0836F4321FD71EE004D68F2 /* Initializable.swift */; };
 		B089F9A321F1D5200052AD8D /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = B089F9A221F1D5200052AD8D /* Property.swift */; };
 		B089F9A621F1D5E60052AD8D /* PropertyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B089F9A421F1D5E30052AD8D /* PropertyTests.swift */; };
 		B089F9A921F210F90052AD8D /* AtomicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B089F9A721F210E70052AD8D /* AtomicTests.swift */; };
@@ -98,6 +99,7 @@
 		B0836F2821FCAE96004D68F2 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		B0836F2B21FCB13E004D68F2 /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		B0836F2D21FCBAE1004D68F2 /* HTTPRequest+URLRequestRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPRequest+URLRequestRepresentable.swift"; sourceTree = "<group>"; };
+		B0836F4321FD71EE004D68F2 /* Initializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Initializable.swift; sourceTree = "<group>"; };
 		B089F9A221F1D5200052AD8D /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		B089F9A421F1D5E30052AD8D /* PropertyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTests.swift; sourceTree = "<group>"; };
 		B089F9A721F210E70052AD8D /* AtomicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicTests.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				B0A26EC82155E6A900747535 /* Unique.swift */,
 				B07A2C3D215A1CF8002EFE87 /* Emptible.swift */,
 				B0C8C35221C1114F00DED5BF /* Countable.swift */,
+				B0836F4321FD71EE004D68F2 /* Initializable.swift */,
 				B0BDA06E2146CB8D0077BEFC /* TinyCore.playground */,
 			);
 			path = Sources;
@@ -472,6 +475,7 @@
 				B0577E721F98EB2F00B1578E /* HTTPBodyDecoder.swift in Sources */,
 				B0577E751F98EC1400B1578E /* JSONDecoder+HTTPBodyDecoder.swift in Sources */,
 				B0C8C34321C0E1F000DED5BF /* OptionalValueBinding.swift in Sources */,
+				B0836F4421FD71EE004D68F2 /* Initializable.swift in Sources */,
 				B0772EDA2193D8960082C055 /* Observable+Codable.swift in Sources */,
 				B0C8C34521C0E27900DED5BF /* ValueBinding.swift in Sources */,
 				B0C8C35321C1114F00DED5BF /* Countable.swift in Sources */,
