@@ -16,6 +16,28 @@ extension HTTPRequest: URLRequestRepresentable {
         
         request.httpMethod = method.rawValue
         
+        var headers = self.headers
+        
+        if let body = body {
+            
+            request.httpBody = try bodyEncoder.encode(body)
+            
+            let mime: MIMEType
+            
+            switch bodyEncoder {
+                
+            case is JSONEncoder: mime = .json
+                
+            default: fatalError("Unsupported HTTP Body Encoder.")
+            
+            }
+            
+            let header = try mime.httpHeader()
+            
+            headers[header.field] = header.value
+            
+        }
+        
         request.setHTTPHeaders(headers)
         
         return request

@@ -8,7 +8,7 @@
 
 // MARK: - HTTPRequest
 
-public struct HTTPRequest<Body> {
+public struct HTTPRequest<Body> where Body: Encodable {
     
     public var url: URL
     
@@ -16,17 +16,39 @@ public struct HTTPRequest<Body> {
     
     public var method: HTTPMethod = .get
     
-    public var body: Body
+    public var body: Body?
+    
+    public let bodyEncoder: HTTPBodyEncoder
     
     public init(
         url: URL,
-        body: Body
+        body: Body? = nil,
+        bodyEncoder: HTTPBodyEncoder = JSONEncoder()
     ) {
         
         self.url = url
         
         self.body = body
         
+        self.bodyEncoder = bodyEncoder
+        
     }
     
 }
+
+// MARK: - DefaultHTTPBody
+
+#warning("TODO: move into its own file.")
+public struct DefaultHTTPBody: Codable { }
+
+// MARK: - HTTPBodyEncoder
+
+#warning("TODO: move into its own file.")
+public protocol HTTPBodyEncoder {
+    
+    func encode<T>(_ value: T) throws -> Data where T: Encodable
+    
+}
+
+#warning("TODO: move into its own file.")
+extension JSONEncoder: HTTPBodyEncoder { }

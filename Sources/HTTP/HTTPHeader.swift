@@ -12,4 +12,6 @@ public enum HTTPHeader: String {
     
     case authorization = "Authorization"
     
+    case contentType = "Content-Type"
+    
 }

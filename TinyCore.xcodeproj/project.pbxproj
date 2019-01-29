@@ -24,6 +24,8 @@
 		B0652DB32147F878009F8757 /* ObservableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0652DB22147F878009F8757 /* ObservableTests.swift */; };
 		B0772EDA2193D8960082C055 /* Observable+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772ED92193D8960082C055 /* Observable+Codable.swift */; };
 		B07A2C3E215A1CF8002EFE87 /* Emptible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2C3D215A1CF8002EFE87 /* Emptible.swift */; };
+		B07AB28D2200454B00E80ADC /* MIMEType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AB28C2200454B00E80ADC /* MIMEType.swift */; };
+		B07AB28F2200457600E80ADC /* MIMEType+HTTPHeaderRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AB28E2200457600E80ADC /* MIMEType+HTTPHeaderRepresentable.swift */; };
 		B0836F0521FC345E004D68F2 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0836F0421FC345E004D68F2 /* HTTPError.swift */; };
 		B0836F0721FC4FC5004D68F2 /* URLRequestRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0836F0621FC4FC5004D68F2 /* URLRequestRepresentable.swift */; };
 		B0836F0B21FC5087004D68F2 /* HTTPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0836F0A21FC5087004D68F2 /* HTTPHeader.swift */; };
@@ -89,6 +91,8 @@
 		B0652DB22147F878009F8757 /* ObservableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTests.swift; sourceTree = "<group>"; };
 		B0772ED92193D8960082C055 /* Observable+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Codable.swift"; sourceTree = "<group>"; };
 		B07A2C3D215A1CF8002EFE87 /* Emptible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emptible.swift; sourceTree = "<group>"; };
+		B07AB28C2200454B00E80ADC /* MIMEType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIMEType.swift; sourceTree = "<group>"; };
+		B07AB28E2200457600E80ADC /* MIMEType+HTTPHeaderRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MIMEType+HTTPHeaderRepresentable.swift"; sourceTree = "<group>"; };
 		B0836F0421FC345E004D68F2 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		B0836F0621FC4FC5004D68F2 /* URLRequestRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestRepresentable.swift; sourceTree = "<group>"; };
 		B0836F0A21FC5087004D68F2 /* HTTPHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeader.swift; sourceTree = "<group>"; };
@@ -317,6 +321,8 @@
 				B0836F1621FC5603004D68F2 /* URLRequest+URLRequestRepresentable.swift */,
 				B0836F0E21FC50C6004D68F2 /* URLRequest+HTTPHeader.swift */,
 				B0AFDC89201703DC00D8DEF6 /* URLSession+HTTPClient.swift */,
+				B07AB28C2200454B00E80ADC /* MIMEType.swift */,
+				B07AB28E2200457600E80ADC /* MIMEType+HTTPHeaderRepresentable.swift */,
 			);
 			path = HTTP;
 			sourceTree = "<group>";
@@ -453,6 +459,7 @@
 				B050173F2078C999009838F9 /* Degrees+Radian.swift in Sources */,
 				B0836F1721FC5603004D68F2 /* URLRequest+URLRequestRepresentable.swift in Sources */,
 				B0577E7A1F98F0B300B1578E /* Result.swift in Sources */,
+				B07AB28F2200457600E80ADC /* MIMEType+HTTPHeaderRepresentable.swift in Sources */,
 				B0C8C34721C0E31100DED5BF /* AnyBinding.swift in Sources */,
 				B0BC23872078F90700D11A3B /* WeakObject.swift in Sources */,
 				B0836F0F21FC50C6004D68F2 /* URLRequest+HTTPHeader.swift in Sources */,
@@ -477,6 +484,7 @@
 				B0C8C34321C0E1F000DED5BF /* OptionalValueBinding.swift in Sources */,
 				B0836F4421FD71EE004D68F2 /* Initializable.swift in Sources */,
 				B0772EDA2193D8960082C055 /* Observable+Codable.swift in Sources */,
+				B07AB28D2200454B00E80ADC /* MIMEType.swift in Sources */,
 				B0C8C34521C0E27900DED5BF /* ValueBinding.swift in Sources */,
 				B0C8C35321C1114F00DED5BF /* Countable.swift in Sources */,
 				B0836F2C21FCB13E004D68F2 /* HTTPRequest.swift in Sources */,
