@@ -35,20 +35,3 @@ public struct HTTPRequest<Body> where Body: Encodable {
     }
     
 }
-
-// MARK: - DefaultHTTPBody
-
-#warning("TODO: move into its own file.")
-public struct DefaultHTTPBody: Codable { }
-
-// MARK: - HTTPBodyEncoder
-
-#warning("TODO: move into its own file.")
-public protocol HTTPBodyEncoder {
-    
-    func encode<T>(_ value: T) throws -> Data where T: Encodable
-    
-}
-
-#warning("TODO: move into its own file.")
-extension JSONEncoder: HTTPBodyEncoder { }

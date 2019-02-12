@@ -15,7 +15,7 @@ extension URLSession: HTTPClient {
         _ request: URLRequestRepresentable,
         completion: @escaping (Result< HTTPResponse<Data?> >) -> Void
     )
-    throws -> URLSessionDataTask {
+    throws -> ServiceTask {
         
         let request = try request.urlRequest()
 
