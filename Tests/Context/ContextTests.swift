@@ -21,7 +21,7 @@ final class ContextTests: XCTestCase {
         var context = Context<ProductProperties>()
         
         context.register(
-            5.0,
+            { 5.0 },
             for: .price
         )
         
