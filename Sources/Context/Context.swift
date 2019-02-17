@@ -8,6 +8,9 @@
 
 // MARK: - Context
 
+/// Use context to encapsulate all associated properties and dependencies together.
+/// The context provides a set of convenient methods to make instances.
+/// It also throws the well-defined error when things go wrong. For examples, making instances from unregistered identifiers, or specifying a wrong target type for context to make.
 public struct Context<Identifier> where Identifier: Hashable {
     
     private var storage: [Identifier: () throws -> Any] = [:]
