@@ -64,6 +64,8 @@
 		B0D0DB152146169400AD1EE7 /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0DB142146169400AD1EE7 /* ResultTests.swift */; };
 		B0D0DB1C2146188500AD1EE7 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0DB1A2146185E00AD1EE7 /* HTTPError.swift */; };
 		B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */; };
+		B0DD7622221A5EE400008BAA /* PoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DD761E221A5E0200008BAA /* PoolTests.swift */; };
+		B0DD7624221A61F400008BAA /* Pool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DD7623221A61F400008BAA /* Pool.swift */; };
 		B0E236622156762900FBE7B3 /* XCTUnwrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2365F2156762900FBE7B3 /* XCTUnwrapped.swift */; };
 		B0F51C9E21586AD700B592F5 /* XCTSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E236602156762900FBE7B3 /* XCTSuccess.swift */; };
 /* End PBXBuildFile section */
@@ -140,6 +142,8 @@
 		B0D0DB142146169400AD1EE7 /* ResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTests.swift; sourceTree = "<group>"; };
 		B0D0DB1A2146185E00AD1EE7 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		B0DB58CB1F989C1400DAD605 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		B0DD761E221A5E0200008BAA /* PoolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolTests.swift; sourceTree = "<group>"; };
+		B0DD7623221A61F400008BAA /* Pool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pool.swift; sourceTree = "<group>"; };
 		B0E2365F2156762900FBE7B3 /* XCTUnwrapped.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTUnwrapped.swift; sourceTree = "<group>"; };
 		B0E236602156762900FBE7B3 /* XCTSuccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTSuccess.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -231,6 +235,7 @@
 			children = (
 				B0D0DB1D21462B6B00AD1EE7 /* iOS */,
 				B0CF898D2219A8FC0020ECD1 /* Context */,
+				B0DD761D221A5DE000008BAA /* Pool */,
 				B00C35632017223700531F72 /* Event */,
 				B05017392078C999009838F9 /* Geometry */,
 				B0DB58C61F989B7A00DAD605 /* HTTP */,
@@ -254,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				B0CF898A2219A6700020ECD1 /* Context */,
+				B0DD761C221A5DD600008BAA /* Pool */,
 				B0E2365E2156762900FBE7B3 /* Helpers */,
 				B0652DB12147F867009F8757 /* Observable */,
 				B0D0DB132146167F00AD1EE7 /* Result */,
@@ -365,6 +371,22 @@
 				B062C5C22212C662001807A6 /* JSONEncoder+HTTPBodyEncoder.swift */,
 			);
 			path = HTTP;
+			sourceTree = "<group>";
+		};
+		B0DD761C221A5DD600008BAA /* Pool */ = {
+			isa = PBXGroup;
+			children = (
+				B0DD761E221A5E0200008BAA /* PoolTests.swift */,
+			);
+			path = Pool;
+			sourceTree = "<group>";
+		};
+		B0DD761D221A5DE000008BAA /* Pool */ = {
+			isa = PBXGroup;
+			children = (
+				B0DD7623221A61F400008BAA /* Pool.swift */,
+			);
+			path = Pool;
 			sourceTree = "<group>";
 		};
 		B0E2365E2156762900FBE7B3 /* Helpers */ = {
@@ -505,6 +527,7 @@
 				B0836F0F21FC50C6004D68F2 /* URLRequest+HTTPHeader.swift in Sources */,
 				B0CF89912219A9370020ECD1 /* ContextError.swift in Sources */,
 				B0836F1521FC53E4004D68F2 /* HTTPResponse.swift in Sources */,
+				B0DD7624221A61F400008BAA /* Pool.swift in Sources */,
 				B0C8C33F21C0BB0200DED5BF /* Observable+Equatable.swift in Sources */,
 				B050173E2078C999009838F9 /* Array+InsertBetween.swift in Sources */,
 				B0836F0721FC4FC5004D68F2 /* URLRequestRepresentable.swift in Sources */,
@@ -544,6 +567,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0DD7622221A5EE400008BAA /* PoolTests.swift in Sources */,
 				B0D0DB152146169400AD1EE7 /* ResultTests.swift in Sources */,
 				B0D0DB1C2146188500AD1EE7 /* HTTPError.swift in Sources */,
 				B089F9A921F210F90052AD8D /* AtomicTests.swift in Sources */,
