@@ -1,3 +1,0 @@
-import TinyCore
-
-print("End")
