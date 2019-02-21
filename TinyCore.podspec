@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'TinyCore'
-  spec.version = '0.6.3'
+  spec.version = '0.7.0'
   spec.license = 'MIT'
   spec.summary = 'TinyCore provides fundamental types and functions.'
   spec.homepage = 'https://github.com/royhsu/tiny-core'
