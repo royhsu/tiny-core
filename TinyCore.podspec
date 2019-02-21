@@ -7,7 +7,7 @@ Pod::Spec.new do |spec|
   spec.authors = { 'Roy Hsu' => 'roy.hsu@tinyworld.cc' }
   spec.source = { :git => 'https://github.com/royhsu/tiny-core.git', :tag => spec.version }
   spec.framework = 'Foundation'
-  spec.source_files = 'Sources/*.swift'
+  spec.source_files = 'Sources/*.swift', 'Sources/**/*.swift', 'Sources/**/**/*.swift'
   spec.ios.source_files = 'Sources/iOS/*.swift'
   spec.ios.deployment_target = '10.0'
   spec.swift_version = '4.2'
