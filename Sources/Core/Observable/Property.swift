@@ -8,30 +8,36 @@
 
 // MARK: - Property
 
-public final class Property<Value>: Atomic<Value?> {
+public final class Property<Value> {
 
-    private final let boardcaster = Broadcaster()
+    private let boardcaster = Broadcaster()
 
-    private final var isInitialValue = true
+    private var isInitialValue = true
+    
+    private let _storage: Atomic<Value?>
 
-    public override init(value: Value? = nil) {
+    public init(value: Value? = nil) {
 
         if let initialValue = value {
 
-            super.init(value: initialValue)
+            self._storage = Atomic(value: initialValue)
 
             self.isInitialValue = false
 
         }
-        else { super.init(value: nil) }
+        else { self._storage = Atomic(value: nil) }
 
     }
+    
+}
 
-    public final override func mutateValue(
+extension Property {
+
+    public func mutateValue(
         _ mutation: @escaping (inout Value?) -> Void
     ) {
 
-        super.mutateValue { value in
+        _storage.mutateValue { value in
 
             let oldValue = value
 
@@ -59,9 +65,11 @@ public final class Property<Value>: Atomic<Value?> {
 
 // MARK: - Observable
 
-extension Property: ObservableProtocol {
+extension Property: Observable {
+    
+    public var value: Value? { return _storage.value }
 
-    public final func observe(
+    public func observe(
         on queue: DispatchQueue = .global(),
         observer: @escaping (ObservedChange) -> Void
     )
@@ -76,44 +84,17 @@ extension Property: ObservableProtocol {
 
 }
 
-public extension Property {
-
-    public enum ObservedChange: ObservedChangeProtocol {
-
-        case initial(value: Value?)
-
-        case changed(
-            oldValue: Value?,
-            newValue: Value?
-        )
-
-        public var currentValue: Value? {
-
-            switch self {
-
-            case let .initial(value): return value
-
-            case let .changed(_, newValue): return newValue
-
-            }
-
-        }
-
-    }
-
-}
-
 // MARK: - Observer
 
 internal extension Property {
 
     private final class PropertyObservation: Observation {
 
-        private final let queue: DispatchQueue
+        private let queue: DispatchQueue
 
-        private final let observer: (ObservedChange) -> Void
+        private let observer: (ObservedChange) -> Void
 
-        internal init(
+        init(
             queue: DispatchQueue,
             observer: @escaping (ObservedChange) -> Void
         ) {
@@ -124,7 +105,7 @@ internal extension Property {
 
         }
 
-        internal final func notify(with change: ObservedChange) {
+        func notify(with change: ObservedChange) {
 
             queue.async { [weak self] in
 
@@ -150,7 +131,7 @@ public extension Property {
     )
     where Target: AnyObject
 
-    public final func bind<Target: AnyObject, U>(
+    public func bind<Target: AnyObject, U>(
         on queue: DispatchQueue = .main,
         transform: @escaping (Value?) -> U,
         to destination: BindingDestination<Target, U>
@@ -166,7 +147,7 @@ public extension Property {
 
     }
 
-    public final func bind<Target: AnyObject, U>(
+    public func bind<Target: AnyObject, U>(
         on queue: DispatchQueue = .main,
         transform: @escaping (Value?) -> U?,
         to destination: BindingDestination<Target, U?>
@@ -182,7 +163,7 @@ public extension Property {
 
     }
 
-    public final func bind<Target: AnyObject>(
+    public func bind<Target: AnyObject>(
         on queue: DispatchQueue = .main,
         to destination: BindingDestination<Target, Value?>
     ) {
@@ -203,13 +184,13 @@ internal extension Property {
 
     private final class Broadcaster {
 
-        internal typealias Object = WeakObject<PropertyObservation>
+        typealias Object = WeakObject<PropertyObservation>
 
-        private final var objects: [Object] = []
+        private var objects: [Object] = []
 
-        private final var bindings: [AnyBinding<Value>] = []
+        private var bindings: [AnyBinding<Value>] = []
 
-        internal final func observe(
+        func observe(
             on queue: DispatchQueue,
             observer: @escaping (ObservedChange) -> Void
         )
@@ -229,7 +210,7 @@ internal extension Property {
         }
 
         @discardableResult
-        internal final func bind<Target: AnyObject, U>(
+        func bind<Target: AnyObject, U>(
             on queue: DispatchQueue,
             transform: @escaping (Value?) -> U,
             to destination: BindingDestination<Target, U>
@@ -252,7 +233,7 @@ internal extension Property {
         }
 
         @discardableResult
-        internal final func bind<Target: AnyObject, U>(
+        func bind<Target: AnyObject, U>(
             transform: @escaping (Value?) -> U?,
             to destination: BindingDestination<Target, U?>,
             queue: DispatchQueue
@@ -274,7 +255,7 @@ internal extension Property {
 
         }
 
-        internal final func notifyAll(with change: ObservedChange) {
+        func notifyAll(with change: ObservedChange) {
 
             let liveBindings = bindings.filter { $0.target != nil }
 
