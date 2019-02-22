@@ -9,8 +9,7 @@
 // MARK: - MIMEType
 
 public enum MIMEType: String {
-    
-    case json = "application/json"
-    
-}
 
+    case json = "application/json"
+
+}

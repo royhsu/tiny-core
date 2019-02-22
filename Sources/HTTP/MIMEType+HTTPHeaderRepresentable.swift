@@ -9,7 +9,7 @@
 // MARK: - HTTPHeaderRepresentable
 
 extension MIMEType: HTTPHeaderRepresentable {
-    
+
     public func httpHeader() throws -> (field: HTTPHeader, value: String) { return (.contentType, rawValue) }
-    
+
 }

@@ -9,7 +9,7 @@
 // MARK: - HTTPError
 
 public enum HTTPError: Error {
-    
+
     case noResponse
-    
+
 }

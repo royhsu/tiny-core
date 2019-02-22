@@ -9,7 +9,7 @@
 // MARK: - HTTPHeaderRepresentable
 
 public protocol HTTPHeaderRepresentable {
-    
+
     func httpHeader() throws -> (field: HTTPHeader, value: String)
-    
+
 }

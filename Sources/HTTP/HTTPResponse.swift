@@ -9,20 +9,20 @@
 // MARK: - HTTPResponse
 
 public struct HTTPResponse<Body> {
-    
+
     public var body: Body
-    
+
     public var urlResponse: URLResponse
-    
+
     public init(
         body: Body,
         urlResponse: URLResponse
     ) {
-        
+
         self.body = body
-        
+
         self.urlResponse = urlResponse
-        
+
     }
-    
+
 }

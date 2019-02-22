@@ -9,29 +9,29 @@
 // MARK: - HTTPRequest
 
 public struct HTTPRequest<Body> where Body: Encodable {
-    
+
     public var url: URL
-    
+
     public var headers: [HTTPHeader: String] = [:]
-    
+
     public var method: HTTPMethod = .get
-    
+
     public var body: Body?
-    
+
     public let bodyEncoder: HTTPBodyEncoder
-    
+
     public init(
         url: URL,
         body: Body? = nil,
         bodyEncoder: HTTPBodyEncoder = JSONEncoder()
     ) {
-        
+
         self.url = url
-        
+
         self.body = body
-        
+
         self.bodyEncoder = bodyEncoder
-        
+
     }
-    
+
 }

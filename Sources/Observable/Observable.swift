@@ -9,28 +9,28 @@
 // MARK: - Observable
 
 public protocol ObservedChangeProtocol {
-    
+
     associatedtype Value
-    
+
 }
 
 public protocol ObservableProtocol {
-    
+
     associatedtype ObservedChange: ObservedChangeProtocol
-    
+
     func observe(
         on queue: DispatchQueue,
         observer: @escaping (ObservedChange) -> Void
     )
     -> Observation
-    
+
 }
 
 @available(*, deprecated: 1.0, renamed: "Property")
 public struct Observable<Value> {
 
     private final class Observer: Observation {
-        
+
         private final let handler: (_ change: ObservedChange<Value>) -> Void
 
         internal init(

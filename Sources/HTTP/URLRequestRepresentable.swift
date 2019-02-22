@@ -9,7 +9,7 @@
 // MARK: - URLRequestRepresentable
 
 public protocol URLRequestRepresentable {
-    
+
     func urlRequest() throws -> URLRequest
-    
+
 }

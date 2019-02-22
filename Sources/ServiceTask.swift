@@ -9,7 +9,7 @@
 // MARK: - ServiceTask
 
 public protocol ServiceTask {
-    
+
     func cancel()
-    
+
 }

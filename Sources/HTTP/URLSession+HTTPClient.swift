@@ -16,7 +16,7 @@ extension URLSession: HTTPClient {
         completion: @escaping (Result< HTTPResponse<Data?> >) -> Void
     )
     throws -> ServiceTask {
-        
+
         let request = try request.urlRequest()
 
         let task = dataTask(with: request) { data, urlResponse, error in
@@ -30,22 +30,22 @@ extension URLSession: HTTPClient {
                 return
 
             }
-            
+
             guard let urlResponse = urlResponse else {
-                
+
                 completion(
                     .failure(HTTPError.noResponse)
                 )
-                
+
                 return
-                
+
             }
 
             let response = HTTPResponse(
                 body: data,
                 urlResponse: urlResponse
             )
-            
+
             completion(
                 .success(response)
             )
@@ -53,7 +53,7 @@ extension URLSession: HTTPClient {
         }
 
         task.resume()
-        
+
         return task
 
     }

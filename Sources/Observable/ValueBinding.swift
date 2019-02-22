@@ -11,7 +11,7 @@
 internal final class ValueBinding<Target: AnyObject, T, U>: Binding {
 
     private final let queue: DispatchQueue
-    
+
     private final let transform: (T?) -> U
 
     public final var target: AnyObject? { return _target }
@@ -26,7 +26,7 @@ internal final class ValueBinding<Target: AnyObject, T, U>: Binding {
         target: Target,
         keyPath: ReferenceWritableKeyPath<Target, U>
     ) {
-        
+
         self.queue = queue
 
         self.transform = transform
@@ -34,13 +34,13 @@ internal final class ValueBinding<Target: AnyObject, T, U>: Binding {
         self._target = target
 
         self.keyPath = keyPath
-        
+
     }
 
     internal final func update(with value: T?) {
-        
+
         queue.async { self._target?[keyPath: self.keyPath] = self.transform(value) }
-        
+
     }
 
 }

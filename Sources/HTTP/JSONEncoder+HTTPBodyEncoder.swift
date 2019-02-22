@@ -9,4 +9,3 @@
 // MARK: - HTTPBodyEncoder
 
 extension JSONEncoder: HTTPBodyEncoder { }
-

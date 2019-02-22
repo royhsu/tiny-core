@@ -9,7 +9,7 @@
 // MARK: - Initializable
 
 public protocol Initializable {
-    
+
     init()
-    
+
 }

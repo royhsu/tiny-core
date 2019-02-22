@@ -9,7 +9,7 @@
 // MARK: - HTTPBodyEncoder
 
 public protocol HTTPBodyEncoder {
-    
+
     func encode<T>(_ value: T) throws -> Data where T: Encodable
-    
+
 }

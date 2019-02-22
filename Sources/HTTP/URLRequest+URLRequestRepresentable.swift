@@ -9,7 +9,7 @@
 // MARK: - URLRequestRepresentable
 
 extension URLRequest: URLRequestRepresentable {
-    
+
     public func urlRequest() throws -> URLRequest { return self }
-    
+
 }

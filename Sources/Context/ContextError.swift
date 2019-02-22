@@ -9,13 +9,13 @@
 // MARK: - ContextError
 
 public enum ContextError<Identifier>: Error where Identifier: Hashable {
-    
+
     case unregistered(identifier: Identifier)
-    
+
     case typeMismatch(
         identifier: Identifier,
         expectedType: Any.Type,
         autualType: Any.Type
     )
-    
+
 }

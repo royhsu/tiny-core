@@ -13,19 +13,19 @@ import XCTest
 @testable import TinyCore
 
 internal final class PropertyTests: XCTestCase {
-    
+
     internal final var observation: Observation?
-    
+
     internal final func testObserveInitialValue() {
-        
+
         let promise = expectation(description: "Get notified about value changes.")
-        
+
         let property = Property<String>()
-        
+
         observation = property.observe { change in
 
             promise.fulfill()
-            
+
             switch change {
 
             case let .initial(newValue):
@@ -40,96 +40,96 @@ internal final class PropertyTests: XCTestCase {
             }
 
         }
-        
+
         property.mutateValue { $0 = "hello" }
-        
+
         XCTAssertEqual(
             property.value,
             "hello"
         )
-        
+
         wait(
             for: [ promise ],
             timeout: 10.0
         )
-        
+
     }
-    
+
     internal final func testObserveNewValue() {
-        
+
         let promise = expectation(description: "Get notified about value changes.")
-        
+
         let property = Property(value: "old value")
-        
+
         observation = property.observe { change in
-            
+
             switch change {
-                
+
             case .initial: break
-                
+
             case let .changed(
                 oldValue,
                 newValue
             ):
-                
+
                 promise.fulfill()
-                
+
                 XCTAssertEqual(
                     oldValue,
                     "old value"
                 )
-                
+
                 XCTAssertEqual(
                     newValue,
                     "new value"
                 )
-                
+
             }
-            
+
         }
-        
+
         property.mutateValue { $0 = "new value" }
-        
+
         wait(
             for: [ promise ],
             timeout: 10.0
         )
-        
+
     }
-    
+
     internal final func testObserveOnSpecificQueue() {
-        
+
         let promise = expectation(description: "Observe changes on the specific queue.")
-        
+
         let dynamicType = String(
             describing: type(of: self)
         )
-        
+
         let queue = DispatchQueue(label: "\(dynamicType).SerialQueue.\(#function)")
-        
+
         let property = Property<Int>()
-        
+
         observation = property.observe(on: queue) { _ in
-            
+
             promise.fulfill()
-            
+
             dispatchPrecondition(
                 condition: .onQueue(queue)
             )
-            
+
             XCTSuccess()
-            
+
         }
-        
+
         property.mutateValue { $0 = 1 }
-        
+
         wait(
             for: [ promise ],
             timeout: 10.0
         )
-        
+
     }
-    
+
     #warning("TODO: strange behavior.")
 //    internal final func testBindKeyPath() {
 //
@@ -169,7 +169,7 @@ internal final class PropertyTests: XCTestCase {
 //        )
 //
 //    }
-    
+
 //    internal final func testBindOptionalValueForKeyPath() {
 //
 //        let promise = expectation(description: "Bind the property to a destination.")
@@ -206,25 +206,25 @@ internal final class PropertyTests: XCTestCase {
 //        )
 //
 //    }
-    
+
 }
 
 // MARK: - TextView
 
 fileprivate final class TextView {
-    
+
     internal final var text: String
-    
+
     internal init(text: String) { self.text = text }
-    
+
 }
 
 // MARK: - OptionalTextView
 
 fileprivate final class OptionalTextView {
-    
+
     internal final var text: String?
-    
+
     internal init(text: String?) { self.text = text }
-    
+
 }
