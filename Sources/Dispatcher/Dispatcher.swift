@@ -8,7 +8,7 @@
 
 // MARK: - Dispatcher
 
-final class Dispatcher<Item> {
+public final class Dispatcher<Item> {
     
     private let batchScheduler: DispatcherBatchScheduler
     
@@ -30,7 +30,7 @@ final class Dispatcher<Item> {
     
     private let _queue = Atomic(value: [Item]() )
     
-    init(
+    public init(
         batchScheduler: DispatcherBatchScheduler,
         batchTask: @escaping (
             _ manager: Dispatcher,
@@ -80,14 +80,7 @@ extension Dispatcher {
     
     public func dispatch(_ item: Item) {
         
-        _queue.mutateValue { items in
-            
-            #warning("TODO: add ability to avoid duplicate items.")
-//            let newItems = newValue.filter { index in !indices.contains(index) }
-            
-            items.append(item)
-            
-        }
+        _queue.mutateValue { $0.append(item) }
         
     }
     
