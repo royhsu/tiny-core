@@ -10,6 +10,7 @@
 		B00C35692017224600531F72 /* EventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00C35662017224600531F72 /* EventEmitter.swift */; };
 		B0217ACA22202258005F19EB /* DispatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AC822202250005F19EB /* DispatcherTests.swift */; };
 		B0217ACC22202599005F19EB /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217ACB22202599005F19EB /* Dispatcher.swift */; };
+		B0217ACF222032F8005F19EB /* DispatcherBatchScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217ACE222032F8005F19EB /* DispatcherBatchScheduler.swift */; };
 		B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03BE8771F68D54D002E076A /* Int+RandomNumber.swift */; };
 		B050173E2078C999009838F9 /* Array+InsertBetween.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05017382078C999009838F9 /* Array+InsertBetween.swift */; };
 		B050173F2078C999009838F9 /* Degrees+Radian.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050173A2078C999009838F9 /* Degrees+Radian.swift */; };
@@ -86,6 +87,7 @@
 		B00C35662017224600531F72 /* EventEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventEmitter.swift; sourceTree = "<group>"; };
 		B0217AC822202250005F19EB /* DispatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatcherTests.swift; sourceTree = "<group>"; };
 		B0217ACB22202599005F19EB /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
+		B0217ACE222032F8005F19EB /* DispatcherBatchScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatcherBatchScheduler.swift; sourceTree = "<group>"; };
 		B03BE8771F68D54D002E076A /* Int+RandomNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+RandomNumber.swift"; sourceTree = "<group>"; };
 		B05017382078C999009838F9 /* Array+InsertBetween.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+InsertBetween.swift"; sourceTree = "<group>"; };
 		B050173A2078C999009838F9 /* Degrees+Radian.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Degrees+Radian.swift"; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				B0217ACB22202599005F19EB /* Dispatcher.swift */,
+				B0217ACE222032F8005F19EB /* DispatcherBatchScheduler.swift */,
 			);
 			path = Dispatcher;
 			sourceTree = "<group>";
@@ -192,6 +195,30 @@
 				B0217AC822202250005F19EB /* DispatcherTests.swift */,
 			);
 			path = Dispatcher;
+			sourceTree = "<group>";
+		};
+		B0217ACD22203261005F19EB /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B0CF898D2219A8FC0020ECD1 /* Context */,
+				B0217AC62220222D005F19EB /* Dispatcher */,
+				B0DD761D221A5DE000008BAA /* Pool */,
+				B00C35632017223700531F72 /* Event */,
+				B05017392078C999009838F9 /* Geometry */,
+				B0DB58C61F989B7A00DAD605 /* HTTP */,
+				B03BE8761F68D53D002E076A /* Int+Extensions */,
+				B0BC23832078F8C000D11A3B /* Observable */,
+				B0577E781F98F0A000B1578E /* Result */,
+				B0BC23862078F90700D11A3B /* WeakObject.swift */,
+				B05017382078C999009838F9 /* Array+InsertBetween.swift */,
+				B0A26EC82155E6A900747535 /* Unique.swift */,
+				B07A2C3D215A1CF8002EFE87 /* Emptible.swift */,
+				B0C8C35221C1114F00DED5BF /* Countable.swift */,
+				B0836F4321FD71EE004D68F2 /* Initializable.swift */,
+				B062C5BA2212C560001807A6 /* ServiceTask.swift */,
+				B062C5BC2212C5B8001807A6 /* URLSessionDataTask+ServiceTask.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		B03BE8761F68D53D002E076A /* Int+Extensions */ = {
@@ -252,24 +279,8 @@
 		B05D4FB61F1E10C200929006 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B0217ACD22203261005F19EB /* Core */,
 				B0D0DB1D21462B6B00AD1EE7 /* iOS */,
-				B0CF898D2219A8FC0020ECD1 /* Context */,
-				B0217AC62220222D005F19EB /* Dispatcher */,
-				B0DD761D221A5DE000008BAA /* Pool */,
-				B00C35632017223700531F72 /* Event */,
-				B05017392078C999009838F9 /* Geometry */,
-				B0DB58C61F989B7A00DAD605 /* HTTP */,
-				B03BE8761F68D53D002E076A /* Int+Extensions */,
-				B0BC23832078F8C000D11A3B /* Observable */,
-				B0577E781F98F0A000B1578E /* Result */,
-				B0BC23862078F90700D11A3B /* WeakObject.swift */,
-				B05017382078C999009838F9 /* Array+InsertBetween.swift */,
-				B0A26EC82155E6A900747535 /* Unique.swift */,
-				B07A2C3D215A1CF8002EFE87 /* Emptible.swift */,
-				B0C8C35221C1114F00DED5BF /* Countable.swift */,
-				B0836F4321FD71EE004D68F2 /* Initializable.swift */,
-				B062C5BA2212C560001807A6 /* ServiceTask.swift */,
-				B062C5BC2212C5B8001807A6 /* URLSessionDataTask+ServiceTask.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -565,6 +576,7 @@
 				B0AFDC8A201703DC00D8DEF6 /* URLSession+HTTPClient.swift in Sources */,
 				B0836F0B21FC5087004D68F2 /* HTTPHeader.swift in Sources */,
 				B062C5BF2212C5EF001807A6 /* HTTPBodyEncoder.swift in Sources */,
+				B0217ACF222032F8005F19EB /* DispatcherBatchScheduler.swift in Sources */,
 				B0836F2A21FCAF01004D68F2 /* HTTPMethod.swift in Sources */,
 				B05017422078C99A009838F9 /* Radian.swift in Sources */,
 				B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */,

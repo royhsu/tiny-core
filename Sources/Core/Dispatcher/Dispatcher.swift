@@ -85,13 +85,3 @@ extension Dispatcher {
     }
 
 }
-
-// MARK: - DispatcherBatchScheduler
-
-public protocol DispatcherBatchScheduler {
-
-    func scheduleTask(
-        _ task: @escaping (DispatcherBatchScheduler) -> Void
-    )
-
-}
