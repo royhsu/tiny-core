@@ -129,7 +129,6 @@
 		B0AFDC89201703DC00D8DEF6 /* URLSession+HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+HTTPClient.swift"; sourceTree = "<group>"; };
 		B0BC23842078F8C000D11A3B /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		B0BC23862078F90700D11A3B /* WeakObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakObject.swift; sourceTree = "<group>"; };
-		B0BDA06E2146CB8D0077BEFC /* TinyCore.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TinyCore.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B0C8C33E21C0BB0200DED5BF /* Observable+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Equatable.swift"; sourceTree = "<group>"; };
 		B0C8C34021C0E1D100DED5BF /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
 		B0C8C34221C0E1F000DED5BF /* OptionalValueBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalValueBinding.swift; sourceTree = "<group>"; };
@@ -250,7 +249,6 @@
 				B0836F4321FD71EE004D68F2 /* Initializable.swift */,
 				B062C5BA2212C560001807A6 /* ServiceTask.swift */,
 				B062C5BC2212C5B8001807A6 /* URLSessionDataTask+ServiceTask.swift */,
-				B0BDA06E2146CB8D0077BEFC /* TinyCore.playground */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
