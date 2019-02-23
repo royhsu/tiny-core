@@ -11,7 +11,7 @@
 public protocol Observable {
 
     associatedtype ObservedChange: ObservedChangeProtocol
-    
+
     var value: ObservedChange.Value? { get }
 
     func observe(

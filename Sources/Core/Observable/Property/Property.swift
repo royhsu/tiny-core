@@ -13,7 +13,7 @@ public final class Property<Value> {
     let boardcaster = Broadcaster()
 
     private var isInitialValue = true
-    
+
     private let _storage: Atomic<Value?>
 
     public init(value: Value? = nil) {
@@ -28,7 +28,7 @@ public final class Property<Value> {
         else { self._storage = Atomic(value: nil) }
 
     }
-    
+
 }
 
 extension Property {
@@ -66,7 +66,7 @@ extension Property {
 // MARK: - Observable
 
 extension Property: Observable {
-    
+
     public var value: Value? { return _storage.value }
 
     public func observe(
@@ -87,35 +87,35 @@ extension Property: Observable {
 // MARK: - Equatable
 
 extension Property: Equatable where Value: Equatable {
-    
+
     public static func == (
         lhs: Property,
         rhs: Property
     )
     -> Bool { return lhs.value == rhs.value }
-    
+
 }
 
 // MARK: - Codable
 
 extension Property: Codable where Value: Codable {
-    
+
     public convenience init(from decoder: Decoder) throws {
-        
+
         let container = try decoder.singleValueContainer()
-        
+
         let value = try container.decode(Value.self)
-        
+
         self.init(value: value)
-        
+
     }
-    
+
     public func encode(to encoder: Encoder) throws {
-        
+
         var container = encoder.singleValueContainer()
-        
+
         try container.encode(value)
-        
+
     }
-    
+
 }

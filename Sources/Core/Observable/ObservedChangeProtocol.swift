@@ -9,7 +9,7 @@
 // MARK: - ObservedChangeProtocol
 
 public protocol ObservedChangeProtocol {
-    
+
     associatedtype Value
-    
+
 }

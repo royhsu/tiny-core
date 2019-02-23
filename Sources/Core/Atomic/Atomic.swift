@@ -17,18 +17,18 @@ public final class Atomic<Value> {
     private var _value: Value
 
     public init(value: Value) {
-        
+
         self._value = value
-        
+
         let id = UUID()
-        
+
         let dynamicType = String(describing: type(of: self) )
-        
+
         self.queue = DispatchQueue(
             label: "\(dynamicType).ConcurrentQueue.\(id)",
             attributes: .concurrent
         )
-        
+
     }
 
     /// The atomic will ensure to finish the previous writing operation before reading the underlying value.
@@ -56,23 +56,23 @@ extension Atomic: Equatable where Value: Equatable {
 // MARK: - Codable
 
 extension Atomic: Codable where Value: Codable {
-    
+
     public convenience init(from decoder: Decoder) throws {
-        
+
         let container = try decoder.singleValueContainer()
-        
+
         let value = try container.decode(Value.self)
-        
+
         self.init(value: value)
-        
+
     }
-    
+
     public func encode(to encoder: Encoder) throws {
-        
+
         var container = encoder.singleValueContainer()
-        
+
         try container.encode(value)
-        
+
     }
-    
+
 }

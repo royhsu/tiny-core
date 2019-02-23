@@ -13,17 +13,17 @@ import XCTest
 @testable import TinyCore
 
 final class PropertyTests: XCTestCase {
-    
+
     private let expectionTimeout = 5.0
-    
+
     private var observations: [Observation] = []
-    
+
     func testDefault() {
-        
+
         let property = Property<String>()
-        
+
         XCTAssertNil(property.value)
-        
+
     }
 
     func testObserveInitialValue() {
@@ -40,7 +40,7 @@ final class PropertyTests: XCTestCase {
                 case let .initial(newValue):
 
                     defer { valueInitialized.fulfill() }
-                    
+
                     XCTAssertEqual(
                         newValue,
                         "initial value"
@@ -152,14 +152,14 @@ final class PropertyTests: XCTestCase {
                 to: (view, \.text)
             ),
             property.observe(on: .main) { _ in
-                
+
                 defer { valueChanged.fulfill() }
-                
+
                 XCTAssertEqual(
                     view.text,
                     "new value"
                 )
-                
+
             }
         ]
 
@@ -167,21 +167,21 @@ final class PropertyTests: XCTestCase {
             view.text,
             "bound"
         )
-        
+
         property.mutateValue { $0 = "new value" }
 
         waitForExpectations(timeout: expectionTimeout)
-        
+
     }
 
     func testBindToDestinationWithOptionalValueKeyPath() {
 
         let valueChanged = expectation(description: "Observe value changes for the bond view.")
-        
+
         let view = TextView<String?>(text: "old value")
-        
+
         let property = Property<String>()
-        
+
         observations = [
             property.bind(
                 on: .main,
@@ -189,50 +189,50 @@ final class PropertyTests: XCTestCase {
                 to: (view, \.text)
             ),
             property.observe(on: .main) { _ in
-                
+
                 defer { valueChanged.fulfill() }
-                
+
                 XCTAssertEqual(
                     view.text,
                     "NEW VALUE"
                 )
-                
+
             }
         ]
-        
+
         XCTAssertNil(view.text)
-        
+
         property.mutateValue { $0 = "new value" }
-        
+
         waitForExpectations(timeout: expectionTimeout)
-        
+
     }
-    
+
     func testEquatable() {
-        
+
         XCTAssertEqual(
             Property(value: 1),
             Property(value: 1)
         )
-        
+
         XCTAssertNotEqual(
             Property(value: 0),
             Property(value: 1)
         )
-        
+
     }
-    
+
     func testDecodable() throws {
-        
+
         let decoder = JSONDecoder()
-        
+
         let data = try JSONSerialization.data(withJSONObject: [ 1, 2 ])
-        
+
         let decodedProperties = try decoder.decode(
             [Property<Int>].self,
             from: data
         )
-        
+
         XCTAssertEqual(
             decodedProperties,
             [
@@ -240,13 +240,13 @@ final class PropertyTests: XCTestCase {
                 Property(value: 2)
             ]
         )
-        
+
     }
-    
+
     func testEncodable() throws {
-        
+
         let encoder = JSONEncoder()
-        
+
         XCTAssertEqual(
             try encoder.encode(
                 [
@@ -256,9 +256,9 @@ final class PropertyTests: XCTestCase {
             ),
             try JSONSerialization.data(withJSONObject: [ 1, 2 ])
         )
-        
+
     }
-    
+
 }
 
 // MARK: - TextView
