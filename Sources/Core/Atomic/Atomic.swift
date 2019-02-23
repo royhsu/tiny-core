@@ -11,7 +11,7 @@
 public final class Atomic<Value> {
 
     /// Note: lazy var is not thread safe.
-    /// See [https://bugs.swift.org/browse/SR-1042](Make "lazy var" threadsafe) for more detail.
+    /// See discussion [Make "lazy var" threadsafe](https://bugs.swift.org/browse/SR-1042) for more detail.
     private let queue: DispatchQueue
 
     private var _value: Value
