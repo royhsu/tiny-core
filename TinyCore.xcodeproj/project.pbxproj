@@ -13,6 +13,7 @@
 		B0217ACF222032F8005F19EB /* DispatcherBatchScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217ACE222032F8005F19EB /* DispatcherBatchScheduler.swift */; };
 		B0217AD1222036FC005F19EB /* ObservedChangeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AD0222036FC005F19EB /* ObservedChangeProtocol.swift */; };
 		B0217AD422203C21005F19EB /* AnyObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AD322203C21005F19EB /* AnyObservable.swift */; };
+		B0217ADC2220D6B4005F19EB /* AtomicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AD92220D667005F19EB /* AtomicTests.swift */; };
 		B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03BE8771F68D54D002E076A /* Int+RandomNumber.swift */; };
 		B050173E2078C999009838F9 /* Array+InsertBetween.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05017382078C999009838F9 /* Array+InsertBetween.swift */; };
 		B050173F2078C999009838F9 /* Degrees+Radian.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050173A2078C999009838F9 /* Degrees+Radian.swift */; };
@@ -48,7 +49,6 @@
 		B0836F4421FD71EE004D68F2 /* Initializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0836F4321FD71EE004D68F2 /* Initializable.swift */; };
 		B089F9A321F1D5200052AD8D /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = B089F9A221F1D5200052AD8D /* Property.swift */; };
 		B089F9A621F1D5E60052AD8D /* PropertyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B089F9A421F1D5E30052AD8D /* PropertyTests.swift */; };
-		B089F9A921F210F90052AD8D /* AtomicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B089F9A721F210E70052AD8D /* AtomicTests.swift */; };
 		B089F9AB21F212850052AD8D /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B089F9AA21F212850052AD8D /* Atomic.swift */; };
 		B0A26EC92155E6A900747535 /* Unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A26EC82155E6A900747535 /* Unique.swift */; };
 		B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */; };
@@ -90,6 +90,7 @@
 		B0217ACE222032F8005F19EB /* DispatcherBatchScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatcherBatchScheduler.swift; sourceTree = "<group>"; };
 		B0217AD0222036FC005F19EB /* ObservedChangeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservedChangeProtocol.swift; sourceTree = "<group>"; };
 		B0217AD322203C21005F19EB /* AnyObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyObservable.swift; sourceTree = "<group>"; };
+		B0217AD92220D667005F19EB /* AtomicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomicTests.swift; path = ../../../../../../.Trash/AtomicTests.swift; sourceTree = "<group>"; };
 		B03BE8771F68D54D002E076A /* Int+RandomNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+RandomNumber.swift"; sourceTree = "<group>"; };
 		B05017382078C999009838F9 /* Array+InsertBetween.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+InsertBetween.swift"; sourceTree = "<group>"; };
 		B050173A2078C999009838F9 /* Degrees+Radian.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Degrees+Radian.swift"; sourceTree = "<group>"; };
@@ -128,7 +129,6 @@
 		B0836F4321FD71EE004D68F2 /* Initializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Initializable.swift; sourceTree = "<group>"; };
 		B089F9A221F1D5200052AD8D /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		B089F9A421F1D5E30052AD8D /* PropertyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTests.swift; sourceTree = "<group>"; };
-		B089F9A721F210E70052AD8D /* AtomicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicTests.swift; sourceTree = "<group>"; };
 		B089F9AA21F212850052AD8D /* Atomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
 		B0A26EC82155E6A900747535 /* Unique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unique.swift; sourceTree = "<group>"; };
 		B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManagerTests.swift; sourceTree = "<group>"; };
@@ -230,6 +230,14 @@
 			path = Atomic;
 			sourceTree = "<group>";
 		};
+		B0217AD52220D5B0005F19EB /* Atomic */ = {
+			isa = PBXGroup;
+			children = (
+				B0217AD92220D667005F19EB /* AtomicTests.swift */,
+			);
+			path = Atomic;
+			sourceTree = "<group>";
+		};
 		B03BE8761F68D53D002E076A /* Int+Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +305,7 @@
 		B05D4FBE1F1E10D100929006 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				B0217AD52220D5B0005F19EB /* Atomic */,
 				B0CF898A2219A6700020ECD1 /* Context */,
 				B0217AC72220223A005F19EB /* Dispatcher */,
 				B0DD761C221A5DD600008BAA /* Pool */,
@@ -314,7 +323,6 @@
 			children = (
 				B0652DB22147F878009F8757 /* ObservableTests.swift */,
 				B089F9A421F1D5E30052AD8D /* PropertyTests.swift */,
-				B089F9A721F210E70052AD8D /* AtomicTests.swift */,
 			);
 			path = Observable;
 			sourceTree = "<group>";
@@ -612,11 +620,11 @@
 				B0D0DB152146169400AD1EE7 /* ResultTests.swift in Sources */,
 				B0217ACA22202258005F19EB /* DispatcherTests.swift in Sources */,
 				B0D0DB1C2146188500AD1EE7 /* HTTPError.swift in Sources */,
-				B089F9A921F210F90052AD8D /* AtomicTests.swift in Sources */,
 				B0CF898C2219A6970020ECD1 /* ContextTests.swift in Sources */,
 				B0F51C9E21586AD700B592F5 /* XCTSuccess.swift in Sources */,
 				B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */,
 				B0652DB32147F878009F8757 /* ObservableTests.swift in Sources */,
+				B0217ADC2220D6B4005F19EB /* AtomicTests.swift in Sources */,
 				B0E236622156762900FBE7B3 /* XCTUnwrapped.swift in Sources */,
 				B089F9A621F1D5E60052AD8D /* PropertyTests.swift in Sources */,
 				B0A9DE882017255500AEF782 /* TrafficLight.swift in Sources */,

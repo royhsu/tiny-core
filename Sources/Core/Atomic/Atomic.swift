@@ -10,22 +10,26 @@
 
 public final class Atomic<Value> {
 
-    private lazy var queue: DispatchQueue = {
-
-        let id = UUID()
-
-        let dynamicType = String(describing: type(of: self) )
-
-        return DispatchQueue(
-            label: "\(dynamicType).ConcurrentQueue.\(id)",
-            attributes: .concurrent
-        )
-
-    }()
+    /// Note: lazy var is not thread safe.
+    /// See [https://bugs.swift.org/browse/SR-1042](Make "lazy var" threadsafe) for more detail.
+    private let queue: DispatchQueue
 
     private var _value: Value
 
-    public init(value: Value) { self._value = value }
+    public init(value: Value) {
+        
+        self._value = value
+        
+        let id = UUID()
+        
+        let dynamicType = String(describing: type(of: self) )
+        
+        self.queue = DispatchQueue(
+            label: "\(dynamicType).ConcurrentQueue.\(id)",
+            attributes: .concurrent
+        )
+        
+    }
 
     /// The atomic will ensure to finish the previous writing operation before reading the underlying value.
     public var value: Value { return queue.sync { self._value } }
