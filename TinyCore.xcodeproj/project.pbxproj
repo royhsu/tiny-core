@@ -16,7 +16,7 @@
 		B0217ADF2220ECF9005F19EB /* Property+Broadcaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217ADE2220ECF9005F19EB /* Property+Broadcaster.swift */; };
 		B0217AE12220ED5F005F19EB /* Property+Observation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AE02220ED5F005F19EB /* Property+Observation.swift */; };
 		B0217AE32220EDBA005F19EB /* Property+Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AE22220EDBA005F19EB /* Property+Binding.swift */; };
-		B0217AE42220F2E4005F19EB /* AtomicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AD92220D667005F19EB /* AtomicTests.swift */; };
+		B0217AE72220F355005F19EB /* AtomicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AE52220F34E005F19EB /* AtomicTests.swift */; };
 		B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03BE8771F68D54D002E076A /* Int+RandomNumber.swift */; };
 		B050173E2078C999009838F9 /* Array+InsertBetween.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05017382078C999009838F9 /* Array+InsertBetween.swift */; };
 		B050173F2078C999009838F9 /* Degrees+Radian.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050173A2078C999009838F9 /* Degrees+Radian.swift */; };
@@ -88,10 +88,10 @@
 		B0217ACE222032F8005F19EB /* DispatcherBatchScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatcherBatchScheduler.swift; sourceTree = "<group>"; };
 		B0217AD0222036FC005F19EB /* ObservedChangeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservedChangeProtocol.swift; sourceTree = "<group>"; };
 		B0217AD322203C21005F19EB /* AnyObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyObservable.swift; sourceTree = "<group>"; };
-		B0217AD92220D667005F19EB /* AtomicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomicTests.swift; path = ../../../../../../.Trash/AtomicTests.swift; sourceTree = "<group>"; };
 		B0217ADE2220ECF9005F19EB /* Property+Broadcaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Property+Broadcaster.swift"; sourceTree = "<group>"; };
 		B0217AE02220ED5F005F19EB /* Property+Observation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Property+Observation.swift"; sourceTree = "<group>"; };
 		B0217AE22220EDBA005F19EB /* Property+Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Property+Binding.swift"; sourceTree = "<group>"; };
+		B0217AE52220F34E005F19EB /* AtomicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomicTests.swift; sourceTree = "<group>"; };
 		B03BE8771F68D54D002E076A /* Int+RandomNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+RandomNumber.swift"; sourceTree = "<group>"; };
 		B05017382078C999009838F9 /* Array+InsertBetween.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+InsertBetween.swift"; sourceTree = "<group>"; };
 		B050173A2078C999009838F9 /* Degrees+Radian.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Degrees+Radian.swift"; sourceTree = "<group>"; };
@@ -229,7 +229,7 @@
 		B0217AD52220D5B0005F19EB /* Atomic */ = {
 			isa = PBXGroup;
 			children = (
-				B0217AD92220D667005F19EB /* AtomicTests.swift */,
+				B0217AE52220F34E005F19EB /* AtomicTests.swift */,
 			);
 			path = Atomic;
 			sourceTree = "<group>";
@@ -623,7 +623,7 @@
 				B0D0DB1C2146188500AD1EE7 /* HTTPError.swift in Sources */,
 				B0CF898C2219A6970020ECD1 /* ContextTests.swift in Sources */,
 				B0F51C9E21586AD700B592F5 /* XCTSuccess.swift in Sources */,
-				B0217AE42220F2E4005F19EB /* AtomicTests.swift in Sources */,
+				B0217AE72220F355005F19EB /* AtomicTests.swift in Sources */,
 				B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */,
 				B0E236622156762900FBE7B3 /* XCTUnwrapped.swift in Sources */,
 				B089F9A621F1D5E60052AD8D /* PropertyTests.swift in Sources */,
