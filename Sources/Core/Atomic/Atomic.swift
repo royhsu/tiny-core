@@ -52,3 +52,27 @@ extension Atomic: Equatable where Value: Equatable {
     -> Bool { return lhs.value == rhs.value }
 
 }
+
+// MARK: - Codable
+
+extension Atomic: Codable where Value: Codable {
+    
+    public convenience init(from decoder: Decoder) throws {
+        
+        let container = try decoder.singleValueContainer()
+        
+        let value = try container.decode(Value.self)
+        
+        self.init(value: value)
+        
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        
+        var container = encoder.singleValueContainer()
+        
+        try container.encode(value)
+        
+    }
+    
+}

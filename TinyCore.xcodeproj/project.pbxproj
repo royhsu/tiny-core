@@ -14,6 +14,9 @@
 		B0217AD1222036FC005F19EB /* ObservedChangeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AD0222036FC005F19EB /* ObservedChangeProtocol.swift */; };
 		B0217AD422203C21005F19EB /* AnyObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AD322203C21005F19EB /* AnyObservable.swift */; };
 		B0217ADC2220D6B4005F19EB /* AtomicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AD92220D667005F19EB /* AtomicTests.swift */; };
+		B0217ADF2220ECF9005F19EB /* Property+Broadcaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217ADE2220ECF9005F19EB /* Property+Broadcaster.swift */; };
+		B0217AE12220ED5F005F19EB /* Property+Observation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AE02220ED5F005F19EB /* Property+Observation.swift */; };
+		B0217AE32220EDBA005F19EB /* Property+Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AE22220EDBA005F19EB /* Property+Binding.swift */; };
 		B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03BE8771F68D54D002E076A /* Int+RandomNumber.swift */; };
 		B050173E2078C999009838F9 /* Array+InsertBetween.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05017382078C999009838F9 /* Array+InsertBetween.swift */; };
 		B050173F2078C999009838F9 /* Degrees+Radian.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050173A2078C999009838F9 /* Degrees+Radian.swift */; };
@@ -32,7 +35,6 @@
 		B062C5C32212C662001807A6 /* JSONEncoder+HTTPBodyEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B062C5C22212C662001807A6 /* JSONEncoder+HTTPBodyEncoder.swift */; };
 		B0652DAA214797E6009F8757 /* Property+ObservedChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0652DA9214797E6009F8757 /* Property+ObservedChange.swift */; };
 		B0652DAC21479818009F8757 /* Observation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0652DAB21479818009F8757 /* Observation.swift */; };
-		B0652DB32147F878009F8757 /* ObservableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0652DB22147F878009F8757 /* ObservableTests.swift */; };
 		B07A2C3E215A1CF8002EFE87 /* Emptible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2C3D215A1CF8002EFE87 /* Emptible.swift */; };
 		B07AB28D2200454B00E80ADC /* MIMEType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AB28C2200454B00E80ADC /* MIMEType.swift */; };
 		B07AB28F2200457600E80ADC /* MIMEType+HTTPHeaderRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AB28E2200457600E80ADC /* MIMEType+HTTPHeaderRepresentable.swift */; };
@@ -56,10 +58,6 @@
 		B0AFDC8A201703DC00D8DEF6 /* URLSession+HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC89201703DC00D8DEF6 /* URLSession+HTTPClient.swift */; };
 		B0BC23852078F8C000D11A3B /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC23842078F8C000D11A3B /* Observable.swift */; };
 		B0BC23872078F90700D11A3B /* WeakObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC23862078F90700D11A3B /* WeakObject.swift */; };
-		B0C8C34121C0E1D100DED5BF /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8C34021C0E1D100DED5BF /* Binding.swift */; };
-		B0C8C34321C0E1F000DED5BF /* OptionalValueBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8C34221C0E1F000DED5BF /* OptionalValueBinding.swift */; };
-		B0C8C34521C0E27900DED5BF /* ValueBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8C34421C0E27900DED5BF /* ValueBinding.swift */; };
-		B0C8C34721C0E31100DED5BF /* AnyBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8C34621C0E31100DED5BF /* AnyBinding.swift */; };
 		B0C8C35321C1114F00DED5BF /* Countable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8C35221C1114F00DED5BF /* Countable.swift */; };
 		B0CF898C2219A6970020ECD1 /* ContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF898B2219A6970020ECD1 /* ContextTests.swift */; };
 		B0CF898F2219A9120020ECD1 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF898E2219A9120020ECD1 /* Context.swift */; };
@@ -91,6 +89,9 @@
 		B0217AD0222036FC005F19EB /* ObservedChangeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservedChangeProtocol.swift; sourceTree = "<group>"; };
 		B0217AD322203C21005F19EB /* AnyObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyObservable.swift; sourceTree = "<group>"; };
 		B0217AD92220D667005F19EB /* AtomicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomicTests.swift; path = ../../../../../../.Trash/AtomicTests.swift; sourceTree = "<group>"; };
+		B0217ADE2220ECF9005F19EB /* Property+Broadcaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Property+Broadcaster.swift"; sourceTree = "<group>"; };
+		B0217AE02220ED5F005F19EB /* Property+Observation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Property+Observation.swift"; sourceTree = "<group>"; };
+		B0217AE22220EDBA005F19EB /* Property+Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Property+Binding.swift"; sourceTree = "<group>"; };
 		B03BE8771F68D54D002E076A /* Int+RandomNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+RandomNumber.swift"; sourceTree = "<group>"; };
 		B05017382078C999009838F9 /* Array+InsertBetween.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+InsertBetween.swift"; sourceTree = "<group>"; };
 		B050173A2078C999009838F9 /* Degrees+Radian.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Degrees+Radian.swift"; sourceTree = "<group>"; };
@@ -112,7 +113,6 @@
 		B062C5C22212C662001807A6 /* JSONEncoder+HTTPBodyEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONEncoder+HTTPBodyEncoder.swift"; sourceTree = "<group>"; };
 		B0652DA9214797E6009F8757 /* Property+ObservedChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Property+ObservedChange.swift"; sourceTree = "<group>"; };
 		B0652DAB21479818009F8757 /* Observation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observation.swift; sourceTree = "<group>"; };
-		B0652DB22147F878009F8757 /* ObservableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTests.swift; sourceTree = "<group>"; };
 		B07A2C3D215A1CF8002EFE87 /* Emptible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emptible.swift; sourceTree = "<group>"; };
 		B07AB28C2200454B00E80ADC /* MIMEType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIMEType.swift; sourceTree = "<group>"; };
 		B07AB28E2200457600E80ADC /* MIMEType+HTTPHeaderRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MIMEType+HTTPHeaderRepresentable.swift"; sourceTree = "<group>"; };
@@ -136,10 +136,6 @@
 		B0AFDC89201703DC00D8DEF6 /* URLSession+HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+HTTPClient.swift"; sourceTree = "<group>"; };
 		B0BC23842078F8C000D11A3B /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		B0BC23862078F90700D11A3B /* WeakObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakObject.swift; sourceTree = "<group>"; };
-		B0C8C34021C0E1D100DED5BF /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
-		B0C8C34221C0E1F000DED5BF /* OptionalValueBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalValueBinding.swift; sourceTree = "<group>"; };
-		B0C8C34421C0E27900DED5BF /* ValueBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueBinding.swift; sourceTree = "<group>"; };
-		B0C8C34621C0E31100DED5BF /* AnyBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyBinding.swift; sourceTree = "<group>"; };
 		B0C8C35221C1114F00DED5BF /* Countable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countable.swift; sourceTree = "<group>"; };
 		B0CF898B2219A6970020ECD1 /* ContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextTests.swift; sourceTree = "<group>"; };
 		B0CF898E2219A9120020ECD1 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
@@ -238,6 +234,18 @@
 			path = Atomic;
 			sourceTree = "<group>";
 		};
+		B0217ADD2220EC97005F19EB /* Property */ = {
+			isa = PBXGroup;
+			children = (
+				B089F9A221F1D5200052AD8D /* Property.swift */,
+				B0652DA9214797E6009F8757 /* Property+ObservedChange.swift */,
+				B0217AE02220ED5F005F19EB /* Property+Observation.swift */,
+				B0217ADE2220ECF9005F19EB /* Property+Broadcaster.swift */,
+				B0217AE22220EDBA005F19EB /* Property+Binding.swift */,
+			);
+			path = Property;
+			sourceTree = "<group>";
+		};
 		B03BE8761F68D53D002E076A /* Int+Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,7 +329,6 @@
 		B0652DB12147F867009F8757 /* Observable */ = {
 			isa = PBXGroup;
 			children = (
-				B0652DB22147F878009F8757 /* ObservableTests.swift */,
 				B089F9A421F1D5E30052AD8D /* PropertyTests.swift */,
 			);
 			path = Observable;
@@ -346,16 +353,11 @@
 		B0BC23832078F8C000D11A3B /* Observable */ = {
 			isa = PBXGroup;
 			children = (
-				B0652DAB21479818009F8757 /* Observation.swift */,
-				B0217AD322203C21005F19EB /* AnyObservable.swift */,
+				B0217ADD2220EC97005F19EB /* Property */,
 				B0BC23842078F8C000D11A3B /* Observable.swift */,
+				B0217AD322203C21005F19EB /* AnyObservable.swift */,
 				B0217AD0222036FC005F19EB /* ObservedChangeProtocol.swift */,
-				B0C8C34021C0E1D100DED5BF /* Binding.swift */,
-				B0C8C34621C0E31100DED5BF /* AnyBinding.swift */,
-				B0C8C34421C0E27900DED5BF /* ValueBinding.swift */,
-				B0C8C34221C0E1F000DED5BF /* OptionalValueBinding.swift */,
-				B089F9A221F1D5200052AD8D /* Property.swift */,
-				B0652DA9214797E6009F8757 /* Property+ObservedChange.swift */,
+				B0652DAB21479818009F8757 /* Observation.swift */,
 			);
 			path = Observable;
 			sourceTree = "<group>";
@@ -564,13 +566,11 @@
 				B0A26EC92155E6A900747535 /* Unique.swift in Sources */,
 				B05017412078C99A009838F9 /* Radian+Degrees.swift in Sources */,
 				B0217ACC22202599005F19EB /* Dispatcher.swift in Sources */,
-				B0C8C34121C0E1D100DED5BF /* Binding.swift in Sources */,
 				B0836F2E21FCBAE1004D68F2 /* HTTPRequest+URLRequestRepresentable.swift in Sources */,
 				B050173F2078C999009838F9 /* Degrees+Radian.swift in Sources */,
 				B0836F1721FC5603004D68F2 /* URLRequest+URLRequestRepresentable.swift in Sources */,
 				B0577E7A1F98F0B300B1578E /* Result.swift in Sources */,
 				B07AB28F2200457600E80ADC /* MIMEType+HTTPHeaderRepresentable.swift in Sources */,
-				B0C8C34721C0E31100DED5BF /* AnyBinding.swift in Sources */,
 				B0BC23872078F90700D11A3B /* WeakObject.swift in Sources */,
 				B0836F0F21FC50C6004D68F2 /* URLRequest+HTTPHeader.swift in Sources */,
 				B0CF89912219A9370020ECD1 /* ContextError.swift in Sources */,
@@ -597,14 +597,15 @@
 				B0836F2A21FCAF01004D68F2 /* HTTPMethod.swift in Sources */,
 				B05017422078C99A009838F9 /* Radian.swift in Sources */,
 				B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */,
+				B0217AE32220EDBA005F19EB /* Property+Binding.swift in Sources */,
 				B062C5C12212C60C001807A6 /* EmptyHTTPBody.swift in Sources */,
 				B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */,
 				B0577E721F98EB2F00B1578E /* HTTPBodyDecoder.swift in Sources */,
+				B0217ADF2220ECF9005F19EB /* Property+Broadcaster.swift in Sources */,
+				B0217AE12220ED5F005F19EB /* Property+Observation.swift in Sources */,
 				B0577E751F98EC1400B1578E /* JSONDecoder+HTTPBodyDecoder.swift in Sources */,
-				B0C8C34321C0E1F000DED5BF /* OptionalValueBinding.swift in Sources */,
 				B0836F4421FD71EE004D68F2 /* Initializable.swift in Sources */,
 				B07AB28D2200454B00E80ADC /* MIMEType.swift in Sources */,
-				B0C8C34521C0E27900DED5BF /* ValueBinding.swift in Sources */,
 				B0C8C35321C1114F00DED5BF /* Countable.swift in Sources */,
 				B0836F2C21FCB13E004D68F2 /* HTTPRequest.swift in Sources */,
 				B00C35692017224600531F72 /* EventEmitter.swift in Sources */,
@@ -623,7 +624,6 @@
 				B0CF898C2219A6970020ECD1 /* ContextTests.swift in Sources */,
 				B0F51C9E21586AD700B592F5 /* XCTSuccess.swift in Sources */,
 				B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */,
-				B0652DB32147F878009F8757 /* ObservableTests.swift in Sources */,
 				B0217ADC2220D6B4005F19EB /* AtomicTests.swift in Sources */,
 				B0E236622156762900FBE7B3 /* XCTUnwrapped.swift in Sources */,
 				B089F9A621F1D5E60052AD8D /* PropertyTests.swift in Sources */,
