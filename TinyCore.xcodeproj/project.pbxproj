@@ -17,6 +17,8 @@
 		B0217AE12220ED5F005F19EB /* Property+Observation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AE02220ED5F005F19EB /* Property+Observation.swift */; };
 		B0217AE32220EDBA005F19EB /* Property+Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AE22220EDBA005F19EB /* Property+Binding.swift */; };
 		B0217AE72220F355005F19EB /* AtomicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AE52220F34E005F19EB /* AtomicTests.swift */; };
+		B0217AE92220F3B1005F19EB /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AE82220F3B1005F19EB /* Reusable.swift */; };
+		B0217AEE2220F459005F19EB /* ReusableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AEB2220F3E5005F19EB /* ReusableTests.swift */; };
 		B03F39EA1F988DB300F7DA44 /* Int+RandomNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03BE8771F68D54D002E076A /* Int+RandomNumber.swift */; };
 		B050173E2078C999009838F9 /* Array+InsertBetween.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05017382078C999009838F9 /* Array+InsertBetween.swift */; };
 		B050173F2078C999009838F9 /* Degrees+Radian.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050173A2078C999009838F9 /* Degrees+Radian.swift */; };
@@ -92,6 +94,8 @@
 		B0217AE02220ED5F005F19EB /* Property+Observation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Property+Observation.swift"; sourceTree = "<group>"; };
 		B0217AE22220EDBA005F19EB /* Property+Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Property+Binding.swift"; sourceTree = "<group>"; };
 		B0217AE52220F34E005F19EB /* AtomicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomicTests.swift; sourceTree = "<group>"; };
+		B0217AE82220F3B1005F19EB /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		B0217AEB2220F3E5005F19EB /* ReusableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTests.swift; sourceTree = "<group>"; };
 		B03BE8771F68D54D002E076A /* Int+RandomNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+RandomNumber.swift"; sourceTree = "<group>"; };
 		B05017382078C999009838F9 /* Array+InsertBetween.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+InsertBetween.swift"; sourceTree = "<group>"; };
 		B050173A2078C999009838F9 /* Degrees+Radian.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Degrees+Radian.swift"; sourceTree = "<group>"; };
@@ -212,6 +216,7 @@
 				B07A2C3D215A1CF8002EFE87 /* Emptible.swift */,
 				B0C8C35221C1114F00DED5BF /* Countable.swift */,
 				B0836F4321FD71EE004D68F2 /* Initializable.swift */,
+				B0217AE82220F3B1005F19EB /* Reusable.swift */,
 				B062C5BA2212C560001807A6 /* ServiceTask.swift */,
 				B062C5BC2212C5B8001807A6 /* URLSessionDataTask+ServiceTask.swift */,
 			);
@@ -244,6 +249,14 @@
 				B0217AE22220EDBA005F19EB /* Property+Binding.swift */,
 			);
 			path = Property;
+			sourceTree = "<group>";
+		};
+		B0217AEA2220F3C3005F19EB /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				B0217AEB2220F3E5005F19EB /* ReusableTests.swift */,
+			);
+			path = Reusable;
 			sourceTree = "<group>";
 		};
 		B03BE8761F68D53D002E076A /* Int+Extensions */ = {
@@ -320,6 +333,7 @@
 				B0E2365E2156762900FBE7B3 /* Helpers */,
 				B0652DB12147F867009F8757 /* Observable */,
 				B0D0DB132146167F00AD1EE7 /* Result */,
+				B0217AEA2220F3C3005F19EB /* Reusable */,
 				B0A9DE84201724E600AEF782 /* Event */,
 				B05D4FC21F1E10D100929006 /* Info.plist */,
 			);
@@ -565,6 +579,7 @@
 				B0BC23852078F8C000D11A3B /* Observable.swift in Sources */,
 				B0A26EC92155E6A900747535 /* Unique.swift in Sources */,
 				B05017412078C99A009838F9 /* Radian+Degrees.swift in Sources */,
+				B0217AE92220F3B1005F19EB /* Reusable.swift in Sources */,
 				B0217ACC22202599005F19EB /* Dispatcher.swift in Sources */,
 				B0836F2E21FCBAE1004D68F2 /* HTTPRequest+URLRequestRepresentable.swift in Sources */,
 				B050173F2078C999009838F9 /* Degrees+Radian.swift in Sources */,
@@ -617,6 +632,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0217AEE2220F459005F19EB /* ReusableTests.swift in Sources */,
 				B0DD7622221A5EE400008BAA /* PoolTests.swift in Sources */,
 				B0D0DB152146169400AD1EE7 /* ResultTests.swift in Sources */,
 				B0217ACA22202258005F19EB /* DispatcherTests.swift in Sources */,
