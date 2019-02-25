@@ -12,219 +12,261 @@ import XCTest
 
 @testable import TinyCore
 
-internal final class PropertyTests: XCTestCase {
-    
-    internal final var observation: Observation?
-    
-    internal final func testObserveInitialValue() {
-        
-        let promise = expectation(description: "Get notified about value changes.")
-        
+final class PropertyTests: XCTestCase {
+
+    private let expectionTimeout = 5.0
+
+    private var observations: [Observation] = []
+
+    func testDefault() {
+
         let property = Property<String>()
-        
-        observation = property.observe { change in
 
-            promise.fulfill()
-            
-            switch change {
+        XCTAssertNil(property.value)
 
-            case let .initial(newValue):
+    }
 
-                XCTAssertEqual(
-                    newValue,
-                    "hello"
-                )
+    func testObserveInitialValue() {
 
-            case .changed: XCTFail("Must be the initial value change.")
+        let valueInitialized = expectation(description: "Observe the initial value.")
+
+        let property = Property<String>()
+
+        observations = [
+            property.observe { change in
+
+                switch change {
+
+                case let .initial(newValue):
+
+                    defer { valueInitialized.fulfill() }
+
+                    XCTAssertEqual(
+                        newValue,
+                        "initial value"
+                    )
+
+                case .changed: XCTFail("Must be the initial value.")
+
+                }
 
             }
+        ]
 
-        }
-        
-        property.mutateValue { $0 = "hello" }
-        
+        property.mutateValue { $0 = "initial value" }
+
         XCTAssertEqual(
             property.value,
-            "hello"
+            "initial value"
         )
-        
-        wait(
-            for: [ promise ],
-            timeout: 10.0
-        )
-        
+
+        waitForExpectations(timeout: expectionTimeout)
+
     }
-    
-    internal final func testObserveNewValue() {
-        
-        let promise = expectation(description: "Get notified about value changes.")
-        
+
+    func testObserveNewValue() {
+
+        let valueChanged = expectation(description: "Observe the changed value.")
+
         let property = Property(value: "old value")
-        
-        observation = property.observe { change in
-            
-            switch change {
-                
-            case .initial: break
-                
-            case let .changed(
-                oldValue,
-                newValue
-            ):
-                
-                promise.fulfill()
-                
-                XCTAssertEqual(
+
+        observations = [
+            property.observe { change in
+
+                switch change {
+
+                case .initial: XCTFail("Must be the changed value.")
+
+                case let .changed(
                     oldValue,
-                    "old value"
-                )
-                
-                XCTAssertEqual(
-                    newValue,
-                    "new value"
-                )
-                
+                    newValue
+                ):
+
+                    defer { valueChanged.fulfill() }
+
+                    XCTAssertEqual(
+                        oldValue,
+                        "old value"
+                    )
+
+                    XCTAssertEqual(
+                        newValue,
+                        "new value"
+                    )
+
+                }
+
             }
-            
-        }
-        
+        ]
+
         property.mutateValue { $0 = "new value" }
-        
-        wait(
-            for: [ promise ],
-            timeout: 10.0
-        )
-        
+
+        waitForExpectations(timeout: expectionTimeout)
+
     }
-    
-    internal final func testObserveOnSpecificQueue() {
-        
-        let promise = expectation(description: "Observe changes on the specific queue.")
-        
+
+    func testObserveOnSpecificQueue() {
+
+        let observedOnQueue = expectation(description: "Observe changes on the specific queue.")
+
         let dynamicType = String(
             describing: type(of: self)
         )
-        
+
         let queue = DispatchQueue(label: "\(dynamicType).SerialQueue.\(#function)")
-        
+
         let property = Property<Int>()
-        
-        observation = property.observe(on: queue) { _ in
-            
-            promise.fulfill()
-            
-            dispatchPrecondition(
-                condition: .onQueue(queue)
-            )
-            
-            XCTSuccess()
-            
-        }
-        
+
+        observations = [
+            property.observe(on: queue) { _ in
+
+                defer { observedOnQueue.fulfill() }
+
+                dispatchPrecondition(
+                    condition: .onQueue(queue)
+                )
+
+                XCTSuccess()
+
+            }
+        ]
+
         property.mutateValue { $0 = 1 }
-        
-        wait(
-            for: [ promise ],
-            timeout: 10.0
-        )
-        
+
+        waitForExpectations(timeout: expectionTimeout)
+
     }
-    
-    #warning("TODO: strange behavior.")
-//    internal final func testBindKeyPath() {
-//
-//        let promise = expectation(description: "Bind the property to a destination.")
-//
-//        let view = TextView(text: "")
-//
-//        let property = Property<String>()
-//
-//        observation = property.observe { _ in
-//
-//            promise.fulfill()
-//
-//            XCTAssertEqual(
-//                view.text,
-//                "1"
-//            )
-//
-//        }
-//
-//        property.bind(
-//            on: .main,
-//            transform: { $0 ?? "0" },
-//            to: (view, \.text)
-//        )
-//
-//        property.mutateValue { $0 = "1" }
-//
-//        XCTAssertEqual(
-//            view.text,
-//            "1"
-//        )
-//
-//        wait(
-//            for: [ promise ],
-//            timeout: 10.0
-//        )
-//
-//    }
-    
-//    internal final func testBindOptionalValueForKeyPath() {
-//
-//        let promise = expectation(description: "Bind the property to a destination.")
-//
-//        let view = OptionalTextView(text: "0")
-//
-//        let property = Property<String>()
-//
-//        property.bind(
-//            to: (view, \.text)
-//        )
-//
-//        XCTAssertEqual(
-//            view.text,
-//            nil
-//        )
-//
-//        observation = property.observe(on: .main) { _ in
-//
-//            promise.fulfill()
-//
-//            XCTAssertEqual(
-//                view.text,
-//                "1"
-//            )
-//
-//        }
-//
-//        property.mutateValue { $0 = "1" }
-//
-//        wait(
-//            for: [ promise ],
-//            timeout: 10.0
-//        )
-//
-//    }
-    
+
+    func testBindToDestination() {
+
+        let valueChanged = expectation(description: "Observe value changes for the bond view.")
+
+        let view = TextView<String>(text: "unbound")
+
+        let property = Property<String>()
+
+        observations = [
+            property.bind(
+                on: .main,
+                transform: { $0 ?? "bound" },
+                to: (view, \.text)
+            ),
+            property.observe(on: .main) { _ in
+
+                defer { valueChanged.fulfill() }
+
+                XCTAssertEqual(
+                    view.text,
+                    "new value"
+                )
+
+            }
+        ]
+
+        XCTAssertEqual(
+            view.text,
+            "bound"
+        )
+
+        property.mutateValue { $0 = "new value" }
+
+        waitForExpectations(timeout: expectionTimeout)
+
+    }
+
+    func testBindToDestinationWithOptionalValueKeyPath() {
+
+        let valueChanged = expectation(description: "Observe value changes for the bond view.")
+
+        let view = TextView<String?>(text: "old value")
+
+        let property = Property<String>()
+
+        observations = [
+            property.bind(
+                on: .main,
+                transform: { $0?.uppercased() },
+                to: (view, \.text)
+            ),
+            property.observe(on: .main) { _ in
+
+                defer { valueChanged.fulfill() }
+
+                XCTAssertEqual(
+                    view.text,
+                    "NEW VALUE"
+                )
+
+            }
+        ]
+
+        XCTAssertNil(view.text)
+
+        property.mutateValue { $0 = "new value" }
+
+        waitForExpectations(timeout: expectionTimeout)
+
+    }
+
+    func testEquatable() {
+
+        XCTAssertEqual(
+            Property(value: 1),
+            Property(value: 1)
+        )
+
+        XCTAssertNotEqual(
+            Property(value: 0),
+            Property(value: 1)
+        )
+
+    }
+
+    func testDecodable() throws {
+
+        let decoder = JSONDecoder()
+
+        let data = try JSONSerialization.data(withJSONObject: [ 1, 2 ])
+
+        let decodedProperties = try decoder.decode(
+            [Property<Int>].self,
+            from: data
+        )
+
+        XCTAssertEqual(
+            decodedProperties,
+            [
+                Property(value: 1),
+                Property(value: 2)
+            ]
+        )
+
+    }
+
+    func testEncodable() throws {
+
+        let encoder = JSONEncoder()
+
+        XCTAssertEqual(
+            try encoder.encode(
+                [
+                    Property(value: 1),
+                    Property(value: 2)
+                ]
+            ),
+            try JSONSerialization.data(withJSONObject: [ 1, 2 ])
+        )
+
+    }
+
 }
 
 // MARK: - TextView
 
-fileprivate final class TextView {
-    
-    internal final var text: String
-    
-    internal init(text: String) { self.text = text }
-    
-}
+fileprivate final class TextView<Text> {
 
-// MARK: - OptionalTextView
+    var text: Text
 
-fileprivate final class OptionalTextView {
-    
-    internal final var text: String?
-    
-    internal init(text: String?) { self.text = text }
-    
+    init(text: Text) { self.text = text }
+
 }
