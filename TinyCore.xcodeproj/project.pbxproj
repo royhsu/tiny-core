@@ -15,7 +15,7 @@
 		B0217AD422203C21005F19EB /* AnyObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AD322203C21005F19EB /* AnyObservable.swift */; };
 		B0217ADF2220ECF9005F19EB /* Property+Broadcaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217ADE2220ECF9005F19EB /* Property+Broadcaster.swift */; };
 		B0217AE12220ED5F005F19EB /* Property+Observation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AE02220ED5F005F19EB /* Property+Observation.swift */; };
-		B0217AE32220EDBA005F19EB /* Property+Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AE22220EDBA005F19EB /* Property+Binding.swift */; };
+		B0217AE32220EDBA005F19EB /* Observable+Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AE22220EDBA005F19EB /* Observable+Binding.swift */; };
 		B0217AE72220F355005F19EB /* AtomicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AE52220F34E005F19EB /* AtomicTests.swift */; };
 		B0217AE92220F3B1005F19EB /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AE82220F3B1005F19EB /* Reusable.swift */; };
 		B0217AEE2220F459005F19EB /* ReusableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AEB2220F3E5005F19EB /* ReusableTests.swift */; };
@@ -91,7 +91,7 @@
 		B0217AD322203C21005F19EB /* AnyObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyObservable.swift; sourceTree = "<group>"; };
 		B0217ADE2220ECF9005F19EB /* Property+Broadcaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Property+Broadcaster.swift"; sourceTree = "<group>"; };
 		B0217AE02220ED5F005F19EB /* Property+Observation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Property+Observation.swift"; sourceTree = "<group>"; };
-		B0217AE22220EDBA005F19EB /* Property+Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Property+Binding.swift"; sourceTree = "<group>"; };
+		B0217AE22220EDBA005F19EB /* Observable+Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Binding.swift"; sourceTree = "<group>"; };
 		B0217AE52220F34E005F19EB /* AtomicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomicTests.swift; sourceTree = "<group>"; };
 		B0217AE82220F3B1005F19EB /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		B0217AEB2220F3E5005F19EB /* ReusableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTests.swift; sourceTree = "<group>"; };
@@ -242,7 +242,6 @@
 				B0652DA9214797E6009F8757 /* Property+ObservedChange.swift */,
 				B0217AE02220ED5F005F19EB /* Property+Observation.swift */,
 				B0217ADE2220ECF9005F19EB /* Property+Broadcaster.swift */,
-				B0217AE22220EDBA005F19EB /* Property+Binding.swift */,
 			);
 			path = Property;
 			sourceTree = "<group>";
@@ -360,6 +359,7 @@
 				B0217AD322203C21005F19EB /* AnyObservable.swift */,
 				B0217AD0222036FC005F19EB /* ObservedChangeProtocol.swift */,
 				B0652DAB21479818009F8757 /* Observation.swift */,
+				B0217AE22220EDBA005F19EB /* Observable+Binding.swift */,
 			);
 			path = Observable;
 			sourceTree = "<group>";
@@ -601,7 +601,7 @@
 				B0836F2A21FCAF01004D68F2 /* HTTPMethod.swift in Sources */,
 				B05017422078C99A009838F9 /* Radian.swift in Sources */,
 				B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */,
-				B0217AE32220EDBA005F19EB /* Property+Binding.swift in Sources */,
+				B0217AE32220EDBA005F19EB /* Observable+Binding.swift in Sources */,
 				B062C5C12212C60C001807A6 /* EmptyHTTPBody.swift in Sources */,
 				B0577E721F98EB2F00B1578E /* HTTPBodyDecoder.swift in Sources */,
 				B0217ADF2220ECF9005F19EB /* Property+Broadcaster.swift in Sources */,

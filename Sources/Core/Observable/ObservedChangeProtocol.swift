@@ -11,5 +11,7 @@
 public protocol ObservedChangeProtocol {
 
     associatedtype Value
+    
+    var currentValue: Value? { get }
 
 }
