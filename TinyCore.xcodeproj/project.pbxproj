@@ -36,6 +36,12 @@
 		B062C5C32212C662001807A6 /* JSONEncoder+HTTPBodyEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B062C5C22212C662001807A6 /* JSONEncoder+HTTPBodyEncoder.swift */; };
 		B0652DAA214797E6009F8757 /* Property+ObservedChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0652DA9214797E6009F8757 /* Property+ObservedChange.swift */; };
 		B0652DAC21479818009F8757 /* Observation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0652DAB21479818009F8757 /* Observation.swift */; };
+		B0760BAA2228B76000705734 /* CustomLocalizedStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0760BA92228B76000705734 /* CustomLocalizedStringConvertible.swift */; };
+		B0760BB22228BF2300705734 /* Locale+CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0760BAD2228BF2300705734 /* Locale+CaseIterable.swift */; };
+		B0760BB32228BF2300705734 /* Locale+CustomLocalizedStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0760BAE2228BF2300705734 /* Locale+CustomLocalizedStringConvertible.swift */; };
+		B0760BB42228BF2300705734 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0760BAF2228BF2300705734 /* Language.swift */; };
+		B0760BB52228BF2300705734 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0760BB02228BF2300705734 /* Region.swift */; };
+		B0760BB62228BF2300705734 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0760BB12228BF2300705734 /* Gender.swift */; };
 		B07A2C3E215A1CF8002EFE87 /* Emptible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2C3D215A1CF8002EFE87 /* Emptible.swift */; };
 		B07AB28D2200454B00E80ADC /* MIMEType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AB28C2200454B00E80ADC /* MIMEType.swift */; };
 		B07AB28F2200457600E80ADC /* MIMEType+HTTPHeaderRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AB28E2200457600E80ADC /* MIMEType+HTTPHeaderRepresentable.swift */; };
@@ -115,6 +121,12 @@
 		B062C5C22212C662001807A6 /* JSONEncoder+HTTPBodyEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONEncoder+HTTPBodyEncoder.swift"; sourceTree = "<group>"; };
 		B0652DA9214797E6009F8757 /* Property+ObservedChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Property+ObservedChange.swift"; sourceTree = "<group>"; };
 		B0652DAB21479818009F8757 /* Observation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observation.swift; sourceTree = "<group>"; };
+		B0760BA92228B76000705734 /* CustomLocalizedStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocalizedStringConvertible.swift; sourceTree = "<group>"; };
+		B0760BAD2228BF2300705734 /* Locale+CaseIterable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Locale+CaseIterable.swift"; sourceTree = "<group>"; };
+		B0760BAE2228BF2300705734 /* Locale+CustomLocalizedStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Locale+CustomLocalizedStringConvertible.swift"; sourceTree = "<group>"; };
+		B0760BAF2228BF2300705734 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		B0760BB02228BF2300705734 /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		B0760BB12228BF2300705734 /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		B07A2C3D215A1CF8002EFE87 /* Emptible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emptible.swift; sourceTree = "<group>"; };
 		B07AB28C2200454B00E80ADC /* MIMEType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIMEType.swift; sourceTree = "<group>"; };
 		B07AB28E2200457600E80ADC /* MIMEType+HTTPHeaderRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MIMEType+HTTPHeaderRepresentable.swift"; sourceTree = "<group>"; };
@@ -207,6 +219,7 @@
 				B0DB58C61F989B7A00DAD605 /* HTTP */,
 				B0BC23832078F8C000D11A3B /* Observable */,
 				B0577E781F98F0A000B1578E /* Result */,
+				B0760BB72228BF4300705734 /* Locale */,
 				B0BC23862078F90700D11A3B /* WeakObject.swift */,
 				B05017382078C999009838F9 /* Array+InsertBetween.swift */,
 				B0A26EC82155E6A900747535 /* Unique.swift */,
@@ -215,6 +228,8 @@
 				B0836F4321FD71EE004D68F2 /* Initializable.swift */,
 				B0217AE82220F3B1005F19EB /* Reusable.swift */,
 				B062C5BA2212C560001807A6 /* ServiceTask.swift */,
+				B0760BA92228B76000705734 /* CustomLocalizedStringConvertible.swift */,
+				B0760BB12228BF2300705734 /* Gender.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -333,6 +348,17 @@
 				B089F9A421F1D5E30052AD8D /* PropertyTests.swift */,
 			);
 			path = Observable;
+			sourceTree = "<group>";
+		};
+		B0760BB72228BF4300705734 /* Locale */ = {
+			isa = PBXGroup;
+			children = (
+				B0760BAF2228BF2300705734 /* Language.swift */,
+				B0760BAD2228BF2300705734 /* Locale+CaseIterable.swift */,
+				B0760BAE2228BF2300705734 /* Locale+CustomLocalizedStringConvertible.swift */,
+				B0760BB02228BF2300705734 /* Region.swift */,
+			);
+			path = Locale;
 			sourceTree = "<group>";
 		};
 		B0A9DE84201724E600AEF782 /* Event */ = {
@@ -565,6 +591,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B089F9A321F1D5200052AD8D /* Property.swift in Sources */,
+				B0760BB62228BF2300705734 /* Gender.swift in Sources */,
+				B0760BB32228BF2300705734 /* Locale+CustomLocalizedStringConvertible.swift in Sources */,
 				B0BC23852078F8C000D11A3B /* Observable.swift in Sources */,
 				B0A26EC92155E6A900747535 /* Unique.swift in Sources */,
 				B05017412078C99A009838F9 /* Radian+Degrees.swift in Sources */,
@@ -583,12 +611,14 @@
 				B050173E2078C999009838F9 /* Array+InsertBetween.swift in Sources */,
 				B0836F0721FC4FC5004D68F2 /* URLRequestRepresentable.swift in Sources */,
 				B089F9AB21F212850052AD8D /* Atomic.swift in Sources */,
+				B0760BAA2228B76000705734 /* CustomLocalizedStringConvertible.swift in Sources */,
 				B062C5BB2212C561001807A6 /* ServiceTask.swift in Sources */,
 				B0CF898F2219A9120020ECD1 /* Context.swift in Sources */,
 				B0652DAC21479818009F8757 /* Observation.swift in Sources */,
 				B062C5BD2212C5B9001807A6 /* URLSessionDataTask+ServiceTask.swift in Sources */,
 				B0836F2721FCACE2004D68F2 /* HTTPHeaderRepresentable.swift in Sources */,
 				B0652DAA214797E6009F8757 /* Property+ObservedChange.swift in Sources */,
+				B0760BB52228BF2300705734 /* Region.swift in Sources */,
 				B05017402078C999009838F9 /* Degrees.swift in Sources */,
 				B0217AD422203C21005F19EB /* AnyObservable.swift in Sources */,
 				B062C5C32212C662001807A6 /* JSONEncoder+HTTPBodyEncoder.swift in Sources */,
@@ -602,7 +632,9 @@
 				B05017422078C99A009838F9 /* Radian.swift in Sources */,
 				B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */,
 				B0217AE32220EDBA005F19EB /* Observable+Binding.swift in Sources */,
+				B0760BB22228BF2300705734 /* Locale+CaseIterable.swift in Sources */,
 				B062C5C12212C60C001807A6 /* EmptyHTTPBody.swift in Sources */,
+				B0760BB42228BF2300705734 /* Language.swift in Sources */,
 				B0577E721F98EB2F00B1578E /* HTTPBodyDecoder.swift in Sources */,
 				B0217ADF2220ECF9005F19EB /* Property+Broadcaster.swift in Sources */,
 				B0217AE12220ED5F005F19EB /* Property+Observation.swift in Sources */,
