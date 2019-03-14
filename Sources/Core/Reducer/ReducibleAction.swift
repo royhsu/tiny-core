@@ -34,3 +34,24 @@ public struct ReducibleAction<Identifier, Value> where Identifier: Hashable {
     }
     
 }
+
+// MARK: - ReducibleAction
+
+extension ReducibleAction where Identifier: Initializable {
+    
+    public init(
+        handler: @escaping (
+            _ currentValue: Value,
+            _ newValueGenerator: @escaping (_ newValue: Value) -> Void
+        )
+        -> Void
+    ) {
+        
+        self.init(
+            identifier: Identifier(),
+            handler: handler
+        )
+        
+    }
+    
+}
