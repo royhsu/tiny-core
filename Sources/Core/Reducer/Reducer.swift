@@ -10,14 +10,14 @@
 
 public final class Reducer<Identifier, Value> where Identifier: Hashable {
     
-    private let storage: Atomic<Storage>
+    private let _storage: Atomic<Storage>
     
     public init(
         initialValue: Value,
         actions: [Action] = []
     ) {
         
-        self.storage = Atomic(
+        self._storage = Atomic(
             value: Storage(
                 currentValue: initialValue,
                 actions: actions
@@ -42,7 +42,7 @@ extension Reducer {
         
         if isReducing { fatalError("The reducer must not reduce itself while it's reducing.") }
         
-        storage.mutateValue { [weak self] in
+        _storage.mutateValue {
             
             $0.isReducing = true
             
@@ -50,55 +50,51 @@ extension Reducer {
             
             $0.pendingActions = $0.actions
             
-            self?.reducePendingActions()
-            
         }
+        
+        reducePendingActions()
         
     }
     
     private func reducePendingActions() {
         
-        let areAllPendingActionsReduces = storage.value.pendingActions.isEmpty
+        var newPendingActions = pendingActions
         
-        if areAllPendingActionsReduces { complete(); return }
+        let areAllPendingActionsReduced = newPendingActions.isEmpty
         
-        storage.mutateValue { [weak self] storage in
+        if areAllPendingActionsReduced { complete(); return }
+    
+        let nextAction = newPendingActions.removeFirst()
+        
+        _storage.mutateValue { $0.pendingActions = newPendingActions }
+    
+        nextAction.handler(currentValue) { newValue in
+
+            self._storage.mutateValue { $0.currentValue = newValue }
             
-            guard let self = self else { return }
-            
-            let nextAction = storage.pendingActions.removeFirst()
-            
-            nextAction.handler(storage.currentValue) { newValue in
-                
-                self.storage.mutateValue { storage in
-                    
-                    storage.currentValue = newValue
-                    
-                    self.reducePendingActions()
-                    
-                }
-                
-            }
-            
+            self.reducePendingActions()
+
         }
-        
+
     }
     
     private func complete() {
         
-        storage.mutateValue { [weak self] in
-            
-            guard let self = self else { return }
+        let completion = _storage.value.completion
+        
+        _storage.mutateValue {
             
             $0.isReducing = false
             
-            let completion = $0.completion
-            
             $0.completion = nil
             
-            completion?(self)
-            
         }
+        
+        // Due to the limiation of the current atomic implementation. The mutating is an async operation.
+        // We can make sure to call the getter on the atomic value to get the correct mutated value after the mutating scope, becuase the getter is a sync operation.
+        precondition(_storage.value.completion == nil)
+        
+        completion?(self)
         
     }
     
@@ -106,19 +102,19 @@ extension Reducer {
 
 extension Reducer {
     
-    public var isReducing: Bool { return storage.value.isReducing }
+    public var isReducing: Bool { return _storage.value.isReducing }
     
-    public var currentValue: Value { return storage.value.currentValue }
+    public var currentValue: Value { return _storage.value.currentValue }
     
     public var actions: [Action] {
         
-        get { return storage.value.actions }
+        get { return _storage.value.actions }
         
-        set { storage.mutateValue { $0.actions.append(contentsOf: newValue) } }
+        set { _storage.mutateValue { $0.actions.append(contentsOf: newValue) } }
         
     }
     
-    var pendingActions: [Action] { return storage.value.pendingActions }
+    var pendingActions: [Action] { return _storage.value.pendingActions }
     
 }
 
@@ -151,33 +147,4 @@ extension Reducer {
         
     }
     
-}
-
-// MARK: - ReducibleAction
-
-public struct ReducibleAction<Identifier, Value> where Identifier: Hashable {
-    
-    public let identifier: Identifier
-    
-    public let handler: (
-        _ currentValue: Value,
-        _ newValueGenerator: @escaping (_ newValue: Value) -> Void
-    )
-    -> Void
-    
-    public init(
-        identifier: Identifier,
-        handler: @escaping (
-            _ currentValue: Value,
-            _ newValueGenerator: @escaping (_ newValue: Value) -> Void
-        )
-        -> Void
-    ) {
-        
-        self.identifier = identifier
-        
-        self.handler = handler
-        
-    }
-
 }

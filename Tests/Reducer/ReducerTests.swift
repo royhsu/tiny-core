@@ -1,6 +1,6 @@
 //
 //  ReducerTests.swift
-//  TinyCore
+//  TinyCoreTests
 //
 //  Created by Roy Hsu on 2019/3/14.
 //  Copyright © 2019 TinyWorld. All rights reserved.
@@ -46,16 +46,14 @@ final class ReducerTests: XCTestCase {
         let counterActions: [CounterAction] = [
             .increment(
                 identifier: "first",
+                number: 2,
                 willBegin: { counter in
                     
                     XCTAssert(reducer.isReducing)
                     
                     XCTAssertEqual(
                         reducer.pendingActions.map { $0.identifier },
-                        [
-                            "first",
-                            "second"
-                        ]
+                        [ "second" ]
                     )
                     
                     XCTAssertEqual(
@@ -77,25 +75,23 @@ final class ReducerTests: XCTestCase {
                     
                     XCTAssertEqual(
                         counter.currentNumber,
-                        4
+                        3 + 2
                     )
                     
                 }
             ),
             .decrement(
                 identifier: "second",
+                number: 1,
                 willBegin: { counter in
                     
                     XCTAssert(reducer.isReducing)
                     
-                    XCTAssertEqual(
-                        reducer.pendingActions.map { $0.identifier },
-                        [ "second" ]
-                    )
+                    XCTAssert(reducer.pendingActions.isEmpty)
                     
                     XCTAssertEqual(
                         counter.currentNumber,
-                        4
+                        5
                     )
                     
                 },
@@ -109,11 +105,11 @@ final class ReducerTests: XCTestCase {
                     
                     XCTAssertEqual(
                         counter.currentNumber,
-                        3
+                        5 - 1
                     )
                     
                 }
-            ),
+            )
         ]
         
         reducer.actions = counterActions.map { $0.action }
@@ -126,7 +122,7 @@ final class ReducerTests: XCTestCase {
             
             XCTAssertEqual(
                 reducer.currentValue.currentNumber,
-                3
+                4
             )
             
         }
@@ -134,130 +130,5 @@ final class ReducerTests: XCTestCase {
         waitForExpectations(timeout: 10.0)
 
     }
-    
-}
-
-//        let actions: [CounterAction] = [
-//            .increment,
-//            .increment,
-//            .decrement
-//        ]
-//
-//        let initialCounter = Counter(count: 3)
-//
-//        actions.reduce(initialCounter) { finalCounter in
-//
-//            XCTAssertEqual(
-//                finalCounter.count,
-//                3 + 1 + 1 - 1
-//            )
-//
-//        }
-
-// MARK: - CounterAction
-
-extension ReducerTests {
-
-    enum CounterAction {
-        
-        case increment(
-            identifier: String,
-            willBegin: (Counter) -> Void,
-            didEnd: (Counter) -> Void
-        )
-
-        case decrement(
-            identifier: String,
-            willBegin: (Counter) -> Void,
-            didEnd: (Counter) -> Void
-        )
-        
-        var identifier: String {
-            
-            switch self {
-                
-            case let .increment(identifier, _, _): return identifier
-             
-            case let .decrement(identifier, _, _): return identifier
-                
-            }
-            
-        }
-        
-        var action: ReducibleAction<String, Counter> {
-
-            switch self {
-    
-            case let .increment(identifier, willBegin, didEnd):
-    
-                return ReducibleAction(identifier: identifier) { currentCounter, completion in
-    
-                    willBegin(currentCounter)
-    
-                    var nextCounter = currentCounter
-    
-                    nextCounter.increment()
-    
-                    didEnd(nextCounter)
-    
-                    completion(nextCounter)
-    
-                }
-    
-            case let .decrement(identifier, willBegin, didEnd):
-    
-                return ReducibleAction(identifier: identifier) { currentCounter, completion in
-    
-                    willBegin(currentCounter)
-    
-                    var nextCounter = currentCounter
-    
-                    nextCounter.decrement()
-    
-                    didEnd(nextCounter)
-    
-                    completion(nextCounter)
-    
-                }
-    
-            }
-    
-        }
-
-    }
-    
-}
-
-// MARK: - Counter
-
-extension ReducerTests {
-
-    struct Counter {
-        
-        private(set) var currentNumber: Int
-        
-        init(initialNumber: Int = 0) { self.currentNumber = initialNumber }
-        
-    }
-
-}
-
-extension ReducerTests.Counter {
-    
-    mutating func increment() { currentNumber += 1 }
-    
-    mutating func decrement() { currentNumber -= 1 }
-    
-}
-
-// MARK: - Equatable
-
-extension ReducerTests.Counter: Equatable {
-    
-    static func ==(
-        lhs: ReducerTests.Counter,
-        rhs: ReducerTests.Counter
-    )
-    -> Bool { return lhs.currentNumber == rhs.currentNumber }
     
 }
