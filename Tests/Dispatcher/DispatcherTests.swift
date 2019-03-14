@@ -18,7 +18,7 @@ final class DispatcherTests: XCTestCase {
 
         let batchTask = expectation(description: "Execute the batch task.")
 
-        let counter = Counter(number: 2)
+        let counter = Counter(limitNumber: 2)
 
         let dispatcher = Dispatcher<String>(
             batchScheduler: counter,
@@ -58,45 +58,5 @@ final class DispatcherTests: XCTestCase {
         waitForExpectations(timeout: expectionTimeout)
 
     }
-
-}
-
-// MARK: - Counter
-
-private class Counter {
-
-    private let number: Int
-
-    private var value = 0
-
-    private var completion: ( (Counter) -> Void )?
-
-    init(number: Int) { self.number = number }
-
-}
-
-extension Counter {
-
-    func count() {
-
-        if value > number { preconditionFailure("The counter has reached the number.") }
-
-        value += 1
-
-        guard value == number else { return }
-
-        completion?(self)
-
-    }
-
-}
-
-// MARK: - DispatcherBatchScheduler
-
-extension Counter: DispatcherBatchScheduler {
-
-    func scheduleTask(
-        _ task: @escaping (DispatcherBatchScheduler) -> Void
-    ) { completion = task }
 
 }

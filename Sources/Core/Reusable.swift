@@ -16,7 +16,7 @@ public protocol Reusable {
 
 // MARK: - Reusable (Default Implementation)
 
-public extension Reusable {
+extension Reusable {
 
     public static var reuseIdentifier: String { return String(describing: self) }
 
