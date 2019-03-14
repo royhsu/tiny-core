@@ -8,6 +8,31 @@
 
 // MARK: - Reducer
 
+/// A reducer can reduce a sequence of async actions to produce a new value.
+///
+/// Note: the following example is pseudo code.
+/// ```
+/// let authorizedUserReducer = Reducer<UUID, User?>(
+///     initialValue: nil,
+///     actions: [
+///         .restoreFromKeychain,
+///         .authorizeFromServer
+///     ]
+/// )
+///
+/// authorizedUserReducer.reduce { reducer in
+///
+///     guard let authorizedUser = reducer.currentValue else {
+///
+///          print("No available authorized user.")
+///
+///          return
+///
+///     }
+///
+/// }
+///
+/// ```
 public final class Reducer<Identifier, Value> where Identifier: Hashable {
     
     private let _storage: Atomic<Storage>

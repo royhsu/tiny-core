@@ -46,7 +46,7 @@ extension ReducerTests {
                 
             case let .increment(identifier, number, willBegin, didEnd):
                 
-                return ReducibleAction(identifier: identifier) { currentCounter, completion in
+                return ReducibleAction(identifier: identifier) { currentCounter, handler in
                     
                     willBegin(currentCounter)
                     
@@ -56,13 +56,13 @@ extension ReducerTests {
                     
                     didEnd(nextCounter)
                     
-                    completion(nextCounter)
+                    handler(nextCounter)
                     
                 }
                 
             case let .decrement(identifier, number, willBegin, didEnd):
                 
-                return ReducibleAction(identifier: identifier) { currentCounter, completion in
+                return ReducibleAction(identifier: identifier) { currentCounter, handler in
                     
                     willBegin(currentCounter)
                     
@@ -72,7 +72,7 @@ extension ReducerTests {
                     
                     didEnd(nextCounter)
                     
-                    completion(nextCounter)
+                    handler(nextCounter)
                     
                 }
                 
