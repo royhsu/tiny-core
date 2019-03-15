@@ -8,12 +8,12 @@
 
 // MARK: - CombinedReducers
 
-/// Combined reducers can reduce a sequence of async actions to produce a new value.
+/// Combined reducers can reduce a sequence of sync / async actions to produce a new value.
 ///
 /// Note: the following example is pseudo code.
 /// ```
-/// let authorizedUserReducers = CombinedReducers<UUID, User?>(
-///     initialValue: nil,
+/// let authorizedUserReducers = CombinedReducers<UUID, Result<User> >(
+///     initialValue: UserError.unauthorized,
 ///     actions: [
 ///         .restoreFromKeychain,
 ///         .authorizeFromServer
@@ -22,13 +22,14 @@
 ///
 /// authorizedUserReducers.reduce { reducers in
 ///
-///     guard let authorizedUser = reducers.currentValue else {
+///     do {
 ///
-///          print("No available authorized user.")
+///          let authorizedUser = try reducers.currentValue.get()
 ///
-///          return
+///          // Do something after got authorized.
 ///
 ///     }
+///     catch { print("No available authorized user. \(error)") }
 ///
 /// }
 /// ```
