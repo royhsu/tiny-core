@@ -9,7 +9,7 @@
 // MARK: - CaseIterable
 
 extension Locale: CaseIterable {
-    
+
     public static var allCases: [Locale] = { return availableIdentifiers.map(Locale.init) }()
-    
+
 }

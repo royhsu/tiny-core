@@ -9,15 +9,15 @@
 // MARK: - ReducibleAction
 
 public struct ReducibleAction<Identifier, Value> where Identifier: Hashable {
-    
+
     public let identifier: Identifier
-    
+
     public let handler: (
         _ currentValue: Value,
         _ newValueGenerator: @escaping (_ newValue: Value) -> Void
     )
     -> Void
-    
+
     public init(
         identifier: Identifier,
         handler: @escaping (
@@ -26,19 +26,19 @@ public struct ReducibleAction<Identifier, Value> where Identifier: Hashable {
         )
         -> Void
     ) {
-    
+
         self.identifier = identifier
-        
+
         self.handler = handler
-        
+
     }
-    
+
 }
 
 // MARK: - ReducibleAction
 
 extension ReducibleAction where Identifier: Initializable {
-    
+
     public init(
         handler: @escaping (
             _ currentValue: Value,
@@ -46,12 +46,12 @@ extension ReducibleAction where Identifier: Initializable {
         )
         -> Void
     ) {
-        
+
         self.init(
             identifier: Identifier(),
             handler: handler
         )
-        
+
     }
-    
+
 }

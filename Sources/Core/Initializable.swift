@@ -13,3 +13,7 @@ public protocol Initializable {
     init()
 
 }
+
+// MARK: - UUID
+
+extension UUID: Initializable { }

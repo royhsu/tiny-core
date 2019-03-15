@@ -9,25 +9,25 @@
 // MARK: - Counter
 
 extension ReducerTests {
-    
+
     struct Counter {
-        
+
         var currentNumber: Int
-        
+
         init(initialNumber: Int = 0) { self.currentNumber = initialNumber }
-        
+
     }
-    
+
 }
 
 // MARK: - Equatable
 
 extension ReducerTests.Counter: Equatable {
-    
+
     static func ==(
         lhs: ReducerTests.Counter,
         rhs: ReducerTests.Counter
     )
     -> Bool { return lhs.currentNumber == rhs.currentNumber }
-    
+
 }

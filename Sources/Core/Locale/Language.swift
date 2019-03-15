@@ -9,46 +9,45 @@
 // MARK: - Language
 
 public struct Language: RawRepresentable {
-    
+
     public let rawValue: String
-    
+
     public init?(rawValue: String) {
-        
+
         guard Locale.isoLanguageCodes.contains(rawValue) else { return nil }
-        
+
         self.rawValue = rawValue
-        
+
     }
-    
+
 }
 
 // MARK: - Locale
 
 extension Language {
-    
+
     public init?(locale: Locale) {
-        
+
         guard let code = locale.languageCode else { return nil }
-        
+
         self.init(rawValue: code)
-        
+
     }
-    
-    
+
 }
 
 extension Language {
-    
+
     public static let current = Language(locale: .current)!
-    
+
 }
 
 // MARK: - CustomLocalizedStringConvertible
 
 extension Language: CustomLocalizedStringConvertible {
-    
+
     public var localizedDescription: String { return Locale.current.localizedString(forLanguageCode: rawValue)! }
-    
+
 }
 
 // MARK: - CaseIterable
@@ -56,7 +55,7 @@ extension Language: CustomLocalizedStringConvertible {
 extension Language: CaseIterable {
 
     public static var allCases: [Language] = { return Locale.isoLanguageCodes.lazy.compactMap(Language.init) }()
-    
+
 }
 
 // MARK: - Equatable
@@ -70,7 +69,7 @@ extension Language: Codable { }
 // MARK: - CustomStringConvertible
 
 extension Language: CustomStringConvertible {
-    
+
     public var description: String { return rawValue }
-    
+
 }
