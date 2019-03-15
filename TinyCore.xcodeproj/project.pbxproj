@@ -19,6 +19,8 @@
 		B0217AE72220F355005F19EB /* AtomicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AE52220F34E005F19EB /* AtomicTests.swift */; };
 		B0217AE92220F3B1005F19EB /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AE82220F3B1005F19EB /* Reusable.swift */; };
 		B0217AEE2220F459005F19EB /* ReusableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AEB2220F3E5005F19EB /* ReusableTests.swift */; };
+		B02679A7223BBFD100A47DD2 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02679A6223BBFD100A47DD2 /* AuthService.swift */; };
+		B02679A9223BC41A00A47DD2 /* AnyAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02679A8223BC41A00A47DD2 /* AnyAuthService.swift */; };
 		B050173E2078C999009838F9 /* Array+InsertBetween.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05017382078C999009838F9 /* Array+InsertBetween.swift */; };
 		B050173F2078C999009838F9 /* Degrees+Radian.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050173A2078C999009838F9 /* Degrees+Radian.swift */; };
 		B05017402078C999009838F9 /* Degrees.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050173B2078C999009838F9 /* Degrees.swift */; };
@@ -101,6 +103,8 @@
 		B0217AE52220F34E005F19EB /* AtomicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomicTests.swift; sourceTree = "<group>"; };
 		B0217AE82220F3B1005F19EB /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		B0217AEB2220F3E5005F19EB /* ReusableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTests.swift; sourceTree = "<group>"; };
+		B02679A6223BBFD100A47DD2 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		B02679A8223BC41A00A47DD2 /* AnyAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyAuthService.swift; sourceTree = "<group>"; };
 		B05017382078C999009838F9 /* Array+InsertBetween.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+InsertBetween.swift"; sourceTree = "<group>"; };
 		B050173A2078C999009838F9 /* Degrees+Radian.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Degrees+Radian.swift"; sourceTree = "<group>"; };
 		B050173B2078C999009838F9 /* Degrees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Degrees.swift; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 		B0217ACD22203261005F19EB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B02679A5223BBFB400A47DD2 /* Auth */,
 				B0217AD2222039DE005F19EB /* Atomic */,
 				B0CF898D2219A8FC0020ECD1 /* Context */,
 				B0217AC62220222D005F19EB /* Dispatcher */,
@@ -267,6 +272,15 @@
 				B0217AEB2220F3E5005F19EB /* ReusableTests.swift */,
 			);
 			path = Reusable;
+			sourceTree = "<group>";
+		};
+		B02679A5223BBFB400A47DD2 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B02679A6223BBFD100A47DD2 /* AuthService.swift */,
+				B02679A8223BC41A00A47DD2 /* AnyAuthService.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		B05017392078C999009838F9 /* Geometry */ = {
@@ -599,6 +613,7 @@
 				B0217AE92220F3B1005F19EB /* Reusable.swift in Sources */,
 				B0217ACC22202599005F19EB /* Dispatcher.swift in Sources */,
 				B0836F2E21FCBAE1004D68F2 /* HTTPRequest+URLRequestRepresentable.swift in Sources */,
+				B02679A7223BBFD100A47DD2 /* AuthService.swift in Sources */,
 				B050173F2078C999009838F9 /* Degrees+Radian.swift in Sources */,
 				B0836F1721FC5603004D68F2 /* URLRequest+URLRequestRepresentable.swift in Sources */,
 				B0577E7A1F98F0B300B1578E /* Result.swift in Sources */,
@@ -615,6 +630,7 @@
 				B062C5BB2212C561001807A6 /* ServiceTask.swift in Sources */,
 				B0CF898F2219A9120020ECD1 /* Context.swift in Sources */,
 				B0652DAC21479818009F8757 /* Observation.swift in Sources */,
+				B02679A9223BC41A00A47DD2 /* AnyAuthService.swift in Sources */,
 				B062C5BD2212C5B9001807A6 /* URLSessionDataTask+ServiceTask.swift in Sources */,
 				B0836F2721FCACE2004D68F2 /* HTTPHeaderRepresentable.swift in Sources */,
 				B0652DAA214797E6009F8757 /* Property+ObservedChange.swift in Sources */,
