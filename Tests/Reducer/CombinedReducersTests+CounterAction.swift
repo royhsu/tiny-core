@@ -1,5 +1,5 @@
 //
-//  ReducerTests+CounterAction.swift
+//  CombinedReducersTests+CounterAction.swift
 //  TinyCoreTests
 //
 //  Created by Roy Hsu on 2019/3/14.
@@ -10,7 +10,7 @@
 
 import TinyCore
 
-extension ReducerTests {
+extension CombinedReducersTests {
 
     enum CounterAction {
 

@@ -1,18 +1,18 @@
 //
-//  Reducer.swift
+//  CombinedReducers.swift
 //  TinyCore
 //
 //  Created by Roy Hsu on 2019/3/14.
 //  Copyright © 2019 TinyWorld. All rights reserved.
 //
 
-// MARK: - Reducer
+// MARK: - CombinedReducers
 
-/// A reducer can reduce a sequence of async actions to produce a new value.
+/// Combined reducers can reduce a sequence of async actions to produce a new value.
 ///
 /// Note: the following example is pseudo code.
 /// ```
-/// let authorizedUserReducer = Reducer<UUID, User?>(
+/// let authorizedUserReducers = CombinedReducers<UUID, User?>(
 ///     initialValue: nil,
 ///     actions: [
 ///         .restoreFromKeychain,
@@ -20,9 +20,9 @@
 ///     ]
 /// )
 ///
-/// authorizedUserReducer.reduce { reducer in
+/// authorizedUserReducers.reduce { reducers in
 ///
-///     guard let authorizedUser = reducer.currentValue else {
+///     guard let authorizedUser = reducers.currentValue else {
 ///
 ///          print("No available authorized user.")
 ///
@@ -31,9 +31,9 @@
 ///     }
 ///
 /// }
-///
 /// ```
-public final class Reducer<Identifier, Value> where Identifier: Hashable {
+///
+public final class CombinedReducers<Identifier, Value> where Identifier: Hashable {
 
     private let _storage: Atomic<Storage>
 
@@ -55,15 +55,15 @@ public final class Reducer<Identifier, Value> where Identifier: Hashable {
 
 // MARK: - Action
 
-extension Reducer {
+extension CombinedReducers {
 
     public typealias Action = ReducibleAction<Identifier, Value>
 
 }
 
-extension Reducer {
+extension CombinedReducers {
 
-    public func reduce(completion: @escaping (Reducer) -> Void) {
+    public func reduce(completion: @escaping (CombinedReducers) -> Void) {
 
         if isReducing { fatalError("The reducer must not reduce itself while it's reducing.") }
 
@@ -93,7 +93,7 @@ extension Reducer {
 
         _storage.mutateValue { $0.pendingActions = newPendingActions }
 
-        nextAction.handler(currentValue) { newValue in
+        nextAction.reducer(currentValue) { newValue in
 
             self._storage.mutateValue { $0.currentValue = newValue }
 
@@ -125,7 +125,7 @@ extension Reducer {
 
 }
 
-extension Reducer {
+extension CombinedReducers {
 
     public var isReducing: Bool { return _storage.value.isReducing }
 
@@ -145,7 +145,7 @@ extension Reducer {
 
 // MARK: - Storage
 
-extension Reducer {
+extension CombinedReducers {
 
     private struct Storage {
 
@@ -157,7 +157,7 @@ extension Reducer {
 
         var pendingActions: [Action] = []
 
-        var completion: ( (Reducer) -> Void )?
+        var completion: ( (CombinedReducers) -> Void )?
 
         init(
             currentValue: Value,

@@ -1,5 +1,5 @@
 //
-//  ReducerTests+Counter.swift
+//  CombinedReducersTests+Counter.swift
 //  TinyCoreTests
 //
 //  Created by Roy Hsu on 2019/3/14.
@@ -8,7 +8,7 @@
 
 // MARK: - Counter
 
-extension ReducerTests {
+extension CombinedReducersTests {
 
     struct Counter {
 
@@ -22,11 +22,11 @@ extension ReducerTests {
 
 // MARK: - Equatable
 
-extension ReducerTests.Counter: Equatable {
+extension CombinedReducersTests.Counter: Equatable {
 
     static func ==(
-        lhs: ReducerTests.Counter,
-        rhs: ReducerTests.Counter
+        lhs: CombinedReducersTests.Counter,
+        rhs: CombinedReducersTests.Counter
     )
     -> Bool { return lhs.currentNumber == rhs.currentNumber }
 

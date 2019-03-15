@@ -1,33 +1,33 @@
 //
-//  ReducerTests.swift
+//  CombinedReducersTests.swift
 //  TinyCoreTests
 //
 //  Created by Roy Hsu on 2019/3/14.
 //  Copyright © 2019 TinyWorld. All rights reserved.
 //
 
-// MARK: - ReducerTests
+// MARK: - CombinedReducersTests
 
 import XCTest
 
 @testable import TinyCore
 
-final class ReducerTests: XCTestCase {
+final class CombinedReducersTests: XCTestCase {
 
     func testDefault() {
 
         let counter = Counter()
 
-        let reducer = Reducer<String, Counter>(initialValue: counter)
+        let reducers = CombinedReducers<String, Counter>(initialValue: counter)
 
         XCTAssertEqual(
-            reducer.currentValue,
+            reducers.currentValue,
             counter
         )
 
-        XCTAssert(reducer.actions.isEmpty)
+        XCTAssert(reducers.actions.isEmpty)
 
-        XCTAssertFalse(reducer.isReducing)
+        XCTAssertFalse(reducers.isReducing)
 
     }
 
@@ -41,7 +41,7 @@ final class ReducerTests: XCTestCase {
 
         let counter = Counter(initialNumber: 3)
 
-        let reducer = Reducer<String, Counter>(initialValue: counter)
+        let reducers = CombinedReducers<String, Counter>(initialValue: counter)
 
         let counterActions: [CounterAction] = [
             .increment(
@@ -49,10 +49,10 @@ final class ReducerTests: XCTestCase {
                 number: 2,
                 willBegin: { counter in
 
-                    XCTAssert(reducer.isReducing)
+                    XCTAssert(reducers.isReducing)
 
                     XCTAssertEqual(
-                        reducer.pendingActions.map { $0.identifier },
+                        reducers.pendingActions.map { $0.identifier },
                         [ "second" ]
                     )
 
@@ -66,10 +66,10 @@ final class ReducerTests: XCTestCase {
 
                     defer { numberIncremented.fulfill() }
 
-                    XCTAssert(reducer.isReducing)
+                    XCTAssert(reducers.isReducing)
 
                     XCTAssertEqual(
-                        reducer.pendingActions.map { $0.identifier },
+                        reducers.pendingActions.map { $0.identifier },
                         [ "second" ]
                     )
 
@@ -85,9 +85,9 @@ final class ReducerTests: XCTestCase {
                 number: 1,
                 willBegin: { counter in
 
-                    XCTAssert(reducer.isReducing)
+                    XCTAssert(reducers.isReducing)
 
-                    XCTAssert(reducer.pendingActions.isEmpty)
+                    XCTAssert(reducers.pendingActions.isEmpty)
 
                     XCTAssertEqual(
                         counter.currentNumber,
@@ -99,9 +99,9 @@ final class ReducerTests: XCTestCase {
 
                     defer { numberDecremented.fulfill() }
 
-                    XCTAssert(reducer.isReducing)
+                    XCTAssert(reducers.isReducing)
 
-                    XCTAssert(reducer.pendingActions.isEmpty)
+                    XCTAssert(reducers.pendingActions.isEmpty)
 
                     XCTAssertEqual(
                         counter.currentNumber,
@@ -112,16 +112,16 @@ final class ReducerTests: XCTestCase {
             )
         ]
 
-        reducer.actions = counterActions.map { $0.action }
+        reducers.actions = counterActions.map { $0.action }
 
-        reducer.reduce { reducer in
+        reducers.reduce { reducers in
 
             defer { allActionsRedueced.fulfill() }
 
-            XCTAssertFalse(reducer.isReducing)
+            XCTAssertFalse(reducers.isReducing)
 
             XCTAssertEqual(
-                reducer.currentValue.currentNumber,
+                reducers.currentValue.currentNumber,
                 4
             )
 

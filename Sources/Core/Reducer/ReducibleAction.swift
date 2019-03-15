@@ -12,24 +12,24 @@ public struct ReducibleAction<Identifier, Value> where Identifier: Hashable {
 
     public let identifier: Identifier
 
-    public let handler: (
+    public let reducer: (
         _ currentValue: Value,
-        _ newValueGenerator: @escaping (_ newValue: Value) -> Void
+        _ reducedResult: @escaping (_ newValue: Value) -> Void
     )
     -> Void
 
     public init(
         identifier: Identifier,
-        handler: @escaping (
+        reducer: @escaping (
             _ currentValue: Value,
-            _ newValueGenerator: @escaping (_ newValue: Value) -> Void
+            _ reducedResult: @escaping (_ newValue: Value) -> Void
         )
         -> Void
     ) {
 
         self.identifier = identifier
 
-        self.handler = handler
+        self.reducer = reducer
 
     }
 
@@ -40,16 +40,16 @@ public struct ReducibleAction<Identifier, Value> where Identifier: Hashable {
 extension ReducibleAction where Identifier: Initializable {
 
     public init(
-        handler: @escaping (
+        reducer: @escaping (
             _ currentValue: Value,
-            _ newValueGenerator: @escaping (_ newValue: Value) -> Void
+            _ reducedResult: @escaping (_ newValue: Value) -> Void
         )
         -> Void
     ) {
 
         self.init(
             identifier: Identifier(),
-            handler: handler
+            reducer: reducer
         )
 
     }
