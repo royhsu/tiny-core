@@ -14,7 +14,7 @@
 public struct Context<Identifier> where Identifier: Hashable {
 
     private var storage: [Identifier: () throws -> Any] = [:]
-    
+
     public init() { }
 
     /// Register a factory for specific identifier.

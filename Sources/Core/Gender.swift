@@ -9,9 +9,9 @@
 // MARK: - Gender
 
 public enum Gender: String {
-    
+
     case male, female
-    
+
 }
 
 // MARK: - Equatable
@@ -29,27 +29,27 @@ extension Gender: CaseIterable { }
 // MARK: - CustomLocalizedStringConvertible
 
 extension Gender: CustomLocalizedStringConvertible {
-    
+
     public var localizedDescription: String {
-        
+
         switch self {
-            
+
         case .male:
-           
+
             return NSLocalizedString(
                 "Male",
                 comment: ""
             )
-            
+
         case .female:
-            
+
             return NSLocalizedString(
                 "Female",
                 comment: ""
             )
-            
+
         }
-        
+
     }
-    
+
 }

@@ -9,7 +9,7 @@
 // MARK: - CustomLocalizedStringConvertible
 
 public protocol CustomLocalizedStringConvertible {
-    
+
     var localizedDescription: String { get }
-    
+
 }
