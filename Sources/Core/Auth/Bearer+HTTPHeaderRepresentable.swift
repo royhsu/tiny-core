@@ -1,5 +1,5 @@
 //
-//  Basic+HTTPHeaderRepresentable.swift
+//  Bearer+HTTPHeaderRepresentable.swift
 //  TinyCore
 //
 //  Created by Roy Hsu on 2019/3/16.
@@ -8,17 +8,13 @@
 
 // MARK: - HTTPHeaderRepresentable
 
-extension Basic: HTTPHeaderRepresentable {
+extension Bearer: HTTPHeaderRepresentable {
 
     public func httpHeader() throws -> (field: HTTPHeader, value: String) {
 
-        let data = Data("\(username):\(password)".utf8)
-
-        let credentials = data.base64EncodedString()
-
         return (
             .authorization,
-            "Basic \(credentials)"
+            "Bearer \(token)"
         )
 
     }

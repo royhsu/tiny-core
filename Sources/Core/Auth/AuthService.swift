@@ -9,16 +9,16 @@
 // MARK: - AuthService
 
 public protocol AuthService {
-    
+
     associatedtype Credentials
-    
+
     associatedtype Auth
-    
+
     @discardableResult
     func authorize(
         with credentials: Credentials,
         completion: @escaping (Result<Auth>) -> Void
     )
     throws -> ServiceTask
-    
+
 }

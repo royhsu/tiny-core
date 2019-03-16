@@ -17,7 +17,7 @@ public protocol ServiceTask {
 // MARK: - ServiceTask (Default Implementatiom)
 
 extension ServiceTask {
-    
+
     public func cancel() { }
-    
+
 }

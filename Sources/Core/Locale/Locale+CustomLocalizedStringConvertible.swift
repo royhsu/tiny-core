@@ -9,7 +9,7 @@
 // MARK: - CustomLocalizedStringConvertible
 
 extension Locale: CustomLocalizedStringConvertible {
-    
+
     public var localizedDescription: String { return localizedString(forIdentifier: identifier)! }
-    
+
 }
