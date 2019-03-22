@@ -78,27 +78,5 @@ final class AtomicTests: XCTestCase {
         )
 
     }
-
-    func testDecodable() throws {
-
-        let decoder = JSONDecoder()
-
-        let data = try JSONSerialization.data(withJSONObject: [ 1 ])
-
-        XCTAssertEqual(
-            try decoder.decode([Atomic<Int>].self, from: data),
-            [ Atomic(1) ]
-        )
-
-    }
-
-    func testEncodable() throws {
-
-        XCTAssertEqual(
-            try JSONEncoder().encode([ Atomic(1) ]),
-            try JSONSerialization.data(withJSONObject: [ 1 ])
-        )
-
-    }
-
+    
 }

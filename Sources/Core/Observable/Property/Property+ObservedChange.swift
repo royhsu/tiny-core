@@ -14,10 +14,7 @@ extension Property {
 
         case initial(value: Value?)
 
-        case changed(
-            oldValue: Value?,
-            newValue: Value?
-        )
+        case changed(oldValue: Value?, newValue: Value?)
 
         public var currentValue: Value? {
 

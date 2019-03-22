@@ -81,6 +81,10 @@
 		B0BC23872078F90700D11A3B /* WeakObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC23862078F90700D11A3B /* WeakObject.swift */; };
 		B0C8C35321C1114F00DED5BF /* Countable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8C35221C1114F00DED5BF /* Countable.swift */; };
 		B0CE1B612245309B006A39AE /* Atomic+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CE1B602245309B006A39AE /* Atomic+Codable.swift */; };
+		B0CE1B6722453426006A39AE /* Atomic+CodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CE1B62224533D8006A39AE /* Atomic+CodableTests.swift */; };
+		B0CE1B6922453B05006A39AE /* Property+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CE1B6822453B05006A39AE /* Property+Codable.swift */; };
+		B0CE1B6B22453B54006A39AE /* Property+Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CE1B6A22453B54006A39AE /* Property+Observable.swift */; };
+		B0CE1B6E22453BFC006A39AE /* Property+CodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CE1B6C22453BF8006A39AE /* Property+CodableTests.swift */; };
 		B0CF898C2219A6970020ECD1 /* ContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF898B2219A6970020ECD1 /* ContextTests.swift */; };
 		B0CF898F2219A9120020ECD1 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF898E2219A9120020ECD1 /* Context.swift */; };
 		B0CF89912219A9370020ECD1 /* ContextError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF89902219A9370020ECD1 /* ContextError.swift */; };
@@ -181,6 +185,10 @@
 		B0BC23862078F90700D11A3B /* WeakObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakObject.swift; sourceTree = "<group>"; };
 		B0C8C35221C1114F00DED5BF /* Countable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countable.swift; sourceTree = "<group>"; };
 		B0CE1B602245309B006A39AE /* Atomic+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Atomic+Codable.swift"; sourceTree = "<group>"; };
+		B0CE1B62224533D8006A39AE /* Atomic+CodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Atomic+CodableTests.swift"; sourceTree = "<group>"; };
+		B0CE1B6822453B05006A39AE /* Property+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Property+Codable.swift"; sourceTree = "<group>"; };
+		B0CE1B6A22453B54006A39AE /* Property+Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Property+Observable.swift"; sourceTree = "<group>"; };
+		B0CE1B6C22453BF8006A39AE /* Property+CodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Property+CodableTests.swift"; sourceTree = "<group>"; };
 		B0CF898B2219A6970020ECD1 /* ContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextTests.swift; sourceTree = "<group>"; };
 		B0CF898E2219A9120020ECD1 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		B0CF89902219A9370020ECD1 /* ContextError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextError.swift; sourceTree = "<group>"; };
@@ -280,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				B0217AE52220F34E005F19EB /* AtomicTests.swift */,
+				B0CE1B62224533D8006A39AE /* Atomic+CodableTests.swift */,
 			);
 			path = Atomic;
 			sourceTree = "<group>";
@@ -288,9 +297,11 @@
 			isa = PBXGroup;
 			children = (
 				B089F9A221F1D5200052AD8D /* Property.swift */,
+				B0CE1B6A22453B54006A39AE /* Property+Observable.swift */,
 				B0652DA9214797E6009F8757 /* Property+ObservedChange.swift */,
 				B0217AE02220ED5F005F19EB /* Property+Observation.swift */,
 				B0217ADE2220ECF9005F19EB /* Property+Broadcaster.swift */,
+				B0CE1B6822453B05006A39AE /* Property+Codable.swift */,
 			);
 			path = Property;
 			sourceTree = "<group>";
@@ -423,6 +434,7 @@
 			isa = PBXGroup;
 			children = (
 				B089F9A421F1D5E30052AD8D /* PropertyTests.swift */,
+				B0CE1B6C22453BF8006A39AE /* Property+CodableTests.swift */,
 			);
 			path = Observable;
 			sourceTree = "<group>";
@@ -670,6 +682,7 @@
 			files = (
 				B089F9A321F1D5200052AD8D /* Property.swift in Sources */,
 				B0760BB62228BF2300705734 /* Gender.swift in Sources */,
+				B0CE1B6922453B05006A39AE /* Property+Codable.swift in Sources */,
 				B0760BB32228BF2300705734 /* Locale+CustomLocalizedStringConvertible.swift in Sources */,
 				B0BC23852078F8C000D11A3B /* Observable.swift in Sources */,
 				B037F12F223CE1E0006B9D52 /* Bearer+HTTPHeaderRepresentable.swift in Sources */,
@@ -726,6 +739,7 @@
 				B0836F4421FD71EE004D68F2 /* Initializable.swift in Sources */,
 				B037F134223CE1EB006B9D52 /* CombinedReducers.swift in Sources */,
 				B037F12D223CE1E0006B9D52 /* Basic.swift in Sources */,
+				B0CE1B6B22453B54006A39AE /* Property+Observable.swift in Sources */,
 				B07AB28D2200454B00E80ADC /* MIMEType.swift in Sources */,
 				B0C8C35321C1114F00DED5BF /* Countable.swift in Sources */,
 				B0836F2C21FCB13E004D68F2 /* HTTPRequest.swift in Sources */,
@@ -746,9 +760,11 @@
 				B0217ACA22202258005F19EB /* DispatcherTests.swift in Sources */,
 				B0D0DB1C2146188500AD1EE7 /* HTTPError.swift in Sources */,
 				B0CF898C2219A6970020ECD1 /* ContextTests.swift in Sources */,
+				B0CE1B6E22453BFC006A39AE /* Property+CodableTests.swift in Sources */,
 				B0F51C9E21586AD700B592F5 /* XCTSuccess.swift in Sources */,
 				B0217AE72220F355005F19EB /* AtomicTests.swift in Sources */,
 				B037F121223CE1CB006B9D52 /* CombinedReducersTests+Counter.swift in Sources */,
+				B0CE1B6722453426006A39AE /* Atomic+CodableTests.swift in Sources */,
 				B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */,
 				B037F136223CE238006B9D52 /* BearerTests.swift in Sources */,
 				B0E236622156762900FBE7B3 /* XCTUnwrapped.swift in Sources */,

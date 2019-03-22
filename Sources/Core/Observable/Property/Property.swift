@@ -12,50 +12,54 @@ public final class Property<Value> {
 
     let boardcaster = Broadcaster()
 
-    private var isInitialValue = true
+    private let _storage: Atomic<Storage>
 
-    private let _storage: Atomic<Value?>
+    public init(_ initialValue: Value? = nil) {
 
-    public init(value: Value? = nil) {
-
-        if let initialValue = value {
-
-            self._storage = Atomic(initialValue)
-
-            self.isInitialValue = false
-
+        guard let initialValue = initialValue else {
+            
+            self._storage = Atomic( Storage(value: nil, isInitialValue: true) )
+            
+            return
+            
         }
-        else { self._storage = Atomic(nil) }
+        
+        self._storage = Atomic(
+            Storage(value: initialValue, isInitialValue: false)
+        )
 
     }
 
 }
 
 extension Property {
+    
+    public var value: Value? {
+        
+        get { return _storage.value.value }
+        
+        set { modify { $0 = newValue } }
+        
+    }
 
-    public func mutateValue(
-        _ mutation: @escaping (inout Value?) -> Void
-    ) {
+    public func modify(_ closure: @escaping (inout Value?) -> Void) {
 
-        _storage.modify { value in
+        _storage.modify { [weak self] storage in
 
-            let oldValue = value
+            let oldValue = storage.value
+            
+            closure(&storage.value)
 
-            mutation(&value)
-
-            let newValue = value
+            let newValue = storage.value
 
             let change: ObservedChange =
-                self.isInitialValue
+                storage.isInitialValue
                 ? .initial(value: newValue)
-                : .changed(
-                    oldValue: oldValue,
-                    newValue: newValue
-                )
+                : .changed(oldValue: oldValue, newValue: newValue)
 
-            if self.isInitialValue { self.isInitialValue = false }
+            if storage.isInitialValue { storage.isInitialValue = false }
 
-            self.boardcaster.notifyAll(with: change)
+            self?.boardcaster.notifyAll(with: change)
 
         }
 
@@ -63,25 +67,18 @@ extension Property {
 
 }
 
-// MARK: - Observable
+// MARK: - Storage
 
-extension Property: Observable {
-
-    public var value: Value? { return _storage.value }
-
-    public func observe(
-        on queue: DispatchQueue = .global(),
-        observer: @escaping (ObservedChange) -> Void
-    )
-    -> Observation {
-
-        return boardcaster.observe(
-            on: queue,
-            observer: observer
-        )
-
+extension Property {
+    
+    private struct Storage {
+        
+        var value: Value?
+        
+        var isInitialValue: Bool
+        
     }
-
+    
 }
 
 // MARK: - Equatable
@@ -93,29 +90,5 @@ extension Property: Equatable where Value: Equatable {
         rhs: Property
     )
     -> Bool { return lhs.value == rhs.value }
-
-}
-
-// MARK: - Codable
-
-extension Property: Codable where Value: Codable {
-
-    public convenience init(from decoder: Decoder) throws {
-
-        let container = try decoder.singleValueContainer()
-
-        let value = try container.decode(Value.self)
-
-        self.init(value: value)
-
-    }
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.singleValueContainer()
-
-        try container.encode(value)
-
-    }
 
 }
