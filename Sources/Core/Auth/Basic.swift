@@ -30,3 +30,7 @@ public struct Basic {
 // MARK: - Equatable
 
 extension Basic: Equatable { }
+
+// MARK: - Codable
+
+extension Basic: Codable { }
