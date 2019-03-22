@@ -41,6 +41,10 @@ extension Property {
         set { modify { $0 = newValue } }
         
     }
+    
+    public var createdDate: Date { return _storage.createdDate }
+    
+    public var modifiedDate: Date{ return _storage.modifiedDate }
 
     public func modify(_ closure: @escaping (inout Value?) -> Void) {
 
