@@ -11,14 +11,14 @@
 public final class Atomic<Value> {
 
     /// Note: lazy var is not thread safe.
-    /// See discussion [Make "lazy var" threadsafe](https://bugs.swift.org/browse/SR-1042) for more detail.
+    /// See discussion [Make "lazy var" threadsafe](https://bugs.swift.org/browse/SR-1042) for more details.
     private let queue: DispatchQueue
 
-    private var _value: Value
+    private var _storage: Storage
 
-    public init(value: Value) {
+    public init(_ value: Value) {
 
-        self._value = value
+        self._storage = Storage(value: value)
 
         let id = UUID()
 
@@ -31,14 +31,66 @@ public final class Atomic<Value> {
 
     }
 
+}
+
+extension Atomic {
+    
     /// The atomic will ensure to finish the previous writing operation before reading the underlying value.
-    public var value: Value { return queue.sync { self._value } }
+    public var value: Value {
+        
+        get { return queue.sync { self._storage.value } }
+            
+        set { modify { $0 = newValue } }
+            
+    }
+    
+    public var createdDate: Date { return queue.sync { _storage.createdDate } }
+    
+    public var modifiedDate: Date { return queue.sync { _storage.modifiedDate } }
 
-    /// Mutating the underlying value is an asynchronous operation so it can avoid blocking the calling thread.
-    public func mutateValue(
-        _ mutation: @escaping (inout Value) -> Void
-    ) { queue.async(flags: .barrier) { mutation(&self._value) } }
+    /// Modifying the underlying value is an asynchronous operation so it can avoid blocking the calling thread.
+    public func modify(
+        _ closure: @escaping (inout Value) -> Void
+    ) {
+        
+        queue.async(flags: .barrier) {
+            
+            closure(&self._storage.value)
+            
+            self._storage.modifiedDate = Date()
+            
+        }
+        
+    }
 
+}
+
+// MARK: - Storage
+
+extension Atomic {
+    
+    private struct Storage {
+        
+        var value: Value
+        
+        let createdDate: Date
+        
+        var modifiedDate: Date
+        
+        init(value: Value) {
+            
+            let date = Date()
+            
+            self.value = value
+            
+            self.createdDate = date
+            
+            self.modifiedDate = date
+            
+        }
+        
+    }
+    
 }
 
 // MARK: - Equatable
@@ -50,29 +102,5 @@ extension Atomic: Equatable where Value: Equatable {
         rhs: Atomic
     )
     -> Bool { return lhs.value == rhs.value }
-
-}
-
-// MARK: - Codable
-
-extension Atomic: Codable where Value: Codable {
-
-    public convenience init(from decoder: Decoder) throws {
-
-        let container = try decoder.singleValueContainer()
-
-        let value = try container.decode(Value.self)
-
-        self.init(value: value)
-
-    }
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.singleValueContainer()
-
-        try container.encode(value)
-
-    }
 
 }

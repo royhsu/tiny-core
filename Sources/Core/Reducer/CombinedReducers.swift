@@ -44,7 +44,7 @@ public final class CombinedReducers<Identifier, Value> where Identifier: Hashabl
     ) {
 
         self._storage = Atomic(
-            value: Storage(
+            Storage(
                 currentValue: initialValue,
                 actions: actions
             )
@@ -68,7 +68,7 @@ extension CombinedReducers {
 
         if isReducing { fatalError("The reducer must not reduce itself while it's reducing.") }
 
-        _storage.mutateValue {
+        _storage.modify {
 
             $0.isReducing = true
 
@@ -92,11 +92,11 @@ extension CombinedReducers {
 
         let nextAction = newPendingActions.removeFirst()
 
-        _storage.mutateValue { $0.pendingActions = newPendingActions }
+        _storage.modify { $0.pendingActions = newPendingActions }
 
         nextAction.reducer(currentValue) { newValue in
 
-            self._storage.mutateValue { $0.currentValue = newValue }
+            self._storage.modify { $0.currentValue = newValue }
 
             self.reducePendingActions()
 
@@ -108,7 +108,7 @@ extension CombinedReducers {
 
         let completion = _storage.value.completion
 
-        _storage.mutateValue {
+        _storage.modify {
 
             $0.isReducing = false
 
@@ -136,7 +136,7 @@ extension CombinedReducers {
 
         get { return _storage.value.actions }
 
-        set { _storage.mutateValue { $0.actions.append(contentsOf: newValue) } }
+        set { _storage.modify { $0.actions.append(contentsOf: newValue) } }
 
     }
 

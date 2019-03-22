@@ -20,12 +20,12 @@ public final class Property<Value> {
 
         if let initialValue = value {
 
-            self._storage = Atomic(value: initialValue)
+            self._storage = Atomic(initialValue)
 
             self.isInitialValue = false
 
         }
-        else { self._storage = Atomic(value: nil) }
+        else { self._storage = Atomic(nil) }
 
     }
 
@@ -37,7 +37,7 @@ extension Property {
         _ mutation: @escaping (inout Value?) -> Void
     ) {
 
-        _storage.mutateValue { value in
+        _storage.modify { value in
 
             let oldValue = value
 

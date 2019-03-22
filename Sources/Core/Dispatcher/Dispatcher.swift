@@ -28,7 +28,7 @@ public final class Dispatcher<Item> {
 
     }()
 
-    private let _queue = Atomic(value: [Item]() )
+    private let _queue = Atomic( [Item]() )
 
     public init(
         batchScheduler: DispatcherBatchScheduler,
@@ -57,7 +57,7 @@ public final class Dispatcher<Item> {
 
             if batchItems.isEmpty { return }
 
-            self._queue.mutateValue { $0 = [] }
+            self._queue.modify { $0 = [] }
 
             self.batchTaskQueue.async {
 
@@ -80,7 +80,7 @@ extension Dispatcher {
 
     public func dispatch(_ item: Item) {
 
-        _queue.mutateValue { $0.append(item) }
+        _queue.modify { $0.append(item) }
 
     }
 

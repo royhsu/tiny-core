@@ -80,6 +80,7 @@
 		B0BC23852078F8C000D11A3B /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC23842078F8C000D11A3B /* Observable.swift */; };
 		B0BC23872078F90700D11A3B /* WeakObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC23862078F90700D11A3B /* WeakObject.swift */; };
 		B0C8C35321C1114F00DED5BF /* Countable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8C35221C1114F00DED5BF /* Countable.swift */; };
+		B0CE1B612245309B006A39AE /* Atomic+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CE1B602245309B006A39AE /* Atomic+Codable.swift */; };
 		B0CF898C2219A6970020ECD1 /* ContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF898B2219A6970020ECD1 /* ContextTests.swift */; };
 		B0CF898F2219A9120020ECD1 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF898E2219A9120020ECD1 /* Context.swift */; };
 		B0CF89912219A9370020ECD1 /* ContextError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF89902219A9370020ECD1 /* ContextError.swift */; };
@@ -179,6 +180,7 @@
 		B0BC23842078F8C000D11A3B /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		B0BC23862078F90700D11A3B /* WeakObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakObject.swift; sourceTree = "<group>"; };
 		B0C8C35221C1114F00DED5BF /* Countable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countable.swift; sourceTree = "<group>"; };
+		B0CE1B602245309B006A39AE /* Atomic+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Atomic+Codable.swift"; sourceTree = "<group>"; };
 		B0CF898B2219A6970020ECD1 /* ContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextTests.swift; sourceTree = "<group>"; };
 		B0CF898E2219A9120020ECD1 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		B0CF89902219A9370020ECD1 /* ContextError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextError.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				B089F9AA21F212850052AD8D /* Atomic.swift */,
+				B0CE1B602245309B006A39AE /* Atomic+Codable.swift */,
 			);
 			path = Atomic;
 			sourceTree = "<group>";
@@ -698,6 +701,7 @@
 				B062C5BD2212C5B9001807A6 /* URLSessionDataTask+ServiceTask.swift in Sources */,
 				B0836F2721FCACE2004D68F2 /* HTTPHeaderRepresentable.swift in Sources */,
 				B0652DAA214797E6009F8757 /* Property+ObservedChange.swift in Sources */,
+				B0CE1B612245309B006A39AE /* Atomic+Codable.swift in Sources */,
 				B0760BB52228BF2300705734 /* Region.swift in Sources */,
 				B05017402078C999009838F9 /* Degrees.swift in Sources */,
 				B0217AD422203C21005F19EB /* AnyObservable.swift in Sources */,
@@ -901,9 +905,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Sources/iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -924,9 +926,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Sources/iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

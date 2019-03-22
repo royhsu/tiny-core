@@ -14,17 +14,24 @@ import XCTest
 
 final class AtomicTests: XCTestCase {
 
-    private let expectionTimeout = 5.0
-
     func testDefault() {
 
-        let atomic = Atomic(value: "default")
+        let atomic = Atomic(0)
 
-        XCTAssertEqual(
-            atomic.value,
-            "default"
-        )
+        XCTAssertEqual(atomic.value, 0)
 
+        XCTAssertEqual(atomic.createdDate, atomic.modifiedDate)
+        
+    }
+    
+    func testModifiedDate() {
+        
+        let atomic = Atomic(0)
+        
+        atomic.value = 1
+        
+        XCTAssert(atomic.createdDate < atomic.modifiedDate)
+        
     }
 
     func testThreadSafety() {
@@ -35,13 +42,13 @@ final class AtomicTests: XCTestCase {
 
         readsAndWrites.expectedFulfillmentCount = iterations
 
-        let atomic = Atomic(value: 0)
+        let atomic = Atomic(0)
 
         DispatchQueue.concurrentPerform(iterations: iterations) { count in
 
             defer { readsAndWrites.fulfill() }
 
-            atomic.mutateValue { value in
+            atomic.modify { value in
 
                 value = count
 
@@ -54,20 +61,20 @@ final class AtomicTests: XCTestCase {
 
         }
 
-        waitForExpectations(timeout: expectionTimeout)
+        waitForExpectations(timeout: 10.0)
 
     }
 
     func testEquatable() {
 
         XCTAssertEqual(
-            Atomic(value: 1),
-            Atomic(value: 1)
+            Atomic(0),
+            Atomic(0)
         )
 
         XCTAssertNotEqual(
-            Atomic(value: 0),
-            Atomic(value: 1)
+            Atomic(0),
+            Atomic(1)
         )
 
     }
@@ -76,35 +83,20 @@ final class AtomicTests: XCTestCase {
 
         let decoder = JSONDecoder()
 
-        let data = try JSONSerialization.data(withJSONObject: [ 1, 2 ])
-
-        let decodedProperties = try decoder.decode(
-            [Atomic<Int>].self,
-            from: data
-        )
+        let data = try JSONSerialization.data(withJSONObject: [ 1 ])
 
         XCTAssertEqual(
-            decodedProperties,
-            [
-                Atomic(value: 1),
-                Atomic(value: 2)
-            ]
+            try decoder.decode([Atomic<Int>].self, from: data),
+            [ Atomic(1) ]
         )
 
     }
 
     func testEncodable() throws {
 
-        let encoder = JSONEncoder()
-
         XCTAssertEqual(
-            try encoder.encode(
-                [
-                    Atomic(value: 1),
-                    Atomic(value: 2)
-                ]
-            ),
-            try JSONSerialization.data(withJSONObject: [ 1, 2 ])
+            try JSONEncoder().encode([ Atomic(1) ]),
+            try JSONSerialization.data(withJSONObject: [ 1 ])
         )
 
     }
