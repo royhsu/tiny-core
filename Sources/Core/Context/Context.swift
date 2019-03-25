@@ -13,9 +13,9 @@
 /// It also throws the well-defined error when things go wrong. For examples, making instances from unregistered identifiers, or specifying a wrong target type for context to make.
 public struct Context<Identifier> where Identifier: Hashable {
 
-    private var storage: [Identifier: () throws -> Any] = [:]
+    private var storage: [Identifier: () throws -> Any]
 
-    public init() { }
+    public init(storage: [Identifier: () throws -> Any] = [:]) { self.storage = storage }
 
     /// Register a factory for specific identifier.
     public mutating func register(
