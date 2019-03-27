@@ -28,7 +28,7 @@ extension Observable {
         }
 
     }
-
+    
     public func bind<Target: AnyObject, U>(
         on queue: DispatchQueue = .main,
         transform: @escaping (Value) -> U?,
@@ -50,7 +50,7 @@ extension Observable {
 
     public func bind<Target: AnyObject>(
         on queue: DispatchQueue = .main,
-        to destination: (target: Target, keyPath: ReferenceWritableKeyPath<Target, Value?>)
+        to destination: (target: Target, keyPath: ReferenceWritableKeyPath<Target, Value>)
     )
     -> Observation {
 
@@ -61,48 +61,48 @@ extension Observable {
         )
 
     }
-
+    
     public func bind<Target: AnyObject, U>(
         on queue: DispatchQueue = .main,
-        transform: @escaping (Value?) -> U,
+        transform: @escaping (Value) -> U,
         to destination: (target: Target?, keyPath: ReferenceWritableKeyPath<Target?, U>)
     )
     -> Observation {
-
+        
         destination.target?[keyPath: destination.keyPath] = transform(value)
-
+        
         return observe(on: queue) { change in
-
+            
             let newValue = transform(change.currentValue)
-
+            
             destination.target?[keyPath: destination.keyPath] = newValue
-
+            
         }
-
+            
     }
-
+    
     public func bind<Target: AnyObject, U>(
         on queue: DispatchQueue = .main,
-        transform: @escaping (Value?) -> U?,
+        transform: @escaping (Value) -> U?,
         to destination: (target: Target?, keyPath: ReferenceWritableKeyPath<Target?, U?>)
     )
     -> Observation {
-
+        
         destination.target?[keyPath: destination.keyPath] = transform(value)
-
+        
         return observe(on: queue) { change in
-
+            
             let newValue = transform(change.currentValue)
-
+            
             destination.target?[keyPath: destination.keyPath] = newValue
-
+            
         }
-
+            
     }
 
     public func bind<Target: AnyObject>(
         on queue: DispatchQueue = .main,
-        to destination: (target: Target?, keyPath: ReferenceWritableKeyPath<Target?, Value?>)
+        to destination: (target: Target?, keyPath: ReferenceWritableKeyPath<Target?, Value>)
     )
     -> Observation {
 
