@@ -12,7 +12,7 @@ extension Property: Observable {
     
     public func observe(
         on queue: DispatchQueue = .global(),
-        observer: @escaping (ObservedChange) -> Void
+        observer: @escaping (ObservedChange<Value?>) -> Void
     )
     -> Observation {
         

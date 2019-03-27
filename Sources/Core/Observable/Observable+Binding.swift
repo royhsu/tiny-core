@@ -10,11 +10,9 @@
 
 extension Observable {
 
-    public typealias Value = ObservedChange.Value
-
     public func bind<Target: AnyObject, U>(
         on queue: DispatchQueue = .main,
-        transform: @escaping (Value?) -> U,
+        transform: @escaping (Value) -> U,
         to destination: (target: Target, keyPath: ReferenceWritableKeyPath<Target, U>)
     )
     -> Observation {
@@ -33,7 +31,7 @@ extension Observable {
 
     public func bind<Target: AnyObject, U>(
         on queue: DispatchQueue = .main,
-        transform: @escaping (Value?) -> U?,
+        transform: @escaping (Value) -> U?,
         to destination: (target: Target, keyPath: ReferenceWritableKeyPath<Target, U?>)
     )
     -> Observation {

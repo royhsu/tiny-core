@@ -10,7 +10,7 @@
 
 public final class Property<Value> {
 
-    let boardcaster = Broadcaster()
+    let boardcaster = Broadcaster<Value?>()
 
     private let _storage: Atomic<Storage>
 

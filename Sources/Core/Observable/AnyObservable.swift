@@ -8,20 +8,20 @@
 
 // MARK: - AnyObservable
 
-public struct AnyObservable<ObservedChange> where ObservedChange: ObservedChangeProtocol {
+public struct AnyObservable<Value> {
 
-    private let _getter: () -> ObservedChange.Value?
+    private let _getter: () -> Value
 
     private let _observe: (
         _ queue: DispatchQueue,
-        _ observer: @escaping (ObservedChange) -> Void
+        _ observer: @escaping (ObservedChange<Value>) -> Void
     )
     -> Observation
 
     public init<O>(_ observable: O)
     where
         O: Observable,
-        O.ObservedChange == ObservedChange {
+        O.Value == Value {
 
         self._getter = { observable.value }
 
@@ -35,19 +35,12 @@ public struct AnyObservable<ObservedChange> where ObservedChange: ObservedChange
 
 extension AnyObservable: Observable {
 
-    public var value: ObservedChange.Value? { return _getter() }
+    public var value: Value { return _getter() }
 
     public func observe(
         on queue: DispatchQueue = .global(),
-        observer: @escaping (ObservedChange) -> Void
+        observer: @escaping (ObservedChange<Value>) -> Void
     )
-    -> Observation {
-
-        return _observe(
-            queue,
-            observer
-        )
-
-    }
+    -> Observation { return _observe(queue, observer) }
 
 }

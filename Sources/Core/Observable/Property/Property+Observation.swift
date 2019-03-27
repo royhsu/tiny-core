@@ -8,30 +8,26 @@
 
 // MARK: - Observation
 
-extension Property {
+final class _Observation<Value>: Observation {
 
-    final class _Observation: Observation {
+    private let queue: DispatchQueue
 
-        private let queue: DispatchQueue
+    private let observer: (ObservedChange<Value>) -> Void
 
-        private let observer: (ObservedChange) -> Void
+    init(
+        queue: DispatchQueue,
+        observer: @escaping (ObservedChange<Value>) -> Void
+    ) {
 
-        init(
-            queue: DispatchQueue,
-            observer: @escaping (ObservedChange) -> Void
-        ) {
+        self.queue = queue
 
-            self.queue = queue
+        self.observer = observer
 
-            self.observer = observer
+    }
 
-        }
+    func notify(with change: ObservedChange<Value>) {
 
-        func notify(with change: ObservedChange) {
-
-            queue.async { [weak self] in self?.observer(change) }
-
-        }
+        queue.async { [weak self] in self?.observer(change) }
 
     }
 

@@ -10,13 +10,13 @@
 
 public protocol Observable {
 
-    associatedtype ObservedChange: ObservedChangeProtocol
+    associatedtype Value
 
-    var value: ObservedChange.Value? { get }
+    var value: Value { get }
 
     func observe(
         on queue: DispatchQueue,
-        observer: @escaping (ObservedChange) -> Void
+        observer: @escaping (ObservedChange<Value>) -> Void
     )
     -> Observation
 
