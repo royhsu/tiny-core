@@ -26,8 +26,13 @@ final class _Observation<Value>: Observation {
     }
 
     func notify(with change: ObservedChange<Value>) {
+        
+        // Prevent the queue being deallocated before notifying the change.
+        DispatchQueue.global(qos: .userInteractive).async {
+            
+            self.queue.async { self.observer(change) }
 
-        queue.async { [weak self] in self?.observer(change) }
+        }
 
     }
 

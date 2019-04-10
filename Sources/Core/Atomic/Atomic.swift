@@ -22,10 +22,11 @@ public final class Atomic<Value> {
 
         let id = UUID()
 
-        let dynamicType = String(describing: type(of: self) )
+        let dynamicType = String(describing: type(of: self))
 
         self.queue = DispatchQueue(
             label: "\(dynamicType).ConcurrentQueue.\(id)",
+            qos: .userInteractive,
             attributes: .concurrent
         )
 
@@ -97,10 +98,10 @@ extension Atomic {
 
 extension Atomic: Equatable where Value: Equatable {
 
-    public static func == (
-        lhs: Atomic,
-        rhs: Atomic
-    )
-    -> Bool { return lhs.value == rhs.value }
+    public static func == (lhs: Atomic, rhs: Atomic) -> Bool {
+        
+        return lhs.value == rhs.value
+        
+    }
 
 }

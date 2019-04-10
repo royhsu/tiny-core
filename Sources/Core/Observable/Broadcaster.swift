@@ -13,21 +13,16 @@ final class Broadcaster<Value> {
     typealias Object = WeakObject<_Observation<Value>>
 
     private(set) var objects: [Object] = []
-
+    
     func observe(
         on queue: DispatchQueue,
         observer: @escaping (ObservedChange<Value>) -> Void
     )
     -> Observation {
 
-        let observation = _Observation(
-            queue: queue,
-            observer: observer
-        )
+        let observation = _Observation(queue: queue, observer: observer)
 
-        objects.append(
-            WeakObject(observation)
-        )
+        objects.append(WeakObject(observation))
 
         return observation
 
@@ -35,11 +30,9 @@ final class Broadcaster<Value> {
 
     func notifyAll(with change: ObservedChange<Value>) {
 
-        let liveObjects = objects.filter { $0.reference != nil }
+        objects.forEach { $0.reference?.notify(with: change) }
 
-        objects = liveObjects
-
-        liveObjects.forEach { $0.reference?.notify(with: change) }
+        objects.removeAll { $0.reference == nil }
 
     }
 

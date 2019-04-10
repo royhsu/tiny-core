@@ -48,7 +48,7 @@ extension Property {
 
     public func modify(_ closure: @escaping (inout Value?) -> Void) {
 
-        _storage.modify { [weak self] storage in
+        _storage.modify { storage in
 
             let oldValue = storage.value
             
@@ -63,7 +63,7 @@ extension Property {
 
             if storage.isInitialValue { storage.isInitialValue = false }
 
-            self?.boardcaster.notifyAll(with: change)
+            self.boardcaster.notifyAll(with: change)
 
         }
 
@@ -89,10 +89,10 @@ extension Property {
 
 extension Property: Equatable where Value: Equatable {
 
-    public static func == (
-        lhs: Property,
-        rhs: Property
-    )
-    -> Bool { return lhs.value == rhs.value }
+    public static func == (lhs: Property, rhs: Property) -> Bool {
+        
+        return lhs.value == rhs.value
+        
+    }
 
 }
