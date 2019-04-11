@@ -30,9 +30,9 @@ final class Broadcaster<Value> {
 
     func notifyAll(with change: ObservedChange<Value>) {
 
-        objects.forEach { $0.reference?.notify(with: change) }
-
         objects.removeAll { $0.reference == nil }
+
+        objects.forEach { $0.reference?.notify(with: change) }
 
     }
 
