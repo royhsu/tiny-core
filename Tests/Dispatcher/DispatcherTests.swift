@@ -6,56 +6,40 @@
 //  Copyright © 2019 TinyWorld. All rights reserved.
 //
 
+// MARK: - DispatcherTests
+
 import XCTest
 
 @testable import TinyCore
 
 final class DispatcherTests: XCTestCase {
 
-    private let expectionTimeout = 5.0
-
     func testBatchTask() {
 
         let batchTask = expectation(description: "Execute the batch task.")
 
-        let counter = Counter(limitNumber: 2)
-
-        let dispatcher = Dispatcher<String>(
-            batchScheduler: counter,
-            batchTask: { dispatcher, batchItems in
+        var numberCounter = NumberCounter(targetCount: 100)
+        
+        let dispatcher = Dispatcher(
+            batchScheduler: numberCounter,
+            batchTask: { batchNumbers in
 
                 defer { batchTask.fulfill() }
 
-                XCTAssertEqual(
-                    batchItems,
-                    [
-                        "c",
-                        "a"
-                    ]
-                )
-
-                XCTAssertEqual(
-                    dispatcher.queue,
-                    [ "e" ]
-                )
+                XCTAssertEqual(batchNumbers.sorted(), Array(1...100))
 
             }
         )
 
-        dispatcher.dispatch("c")
+        DispatchQueue.concurrentPerform(iterations: 150) { count in
+            
+            let number = count + 1
+            
+            dispatcher.dispatch(number) { _ in numberCounter.increment() }
+            
+        }
 
-        counter.count()
-
-        dispatcher.dispatch("a")
-
-        // This will make the counter reach the number.
-        counter.count()
-
-        dispatcher.dispatch("e")
-
-        counter.count()
-
-        waitForExpectations(timeout: expectionTimeout)
+        waitForExpectations(timeout: 10.0)
 
     }
 

@@ -43,22 +43,19 @@ final class AtomicTests: XCTestCase {
         readsAndWrites.expectedFulfillmentCount = iterations
 
         let atomic = Atomic(0)
-
+        
         DispatchQueue.concurrentPerform(iterations: iterations) { count in
 
             defer { readsAndWrites.fulfill() }
 
             atomic.modify { value in
-
+                
                 value = count
-
-                XCTAssertEqual(
-                    value,
-                    count
-                )
-
+                
+                XCTAssertEqual(value, count)
+                
             }
-
+        
         }
 
         waitForExpectations(timeout: 10.0)
@@ -67,15 +64,9 @@ final class AtomicTests: XCTestCase {
 
     func testEquatable() {
 
-        XCTAssertEqual(
-            Atomic(0),
-            Atomic(0)
-        )
+        XCTAssertEqual(Atomic(0), Atomic(0))
 
-        XCTAssertNotEqual(
-            Atomic(0),
-            Atomic(1)
-        )
+        XCTAssertNotEqual(Atomic(0), Atomic(1))
 
     }
     

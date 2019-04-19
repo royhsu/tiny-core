@@ -20,15 +20,11 @@ public final class Atomic<Value> {
 
         self._storage = Storage(value: value)
 
-        let id = UUID()
+        let identifier = UUID()
 
         let dynamicType = String(describing: type(of: self))
 
-        self.queue = DispatchQueue(
-            label: "\(dynamicType).ConcurrentQueue.\(id)",
-            qos: .userInteractive,
-            attributes: .concurrent
-        )
+        self.queue = DispatchQueue(label: "\(dynamicType).SerialQueue: [\(identifier)]")
 
     }
 
@@ -36,7 +32,6 @@ public final class Atomic<Value> {
 
 extension Atomic {
     
-    /// The atomic will ensure to finish the previous writing operation before reading the underlying value.
     public var value: Value {
         
         get { return queue.sync { self._storage.value } }
@@ -47,14 +42,15 @@ extension Atomic {
     
     public var createdDate: Date { return queue.sync { _storage.createdDate } }
     
-    public var modifiedDate: Date { return queue.sync { _storage.modifiedDate } }
-
-    /// Modifying the underlying value is an asynchronous operation so it can avoid blocking the calling thread.
-    public func modify(
-        _ closure: @escaping (inout Value) -> Void
-    ) {
+    public var modifiedDate: Date {
         
-        queue.async(flags: .barrier) {
+        return queue.sync { _storage.modifiedDate }
+        
+    }
+
+    public func modify(_ closure: @escaping (inout Value) -> Void) {
+        
+        queue.sync {
             
             closure(&self._storage.value)
             

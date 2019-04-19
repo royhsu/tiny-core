@@ -6,46 +6,28 @@
 //  Copyright © 2019 TinyWorld. All rights reserved.
 //
 
-// MARK: - Counter
-
-extension DispatcherTests {
-
-    class Counter {
-
-        private let limitNumber: Int
-
-        private var currentNumber = 0
-
-        private var completion: ( (Counter) -> Void )?
-
-        init(limitNumber: Int) { self.limitNumber = limitNumber }
-
-    }
-
-}
-
-extension DispatcherTests.Counter {
-
-    func count() {
-
-        if currentNumber > limitNumber { preconditionFailure("The counter has reached the number.") }
-
-        currentNumber += 1
-
-        guard currentNumber == limitNumber else { return }
-
-        completion?(self)
-
-    }
-
-}
-
-// MARK: - DispatcherBatchScheduler
+// MARK: - ItemCounter
 
 import TinyCore
 
-extension DispatcherTests.Counter: DispatcherBatchScheduler {
+extension DispatcherTests {
+    
+    class NumberCounter: DispatcherBatchScheduler {
 
-    func scheduleTask(_ task: @escaping (DispatcherBatchScheduler) -> Void) { completion = task }
+        private let targetCount: Int
+
+        private(set) var currentCount = 0
+        
+        init(targetCount: Int) { self.targetCount = targetCount }
+        
+        func increment() { currentCount += 1 }
+        
+        func shouldBatch(for numbers: [Int]) -> Bool {
+        
+            return numbers.count == targetCount
+        
+        }
+        
+    }
 
 }

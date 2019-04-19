@@ -10,65 +10,33 @@
 
 public final class Dispatcher<Item> {
 
-    private let batchScheduler: DispatcherBatchScheduler
+    private let batchScheduler: AnyDispatcherBatchScheduler<Item>
 
-    private let batchTask: (
-        _ dispatcher: Dispatcher,
-        _ batchItems: [Item]
-    )
-    -> Void
+    private let batchTask: (_ batchItems: [Item]) -> Void
 
     private lazy var batchTaskQueue: DispatchQueue = {
 
-        let id = UUID()
+        let identifier = UUID()
 
-        let typeName = String(describing: type(of: self) )
+        let typeName = String(describing: type(of: self))
 
-        return DispatchQueue(label: "\(typeName).SerialQueue.\(id).BatchTask")
+        return DispatchQueue(label: "\(typeName).SerialQueue.BatchTask: [\(identifier)]")
 
     }()
 
-    private let _queue = Atomic( [Item]() )
+    private let _queue = Atomic([Item]())
 
-    public init(
-        batchScheduler: DispatcherBatchScheduler,
-        batchTask: @escaping (
-            _ manager: Dispatcher,
-            _ batchItems: [Item]
-        )
-        -> Void
-    ) {
+    public init<S>(
+        batchScheduler: S,
+        batchTask: @escaping (_ batchItems: [Item]) -> Void
+    )
+    where
+        S: DispatcherBatchScheduler,
+        S.Item == Item {
 
-        self.batchScheduler = batchScheduler
+        self.batchScheduler = AnyDispatcherBatchScheduler(batchScheduler)
 
         self.batchTask = batchTask
-
-        self.load()
-
-    }
-
-    private func load() {
-
-        batchScheduler.scheduleTask { [weak self] _ in
-
-            guard let self = self else { return }
-
-            let batchItems = self.queue
-
-            if batchItems.isEmpty { return }
-
-            self._queue.modify { $0 = [] }
-
-            self.batchTaskQueue.async {
-
-                self.batchTask(
-                    self,
-                    batchItems
-                )
-
-            }
-
-        }
 
     }
 
@@ -78,10 +46,27 @@ extension Dispatcher {
 
     public var queue: [Item] { return _queue.value }
 
-    public func dispatch(_ item: Item) {
-
-        _queue.modify { $0.append(item) }
-
+    public func dispatch(_ item: Item, completion: (([Item]) -> Void)? = nil) {
+        
+        _queue.modify { items in
+            
+            var newItems = items
+            
+            newItems.append(item)
+            
+            completion?(newItems)
+            
+            if self.batchScheduler.shouldBatch(for: newItems) {
+                
+                items = []
+                
+                self.batchTask(newItems)
+                
+            }
+            else { items = newItems }
+            
+        }
+        
     }
 
 }
