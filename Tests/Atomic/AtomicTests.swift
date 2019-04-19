@@ -24,11 +24,13 @@ final class AtomicTests: XCTestCase {
         
     }
     
-    func testModifiedDate() {
+    func testModify() {
         
         let atomic = Atomic(0)
         
-        atomic.value = 1
+        atomic.modify { $0 = 1 }
+        
+        XCTAssertEqual(atomic.value, 1)
         
         XCTAssert(atomic.createdDate < atomic.modifiedDate)
         

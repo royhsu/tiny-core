@@ -32,13 +32,7 @@ public final class Atomic<Value> {
 
 extension Atomic {
     
-    public var value: Value {
-        
-        get { return queue.sync { self._storage.value } }
-            
-        set { modify { $0 = newValue } }
-            
-    }
+    public var value: Value { return queue.sync { self._storage.value } }
     
     public var createdDate: Date { return queue.sync { _storage.createdDate } }
     
