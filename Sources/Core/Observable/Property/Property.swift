@@ -18,7 +18,7 @@ public final class Property<Value> {
 
         guard let initialValue = initialValue else {
             
-            self._storage = Atomic( Storage(value: nil, isInitialValue: true) )
+            self._storage = Atomic(Storage(value: nil, isInitialValue: true))
             
             return
             
@@ -34,13 +34,7 @@ public final class Property<Value> {
 
 extension Property {
     
-    public var value: Value? {
-        
-        get { return _storage.value.value }
-        
-        set { modify { $0 = newValue } }
-        
-    }
+    public var value: Value? { return _storage.value.value }
     
     public var createdDate: Date { return _storage.createdDate }
     

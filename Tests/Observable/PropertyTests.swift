@@ -28,7 +28,7 @@ final class PropertyTests: XCTestCase {
         
         let property = Property(0)
         
-        property.value = 1
+        property.modify { $0 = 1 }
         
         XCTAssertEqual(property.value, 1)
         
@@ -60,7 +60,7 @@ final class PropertyTests: XCTestCase {
             }
         ]
 
-        property.value = "initial value"
+        property.modify { $0 = "initial value" }
 
         waitForExpectations(timeout: 10.0)
 
@@ -92,7 +92,7 @@ final class PropertyTests: XCTestCase {
             }
         ]
 
-        property.value = "new value"
+        property.modify { $0 = "new value" }
 
         waitForExpectations(timeout: 10.0)
 
@@ -102,9 +102,7 @@ final class PropertyTests: XCTestCase {
 
         let didObserveChangesOnQueue = expectation(description: "Observe changes on the specific queue.")
 
-        let dynamicType = String(
-            describing: type(of: self)
-        )
+        let dynamicType = String(describing: type(of: self))
 
         let queue = DispatchQueue(label: "\(dynamicType).SerialQueue.\(#function)")
 
@@ -122,7 +120,7 @@ final class PropertyTests: XCTestCase {
             }
         ]
 
-        property.value = 1
+        property.modify { $0 = 1 }
 
         waitForExpectations(timeout: 10.0)
 
@@ -156,7 +154,7 @@ final class PropertyTests: XCTestCase {
 
         XCTAssertEqual(view.text, "bound" )
 
-        property.value = "new value"
+        property.modify { $0 = "new value" }
 
         waitForExpectations(timeout: 10.0)
 
@@ -187,7 +185,7 @@ final class PropertyTests: XCTestCase {
 
         XCTAssertNil(view.text)
 
-        property.value = "new value"
+        property.modify { $0 = "new value" }
 
         waitForExpectations(timeout: 10.0)
 
@@ -195,15 +193,9 @@ final class PropertyTests: XCTestCase {
 
     func testEquatable() {
 
-        XCTAssertEqual(
-            Property(0),
-            Property(0)
-        )
+        XCTAssertEqual(Property(0), Property(0))
 
-        XCTAssertNotEqual(
-            Property(0),
-            Property(1)
-        )
+        XCTAssertNotEqual(Property(0), Property(1))
 
     }
 
