@@ -23,15 +23,15 @@ final class PropertyTests: XCTestCase {
         XCTAssertNil(property.value)
 
     }
-    
+
     func testModifyValue() {
-        
+
         let property = Property(0)
-        
+
         property.modify { $0 = 1 }
-        
+
         XCTAssertEqual(property.value, 1)
-        
+
     }
 
     func testObserveInitialValue() {
@@ -204,7 +204,7 @@ final class PropertyTests: XCTestCase {
 // MARK: - TextView
 
 extension PropertyTests {
-    
+
     final class TextView<Text> {
 
         var text: Text

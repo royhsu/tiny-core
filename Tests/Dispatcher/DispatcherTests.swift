@@ -19,7 +19,7 @@ final class DispatcherTests: XCTestCase {
         let batchTask = expectation(description: "Execute the batch task.")
 
         var numberCounter = NumberCounter(targetCount: 100)
-        
+
         let dispatcher = Dispatcher(
             batchScheduler: numberCounter,
             batchTask: { batchNumbers in
@@ -32,11 +32,11 @@ final class DispatcherTests: XCTestCase {
         )
 
         DispatchQueue.concurrentPerform(iterations: 150) { count in
-            
+
             let number = count + 1
-            
+
             dispatcher.dispatch(number) { _ in numberCounter.increment() }
-            
+
         }
 
         waitForExpectations(timeout: 10.0)

@@ -13,25 +13,25 @@ import XCTest
 @testable import TinyCore
 
 final class Atomic_CodaleTests: XCTestCase {
-    
+
     func testDecodable() throws {
-        
+
         let data = try JSONSerialization.data(withJSONObject: [ 1 ])
-        
+
         XCTAssertEqual(
             try JSONDecoder().decode([Atomic<Int>].self, from: data),
             [ Atomic(1) ]
         )
-        
+
     }
-    
+
     func testEncodable() throws {
-        
+
         XCTAssertEqual(
             try JSONEncoder().encode([ Atomic(1) ]),
             try JSONSerialization.data(withJSONObject: [ 1 ])
         )
-        
+
     }
-    
+
 }

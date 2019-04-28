@@ -9,18 +9,18 @@
 // MARK: - Observable
 
 extension Property: Observable {
-    
+
     public func observe(
         on queue: DispatchQueue = .global(),
         observer: @escaping (ObservedChange<Value?>) -> Void
     )
     -> Observation {
-        
+
         return boardcaster.observe(
             on: queue,
             observer: observer
         )
-            
+
     }
-    
+
 }

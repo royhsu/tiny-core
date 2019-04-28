@@ -18,7 +18,7 @@ extension URLSession: HTTPClient {
     -> ServiceTask {
 
         do {
-        
+
             let request = try request.urlRequest()
 
             let task = dataTask(with: request) { data, urlResponse, error in
@@ -43,11 +43,10 @@ extension URLSession: HTTPClient {
             }
 
             task.resume()
-            
+
             return task
-            
-        }
-        catch { completion(.failure(error)); return URLSessionTask() }
+
+        } catch { completion(.failure(error)); return URLSessionTask() }
 
     }
 

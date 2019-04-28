@@ -31,27 +31,27 @@ public final class Atomic<Value> {
 }
 
 extension Atomic {
-    
+
     public var value: Value { return queue.sync { self._storage.value } }
-    
+
     public var createdDate: Date { return queue.sync { _storage.createdDate } }
-    
+
     public var modifiedDate: Date {
-        
+
         return queue.sync { _storage.modifiedDate }
-        
+
     }
 
     public func modify(_ closure: @escaping (inout Value) -> Void) {
-        
+
         queue.sync {
-            
+
             closure(&self._storage.value)
-            
+
             self._storage.modifiedDate = Date()
-            
+
         }
-        
+
     }
 
 }
@@ -59,29 +59,29 @@ extension Atomic {
 // MARK: - Storage
 
 extension Atomic {
-    
+
     private struct Storage {
-        
+
         var value: Value
-        
+
         let createdDate: Date
-        
+
         var modifiedDate: Date
-        
+
         init(value: Value) {
-            
+
             let date = Date()
-            
+
             self.value = value
-            
+
             self.createdDate = date
-            
+
             self.modifiedDate = date
-            
+
         }
-        
+
     }
-    
+
 }
 
 // MARK: - Equatable
@@ -89,9 +89,9 @@ extension Atomic {
 extension Atomic: Equatable where Value: Equatable {
 
     public static func == (lhs: Atomic, rhs: Atomic) -> Bool {
-        
+
         return lhs.value == rhs.value
-        
+
     }
 
 }
