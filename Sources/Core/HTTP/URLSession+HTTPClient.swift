@@ -13,48 +13,41 @@ extension URLSession: HTTPClient {
     @discardableResult
     public final func request(
         _ request: URLRequestRepresentable,
-        completion: @escaping (Result< HTTPResponse<Data?> >) -> Void
+        completion: @escaping (Result<HTTPResponse<Data?>, Error>) -> Void
     )
-    throws -> ServiceTask {
+    -> ServiceTask {
 
-        let request = try request.urlRequest()
+        do {
+        
+            let request = try request.urlRequest()
 
-        let task = dataTask(with: request) { data, urlResponse, error in
+            let task = dataTask(with: request) { data, urlResponse, error in
 
-            if let error = error {
+                if let error = error { completion(.failure(error)); return }
 
-                completion(
-                    .failure(error)
+                guard let urlResponse = urlResponse else {
+
+                    completion(.failure(HTTPError.noResponse))
+
+                    return
+
+                }
+
+                let response = HTTPResponse(
+                    body: data,
+                    urlResponse: urlResponse
                 )
 
-                return
+                completion(.success(response))
 
             }
 
-            guard let urlResponse = urlResponse else {
-
-                completion(
-                    .failure(HTTPError.noResponse)
-                )
-
-                return
-
-            }
-
-            let response = HTTPResponse(
-                body: data,
-                urlResponse: urlResponse
-            )
-
-            completion(
-                .success(response)
-            )
-
+            task.resume()
+            
+            return task
+            
         }
-
-        task.resume()
-
-        return task
+        catch { completion(.failure(error)); return URLSessionTask() }
 
     }
 

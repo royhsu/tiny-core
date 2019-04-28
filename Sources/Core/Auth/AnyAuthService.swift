@@ -12,9 +12,9 @@ public struct AnyAuthService<Credentials, Auth> {
 
     private let _authorize: (
         _ credentials: Credentials,
-        _ completion: @escaping (Result<Auth>) -> Void
+        _ completion: @escaping (Result<Auth, Error>) -> Void
     )
-    throws -> ServiceTask
+    -> ServiceTask
 
     public init<S>(_ service: S)
     where
@@ -31,15 +31,8 @@ extension AnyAuthService: AuthService {
     @discardableResult
     public func authorize(
         with credentials: Credentials,
-        completion: @escaping (Result<Auth>) -> Void
+        completion: @escaping (Result<Auth, Error>) -> Void
     )
-    throws -> ServiceTask {
-
-        return try _authorize(
-            credentials,
-            completion
-        )
-
-    }
+    -> ServiceTask { return _authorize(credentials, completion) }
 
 }

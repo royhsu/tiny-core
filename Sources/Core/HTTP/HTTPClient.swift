@@ -13,8 +13,8 @@ public protocol HTTPClient {
     @discardableResult
     func request(
         _ request: URLRequestRepresentable,
-        completion: @escaping (Result< HTTPResponse<Data?> >) -> Void
+        completion: @escaping (Result<HTTPResponse<Data?>, Error>) -> Void
     )
-    throws -> ServiceTask
+    -> ServiceTask
 
 }
