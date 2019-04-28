@@ -32,7 +32,7 @@ public final class EventEmitter<Event> where Event: Hashable {
 
 }
 
-public extension EventEmitter {
+extension EventEmitter {
 
     public final func emit(event: Event) {
 
@@ -52,7 +52,7 @@ public extension EventEmitter {
 
 }
 
-public extension EventEmitter {
+extension EventEmitter {
 
     /// A listener must keep the strong reference to the listening while observing.
     /// Removing listener is easy. Just set the reference of the listening to nil.

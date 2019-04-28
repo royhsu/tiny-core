@@ -16,7 +16,7 @@ public enum Result<Success> {
 
 }
 
-public extension Result {
+extension Result {
 
     public func get() throws -> Success {
 
@@ -45,7 +45,7 @@ public extension Result {
 
 }
 
-public extension Result {
+extension Result {
 
     public func map<NewSuccess>(
         _ tranform: (Success) throws -> NewSuccess

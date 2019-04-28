@@ -8,7 +8,7 @@
 
 // MARK: - Insert Between
 
-public extension Array {
+extension Array {
 
     /// You can specify the between to return nil for skipping the certain insertions.
     ///
