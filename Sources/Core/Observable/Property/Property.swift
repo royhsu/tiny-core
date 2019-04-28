@@ -17,13 +17,13 @@ public final class Property<Value> {
     public init(_ initialValue: Value? = nil) {
 
         guard let initialValue = initialValue else {
-            
+
             self._storage = Atomic(Storage(value: nil, isInitialValue: true))
-            
+
             return
-            
+
         }
-        
+
         self._storage = Atomic(
             Storage(value: initialValue, isInitialValue: false)
         )
@@ -33,19 +33,19 @@ public final class Property<Value> {
 }
 
 extension Property {
-    
+
     public var value: Value? { return _storage.value.value }
-    
+
     public var createdDate: Date { return _storage.createdDate }
-    
-    public var modifiedDate: Date{ return _storage.modifiedDate }
+
+    public var modifiedDate: Date { return _storage.modifiedDate }
 
     public func modify(_ closure: @escaping (inout Value?) -> Void) {
 
         _storage.modify { storage in
 
             let oldValue = storage.value
-            
+
             closure(&storage.value)
 
             let newValue = storage.value
@@ -68,15 +68,15 @@ extension Property {
 // MARK: - Storage
 
 extension Property {
-    
+
     private struct Storage {
-        
+
         var value: Value?
-        
+
         var isInitialValue: Bool
-        
+
     }
-    
+
 }
 
 // MARK: - Equatable
@@ -84,9 +84,9 @@ extension Property {
 extension Property: Equatable where Value: Equatable {
 
     public static func == (lhs: Property, rhs: Property) -> Bool {
-        
+
         return lhs.value == rhs.value
-        
+
     }
 
 }

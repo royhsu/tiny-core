@@ -21,19 +21,19 @@ final class AtomicTests: XCTestCase {
         XCTAssertEqual(atomic.value, 0)
 
         XCTAssertEqual(atomic.createdDate, atomic.modifiedDate)
-        
+
     }
-    
+
     func testModify() {
-        
+
         let atomic = Atomic(0)
-        
+
         atomic.modify { $0 = 1 }
-        
+
         XCTAssertEqual(atomic.value, 1)
-        
+
         XCTAssert(atomic.createdDate < atomic.modifiedDate)
-        
+
     }
 
     func testThreadSafety() {
@@ -45,19 +45,19 @@ final class AtomicTests: XCTestCase {
         readsAndWrites.expectedFulfillmentCount = iterations
 
         let atomic = Atomic(0)
-        
+
         DispatchQueue.concurrentPerform(iterations: iterations) { count in
 
             defer { readsAndWrites.fulfill() }
 
             atomic.modify { value in
-                
+
                 value = count
-                
+
                 XCTAssertEqual(value, count)
-                
+
             }
-        
+
         }
 
         waitForExpectations(timeout: 10.0)
@@ -71,5 +71,5 @@ final class AtomicTests: XCTestCase {
         XCTAssertNotEqual(Atomic(0), Atomic(1))
 
     }
-    
+
 }

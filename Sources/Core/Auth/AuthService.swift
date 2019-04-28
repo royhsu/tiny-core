@@ -17,8 +17,8 @@ public protocol AuthService {
     @discardableResult
     func authorize(
         with credentials: Credentials,
-        completion: @escaping (Result<Auth>) -> Void
+        completion: @escaping (Result<Auth, Error>) -> Void
     )
-    throws -> ServiceTask
+    -> ServiceTask
 
 }

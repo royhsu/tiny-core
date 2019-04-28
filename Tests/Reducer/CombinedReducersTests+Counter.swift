@@ -10,24 +10,20 @@
 
 extension CombinedReducersTests {
 
-    struct Counter {
+    struct Counter: Equatable {
 
         var currentNumber: Int
 
         init(initialNumber: Int = 0) { self.currentNumber = initialNumber }
 
+        // MARK: - Equatable
+
+        static func == (lhs: Counter, rhs: Counter) -> Bool {
+
+            return lhs.currentNumber == rhs.currentNumber
+
+        }
+
     }
-
-}
-
-// MARK: - Equatable
-
-extension CombinedReducersTests.Counter: Equatable {
-
-    static func ==(
-        lhs: CombinedReducersTests.Counter,
-        rhs: CombinedReducersTests.Counter
-    )
-    -> Bool { return lhs.currentNumber == rhs.currentNumber }
 
 }

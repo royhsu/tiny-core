@@ -26,9 +26,9 @@ final class _Observation<Value>: Observation {
     }
 
     func notify(with change: ObservedChange<Value>) {
-        
+
         queue.async { self.observer(change) }
-        
+
     }
 
 }

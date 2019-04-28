@@ -31,6 +31,7 @@ final class CombinedReducersTests: XCTestCase {
 
     }
 
+    // swiftlint:disable function_body_length
     func testReduce() {
 
         let numberIncremented = expectation(description: "Increment the number.")
@@ -130,5 +131,6 @@ final class CombinedReducersTests: XCTestCase {
         waitForExpectations(timeout: 10.0)
 
     }
+    // swiftlint:enable function_body_length
 
 }

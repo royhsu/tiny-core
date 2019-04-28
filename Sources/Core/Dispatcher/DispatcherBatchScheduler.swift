@@ -9,7 +9,7 @@
 // MARK: - DispatcherBatchScheduler
 
 public protocol DispatcherBatchScheduler {
-    
+
     associatedtype Item
 
     func shouldBatch(for items: [Item]) -> Bool
@@ -19,24 +19,24 @@ public protocol DispatcherBatchScheduler {
 // MARK: - AnyDispatcherBatchScheduler
 
 public struct AnyDispatcherBatchScheduler<Item> {
-    
+
     private let _shouldBatch: ([Item]) -> Bool
-    
+
     public init<S>(_ scheduler: S)
     where
         S: DispatcherBatchScheduler,
         S.Item == Item { self._shouldBatch = scheduler.shouldBatch }
-    
+
 }
 
 // MARK: - DispatcherBatchScheduler
 
 extension AnyDispatcherBatchScheduler: DispatcherBatchScheduler {
-    
+
     public func shouldBatch(for items: [Item]) -> Bool {
-    
+
         return _shouldBatch(items)
-        
+
     }
-    
+
 }

@@ -1,11 +1,6 @@
 disabled_rules:
-  - line_length
-  - file_length
-  - function_body_length
-  - statement_position
+  - nesting
+  - type_name
 excluded:
   - Carthage
   - Pods
-identifier_name:
-  excluded:
-    - id

@@ -14,10 +14,7 @@ public struct HTTPResponse<Body> {
 
     public var urlResponse: URLResponse
 
-    public init(
-        body: Body,
-        urlResponse: URLResponse
-    ) {
+    public init(body: Body, urlResponse: URLResponse) {
 
         self.body = body
 

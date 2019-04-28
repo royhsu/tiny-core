@@ -13,7 +13,7 @@ final class Broadcaster<Value> {
     typealias Object = WeakObject<_Observation<Value>>
 
     private(set) var objects: [Object] = []
-    
+
     func observe(
         on queue: DispatchQueue,
         observer: @escaping (ObservedChange<Value>) -> Void

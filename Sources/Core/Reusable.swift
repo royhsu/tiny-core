@@ -14,10 +14,14 @@ public protocol Reusable {
 
 }
 
-// MARK: - Reusable (Default Implementation)
+// MARK: - Default Implementation
 
 extension Reusable {
 
-    public static var reuseIdentifier: String { return String(describing: self) }
+    public static var reuseIdentifier: String {
+
+        return String(describing: self)
+
+    }
 
 }

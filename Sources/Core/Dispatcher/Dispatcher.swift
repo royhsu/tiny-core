@@ -47,26 +47,25 @@ extension Dispatcher {
     public var queue: [Item] { return _queue.value }
 
     public func dispatch(_ item: Item, completion: (([Item]) -> Void)? = nil) {
-        
+
         _queue.modify { items in
-            
+
             var newItems = items
-            
+
             newItems.append(item)
-            
+
             completion?(newItems)
-            
+
             if self.batchScheduler.shouldBatch(for: newItems) {
-                
+
                 items = []
-                
+
                 self.batchTask(newItems)
-                
-            }
-            else { items = newItems }
-            
+
+            } else { items = newItems }
+
         }
-        
+
     }
 
 }

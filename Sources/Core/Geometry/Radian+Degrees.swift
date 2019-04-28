@@ -8,7 +8,7 @@
 
 // MARK: - Radian
 
-public extension Radian {
+extension Radian {
 
     public var degrees: Degrees {
 

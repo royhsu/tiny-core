@@ -10,12 +10,17 @@
 
 /// Use context to encapsulate all associated properties and dependencies together.
 /// The context provides a set of convenient methods to make instances.
-/// It also throws the well-defined error when things go wrong. For examples, making instances from unregistered identifiers, or specifying a wrong target type for context to make.
+/// It also throws the well-defined error when things go wrong.
+/// For examples, making instances from unregistered identifiers, or specifying a wrong target type for context to make.
 public struct Context<Identifier> where Identifier: Hashable {
 
     private var storage: [Identifier: () throws -> Any]
 
-    public init(storage: [Identifier: () throws -> Any] = [:]) { self.storage = storage }
+    public init(storage: [Identifier: () throws -> Any] = [:]) {
+
+        self.storage = storage
+
+    }
 
     /// Register a factory for specific identifier.
     public mutating func register(
@@ -32,7 +37,11 @@ public struct Context<Identifier> where Identifier: Hashable {
     )
     throws -> T {
 
-        guard let factory = storage[identifier] else { throw Error.unregistered(identifier: identifier) }
+        guard let factory = storage[identifier] else {
+
+            throw Error.unregistered(identifier: identifier)
+
+        }
 
         let instance = try factory()
 
@@ -58,25 +67,12 @@ extension Context {
     public mutating func register(
         _ factory: @autoclosure @escaping () throws -> Any,
         for identifier: Identifier
-    ) {
-
-        register({ try factory() },
-            for: identifier
-        )
-
-    }
+    ) { register({ try factory() }, for: identifier) }
 
     public mutating func register(
         _ type: Initializable.Type,
         for identifier: Identifier
-    ) {
-
-        register(
-            type.init,
-            for: identifier
-        )
-
-    }
+    ) { register(type.init, for: identifier) }
 
 }
 
@@ -84,10 +80,7 @@ extension Context {
 
     public func make<T>(for identifier: Identifier) throws -> T {
 
-        return try make(
-            T.self,
-            for: identifier
-        )
+        return try make(T.self, for: identifier)
 
     }
 

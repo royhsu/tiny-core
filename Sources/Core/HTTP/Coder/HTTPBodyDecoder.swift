@@ -10,28 +10,21 @@
 
 public protocol HTTPBodyDecoder {
 
-    func decode<T: Decodable>(
-        _ type: T.Type,
-        from data: Data
-    )
-    throws -> T
+    func decode<T: Decodable>(_ type: T.Type, from data: Data) throws -> T
 
 }
 
 extension HTTPBodyDecoder {
 
-    func decode<T: Decodable>(
+    public func decode<T: Decodable>(
         _ type: T.Type,
-        from result: Result<Data>
+        from result: Result<Data, Error>
     )
     throws -> T {
 
         let data = try result.get()
 
-        return try decode(
-            T.self,
-            from: data
-        )
+        return try decode(T.self, from: data)
 
     }
 

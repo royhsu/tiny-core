@@ -117,7 +117,8 @@ extension CombinedReducers {
         }
 
         // Due to the limiation of the current atomic implementation. The mutating is an async operation.
-        // We can make sure to call the getter on the atomic value to get the correct mutated value after the mutating scope, becuase the getter is a sync operation.
+        // We can make sure to call the getter on the atomic value to get the correct mutated value
+        // after the mutating scope, becuase the getter is a sync operation.
         precondition(_storage.value.completion == nil)
 
         completion?(self)

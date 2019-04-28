@@ -114,7 +114,7 @@ final class ContextTests: XCTestCase {
 
         struct User: Initializable, Equatable {
 
-            let id = 1
+            let identifier = 1
 
         }
 

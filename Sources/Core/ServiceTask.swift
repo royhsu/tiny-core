@@ -14,7 +14,7 @@ public protocol ServiceTask {
 
 }
 
-// MARK: - ServiceTask (Default Implementatiom)
+// MARK: - Default Implementation
 
 extension ServiceTask {
 

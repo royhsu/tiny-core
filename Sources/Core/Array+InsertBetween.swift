@@ -8,7 +8,7 @@
 
 // MARK: - Insert Between
 
-public extension Array {
+extension Array {
 
     /// You can specify the between to return nil for skipping the certain insertions.
     ///
@@ -26,40 +26,20 @@ public extension Array {
     /// The output is: [ 1.0, 1.5, 2.0, 3.0 ]
     ///
     public func inserted(
-        between: (
-            _ previous: Element,
-            _ next: Element
-        )
-        -> Element?
+        between: (_ previous: Element, _ next: Element) -> Element?
     )
     -> [Element] {
 
-        let initialElements: [Element] = []
-
-        return reduce(initialElements) { currentResult, next in
+        return reduce([]) { currentResult, next in
 
             var nextResult = currentResult
 
             guard
                 let previous = currentResult.last,
-                let between = between(
-                    previous,
-                    next
-                )
-            else {
+                let between = between(previous, next)
+            else { nextResult.append(next); return nextResult }
 
-                nextResult.append(next)
-
-                return nextResult
-
-            }
-
-            nextResult.append(
-                contentsOf: [
-                    between,
-                    next
-                ]
-            )
+            nextResult.append(contentsOf: [ between, next ])
 
             return nextResult
 
@@ -68,11 +48,7 @@ public extension Array {
     }
 
     public mutating func insert(
-        between: (
-            _ previous: Element,
-            _ next: Element
-        )
-        -> Element?
+        between: (_ previous: Element, _ next: Element) -> Element?
     ) { self = inserted(between: between) }
 
 }

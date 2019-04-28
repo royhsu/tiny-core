@@ -1,5 +1,5 @@
 //
-//  URLSessionDataTask+ServiceTask.swift
+//  URLSessionTask+ServiceTask.swift
 //  TinyKnowledge
 //
 //  Created by Roy Hsu on 2019/1/21.
@@ -8,4 +8,4 @@
 
 // MARK: - ServiceTask
 
-extension URLSessionDataTask: ServiceTask { }
+extension URLSessionTask: ServiceTask { }
