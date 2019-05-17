@@ -41,6 +41,9 @@
 		B0577E751F98EC1400B1578E /* JSONDecoder+HTTPBodyDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0577E741F98EC1400B1578E /* JSONDecoder+HTTPBodyDecoder.swift */; };
 		B05D4F6E1F1E0D9E00929006 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05D4F641F1E0D9D00929006 /* TinyCore.framework */; };
 		B05D4FBD1F1E10C200929006 /* TinyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = B05D4FBA1F1E10C200929006 /* TinyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B061D13D228E9A34007BD4C5 /* ObservableMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B061D13C228E9A34007BD4C5 /* ObservableMapper.swift */; };
+		B061D13E228EA0B4007BD4C5 /* Observable+MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B061D139228E961D007BD4C5 /* Observable+MapTests.swift */; };
+		B061D140228EA411007BD4C5 /* Observable+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = B061D13F228EA411007BD4C5 /* Observable+Map.swift */; };
 		B062C5BB2212C561001807A6 /* ServiceTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B062C5BA2212C560001807A6 /* ServiceTask.swift */; };
 		B062C5BD2212C5B9001807A6 /* URLSessionTask+ServiceTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B062C5BC2212C5B8001807A6 /* URLSessionTask+ServiceTask.swift */; };
 		B062C5BF2212C5EF001807A6 /* HTTPBodyEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B062C5BE2212C5EF001807A6 /* HTTPBodyEncoder.swift */; };
@@ -140,6 +143,9 @@
 		B05D4FB91F1E10C200929006 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B05D4FBA1F1E10C200929006 /* TinyCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TinyCore.h; sourceTree = "<group>"; };
 		B05D4FC21F1E10D100929006 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B061D139228E961D007BD4C5 /* Observable+MapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+MapTests.swift"; sourceTree = "<group>"; };
+		B061D13C228E9A34007BD4C5 /* ObservableMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableMapper.swift; sourceTree = "<group>"; };
+		B061D13F228EA411007BD4C5 /* Observable+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Map.swift"; sourceTree = "<group>"; };
 		B062C5BA2212C560001807A6 /* ServiceTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTask.swift; sourceTree = "<group>"; };
 		B062C5BC2212C5B8001807A6 /* URLSessionTask+ServiceTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSessionTask+ServiceTask.swift"; sourceTree = "<group>"; };
 		B062C5BE2212C5EF001807A6 /* HTTPBodyEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPBodyEncoder.swift; sourceTree = "<group>"; };
@@ -412,6 +418,7 @@
 			children = (
 				B089F9A421F1D5E30052AD8D /* PropertyTests.swift */,
 				B0CE1B6C22453BF8006A39AE /* Property+CodableTests.swift */,
+				B061D139228E961D007BD4C5 /* Observable+MapTests.swift */,
 			);
 			path = Observable;
 			sourceTree = "<group>";
@@ -453,6 +460,8 @@
 				B0652DA9214797E6009F8757 /* ObservedChange.swift */,
 				B0652DAB21479818009F8757 /* Observation.swift */,
 				B0217AE22220EDBA005F19EB /* Observable+Binding.swift */,
+				B061D13C228E9A34007BD4C5 /* ObservableMapper.swift */,
+				B061D13F228EA411007BD4C5 /* Observable+Map.swift */,
 			);
 			path = Observable;
 			sourceTree = "<group>";
@@ -556,7 +565,6 @@
 				B05D4F601F1E0D9D00929006 /* Frameworks */,
 				B05D4F611F1E0D9D00929006 /* Headers */,
 				B05D4F621F1E0D9D00929006 /* Resources */,
-				B033414422753CA300A45CE0 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -645,27 +653,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		B033414422753CA300A45CE0 /* Swiftlint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Swiftlint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		B05D4F5F1F1E0D9D00929006 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -698,6 +685,7 @@
 				B089F9AB21F212850052AD8D /* Atomic.swift in Sources */,
 				B0760BAA2228B76000705734 /* CustomLocalizedStringConvertible.swift in Sources */,
 				B062C5BB2212C561001807A6 /* ServiceTask.swift in Sources */,
+				B061D13D228E9A34007BD4C5 /* ObservableMapper.swift in Sources */,
 				B0CF898F2219A9120020ECD1 /* Context.swift in Sources */,
 				B0652DAC21479818009F8757 /* Observation.swift in Sources */,
 				B062C5BD2212C5B9001807A6 /* URLSessionTask+ServiceTask.swift in Sources */,
@@ -716,6 +704,7 @@
 				B0836F2A21FCAF01004D68F2 /* HTTPMethod.swift in Sources */,
 				B05017422078C99A009838F9 /* Radian.swift in Sources */,
 				B0DB58CC1F989C1400DAD605 /* HTTPClient.swift in Sources */,
+				B061D140228EA411007BD4C5 /* Observable+Map.swift in Sources */,
 				B0217AE32220EDBA005F19EB /* Observable+Binding.swift in Sources */,
 				B0760BB22228BF2300705734 /* Locale+CaseIterable.swift in Sources */,
 				B062C5C12212C60C001807A6 /* EmptyHTTPBody.swift in Sources */,
@@ -759,6 +748,7 @@
 				B0267990223A4BF000A47DD2 /* DispatcherTests+Counter.swift in Sources */,
 				B0A9DE882017255500AEF782 /* TrafficLight.swift in Sources */,
 				B037F120223CE1C4006B9D52 /* BasicTests.swift in Sources */,
+				B061D13E228EA0B4007BD4C5 /* Observable+MapTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
