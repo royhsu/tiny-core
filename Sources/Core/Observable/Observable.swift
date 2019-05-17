@@ -21,3 +21,16 @@ public protocol Observable {
     -> Observation
 
 }
+
+extension Observable {
+    
+    public func observe(
+        observer: @escaping (ObservedChange<Value>) -> Void
+    )
+    -> Observation {
+        
+        return observe(on: .global(), observer: observer)
+            
+    }
+    
+}

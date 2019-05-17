@@ -80,7 +80,7 @@ extension ObservableMapper: Observable {
     var value: DestinationValue { return destination.value }
     
     func observe(
-        on queue: DispatchQueue = .global(),
+        on queue: DispatchQueue,
         observer: @escaping (ObservedChange<DestinationValue>) -> Void
     )
     -> Observation {
