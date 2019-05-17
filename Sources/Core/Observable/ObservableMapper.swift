@@ -12,12 +12,6 @@ final class ObservableMapper<SourceValue, DestinationValue> {
     
     private let source: AnyObservable<SourceValue>
     
-    private var sourceObservation: Observation?
-    
-    private let destination: Atomic<DestinationValue>
-    
-    private let destinationBroadcaster = Broadcaster<DestinationValue>()
-    
     private let transform: (SourceValue) -> DestinationValue
     
     init<O>(
@@ -30,17 +24,25 @@ final class ObservableMapper<SourceValue, DestinationValue> {
             
         self.source = AnyObservable(source)
         
-        self.destination = Atomic(transform(source.value))
-            
         self.transform = transform
-            
-        self.load()
             
     }
     
-    private func load() {
+}
+
+// MARK: - Observable
+
+extension ObservableMapper: Observable {
+    
+    var value: DestinationValue { return transform(source.value) }
+    
+    func observe(
+        on queue: DispatchQueue,
+        observer: @escaping (ObservedChange<DestinationValue>) -> Void
+    )
+    -> Observation {
         
-        sourceObservation = source.observe(on: .global()) { sourceChange in
+        return source.observe(on: queue) { sourceChange in
             
             let destinationChange: ObservedChange<DestinationValue>
             
@@ -59,33 +61,9 @@ final class ObservableMapper<SourceValue, DestinationValue> {
                 
             }
             
-            self.destination.modify {
-
-                $0 = destinationChange.currentValue
-
-                self.destinationBroadcaster.notifyAll(with: destinationChange)
-
-            }
+            observer(destinationChange)
             
         }
-    
-    }
-    
-}
-
-// MARK: - Observable
-
-extension ObservableMapper: Observable {
-    
-    var value: DestinationValue { return destination.value }
-    
-    func observe(
-        on queue: DispatchQueue,
-        observer: @escaping (ObservedChange<DestinationValue>) -> Void
-    )
-    -> Observation {
-        
-        return destinationBroadcaster.observe(on: queue, observer: observer)
         
     }
     
