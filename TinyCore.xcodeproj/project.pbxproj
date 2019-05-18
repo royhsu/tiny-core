@@ -57,6 +57,10 @@
 		B0760BB42228BF2300705734 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0760BAF2228BF2300705734 /* Language.swift */; };
 		B0760BB52228BF2300705734 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0760BB02228BF2300705734 /* Region.swift */; };
 		B07A2C3E215A1CF8002EFE87 /* Emptible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2C3D215A1CF8002EFE87 /* Emptible.swift */; };
+		B07AA303228F9C5E00B33339 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AA302228F9C5E00B33339 /* Reducer.swift */; };
+		B07AA305228F9CDC00B33339 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AA304228F9CDC00B33339 /* Mapper.swift */; };
+		B07AA307228F9F4F00B33339 /* AnyReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AA306228F9F4F00B33339 /* AnyReducer.swift */; };
+		B07AA30A228F9FC400B33339 /* MapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AA308228F9FC200B33339 /* MapperTests.swift */; };
 		B07AB28D2200454B00E80ADC /* MIMEType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AB28C2200454B00E80ADC /* MIMEType.swift */; };
 		B07AB28F2200457600E80ADC /* MIMEType+HTTPHeaderRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AB28E2200457600E80ADC /* MIMEType+HTTPHeaderRepresentable.swift */; };
 		B0836F0521FC345E004D68F2 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0836F0421FC345E004D68F2 /* HTTPError.swift */; };
@@ -159,6 +163,10 @@
 		B0760BAF2228BF2300705734 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		B0760BB02228BF2300705734 /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		B07A2C3D215A1CF8002EFE87 /* Emptible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emptible.swift; sourceTree = "<group>"; };
+		B07AA302228F9C5E00B33339 /* Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
+		B07AA304228F9CDC00B33339 /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
+		B07AA306228F9F4F00B33339 /* AnyReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyReducer.swift; sourceTree = "<group>"; };
+		B07AA308228F9FC200B33339 /* MapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapperTests.swift; sourceTree = "<group>"; };
 		B07AB28C2200454B00E80ADC /* MIMEType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIMEType.swift; sourceTree = "<group>"; };
 		B07AB28E2200457600E80ADC /* MIMEType+HTTPHeaderRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MIMEType+HTTPHeaderRepresentable.swift"; sourceTree = "<group>"; };
 		B0836F0421FC345E004D68F2 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
@@ -321,6 +329,7 @@
 				B037F119223CE1BF006B9D52 /* CombinedReducersTests+Counter.swift */,
 				B037F11A223CE1BF006B9D52 /* CombinedReducersTests+CounterAction.swift */,
 				B037F11B223CE1BF006B9D52 /* CombinedReducersTests.swift */,
+				B07AA308228F9FC200B33339 /* MapperTests.swift */,
 			);
 			path = Reducer;
 			sourceTree = "<group>";
@@ -343,6 +352,9 @@
 			children = (
 				B037F132223CE1EB006B9D52 /* CombinedReducers.swift */,
 				B037F133223CE1EB006B9D52 /* ReducibleAction.swift */,
+				B07AA304228F9CDC00B33339 /* Mapper.swift */,
+				B07AA302228F9C5E00B33339 /* Reducer.swift */,
+				B07AA306228F9F4F00B33339 /* AnyReducer.swift */,
 			);
 			path = Reducer;
 			sourceTree = "<group>";
@@ -672,6 +684,7 @@
 				B037F12E223CE1E0006B9D52 /* Bearer.swift in Sources */,
 				B050173F2078C999009838F9 /* Degrees+Radian.swift in Sources */,
 				B0836F1721FC5603004D68F2 /* URLRequest+URLRequestRepresentable.swift in Sources */,
+				B07AA303228F9C5E00B33339 /* Reducer.swift in Sources */,
 				B07AB28F2200457600E80ADC /* MIMEType+HTTPHeaderRepresentable.swift in Sources */,
 				B0BC23872078F90700D11A3B /* WeakObject.swift in Sources */,
 				B0836F0F21FC50C6004D68F2 /* URLRequest+HTTPHeader.swift in Sources */,
@@ -694,6 +707,7 @@
 				B0CE1B612245309B006A39AE /* Atomic+Codable.swift in Sources */,
 				B0760BB52228BF2300705734 /* Region.swift in Sources */,
 				B05017402078C999009838F9 /* Degrees.swift in Sources */,
+				B07AA305228F9CDC00B33339 /* Mapper.swift in Sources */,
 				B0217AD422203C21005F19EB /* AnyObservable.swift in Sources */,
 				B062C5C32212C662001807A6 /* JSONEncoder+HTTPBodyEncoder.swift in Sources */,
 				B0836F0521FC345E004D68F2 /* HTTPError.swift in Sources */,
@@ -709,6 +723,7 @@
 				B0760BB22228BF2300705734 /* Locale+CaseIterable.swift in Sources */,
 				B062C5C12212C60C001807A6 /* EmptyHTTPBody.swift in Sources */,
 				B0760BB42228BF2300705734 /* Language.swift in Sources */,
+				B07AA307228F9F4F00B33339 /* AnyReducer.swift in Sources */,
 				B0577E721F98EB2F00B1578E /* HTTPBodyDecoder.swift in Sources */,
 				B0217ADF2220ECF9005F19EB /* Broadcaster.swift in Sources */,
 				B0217AE12220ED5F005F19EB /* Property+Observation.swift in Sources */,
@@ -742,6 +757,7 @@
 				B0CE1B6722453426006A39AE /* Atomic+CodableTests.swift in Sources */,
 				B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */,
 				B037F136223CE238006B9D52 /* BearerTests.swift in Sources */,
+				B07AA30A228F9FC400B33339 /* MapperTests.swift in Sources */,
 				B0E236622156762900FBE7B3 /* XCTUnwrapped.swift in Sources */,
 				B089F9A621F1D5E60052AD8D /* PropertyTests.swift in Sources */,
 				B037F123223CE1CB006B9D52 /* CombinedReducersTests.swift in Sources */,
