@@ -34,53 +34,158 @@ extension SerialReducerQueue: Reducer {
         completion: @escaping (State) -> Void
     ) {
      
-        var currentState = initialState
+        #warning("TODO: [Priority: high] unimplemented.")
+        fatalError("Unimplemented.")
         
-        var finishedOperationIDs = Set<UUID>()
+    }
+    
+}
+
+final class ReducerOperation<State>: Operation {
+    
+    private let _operationState = Atomic<OperationState>(.ready)
+    
+    private let _state: Atomic<State>
+    
+    private let reducer: AnyReducer<State>
+    
+    init<R>(
+        initialState: State,
+        reducer: R
+    )
+    where
+        R: Reducer,
+        R.State == State {
+            
+        self._state = Atomic(initialState)
+            
+        self.reducer = AnyReducer(reducer)
+            
+    }
+    
+    // MARK: Operation
+    
+    override var isAsynchronous: Bool { return true }
+    
+    override var isReady: Bool {
         
-        let allOperations: [(id: UUID, operation: Operation)] = reducers.map { reducer in
-                
-            let id = UUID()
+        switch operationState {
             
-            #warning("TODO: [Priority: high] use block operation is incorrect, should replace with a custom aysnc operation.")
-            let operation = BlockOperation {
-                
-                reducer.reduce(currentState) { newState in
-                    
-                    currentState = newState
-                    
-                    finishedOperationIDs.insert(id)
-                    
-                }
-                
-            }
+        case .executing, .finished, .cancelled: return false
             
-            return (id, operation)
-                
+        case .ready: return super.isReady
+            
         }
         
-        let allOperationIDs = Set(allOperations.map { $0.id })
+    }
+    
+    override var isExecuting: Bool { return operationState == .executing }
+    
+    override var isFinished: Bool {
         
-        let queue = OperationQueue()
+        return isCancelled || operationState == .finished
         
-        // This makes the queue behaves like a serial queue, so we don't need to worry about race conditions.
-        queue.maxConcurrentOperationCount = 1
+    }
+    
+    override func start() {
         
-        for operation in allOperations {
+        if isCancelled { return }
+        
+        operationState = .executing
+        
+        reducer.reduce(_state.value) { newState in
             
-            let operation = operation.operation
+            self._state.modify { $0 = newState }
             
-            operation.completionBlock = {
+            self.operationState = .finished
+            
+        }
+        
+    }
+    
+    override func cancel() {
+        
+        operationState = .cancelled
+        
+        super.cancel()
+        
+    }
+    
+    // MARK: KVO
+    
+    @objc
+    class func keyPathsForValuesAffectingIsReady() -> Set<String> {
+        
+        return [ "operationState" ]
+        
+    }
+    
+    @objc
+    class func keyPathsForValuesAffectingIsExecuting() -> Set<String> {
+        
+        return [ "operationState" ]
+        
+    }
+    
+    @objc
+    class func keyPathsForValuesAffectingIsFinished() -> Set<String> {
+        
+        return [ "operationState" ]
+        
+    }
+    
+}
+
+extension ReducerOperation {
+    
+    var currentState: State { return _state.value }
+    
+    private var operationState: OperationState {
+        
+        get { return _operationState.value }
+        
+        set(newOperationState) {
+            
+            precondition(
+                operationState.canPerformTransition(to: newOperationState),
+                "Performing an invalid state transition from \(operationState) to \(newOperationState)."
+            )
+            
+            /// Make sure to call outside of async barrier or will result in deallock.
+            willChangeValue(forKey: "operationState")
+            
+            _operationState.modify { $0 = newOperationState }
+            
+            /// Make sure to call outside of async barrier or will result in deallock.
+            didChangeValue(forKey: "operationState")
+            
+        }
+        
+    }
+    
+}
+
+extension ReducerOperation {
+    
+    private enum OperationState {
+        
+        case ready, executing, finished, cancelled
+        
+        func canPerformTransition(to newState: OperationState) -> Bool {
+            
+            switch (self, newState) {
                 
-                let areAllOperationsFinished = (allOperationIDs == finishedOperationIDs)
+            case (.ready, .executing): return true
                 
-                guard areAllOperationsFinished else { return }
+            case (.ready, .cancelled): return true
                 
-                completion(currentState)
-                    
+            case (.executing, .finished): return true
+                
+            case (.executing, .cancelled): return false
+                
+            default: return false
+                
             }
-            
-            queue.addOperation(operation)
             
         }
         
