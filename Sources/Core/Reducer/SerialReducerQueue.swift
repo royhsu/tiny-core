@@ -34,8 +34,42 @@ extension SerialReducerQueue: Reducer {
         completion: @escaping (State) -> Void
     ) {
      
-        #warning("TODO: [Priority: high] unimplemented.")
-        fatalError("Unimplemented.")
+        SerialReducerQueue.executeNextPendingReducers(
+            reducers,
+            with: initialState,
+            completion: completion
+        )
+        
+    }
+    
+    private static func executeNextPendingReducers<C>(
+        _ reducers: C,
+        with state: State,
+        completion: @escaping (State) -> Void
+    )
+    where
+        C: Collection,
+        C.Element == AnyReducer<State> {
+    
+        guard let nextReducer = reducers.first else {
+            
+            completion(state)
+            
+            return
+            
+        }
+        
+        let remainingReducers = reducers.dropFirst()
+        
+        nextReducer.reduce(state) { newState in
+            
+            executeNextPendingReducers(
+                remainingReducers,
+                with: newState,
+                completion: completion
+            )
+            
+        }
         
     }
     

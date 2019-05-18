@@ -82,6 +82,7 @@
 		B0A9DE86201724FE00AEF782 /* EventManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */; };
 		B0A9DE882017255500AEF782 /* TrafficLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9DE872017255500AEF782 /* TrafficLight.swift */; };
 		B0AFDC8A201703DC00D8DEF6 /* URLSession+HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AFDC89201703DC00D8DEF6 /* URLSession+HTTPClient.swift */; };
+		B0B8F729228FC03B00C82597 /* SerialReducerQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B8F727228FC03700C82597 /* SerialReducerQueueTests.swift */; };
 		B0BC23852078F8C000D11A3B /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC23842078F8C000D11A3B /* Observable.swift */; };
 		B0BC23872078F90700D11A3B /* WeakObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC23862078F90700D11A3B /* WeakObject.swift */; };
 		B0C8C35321C1114F00DED5BF /* Countable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8C35221C1114F00DED5BF /* Countable.swift */; };
@@ -189,6 +190,7 @@
 		B0A9DE85201724FE00AEF782 /* EventManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManagerTests.swift; sourceTree = "<group>"; };
 		B0A9DE872017255500AEF782 /* TrafficLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLight.swift; sourceTree = "<group>"; };
 		B0AFDC89201703DC00D8DEF6 /* URLSession+HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+HTTPClient.swift"; sourceTree = "<group>"; };
+		B0B8F727228FC03700C82597 /* SerialReducerQueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialReducerQueueTests.swift; sourceTree = "<group>"; };
 		B0BC23842078F8C000D11A3B /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		B0BC23862078F90700D11A3B /* WeakObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakObject.swift; sourceTree = "<group>"; };
 		B0C8C35221C1114F00DED5BF /* Countable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countable.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				B037F11A223CE1BF006B9D52 /* CombinedReducersTests+CounterAction.swift */,
 				B037F11B223CE1BF006B9D52 /* CombinedReducersTests.swift */,
 				B07AA308228F9FC200B33339 /* MapperTests.swift */,
+				B0B8F727228FC03700C82597 /* SerialReducerQueueTests.swift */,
 			);
 			path = Reducer;
 			sourceTree = "<group>";
@@ -767,6 +770,7 @@
 				B037F123223CE1CB006B9D52 /* CombinedReducersTests.swift in Sources */,
 				B0267990223A4BF000A47DD2 /* DispatcherTests+Counter.swift in Sources */,
 				B0A9DE882017255500AEF782 /* TrafficLight.swift in Sources */,
+				B0B8F729228FC03B00C82597 /* SerialReducerQueueTests.swift in Sources */,
 				B037F120223CE1C4006B9D52 /* BasicTests.swift in Sources */,
 				B061D13E228EA0B4007BD4C5 /* Observable+MapTests.swift in Sources */,
 			);
