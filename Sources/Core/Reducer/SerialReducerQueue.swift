@@ -12,7 +12,7 @@ public struct SerialReducerQueue<State>: ExpressibleByArrayLiteral {
     
     private var reducers: [AnyReducer<State>]
     
-    public init<R>(arrayLiteral reducers: R...)
+    public init<R>(_ reducers: [R])
     where
         R: Reducer,
         R.State == State { self.reducers = reducers.map(AnyReducer.init) }
