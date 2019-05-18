@@ -61,6 +61,7 @@
 		B07AA305228F9CDC00B33339 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AA304228F9CDC00B33339 /* Mapper.swift */; };
 		B07AA307228F9F4F00B33339 /* AnyReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AA306228F9F4F00B33339 /* AnyReducer.swift */; };
 		B07AA30A228F9FC400B33339 /* MapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AA308228F9FC200B33339 /* MapperTests.swift */; };
+		B07AA30C228FA72300B33339 /* SerialReducerQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AA30B228FA72300B33339 /* SerialReducerQueue.swift */; };
 		B07AB28D2200454B00E80ADC /* MIMEType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AB28C2200454B00E80ADC /* MIMEType.swift */; };
 		B07AB28F2200457600E80ADC /* MIMEType+HTTPHeaderRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07AB28E2200457600E80ADC /* MIMEType+HTTPHeaderRepresentable.swift */; };
 		B0836F0521FC345E004D68F2 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0836F0421FC345E004D68F2 /* HTTPError.swift */; };
@@ -167,6 +168,7 @@
 		B07AA304228F9CDC00B33339 /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 		B07AA306228F9F4F00B33339 /* AnyReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyReducer.swift; sourceTree = "<group>"; };
 		B07AA308228F9FC200B33339 /* MapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapperTests.swift; sourceTree = "<group>"; };
+		B07AA30B228FA72300B33339 /* SerialReducerQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialReducerQueue.swift; sourceTree = "<group>"; };
 		B07AB28C2200454B00E80ADC /* MIMEType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIMEType.swift; sourceTree = "<group>"; };
 		B07AB28E2200457600E80ADC /* MIMEType+HTTPHeaderRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MIMEType+HTTPHeaderRepresentable.swift"; sourceTree = "<group>"; };
 		B0836F0421FC345E004D68F2 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 				B07AA304228F9CDC00B33339 /* Mapper.swift */,
 				B07AA302228F9C5E00B33339 /* Reducer.swift */,
 				B07AA306228F9F4F00B33339 /* AnyReducer.swift */,
+				B07AA30B228FA72300B33339 /* SerialReducerQueue.swift */,
 			);
 			path = Reducer;
 			sourceTree = "<group>";
@@ -674,6 +677,7 @@
 				B0CE1B6922453B05006A39AE /* Property+Codable.swift in Sources */,
 				B0760BB32228BF2300705734 /* Locale+CustomLocalizedStringConvertible.swift in Sources */,
 				B0BC23852078F8C000D11A3B /* Observable.swift in Sources */,
+				B07AA30C228FA72300B33339 /* SerialReducerQueue.swift in Sources */,
 				B037F12F223CE1E0006B9D52 /* Bearer+HTTPHeaderRepresentable.swift in Sources */,
 				B0A26EC92155E6A900747535 /* Unique.swift in Sources */,
 				B05017412078C99A009838F9 /* Radian+Degrees.swift in Sources */,
