@@ -22,6 +22,7 @@
 		B02F18EB22912AEE0056BD4C /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F18EA22912AEE0056BD4C /* Promise.swift */; };
 		B02F18ED22912C360056BD4C /* Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F18EC22912C360056BD4C /* Future.swift */; };
 		B02F18F4229133440056BD4C /* PromiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F18EF22912F930056BD4C /* PromiseTests.swift */; };
+		B02F18F7229149210056BD4C /* FutureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F18F52291491B0056BD4C /* FutureTests.swift */; };
 		B037F120223CE1C4006B9D52 /* BasicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B037F115223CE1AE006B9D52 /* BasicTests.swift */; };
 		B037F121223CE1CB006B9D52 /* CombinedReducersTests+Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B037F119223CE1BF006B9D52 /* CombinedReducersTests+Counter.swift */; };
 		B037F122223CE1CB006B9D52 /* CombinedReducersTests+CounterAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B037F11A223CE1BF006B9D52 /* CombinedReducersTests+CounterAction.swift */; };
@@ -130,6 +131,7 @@
 		B02F18EA22912AEE0056BD4C /* Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
 		B02F18EC22912C360056BD4C /* Future.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Future.swift; sourceTree = "<group>"; };
 		B02F18EF22912F930056BD4C /* PromiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseTests.swift; sourceTree = "<group>"; };
+		B02F18F52291491B0056BD4C /* FutureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureTests.swift; sourceTree = "<group>"; };
 		B037F114223CE1AE006B9D52 /* BearerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BearerTests.swift; sourceTree = "<group>"; };
 		B037F115223CE1AE006B9D52 /* BasicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTests.swift; sourceTree = "<group>"; };
 		B037F119223CE1BF006B9D52 /* CombinedReducersTests+Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CombinedReducersTests+Counter.swift"; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 				B0A9DE84201724E600AEF782 /* Event */,
 				B05D4FC21F1E10D100929006 /* Info.plist */,
 				B02F18EF22912F930056BD4C /* PromiseTests.swift */,
+				B02F18F52291491B0056BD4C /* FutureTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -786,6 +789,7 @@
 				B037F136223CE238006B9D52 /* BearerTests.swift in Sources */,
 				B07AA30A228F9FC400B33339 /* MapperTests.swift in Sources */,
 				B0E236622156762900FBE7B3 /* XCTUnwrapped.swift in Sources */,
+				B02F18F7229149210056BD4C /* FutureTests.swift in Sources */,
 				B089F9A621F1D5E60052AD8D /* PropertyTests.swift in Sources */,
 				B037F123223CE1CB006B9D52 /* CombinedReducersTests.swift in Sources */,
 				B0267990223A4BF000A47DD2 /* DispatcherTests+Counter.swift in Sources */,

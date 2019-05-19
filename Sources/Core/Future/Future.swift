@@ -33,3 +33,20 @@ extension Future {
     ) { _resolve(completion: completion) }
 
 }
+
+extension Future {
+    
+    public func map<NewSuccess>(
+        _ transform: @escaping (Success) -> NewSuccess
+    )
+    -> Future<NewSuccess, Failure> {
+        
+        return Promise { completion in
+                
+            self._resolve { result in completion(result.map(transform)) }
+            
+        }
+            
+    }
+    
+}
