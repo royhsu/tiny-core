@@ -24,7 +24,10 @@ public final class Atomic<Value> {
 
         let dynamicType = String(describing: type(of: self))
 
-        self.queue = DispatchQueue(label: "\(dynamicType).SerialQueue: [\(identifier)]")
+        self.queue = DispatchQueue(
+            label: "\(dynamicType).ConcurrentQueue: [\(identifier)]",
+            attributes: .concurrent
+        )
 
     }
 
@@ -44,7 +47,7 @@ extension Atomic {
 
     public func modify(_ closure: @escaping (inout Value) -> Void) {
 
-        queue.sync {
+        queue.async(flags: .barrier) {
 
             closure(&self._storage.value)
 
