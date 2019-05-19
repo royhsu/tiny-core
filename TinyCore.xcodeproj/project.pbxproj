@@ -21,6 +21,7 @@
 		B0267990223A4BF000A47DD2 /* DispatcherTests+Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B026798E223A4BE900A47DD2 /* DispatcherTests+Counter.swift */; };
 		B02F18EB22912AEE0056BD4C /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F18EA22912AEE0056BD4C /* Promise.swift */; };
 		B02F18ED22912C360056BD4C /* Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F18EC22912C360056BD4C /* Future.swift */; };
+		B02F18F4229133440056BD4C /* PromiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F18EF22912F930056BD4C /* PromiseTests.swift */; };
 		B037F120223CE1C4006B9D52 /* BasicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B037F115223CE1AE006B9D52 /* BasicTests.swift */; };
 		B037F121223CE1CB006B9D52 /* CombinedReducersTests+Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B037F119223CE1BF006B9D52 /* CombinedReducersTests+Counter.swift */; };
 		B037F122223CE1CB006B9D52 /* CombinedReducersTests+CounterAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B037F11A223CE1BF006B9D52 /* CombinedReducersTests+CounterAction.swift */; };
@@ -128,6 +129,7 @@
 		B026798E223A4BE900A47DD2 /* DispatcherTests+Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatcherTests+Counter.swift"; sourceTree = "<group>"; };
 		B02F18EA22912AEE0056BD4C /* Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
 		B02F18EC22912C360056BD4C /* Future.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Future.swift; sourceTree = "<group>"; };
+		B02F18EF22912F930056BD4C /* PromiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseTests.swift; sourceTree = "<group>"; };
 		B037F114223CE1AE006B9D52 /* BearerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BearerTests.swift; sourceTree = "<group>"; };
 		B037F115223CE1AE006B9D52 /* BasicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTests.swift; sourceTree = "<group>"; };
 		B037F119223CE1BF006B9D52 /* CombinedReducersTests+Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CombinedReducersTests+Counter.swift"; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 				B0217AEA2220F3C3005F19EB /* Reusable */,
 				B0A9DE84201724E600AEF782 /* Event */,
 				B05D4FC21F1E10D100929006 /* Info.plist */,
+				B02F18EF22912F930056BD4C /* PromiseTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -769,6 +772,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B037F122223CE1CB006B9D52 /* CombinedReducersTests+CounterAction.swift in Sources */,
+				B02F18F4229133440056BD4C /* PromiseTests.swift in Sources */,
 				B0217AEE2220F459005F19EB /* ReusableTests.swift in Sources */,
 				B0DD7622221A5EE400008BAA /* PoolTests.swift in Sources */,
 				B0217ACA22202258005F19EB /* DispatcherTests.swift in Sources */,

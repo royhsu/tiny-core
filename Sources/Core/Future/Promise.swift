@@ -12,7 +12,9 @@ public final class Promise<Success, Failure: Error>: Future<Success, Failure> {
     
     private let resolver: Resolver
     
-    private let storage = Atomic(Storage())
+    private let state = Atomic<State>(.pending)
+    
+    private let completions = Atomic<[(Result<Success, Failure>) -> Void]>([])
     
     public init(_ resolver: @escaping Resolver) { self.resolver = resolver }
     
@@ -22,27 +24,23 @@ public final class Promise<Success, Failure: Error>: Future<Success, Failure> {
         completion: @escaping (Result<Success, Failure>) -> Void
     ) {
         
-        switch storage.value.state {
+        switch state.value {
             
         case .pending:
             
-            storage.modify { storage in
-                
-                storage.state = .resolving
-                
-                storage.completions.append(completion)
-                
-            }
+            state.modify { $0 = .resolving }
+            
+            completions.modify { $0.append(completion) }
             
             resolver { result in
                 
-                self.storage.modify { storage in
+                self.state.modify { $0 = .resolved(result) }
+                
+                self.completions.modify {
                     
-                    storage.state = .resolved(result)
+                    let completions = $0
                     
-                    let completions = storage.completions
-                    
-                    storage.completions = []
+                    $0 = []
                     
                     for completion in completions { completion(result) }
                     
@@ -50,7 +48,7 @@ public final class Promise<Success, Failure: Error>: Future<Success, Failure> {
                 
             }
             
-        case .resolving: storage.modify { $0.completions.append(completion) }
+        case .resolving: completions.modify { $0.append(completion) }
             
         case let .resolved(result): completion(result)
             
