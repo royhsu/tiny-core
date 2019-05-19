@@ -20,6 +20,7 @@
 		B0217AEE2220F459005F19EB /* ReusableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AEB2220F3E5005F19EB /* ReusableTests.swift */; };
 		B0267990223A4BF000A47DD2 /* DispatcherTests+Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B026798E223A4BE900A47DD2 /* DispatcherTests+Counter.swift */; };
 		B02F18EB22912AEE0056BD4C /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F18EA22912AEE0056BD4C /* Promise.swift */; };
+		B02F18ED22912C360056BD4C /* Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F18EC22912C360056BD4C /* Future.swift */; };
 		B037F120223CE1C4006B9D52 /* BasicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B037F115223CE1AE006B9D52 /* BasicTests.swift */; };
 		B037F121223CE1CB006B9D52 /* CombinedReducersTests+Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B037F119223CE1BF006B9D52 /* CombinedReducersTests+Counter.swift */; };
 		B037F122223CE1CB006B9D52 /* CombinedReducersTests+CounterAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B037F11A223CE1BF006B9D52 /* CombinedReducersTests+CounterAction.swift */; };
@@ -126,6 +127,7 @@
 		B0217AEB2220F3E5005F19EB /* ReusableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTests.swift; sourceTree = "<group>"; };
 		B026798E223A4BE900A47DD2 /* DispatcherTests+Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatcherTests+Counter.swift"; sourceTree = "<group>"; };
 		B02F18EA22912AEE0056BD4C /* Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
+		B02F18EC22912C360056BD4C /* Future.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Future.swift; sourceTree = "<group>"; };
 		B037F114223CE1AE006B9D52 /* BearerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BearerTests.swift; sourceTree = "<group>"; };
 		B037F115223CE1AE006B9D52 /* BasicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTests.swift; sourceTree = "<group>"; };
 		B037F119223CE1BF006B9D52 /* CombinedReducersTests+Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CombinedReducersTests+Counter.swift"; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				B0217AD2222039DE005F19EB /* Atomic */,
 				B0CF898D2219A8FC0020ECD1 /* Context */,
 				B0217AC62220222D005F19EB /* Dispatcher */,
+				B02F18EE22912F670056BD4C /* Future */,
 				B037F131223CE1EB006B9D52 /* Reducer */,
 				B0DD761D221A5DE000008BAA /* Pool */,
 				B00C35632017223700531F72 /* Event */,
@@ -279,7 +282,6 @@
 				B0217AE82220F3B1005F19EB /* Reusable.swift */,
 				B062C5BA2212C560001807A6 /* ServiceTask.swift */,
 				B0760BA92228B76000705734 /* CustomLocalizedStringConvertible.swift */,
-				B02F18EA22912AEE0056BD4C /* Promise.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -319,6 +321,15 @@
 				B0217AEB2220F3E5005F19EB /* ReusableTests.swift */,
 			);
 			path = Reusable;
+			sourceTree = "<group>";
+		};
+		B02F18EE22912F670056BD4C /* Future */ = {
+			isa = PBXGroup;
+			children = (
+				B02F18EA22912AEE0056BD4C /* Promise.swift */,
+				B02F18EC22912C360056BD4C /* Future.swift */,
+			);
+			path = Future;
 			sourceTree = "<group>";
 		};
 		B037F113223CE1AE006B9D52 /* Auth */ = {
@@ -719,6 +730,7 @@
 				B02F18EB22912AEE0056BD4C /* Promise.swift in Sources */,
 				B05017402078C999009838F9 /* Degrees.swift in Sources */,
 				B07AA305228F9CDC00B33339 /* Mapper.swift in Sources */,
+				B02F18ED22912C360056BD4C /* Future.swift in Sources */,
 				B0217AD422203C21005F19EB /* AnyObservable.swift in Sources */,
 				B062C5C32212C662001807A6 /* JSONEncoder+HTTPBodyEncoder.swift in Sources */,
 				B0836F0521FC345E004D68F2 /* HTTPError.swift in Sources */,

@@ -8,7 +8,7 @@
 
 // MARK: - Promise
 
-public final class Promise<Success, Failure: Error> {
+public final class Promise<Success, Failure: Error>: Future<Success, Failure> {
     
     private let resolver: Resolver
     
@@ -16,7 +16,11 @@ public final class Promise<Success, Failure: Error> {
     
     public init(_ resolver: @escaping Resolver) { self.resolver = resolver }
     
-    func resolve(completion: @escaping (Result<Success, Failure>) -> Void) {
+    // MARK: Future
+    
+    override func _resolve(
+        completion: @escaping (Result<Success, Failure>) -> Void
+    ) {
         
         switch storage.value.state {
             
