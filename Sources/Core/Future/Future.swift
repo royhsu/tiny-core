@@ -49,4 +49,30 @@ extension Future {
             
     }
     
+    public func flatMap<NewSuccess>(
+        _ transform: @escaping (Success) -> Future<NewSuccess, Failure>
+    )
+    -> Future<NewSuccess, Failure> {
+        
+        return Promise { completion in
+                
+            self._resolve { result in
+                
+                do {
+                    
+                    let success = try result.get()
+                    
+                    let newFuture = transform(success)
+                    
+                    newFuture.await(completion: completion)
+                    
+                }
+                catch { completion(.failure(error as! Failure)) }
+                
+            }
+            
+        }
+            
+    }
+    
 }
