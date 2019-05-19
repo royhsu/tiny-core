@@ -8,9 +8,12 @@
 
 // MARK: - Future
 
+/// A future represents a deferred result that will be resolved by a promise.
+/// Meant to be composed by functional style `map(:)`, `flatMap(:)`, etc.
+/// NOTE: It's important to call `await(completion:)` to trigger resolving.
 public class Future<Success, Failure: Error> {
     
-    /// Never to call resolve directly.
+    /// Never to call this method directly.
     /// Please see `map(:)`, `flatMap(:)` or `await(completion:)` instead.
     func _resolve(completion: @escaping (Result<Success, Failure>) -> Void) {
         
@@ -22,7 +25,7 @@ public class Future<Success, Failure: Error> {
 
 extension Future {
     
-    /// Call this method will trigger resolving.
+    /// Call this method will trigger resolving. Should be always put at the end of mapping chain.
     ///
     /// - Parameter completion: The completion block.
     public func await(

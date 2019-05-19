@@ -8,6 +8,8 @@
 
 // MARK: - Promise
 
+/// The primary subclass of Future.
+/// Please use this to resolve futures
 public final class Promise<Success, Failure: Error>: Future<Success, Failure> {
     
     private let resolver: Resolver
