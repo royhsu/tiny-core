@@ -124,15 +124,9 @@ extension Stack {
     
     mutating func pop() -> Element? {
         
-        print("Bofore popping elements", elements)
-        
         if elements.isEmpty { return nil }
         
-        let element = elements.removeFirst()
-        
-        print("After popping elements", elements, "popped", element)
-        
-        return element
+        return elements.removeFirst()
         
     }
     
