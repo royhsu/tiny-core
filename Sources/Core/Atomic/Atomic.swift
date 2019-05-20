@@ -25,7 +25,8 @@ public final class Atomic<Value> {
         let dynamicType = String(describing: type(of: self))
 
         self.queue = DispatchQueue(
-            label: "\(dynamicType).SerialQueue: [\(identifier)]"
+            label: "\(dynamicType).SerialQueue: [\(identifier)]",
+            target: .global()
         )
 
     }
