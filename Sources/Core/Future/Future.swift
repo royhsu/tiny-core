@@ -11,7 +11,7 @@
 /// A future represents a deferred result that will be resolved by a promise.
 /// Meant to be composed by functional style `map(:)`, `flatMap(:)`, etc.
 /// NOTE: It's important to call `await(completion:)` to trigger resolving.
-public class Future<Success, Failure: Error> {
+public class Future<Success, Failure> where Failure: Error {
     
     /// Never to call this method directly.
     /// Please see `map(:)`, `flatMap(:)` or `await(completion:)` instead.
@@ -68,6 +68,55 @@ extension Future {
                     
                 }
                 catch { completion(.failure(error as! Failure)) }
+                
+            }
+            
+        }
+            
+    }
+    
+}
+
+extension Future {
+    
+    public func mapError<NewFailure>(
+        _ transform: @escaping (Failure) -> NewFailure
+    )
+    -> Future<Success, NewFailure>
+    where NewFailure: Error {
+        
+        return Promise { completion in
+            
+            self._resolve { result in completion(result.mapError(transform)) }
+            
+        }
+            
+    }
+    
+    public func flatMapError<NewFailure>(
+        _ transform: @escaping (Failure) -> Future<Success, NewFailure>
+    )
+    -> Future<Success, NewFailure>
+    where NewFailure: Error {
+        
+        return Promise { completion in
+            
+            self._resolve { result in
+                
+                do {
+                    
+                    let success = try result.get()
+                    
+                    completion(.success(success))
+                    
+                }
+                catch {
+                    
+                    let newFuture = transform(error as! Failure)
+                    
+                    newFuture.await(completion: completion)
+                    
+                }
                 
             }
             

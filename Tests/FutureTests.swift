@@ -20,11 +20,7 @@ final class FutureTests: XCTestCase {
         
         let numberStringFuture: Future<String, Error> = Promise { completion in
             
-            DispatchQueue.global().asyncAfter(deadline: .now() + 1.0) {
-                
-                completion(.success("10"))
-                
-            }
+            DispatchQueue.global().async { completion(.success("10")) }
             
         }
         
@@ -48,11 +44,7 @@ final class FutureTests: XCTestCase {
         
         let numberStringFuture: Future<String, Error> = Promise { completion in
             
-            DispatchQueue.global().asyncAfter(deadline: .now() + 1.0) {
-                
-                completion(.success("10"))
-                
-            }
+            DispatchQueue.global().async { completion(.success("10")) }
             
         }
         
@@ -63,6 +55,66 @@ final class FutureTests: XCTestCase {
                 defer { didGetNumber.fulfill() }
                 
                 XCTAssertEqual(try? result.get(), 10)
+                
+            }
+        
+        waitForExpectations(timeout: 10.0)
+        
+    }
+    
+    func testMapError() {
+        
+        let didGetError = expectation(description: "Got an error.")
+        
+        authorize()
+            .mapError { _ in AuthError.missingAuth }
+            .await { result in
+            
+                defer { didGetError.fulfill() }
+                
+                do {
+                    
+                    _ = try result.get()
+                    
+                    XCTFail()
+                    
+                }
+                catch AuthError.missingAuth { XCTSuccess() }
+                catch { XCTFail("Undefined error.") }
+                
+            }
+        
+        waitForExpectations(timeout: 10.0)
+        
+    }
+    
+    func testFlatMapError() {
+        
+        let didGetError = expectation(description: "Got an error.")
+        
+        authorize()
+            .flatMapError { _ in
+                
+                Promise { completion in
+                    
+                    completion(.failure(AuthError.missingAuth))
+                    
+                }
+                
+            }
+            .await { result in
+                
+                defer { didGetError.fulfill() }
+                
+                do {
+                    
+                    _ = try result.get()
+                    
+                    XCTFail()
+                    
+                }
+                catch AuthError.missingAuth { XCTSuccess() }
+                catch { XCTFail("Undefined error.") }
                 
             }
         
@@ -92,6 +144,28 @@ final class FutureTests: XCTestCase {
     
         case notNumberString
     
+    }
+    
+    private func authorize() -> Promise<Void, HTTPError> {
+        
+        return Promise { completion in
+            
+            DispatchQueue.global().async { completion(.failure(.unauthorized)) }
+            
+        }
+        
+    }
+ 
+    private enum HTTPError: Error {
+        
+        case unauthorized
+        
+    }
+    
+    private enum AuthError: Error {
+        
+        case missingAuth
+        
     }
     
 }
