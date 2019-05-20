@@ -20,7 +20,7 @@ final class PromiseTests: XCTestCase {
         
         return { completion in
         
-            DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1.0) {
+            DispatchQueue.global().async {
         
                 guard let message = self.messages?.pop() else {
 
@@ -60,7 +60,7 @@ final class PromiseTests: XCTestCase {
         
         didReceiveMessage.expectedFulfillmentCount = 2
         
-        let messagePromise = Promise(messageResolver)
+        let messagePromise = Promise(resolving: messageResolver)
         
         messagePromise.await { result in
             
@@ -88,13 +88,13 @@ final class PromiseTests: XCTestCase {
         
         didReceiveMessage.expectedFulfillmentCount = 2
         
-        Promise(messageResolver).await { result in
+        Promise(resolving: messageResolver).await { result in
             
             defer { didReceiveMessage.fulfill() }
             
             XCTAssertEqual(try? result.get(), "first")
             
-            Promise(self.messageResolver).await { result in
+            Promise(resolving: self.messageResolver).await { result in
                 
                 defer { didReceiveMessage.fulfill() }
                 

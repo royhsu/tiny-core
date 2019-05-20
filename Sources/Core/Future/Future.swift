@@ -13,25 +13,16 @@
 /// NOTE: It's important to call `await(completion:)` to trigger resolving.
 public class Future<Success, Failure> where Failure: Error {
     
-    /// Never to call this method directly.
-    /// Please see `map(:)`, `flatMap(:)` or `await(completion:)` instead.
-    func _resolve(completion: @escaping (Result<Success, Failure>) -> Void) {
+    /// Call this method will trigger resolving. Should be always put at the end of mapping chain.
+    /// Subclasses must override this method and provide an implementation.
+    public func await(
+        completion: @escaping (Result<Success, Failure>) -> Void = { _ in }
+    ) {
         
         fatalError("Subclasses must override this method and provide an implementation.")
         
     }
     
-}
-
-extension Future {
-    
-    /// Call this method will trigger resolving. Should be always put at the end of mapping chain.
-    ///
-    /// - Parameter completion: The completion block.
-    public func await(
-        completion: @escaping (Result<Success, Failure>) -> Void = { _ in }
-    ) { _resolve(completion: completion) }
-
 }
 
 extension Future {
@@ -43,7 +34,7 @@ extension Future {
         
         return Promise { completion in
                 
-            self._resolve { result in completion(result.map(transform)) }
+            self.await { result in completion(result.map(transform)) }
             
         }
             
@@ -56,7 +47,7 @@ extension Future {
         
         return Promise { completion in
                 
-            self._resolve { result in
+            self.await { result in
                 
                 do {
                     
@@ -87,7 +78,7 @@ extension Future {
         
         return Promise { completion in
             
-            self._resolve { result in completion(result.mapError(transform)) }
+            self.await { result in completion(result.mapError(transform)) }
             
         }
             
@@ -101,7 +92,7 @@ extension Future {
         
         return Promise { completion in
             
-            self._resolve { result in
+            self.await { result in
                 
                 do {
                     

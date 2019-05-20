@@ -17,11 +17,11 @@ public final class Promise<Success, Failure: Error>: Future<Success, Failure> {
     
     private let completions = Atomic<[(Result<Success, Failure>) -> Void]>([])
     
-    public init(_ resolver: @escaping Resolver) { self.resolver = resolver }
+    public init(resolving resolver: @escaping Resolver) { self.resolver = resolver }
     
     // MARK: Future
     
-    override func _resolve(
+    public override func await(
         completion: @escaping (Result<Success, Failure>) -> Void
     ) {
         
