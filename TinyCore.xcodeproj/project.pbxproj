@@ -19,6 +19,10 @@
 		B0217AE92220F3B1005F19EB /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AE82220F3B1005F19EB /* Reusable.swift */; };
 		B0217AEE2220F459005F19EB /* ReusableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0217AEB2220F3E5005F19EB /* ReusableTests.swift */; };
 		B0267990223A4BF000A47DD2 /* DispatcherTests+Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B026798E223A4BE900A47DD2 /* DispatcherTests+Counter.swift */; };
+		B02F18EB22912AEE0056BD4C /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F18EA22912AEE0056BD4C /* Promise.swift */; };
+		B02F18ED22912C360056BD4C /* Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F18EC22912C360056BD4C /* Future.swift */; };
+		B02F18F4229133440056BD4C /* PromiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F18EF22912F930056BD4C /* PromiseTests.swift */; };
+		B02F18F7229149210056BD4C /* FutureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F18F52291491B0056BD4C /* FutureTests.swift */; };
 		B037F120223CE1C4006B9D52 /* BasicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B037F115223CE1AE006B9D52 /* BasicTests.swift */; };
 		B037F121223CE1CB006B9D52 /* CombinedReducersTests+Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B037F119223CE1BF006B9D52 /* CombinedReducersTests+Counter.swift */; };
 		B037F122223CE1CB006B9D52 /* CombinedReducersTests+CounterAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B037F11A223CE1BF006B9D52 /* CombinedReducersTests+CounterAction.swift */; };
@@ -124,6 +128,10 @@
 		B0217AE82220F3B1005F19EB /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		B0217AEB2220F3E5005F19EB /* ReusableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTests.swift; sourceTree = "<group>"; };
 		B026798E223A4BE900A47DD2 /* DispatcherTests+Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatcherTests+Counter.swift"; sourceTree = "<group>"; };
+		B02F18EA22912AEE0056BD4C /* Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
+		B02F18EC22912C360056BD4C /* Future.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Future.swift; sourceTree = "<group>"; };
+		B02F18EF22912F930056BD4C /* PromiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseTests.swift; sourceTree = "<group>"; };
+		B02F18F52291491B0056BD4C /* FutureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureTests.swift; sourceTree = "<group>"; };
 		B037F114223CE1AE006B9D52 /* BearerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BearerTests.swift; sourceTree = "<group>"; };
 		B037F115223CE1AE006B9D52 /* BasicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTests.swift; sourceTree = "<group>"; };
 		B037F119223CE1BF006B9D52 /* CombinedReducersTests+Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CombinedReducersTests+Counter.swift"; sourceTree = "<group>"; };
@@ -261,6 +269,7 @@
 				B0217AD2222039DE005F19EB /* Atomic */,
 				B0CF898D2219A8FC0020ECD1 /* Context */,
 				B0217AC62220222D005F19EB /* Dispatcher */,
+				B02F18EE22912F670056BD4C /* Future */,
 				B037F131223CE1EB006B9D52 /* Reducer */,
 				B0DD761D221A5DE000008BAA /* Pool */,
 				B00C35632017223700531F72 /* Event */,
@@ -316,6 +325,15 @@
 				B0217AEB2220F3E5005F19EB /* ReusableTests.swift */,
 			);
 			path = Reusable;
+			sourceTree = "<group>";
+		};
+		B02F18EE22912F670056BD4C /* Future */ = {
+			isa = PBXGroup;
+			children = (
+				B02F18EA22912AEE0056BD4C /* Promise.swift */,
+				B02F18EC22912C360056BD4C /* Future.swift */,
+			);
+			path = Future;
 			sourceTree = "<group>";
 		};
 		B037F113223CE1AE006B9D52 /* Auth */ = {
@@ -427,6 +445,8 @@
 				B0217AEA2220F3C3005F19EB /* Reusable */,
 				B0A9DE84201724E600AEF782 /* Event */,
 				B05D4FC21F1E10D100929006 /* Info.plist */,
+				B02F18EF22912F930056BD4C /* PromiseTests.swift */,
+				B02F18F52291491B0056BD4C /* FutureTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -713,8 +733,10 @@
 				B0652DAA214797E6009F8757 /* ObservedChange.swift in Sources */,
 				B0CE1B612245309B006A39AE /* Atomic+Codable.swift in Sources */,
 				B0760BB52228BF2300705734 /* Region.swift in Sources */,
+				B02F18EB22912AEE0056BD4C /* Promise.swift in Sources */,
 				B05017402078C999009838F9 /* Degrees.swift in Sources */,
 				B07AA305228F9CDC00B33339 /* Mapper.swift in Sources */,
+				B02F18ED22912C360056BD4C /* Future.swift in Sources */,
 				B0217AD422203C21005F19EB /* AnyObservable.swift in Sources */,
 				B062C5C32212C662001807A6 /* JSONEncoder+HTTPBodyEncoder.swift in Sources */,
 				B0836F0521FC345E004D68F2 /* HTTPError.swift in Sources */,
@@ -753,6 +775,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B037F122223CE1CB006B9D52 /* CombinedReducersTests+CounterAction.swift in Sources */,
+				B02F18F4229133440056BD4C /* PromiseTests.swift in Sources */,
 				B0217AEE2220F459005F19EB /* ReusableTests.swift in Sources */,
 				B0DD7622221A5EE400008BAA /* PoolTests.swift in Sources */,
 				B0217ACA22202258005F19EB /* DispatcherTests.swift in Sources */,
@@ -766,6 +789,7 @@
 				B037F136223CE238006B9D52 /* BearerTests.swift in Sources */,
 				B07AA30A228F9FC400B33339 /* MapperTests.swift in Sources */,
 				B0E236622156762900FBE7B3 /* XCTUnwrapped.swift in Sources */,
+				B02F18F7229149210056BD4C /* FutureTests.swift in Sources */,
 				B089F9A621F1D5E60052AD8D /* PropertyTests.swift in Sources */,
 				B037F123223CE1CB006B9D52 /* CombinedReducersTests.swift in Sources */,
 				B0267990223A4BF000A47DD2 /* DispatcherTests+Counter.swift in Sources */,

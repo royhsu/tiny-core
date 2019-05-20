@@ -50,14 +50,14 @@ final class AtomicTests: XCTestCase {
 
             defer { readsAndWrites.fulfill() }
 
-            atomic.modify { value in
+            atomic.modify { number in
 
-                value = count
+                number = count
 
-                XCTAssertEqual(value, count)
+                XCTAssertEqual(number, count)
 
             }
-
+            
         }
 
         waitForExpectations(timeout: 10.0)
