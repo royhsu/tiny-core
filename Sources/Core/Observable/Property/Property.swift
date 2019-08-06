@@ -62,7 +62,20 @@ extension Property {
         }
 
     }
-
+    
+    /// To modify the underlyine value without notifying observers.
+    public func modifySliently(_ closure: @escaping (inout Value?) -> Void) {
+        
+        _storage.modify { storage in
+            
+            closure(&storage.value)
+            
+            if storage.isInitialValue { storage.isInitialValue = false }
+            
+        }
+        
+    }
+    
 }
 
 // MARK: - Storage
