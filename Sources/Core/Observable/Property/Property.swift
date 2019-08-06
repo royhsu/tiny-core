@@ -64,7 +64,7 @@ extension Property {
     }
     
     /// To modify the underlyine value without notifying observers.
-    public func modifySliently(_ closure: @escaping (inout Value?) -> Void) {
+    public func modifySilently(_ closure: @escaping (inout Value?) -> Void) {
         
         _storage.modify { storage in
             
